@@ -17,6 +17,8 @@ import Aos from "aos";
 import { useEffect } from "react";
 import Administration from "./Pages/Administration";
 import Docs from "./Pages/Docs";
+import Departments from "./Pages/Departments";
+import Institutions from "./Pages/Institutions";
 
 function App() {
   Aos.init({
@@ -52,6 +54,8 @@ function App() {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/docs" element={<Docs />} />
+          <Route path="/departments/:department" element={<Departments />} />
+          <Route path="/institutions/" element={<Institutions />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

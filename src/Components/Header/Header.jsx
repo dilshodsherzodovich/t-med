@@ -35,8 +35,37 @@ const Header = ({ isTopBar, variant }) => {
         ],
       },
       {
+        label: "Bo'limlar",
+        href: "",
+        subItems: [
+          { label: "Nevrologiya", href: "/departments/neurology" },
+          { label: "Kardiologiya", href: "/departments/cardiology" },
+        ],
+      },
+      {
         label: "Xizmatlar",
         href: "/service",
+      },
+      {
+        label: "Muassasalar",
+        href: "/institutions?category=bolnitsa",
+        subItems: [
+          { label: "Bolnitsalar", href: "/institutions?category=bolnitsa" },
+          { label: "Poliklinikalar", href: "/institutions?category=bolnitsa" },
+          { label: "Lagerlar", href: "/institutions?category=bolnitsa" },
+          { label: "Rino Med MCHJ", href: "/institutions?category=bolnitsa" },
+          {
+            label: "Madaniyat saroyi",
+            href: "/institutions?category=bolnitsa",
+          },
+          {
+            label: "Salomatlik poyezdi",
+            href: "/institutions?category=bolnitsa",
+          },
+          { label: "SES", href: "/institutions?category=bolnitsa" },
+          { label: "Muzey", href: "/institutions?category=bolnitsa" },
+          { label: "Sanatoriya", href: "/institutions?category=bolnitsa" },
+        ],
       },
       {
         label: "Yangiliklar",
@@ -65,10 +94,9 @@ const Header = ({ isTopBar, variant }) => {
           },
         ],
       },
-      { label: "Aloqa", href: "/contact" },
     ],
     btnUrl: "/contact",
-    btnText: "Bog'lanish",
+    btnText: "Aloqa",
   };
 
   const handleOpenMobileSubmenu = (index) => {
@@ -242,7 +270,7 @@ const Header = ({ isTopBar, variant }) => {
                     <span></span>
                   </span>
                 </div>
-                <div className="cs_search_wrap">
+                {/* <div className="cs_search_wrap">
                   <div
                     className="cs_search_toggle cs_center"
                     onClick={() => setIsSearchActive(!isSearchActive)}
@@ -270,7 +298,7 @@ const Header = ({ isTopBar, variant }) => {
                       </button>
                     </div>
                   </form>
-                </div>
+                </div> */}
                 <Link to={menu.btnUrl} className="cs_btn cs_style_1 cs_color_1">
                   <span>{menu.btnText}</span>
                   <i>

@@ -18,8 +18,9 @@ const PageHeading = ({ data, secondaryData }) => {
         </li>
         {secondaryData ? (
           <>
-            {"  /  "}
-            <span className="active"> {secondaryData}</span>
+            <li className="breadcrumb-item">
+              <span className="active"> {secondaryData}</span>
+            </li>
           </>
         ) : (
           urlSegments.map((segment, index) => (
