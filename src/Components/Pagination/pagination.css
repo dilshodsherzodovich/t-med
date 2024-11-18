@@ -1,0 +1,15 @@
+.custom-pagination {
+}
+
+.custom-pagination li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+}
+
+.custom-pagination li:not(:last-child) {
+  margin-right: 5px;
+}
