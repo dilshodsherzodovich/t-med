@@ -1,10 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import loadBackgroudImages from "../Common/loadBackgroudImages";
+import { useMutation } from "@tanstack/react-query";
+import { postNewsLetter } from "../../api/newsletter";
 
 const ContactSection2 = () => {
+  const [resData, setResData] = useState();
+
   useEffect(() => {
     loadBackgroudImages();
   }, []);
+
+  const mutation = useMutation({
+    mutationFn: postNewsLetter,
+    onSuccess: (data) => {
+      // Invalidate and refetch
+      setResData(data);
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = {
+      fio: `${formData.get("first_name")} ${formData.get("first_name")}`,
+      email: formData.get("email"),
+      phone_number: formData.get("phone"),
+    };
+    mutation.mutate(data);
+  };
 
   return (
     <section className="cs_card cs_style_3 cs_gray_bg position-relative">
@@ -21,11 +44,14 @@ const ContactSection2 = () => {
               </h2>
             </div>
             <div className="cs_height_25 cs_height_lg_25"></div>
-            <form className="cs_contact_form row cs_gap_y_30 home_form_area">
+            <form
+              onSubmit={handleSubmit}
+              className="cs_contact_form row cs_gap_y_30 home_form_area"
+            >
               <div className="col-md-6">
                 <input
                   type="text"
-                  name="name"
+                  name="first_name"
                   className="cs_form_field"
                   placeholder="Ismingiz"
                 />
@@ -33,17 +59,17 @@ const ContactSection2 = () => {
               <div className="col-md-6">
                 <input
                   type="text"
-                  name="surname"
+                  name="last_name"
                   className="cs_form_field"
                   placeholder="Familiyangiz"
                 />
               </div>
               <div className="col-md-6">
                 <input
-                  type="text"
-                  name="subject"
+                  type="email"
+                  name="email"
                   className="cs_form_field"
-                  placeholder="Mavzu"
+                  placeholder="Email"
                 />
               </div>
               <div className="col-md-6">

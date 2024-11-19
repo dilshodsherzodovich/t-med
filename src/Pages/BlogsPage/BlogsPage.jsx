@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PageHeading from "../../Components/PageHeading";
 
 import BlogsSection1 from "../../Components/BlogsSection/BlogsSection1";
 import Section from "../../Components/Section";
-import { getNewsList } from "../../api/blog";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import Pagination from "../../Components/Pagination";

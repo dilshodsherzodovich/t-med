@@ -1,6 +1,8 @@
 import PageHeading from "../../Components/PageHeading";
 import Service from "../../Components/Service";
 import Section from "../../Components/Section";
+import { useQuery } from "@tanstack/react-query";
+import { useHttp } from "../../hooks/useHttp";
 
 const headingData = {
   title: "Xizmatlar",
@@ -108,6 +110,16 @@ const serviceData = {
 };
 
 const ServicePage = () => {
+  const sendRequest = useHttp();
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["services"],
+    queryFn: () => sendRequest({ url: `/blog/services//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
   return (
     <>
       <Section

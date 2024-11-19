@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 
@@ -12,29 +11,29 @@ const createAxiosInstance = () => {
   });
 };
 
-export function useHttp() {
+export const useHttp = () => {
   const axiosInstance = createAxiosInstance();
 
-  const sendRequest = useCallback(
-    async ({ url, method = "GET", data = null, params = {} }) => {
-      try {
-        const response = await axiosInstance({
-          url,
-          method,
-          data,
-          params,
-        });
-        return response.data;
-      } catch (error) {
-        // Handle or throw the error as needed
-        console.error("HTTP request failed:", error);
-        throw error;
-      }
-    },
-
-    // eslint-disable-next-line
-    []
-  );
+  const sendRequest = async ({
+    url,
+    method = "GET",
+    data = null,
+    params = {},
+  }) => {
+    try {
+      const response = await axiosInstance({
+        url,
+        method,
+        data,
+        params,
+      });
+      return response.data;
+    } catch (error) {
+      // Handle or throw the error as needed
+      console.error("HTTP request failed:", error);
+      throw error;
+    }
+  };
 
   return sendRequest;
-}
+};
