@@ -2,6 +2,7 @@ import {
   FaFacebookF,
   FaInstagram,
   FaPinterestP,
+  FaTelegramPlane,
   FaTwitter,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -78,16 +79,13 @@ const TeamSection = ({ data, bgColor, variant, hr }) => {
                               <FaFacebookF />
                             </i>
                           </Link>
-                          <Link to={item.pinterest} className="cs_center">
+
+                          <Link to={item.telegram} className="cs_center">
                             <i>
-                              <FaPinterestP />
+                              <FaTelegramPlane />
                             </i>
                           </Link>
-                          <Link to={item.twitter} className="cs_center">
-                            <i>
-                              <FaTwitter />
-                            </i>
-                          </Link>
+
                           <Link to={item.instagram} className="cs_center">
                             <i>
                               <FaInstagram />

@@ -10,6 +10,10 @@ import BlogSection from "../../Components/BlogsSection/index.jsx";
 import Section from "../../Components/Section/index.jsx";
 import ContactSection2 from "../../Components/ContactSection/ContactSection2.jsx";
 import TestimonialSection from "../../Components/TestimonialSection/index.jsx";
+import { useHttp } from "../../hooks/useHttp.js";
+import { useQuery } from "@tanstack/react-query";
+import { useMemo } from "react";
+import { formatDate } from "../../utils/format-date.js";
 
 const heroData = {
   primarySlider: [
@@ -141,158 +145,11 @@ const serviceData = {
   subtitle: "Xizmatlarimiz",
   title: "Yuqori sifatli xizmatlar",
   description: "",
-  services: [
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_1.png",
-      index: "01",
-      title: "Farmakologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_2.png",
-      index: "02",
-      title: "Ortopedik",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_3.png",
-      index: "03",
-      title: "Gematologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_5.png",
-      index: "05",
-      title: "Nevrologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_6.png",
-      index: "06",
-      title: "Urologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_7.png",
-      index: "07",
-      title: "Tish kasalliklari",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_8.png",
-      index: "08",
-      title: "Kardiologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_4.png",
-      index: "08",
-      title: "Endokrinologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-  ],
   footerIcon: "/assets/img/icons/service_footer_icon_1.png",
   footerText:
     "Delivering tomorrow's health care for your family.<br>medical this View",
   footerLink: "/",
   footerLinkText: "SEE MORE",
-};
-
-const teamData = {
-  subtitle: "Bizning jamoa",
-  title: " Bizning malakali shifokorlarimiz <br/> bilan tanishing",
-  sliderData: [
-    {
-      name: "Nargiza Alimuhammedova",
-      profession: "Nevrolog",
-      imageUrl: "https://medilo-react.vercel.app/assets/img/team_5.jpg",
-      link: "/doctors/doctor-details",
-      facebook: "/",
-      pinterest: "/",
-      twitter: "/",
-      instagram: "/",
-    },
-    {
-      name: "G'afurjonov Dilshod",
-      profession: "Tish shifokori",
-      imageUrl: "https://medilo-react.vercel.app/assets/img/team_1.jpg",
-      link: "/doctors/doctor-details",
-      facebook: "/",
-      pinterest: "/",
-      twitter: "/",
-      instagram: "/",
-    },
-    {
-      name: "G'afurjonova Hilola",
-      profession: "Tish shifokori",
-      imageUrl: "https://medilo-react.vercel.app/assets/img/team_5.jpg",
-      link: "/doctors/doctor-details",
-      facebook: "/",
-      pinterest: "/",
-      twitter: "/",
-      instagram: "/",
-    },
-    {
-      name: "Hayitaliyev Yorqin",
-      profession: "Jarroh",
-      imageUrl: "https://medilo-react.vercel.app/assets/img/team_3.jpg",
-      link: "/doctors/doctor-details",
-      facebook: "/",
-      pinterest: "/",
-      twitter: "/",
-      instagram: "/",
-    },
-    {
-      name: "Nasrullayev Dilshod",
-      profession: "Urolog",
-      imageUrl: "https://medilo-react.vercel.app/assets/img/team_1.jpg",
-      link: "/doctors/doctor-details",
-      facebook: "/",
-      pinterest: "/",
-      twitter: "/",
-      instagram: "/",
-    },
-  ],
 };
 
 const sectionData = {
@@ -378,72 +235,89 @@ const testimonialData = {
   ],
 };
 
-const blogsData = {
-  sectionTitle: "YANGILIKLAR",
-  sectionSubtitle: "So'ngi yangiliklar &amp; Maqolalar",
-  postsData: [
-    {
-      title:
-        "“Oʻzbekiston temir yoʻllari” AJ tashkil etilganligining 30 yilligi",
-      subtitle: `“Oʻzbekiston temir yoʻllari” AJ tashkil etilganligining 30 yilligi
-        munosabati bilan, temir yoʻl sohasidagi uzoq yillik samarali va unumli mehnatlari, soha rivojiga qoʻshgan munosib hissasi hamda jamoat ishlaridagi faol ishtiroki uchun "Temir yo‘l ijtimoiy xizmatlar" muassasasi bir guruh tibbiy xodimlariga “Oʻzbekiston temir yoʻllari” AJ raisi nomidan taqdim etilgan ko‘krak nishonlari va esdalik sovg‘alari Muassasa boshlig‘i M.M.Mamasidikov tomonidan tantanali topshirildi.
-        `,
-      date: "11 Noyabr",
-      category: "Ijtimoiy",
-      author: "Admin",
-      thumbnail:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5291775295428354997_LDSaSsq.jpg",
-      btnText: "Batafsil",
-      postLink: "/blog/blog-details",
-      authorIcon: "/assets/img/icons/post_user_icon.png",
-      commentIcon: "/assets/img/icons/post_comment_icon.png",
-    },
-    {
-      title: "Kasb fidoiysi",
-      subtitle:
-        "Bugungi kasb fidoyisi rukni ostidagi sahifa mehmoni- “Temir yo‘l ijtimoiy xizmatlar” muassasasi tizimidagi Termiz birlashgan temir yo‘l shifoxonasi bosh shifokori, shifokor oftalmolog - Kurbanov Chori Shaymamatovich",
-      date: "11 Noyabr",
-      category: "Ijtimoiy",
-      author: "Admin",
-      thumbnail:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5217466288123797182_1tiTe5s.jpg",
-      btnText: "Batafsil",
-      postLink: "/blog/blog-details",
-      authorIcon: "/assets/img/icons/post_user_icon.png",
-      commentIcon: "/assets/img/icons/post_comment_icon.png",
-    },
-    {
-      title: "Oktyabr – koʻkrak bezi saratoniga qarshi kurashish oyligi",
-      subtitle:
-        "Butunjahon sogʻliqni saqlash tashkiloti tomonidan 1993-yilda oktyabr oyi koʻkrak bezi saratoniga qarshi kurash oyligi deb eʼlon qilingan",
-      date: "11 Oktabr",
-      category: "Tibbiy",
-      author: "Admin",
-      thumbnail:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5219718087937483239.jpg",
-      btnText: "Batafsil",
-      postLink: "/blog/blog-details",
-      authorIcon: "/assets/img/icons/post_user_icon.png",
-      commentIcon: "/assets/img/icons/post_comment_icon.png",
-    },
-    {
-      title: "Hurmatli va aziz temir yo‘l tibbiyot xodimlari!",
-      subtitle: `  Siz, aziz hamkasblarimni “Temir
-        yo‘l ijtimoiy xizmatlar” muassasasi rahbariyati nomidan kasb bayramingiz - Tibbiyot xodimlari kuni munosabati bilan samimiy tabriklayman.`,
-      date: "11 Noyabr",
-      category: "Medical",
-      author: "Admin",
-      thumbnail:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5294395942738453394.jpg",
-      btnText: "Batafsil",
-      postLink: "/blog/blog-details",
-      authorIcon: "/assets/img/icons/post_user_icon.png",
-      commentIcon: "/assets/img/icons/post_comment_icon.png",
-    },
-  ],
-};
-
 const MainHome = () => {
+  const sendRequest = useHttp();
+
+  const { data: services } = useQuery({
+    queryKey: ["services"],
+    queryFn: () => sendRequest({ url: `/blog/services//?page_size=30` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const servicesData = useMemo(() => {
+    if (!services?.results?.length) return [];
+    return services?.results?.map((item, index) => {
+      return {
+        id: item?.id,
+        backgroundImage: "/assets/img/service_bg.jpg",
+        iconUrl: `/assets/img/icons/service_icon_${(index % 8) + 1}.png`,
+        index: index + 1,
+        title: item?.title,
+        cost: item?.price,
+        duration: item?.duration,
+        link: "",
+      };
+    }, []);
+  }, [services]);
+
+  const { data: doctors } = useQuery({
+    queryKey: ["doctors"],
+    queryFn: () => sendRequest({ url: `/blog/employee//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const doctorsData = useMemo(() => {
+    return {
+      subtitle: "Bizning jamoa",
+      title: " Bizning malakali shifokorlarimiz <br/> bilan tanishing",
+      sliderData: doctors?.results?.length
+        ? doctors?.results?.map((doc) => ({
+            name: doc?.name,
+            profession: doc?.position,
+            imageUrl: doc?.image,
+            link: "/doctors/doctor-details",
+            facebook: doc?.facebook_link || "/",
+            telegram: doc?.telegram_link || "/",
+            instagram: doc?.instagram_link || "/",
+          }))
+        : [],
+    };
+  }, [doctors]);
+
+  const { data: blogs } = useQuery({
+    queryKey: ["blogs"],
+    queryFn: () => sendRequest({ url: `/blog/posts//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const blogData = useMemo(() => {
+    return {
+      sectionTitle: "YANGILIKLAR",
+      sectionSubtitle: "So'ngi yangiliklar &amp; Maqolalar",
+      postsData: blogs?.results?.length
+        ? blogs?.results?.map((item) => {
+            return {
+              id: item?.id,
+              category: "Ijtimoiy",
+              date: formatDate(item?.pub_date),
+              link: `/blog/${item?.id}`,
+              linkText: "Batafsil",
+              title: item?.title,
+              subtitle: item?.body,
+              btnText: "Batafsil",
+              thumbnail: item?.images[0]?.image,
+            };
+          })
+        : [],
+    };
+  }, [blogs]);
+
   return (
     <>
       {/* End Header Section */}
@@ -487,7 +361,11 @@ const MainHome = () => {
         bottomSpaceMd="120"
         className={"cs_gray_bg"}
       >
-        <Service cardBg={"cs_gray_bg"} data={serviceData} />
+        <Service
+          cardBg={"cs_gray_bg"}
+          data={serviceData}
+          services={servicesData}
+        />
       </Section>
 
       {/* End Service Section */}
@@ -501,15 +379,11 @@ const MainHome = () => {
         <TeamSection
           hr={true}
           variant={"cs_pagination cs_style_2"}
-          data={teamData}
+          data={doctorsData}
         />
       </Section>
       {/* End Team Section */}
       {/* Start Brand Section */}
-
-      {/* <Section topSpaceLg="70" topSpaceMd="90" className="cs_brands_section">
-        <BrandsSlider data={brandData} />
-      </Section> */}
 
       {/* End Brand Section */}
       {/* Start Why Choose Us Section */}
@@ -562,7 +436,7 @@ const MainHome = () => {
         bottomSpaceLg="80"
         bottomSpaceMd="120"
       >
-        <BlogSection data={blogsData} />
+        <BlogSection data={blogData} />
       </Section>
 
       <ContactSection2></ContactSection2>

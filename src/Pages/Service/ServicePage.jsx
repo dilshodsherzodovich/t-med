@@ -3,6 +3,8 @@ import Service from "../../Components/Service";
 import Section from "../../Components/Section";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
+import { useMemo } from "react";
+import ServiceSection5 from "../../Components/Service/ServiceSection5";
 
 const headingData = {
   title: "Xizmatlar",
@@ -114,11 +116,61 @@ const ServicePage = () => {
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["services"],
-    queryFn: () => sendRequest({ url: `/blog/services//` }),
+    queryFn: () => sendRequest({ url: `/blog/services//?page_size=30` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
   });
+
+  const servicesData = useMemo(() => {
+    if (!data?.results?.length) return [];
+    return data?.results?.map((item, index) => {
+      return {
+        id: item?.id,
+        backgroundImage: "/assets/img/service_bg.jpg",
+        iconUrl: `/assets/img/icons/service_icon_${(index % 8) + 1}.png`,
+        index: index + 1,
+        title: item?.title,
+        cost: item?.price,
+        duration: item?.duration,
+        link: "",
+      };
+    }, []);
+  }, [data]);
+
+  const govermentServices = {
+    services: [
+      {
+        title:
+          "Narkologiya dispanseri hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma olish",
+        link: "https://my.gov.uz/oz/service/338",
+      },
+      {
+        title:
+          "Ruhiy kasalliklar bo‘yicha dispanser hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma berish",
+        link: "https://my.gov.uz/oz/service/334",
+      },
+      {
+        title:
+          "Oilaviy shifokorlik punktlari, oilaviy poliklinikalar va ko‘p tarmoqli markaziy poliklinikalarda davlat tomonidan bepul beriladigan dori vositalari va tibbiyot buyumlari to‘g‘risida ma’lumot",
+        link: "https://my.gov.uz/oz/service/798",
+      },
+      {
+        title: "Bolalarning emlanish taqvimi",
+        link: "https://my.gov.uz/oz/service/718",
+      },
+      {
+        title: "Tana vazni va og'irligi kalkulyatori",
+        link: "https://my.gov.uz/oz/service/716",
+      },
+      {
+        title: "Tibbiyot tashkilotlarini akkreditatsiya qilish",
+        link: "https://my.gov.uz/oz/service/519",
+      },
+    ],
+    title: "Davlat xizmatlari",
+    subtitle: "Xizmatlar",
+  };
 
   return (
     <>
@@ -137,10 +189,21 @@ const ServicePage = () => {
           bottomSpaceLg="80"
           bottomSpaceMd="120"
         >
-          <Service data={serviceData} />
+          <Service data={serviceData} services={servicesData} />
         </Section>
 
         {/* End Service Section */}
+
+        <Section
+          topSpaceLg="70"
+          topSpaceMd="110"
+          bottomSpaceLg="80"
+          bottomSpaceMd="120"
+          className="cs_blue_bg cs_bg_filed"
+          backgroundImage="assets/img/service_bg_3.jpg"
+        >
+          <ServiceSection5 data={govermentServices} />
+        </Section>
       </>
     </>
   );

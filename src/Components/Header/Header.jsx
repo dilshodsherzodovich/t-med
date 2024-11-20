@@ -1,23 +1,31 @@
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import {
   FaEnvelope,
   FaFacebookF,
   FaInstagram,
-  FaPinterestP,
-  FaTelegram,
   FaTelegramPlane,
   FaTwitter,
 } from "react-icons/fa";
 import { FaAnglesRight, FaLocationDot, FaYoutube } from "react-icons/fa6";
-import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { Link } from "react-router-dom";
+import { useHttp } from "../../hooks/useHttp";
 
 const Header = ({ isTopBar, variant }) => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [openMobileSubmenuIndex, setOpenMobileSubmenuIndex] = useState([]);
-  const [isSearchActive, setIsSearchActive] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isSticky, setIsSticky] = useState();
+  const sendRequest = useHttp();
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["users"],
+    queryFn: () => sendRequest({ url: `/reception/department//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
   const menu = {
     email: "nsu-railway@gmail.com",
     location:

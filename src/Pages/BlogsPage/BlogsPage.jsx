@@ -128,7 +128,6 @@ const BlogsPage = () => {
 
   const blogData = useMemo(() => {
     return data?.results?.map((item) => {
-      console.log(item);
       return {
         id: item?.id,
         category: "Ijtimoiy",

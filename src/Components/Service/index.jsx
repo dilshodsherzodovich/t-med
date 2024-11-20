@@ -1,8 +1,7 @@
-import { FaAngleDoubleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SectionHeading from "../SectionHeading";
 
-const Service = ({ data, cardBg }) => {
+const Service = ({ data, cardBg, services }) => {
   return (
     <>
       <div className="container">
@@ -14,7 +13,7 @@ const Service = ({ data, cardBg }) => {
         />
         <div className="cs_height_50 cs_height_lg_50" />
         <div className="row cs_row_gap_30 cs_gap_y_30">
-          {data?.services.map((service, index) => (
+          {services.map((service, index) => (
             <div key={index} className="col-xl-3 col-lg-4 col-sm-6">
               <div
                 className={`cs_iconbox cs_style_2 cs_radius_15 cs_hover_layer_2 ${
