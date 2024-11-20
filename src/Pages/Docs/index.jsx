@@ -27,7 +27,9 @@ const Docs = () => {
   }));
 
   const headingData = {
-    title: types?.find((item) => item?.href?.includes(type)).label,
+    title: types?.length
+      ? types?.find((item) => item?.href?.includes(type)).label
+      : "Me'yoriy hujjatlar",
   };
 
   const filesData = useMemo(() => {

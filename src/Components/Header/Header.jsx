@@ -18,7 +18,7 @@ const Header = ({ isTopBar, variant }) => {
   const [isSticky, setIsSticky] = useState();
   const sendRequest = useHttp();
 
-  const { data, isLoading, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ["users"],
     queryFn: () => sendRequest({ url: `/reception/department//` }),
     staleTime: 1000,
@@ -29,6 +29,14 @@ const Header = ({ isTopBar, variant }) => {
   const { data: allDocs } = useQuery({
     queryKey: ["docs"],
     queryFn: () => sendRequest({ url: `/reception/decisions//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const { data: institutionCategories } = useQuery({
+    queryKey: ["institutionCategories"],
+    queryFn: () => sendRequest({ url: `/reception/category-department//` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
@@ -65,23 +73,12 @@ const Header = ({ isTopBar, variant }) => {
       {
         label: "Muassasalar",
         href: "/institutions?category=bolnitsa",
-        subItems: [
-          { label: "Bolnitsalar", href: "/institutions?category=bolnitsa" },
-          { label: "Poliklinikalar", href: "/institutions?category=bolnitsa" },
-          { label: "Lagerlar", href: "/institutions?category=bolnitsa" },
-          { label: "Rino Med MCHJ", href: "/institutions?category=bolnitsa" },
-          {
-            label: "Madaniyat saroyi",
-            href: "/institutions?category=bolnitsa",
-          },
-          {
-            label: "Salomatlik poyezdi",
-            href: "/institutions?category=bolnitsa",
-          },
-          { label: "SES", href: "/institutions?category=bolnitsa" },
-          { label: "Muzey", href: "/institutions?category=bolnitsa" },
-          { label: "Sanatoriya", href: "/institutions?category=bolnitsa" },
-        ],
+        subItems: institutionCategories?.results?.length
+          ? institutionCategories?.results?.map((item) => ({
+              label: item?.name,
+              href: `/institutions?category=${item?.id}`,
+            }))
+          : [],
       },
       {
         label: "Yangiliklar",
@@ -90,29 +87,12 @@ const Header = ({ isTopBar, variant }) => {
       {
         label: "Qonunchilik bazasi",
         href: "/docs",
-        subItems: allDocs?.results?.map((item) => ({
-          label: item?.name,
-          href: `/docs?type=${item?.id}`,
-        })),
-        // subItems: [
-        //   { label: "Qonunlar", href: "/docs?type=laws" },
-        //   {
-        //     label: "Prezident farmonlari",
-        //     href: "/docs?type=presidentalDecrees",
-        //   },
-        //   {
-        //     label: "Vazirlar mahkamising qarorlari",
-        //     href: "/docs?type=cabinetDecisions",
-        //   },
-        //   {
-        //     label: "Temir yo'l transporti haqidagi qonun",
-        //     href: "/docs?type=railwayLaws",
-        //   },
-        //   {
-        //     label: "SSV qarorlari",
-        //     href: "/docs?type=ssvDecisions",
-        //   },
-        // ],
+        subItems: allDocs?.results?.length
+          ? allDocs?.results?.map((item) => ({
+              label: item?.name,
+              href: `/docs?type=${item?.id}`,
+            }))
+          : [],
       },
     ],
     btnUrl: "/contact",

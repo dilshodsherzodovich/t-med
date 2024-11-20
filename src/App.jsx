@@ -19,6 +19,7 @@ import Administration from "./Pages/Administration";
 import Docs from "./Pages/Docs";
 import Departments from "./Pages/Departments";
 import Institutions from "./Pages/Institutions";
+import InstitutionDetail from "./Pages/InstitutionDetail/InstitutionDetail";
 
 function App() {
   Aos.init({
@@ -56,6 +57,7 @@ function App() {
           <Route path="/docs" element={<Docs />} />
           <Route path="/departments/:department" element={<Departments />} />
           <Route path="/institutions/" element={<Institutions />} />
+          <Route path="/institutions/:id" element={<InstitutionDetail />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
