@@ -20,7 +20,7 @@ const Header = ({ isTopBar, variant }) => {
 
   const { data } = useQuery({
     queryKey: ["users"],
-    queryFn: () => sendRequest({ url: `/reception/department//` }),
+    queryFn: () => sendRequest({ url: `/reception/organization//` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
@@ -36,7 +36,7 @@ const Header = ({ isTopBar, variant }) => {
 
   const { data: institutionCategories } = useQuery({
     queryKey: ["institutionCategories"],
-    queryFn: () => sendRequest({ url: `/reception/category-department//` }),
+    queryFn: () => sendRequest({ url: `/reception/category-organization//` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
@@ -46,7 +46,7 @@ const Header = ({ isTopBar, variant }) => {
     email: "nsu-railway@gmail.com",
     location:
       "Toshkent sh., Yashnabod tumani, Taraqqiyot kuchasi 2-proyezd, 12A uy",
-    logoUrl: "/assets/img/logo.svg",
+    logoUrl: "/assets/img/logo.PNG",
     logoLink: "/",
     navItems: [
       {
@@ -203,7 +203,11 @@ const Header = ({ isTopBar, variant }) => {
             <div className="cs_main_header_in">
               <div className="cs_main_header_left">
                 <Link className="cs_site_branding" to={menu.logoLink}>
-                  <img src={menu.logoUrl} alt="Logo" />
+                  <img
+                    src={menu.logoUrl}
+                    style={{ height: "60px" }}
+                    alt="Logo"
+                  />
                 </Link>
               </div>
               <div className="cs_main_header_right ">

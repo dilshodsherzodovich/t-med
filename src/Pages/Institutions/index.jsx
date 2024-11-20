@@ -24,7 +24,7 @@ function Institutions() {
     queryKey: ["institutions", page, category],
     queryFn: () =>
       sendRequest({
-        url: `/reception/department//?page=${page}${
+        url: `/reception/organization//?page=${page}${
           category ? `&category=${category}` : ""
         }`,
       }),

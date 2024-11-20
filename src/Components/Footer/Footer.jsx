@@ -1,12 +1,9 @@
-import { BsTwitter } from "react-icons/bs";
 import { FaPhoneAlt, FaTelegramPlane, FaYoutube } from "react-icons/fa";
 import {
   FaFacebookF,
   FaInstagram,
   FaLocationDot,
-  FaPinterestP,
   FaRegClock,
-  FaX,
   FaXTwitter,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -14,7 +11,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const data = {
     backgroundImage: "/assets/img/footer_bg.jpg",
-    logo: "/assets/img/footer_logo.svg",
+    logo: "/assets/img/logo.PNG",
     contactText: "Rahbraiyat qabul kunlari: <br /> Du - Juma: 8.00 - 18.00",
     contactText2:
       "Toshkent sh., Yashnabod tumani, Taraqqiyot kuchasi 2-proyezd, 12A uy",
@@ -72,8 +69,8 @@ const Footer = () => {
         <div className="cs_footer_row">
           <div className="cs_footer_col">
             <div className="cs_footer_highlight_col cs_accent_bg">
-              <div className="cs_footer_logo">
-                <img src={data.logo} alt="Logo" />
+              <div className="cs_footer_logo d-flex align-items-center justify-content-center">
+                <img style={{ height: "100px" }} src={data.logo} alt="Logo" />
               </div>
               <ul className="cs_footer_contact cs_mp_0">
                 <li>
