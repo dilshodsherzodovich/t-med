@@ -1,6 +1,6 @@
-export function truncateString(text) {
-  if (text.length > 60) {
-    return text.substring(0, 80) + "...";
+export function truncateString(text, truncateNumber = 60) {
+  if (text.length > truncateNumber) {
+    return text.substring(0, truncateNumber) + "...";
   } else {
     return text;
   }

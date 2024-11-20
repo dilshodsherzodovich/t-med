@@ -1,114 +1,78 @@
+import { useParams } from "react-router-dom";
 import PageHeading from "../../Components/PageHeading";
 import Section from "../../Components/Section";
 import BlogsLeft from "./BlogsDetailsSide/BlogsLeft";
 import BlogsRight from "./BlogsDetailsSide/BlogsRight";
-
-const headingData = {
-  title: "Tibbiyot xodimlari kuni",
-};
-
-const leftSideData = {
-  imageSrc:
-    "http://api.nsu-railway.uz/media/contents/photos/main/5294395942738453394.jpg",
-  imageAlt: "Post Image",
-  text: "Admin",
-  secText: "11-Noyabr, 2024",
-  thirdSecTitle: "Xabarni jo'natish",
-
-  content: [
-    `Siz, aziz hamkasblarimni “Temir
-    yo‘l ijtimoiy xizmatlar” muassasasi rahbariyati nomidan kasb bayramingiz - Tibbiyot xodimlari kuni munosabati bilan samimiy tabriklayman.`,
-    `Sizlar dunyodagi eng ulug' kasb egalari sifatida inson salomatligi yo'lidagi g‘oyat mas'uliyatli va sharafli faoliyatingiz bilan xalqimiz mehriga sazovor bo‘lib kelmoqdasiz.`,
-    `
-    Bugungi kunda temir yo‘l tibbiyot sohasida olib borilayotgan islohotlar - tibbiy xizmatning sifatini oshirish, sohaga innovatsiyalar hamda eng so‘nggi yangiliklarni joriy etishdek muhim va dolzarb ishlar Sizlarning zimmangizga ham katta masʼuliyat yuklaydi.`,
-  ],
-
-  commentTitle: "Comments (3)",
-  comments: [
-    {
-      avatarSrc: "/assets/img/avatar_2.png",
-      avatarAlt: "Image",
-      name: "Dr. Barat Mara",
-      text: "Lorem ipsum is simply free textdolor sit amet, consectetur notted adipisicing elit sed do iusmod tempor incididu.",
-      date: "June 14, 2023",
-      time: "12:00 AM",
-      replay: "Reply",
-      link: "/",
-    },
-    {
-      avatarSrc: "/assets/img/avatar_3.png",
-      avatarAlt: "Image",
-      name: "Dr. Morat Kara",
-      text: "Lorem ipsum is simply free textdolor sit amet, consectetur notted adipisicing elit sed do iusmod tempor incididu.",
-      date: "June 14, 2023",
-      time: "12:00 AM",
-      replay: "Reply",
-      link: "/",
-    },
-  ],
-
-  serviceOption: [
-    { value: "choose-service", label: "Choose Service" },
-    { value: "crutches", label: "Crutches" },
-    { value: "x-Ray", label: "X-Ray" },
-    { value: "pulmonary", label: "Pulmonary" },
-    { value: "cardiology", label: "Cardiology" },
-    { value: "dental-care", label: "Dental Care" },
-    { value: "neurology", label: "Neurology" },
-  ],
-};
-
-const rightSideData = {
-  searchPlaceholder: "Qidiruv....",
-  secTitle: "Kategoriyalar",
-  service: {
-    backgroundImage: "/assets/img/suegery_overlay.jpg",
-    icon: "/assets/img/icons/service_icon_19.png",
-    title: "Heart Surgery",
-    subtitle: "Medical competitor research startup to financial",
-    link: "/service/service-details",
-  },
-  recentPosts: [
-    {
-      imgSrc:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5260357476514128354_1.jpg",
-      date: "11-Noyabr, 2024",
-      title: "Kasb fidoyisi",
-      link: "/blog/blog-details",
-    },
-    {
-      imgSrc:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5291775295428354997.jpg",
-      date: "11-Noyabr, 2024",
-      title: "Kasb fidoyisi",
-      link: "/blog/blog-details",
-    },
-    {
-      imgSrc:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5260357476514128354_1.jpg",
-      date: "11-Noyabr, 2024",
-      title: "Kasb fidoyisi",
-      link: "/blog/blog-details",
-    },
-  ],
-  categories: [
-    { name: "Tibbiy 08", link: "#" },
-    { name: "Laborotoriya 14", link: "#" },
-    { name: "Kasbiy 12", link: "#" },
-    { name: "Texnologik 23", link: "#" },
-    { name: "Ijtimoiy 17", link: "#" },
-    { name: "Dorixona 22", link: "#" },
-  ],
-};
+import { useQuery } from "@tanstack/react-query";
+import { useHttp } from "../../hooks/useHttp";
+import { useMemo } from "react";
+import { formatDate } from "../../utils/format-date";
+import { truncateString } from "../../utils/truncate-string";
 
 const BlogsDetails = () => {
+  const { blogId } = useParams();
+
+  const sendRequest = useHttp();
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["blogDetail"],
+    queryFn: () => sendRequest({ url: `/blog/posts//${blogId}` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const { data: news } = useQuery({
+    queryKey: ["news"],
+    queryFn: () => sendRequest({ url: `/blog/posts//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const lastThreeNews = useMemo(() => {
+    return {
+      searchPlaceholder: "Qidiruv....",
+      secTitle: "Kategoriyalar",
+      recentPosts: news?.results?.length
+        ? news?.results
+            ?.filter((_, index) => index < 3)
+            ?.map((item) => ({
+              imgSrc: item?.images[0]?.image,
+              date: formatDate(item?.pub_date),
+              title: truncateString(item?.title, 30),
+              link: `/blog/${item?.id}`,
+            }))
+        : [],
+      categories: [
+        { name: "Tibbiy 08", link: "#" },
+        { name: "Laborotoriya 14", link: "#" },
+        { name: "Kasbiy 12", link: "#" },
+        { name: "Texnologik 23", link: "#" },
+        { name: "Ijtimoiy 17", link: "#" },
+        { name: "Dorixona 22", link: "#" },
+      ],
+    };
+  }, [news]);
+
+  const detail = useMemo(() => {
+    return {
+      imageSrc: data?.images[0].image,
+      imageAlt: data?.title,
+      text: "Admin",
+      secText: formatDate(data?.pub_date),
+      thirdSecTitle: "Xabarni jo'natish",
+      content: data?.body ? [data.body] : [],
+    };
+  }, [data]);
+
   return (
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
         backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
       >
-        <PageHeading data={headingData} />
+        <PageHeading data={{ title: data?.title }} />
       </Section>
 
       <>
@@ -122,9 +86,9 @@ const BlogsDetails = () => {
         >
           <div className="container">
             <div className="row">
-              <BlogsLeft data={leftSideData} />
+              <BlogsLeft data={detail} />
 
-              <BlogsRight data={rightSideData} />
+              <BlogsRight data={lastThreeNews} />
             </div>
           </div>
         </Section>
