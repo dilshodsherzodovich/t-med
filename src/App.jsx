@@ -55,7 +55,7 @@ function App() {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/docs" element={<Docs />} />
-          <Route path="/departments/:department" element={<Departments />} />
+          <Route path="/departments/:id" element={<Departments />} />
           <Route path="/institutions/" element={<Institutions />} />
           <Route path="/institutions/:id" element={<InstitutionDetail />} />
           <Route path="*" element={<ErrorPage />} />

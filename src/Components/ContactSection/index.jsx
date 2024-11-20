@@ -1,6 +1,39 @@
+import { useMutation } from "@tanstack/react-query";
 import SectionHeading from "../SectionHeading";
+import { postNewsLetter } from "../../api/newsletter";
+import { useRef, useState } from "react";
+import { toast } from "react-toastify";
 
 const ContactSection = ({ data, reverseOrder }) => {
+  const [loading, setLoading] = useState(false);
+
+  const formRef = useRef();
+
+  const mutation = useMutation({
+    mutationFn: postNewsLetter,
+    onSuccess: (data) => {
+      setResData(data);
+      if (data?.status_code === 200) {
+        toast.success("Xabaringiz muvaffaqqiyatli jo'natildi");
+        formRef.current.reset();
+      }
+    },
+    onError: () => {
+      setLoading(false);
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = {
+      fio: `${formData.get("first_name")} ${formData.get("first_name")}`,
+      email: formData.get("email"),
+      phone_number: formData.get("phone"),
+    };
+    mutation.mutate(data);
+  };
+
   return (
     <>
       <div className="container">
@@ -44,12 +77,17 @@ const ContactSection = ({ data, reverseOrder }) => {
                 />
 
                 <div className="cs_height_25 cs_height_lg_25" />
-                <form className="cs_contact_form row cs_gap_y_30">
+                <form
+                  onSubmit={handleSubmit}
+                  ref={formRef}
+                  className="cs_contact_form row cs_gap_y_30"
+                >
                   <div className="col-md-6">
                     <input
                       type="text"
                       className="cs_form_field"
                       placeholder="Ismingiz"
+                      name="first_name"
                     />
                   </div>
                   <div className="col-md-6">
@@ -57,13 +95,15 @@ const ContactSection = ({ data, reverseOrder }) => {
                       type="text"
                       className="cs_form_field"
                       placeholder="Familiyangiz"
+                      name="last_name "
                     />
                   </div>
                   <div className="col-md-6">
                     <input
-                      type="text"
+                      type="email"
                       className="cs_form_field"
-                      placeholder="Mavzu"
+                      placeholder="Email"
+                      name="email"
                     />
                   </div>
                   <div className="col-md-6">
@@ -71,6 +111,7 @@ const ContactSection = ({ data, reverseOrder }) => {
                       type="text"
                       className="cs_form_field"
                       placeholder="Telefon raqamingiz"
+                      name="phone"
                     />
                   </div>
                   <div className="col-lg-12">

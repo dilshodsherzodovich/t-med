@@ -18,14 +18,6 @@ const Header = ({ isTopBar, variant }) => {
   const [isSticky, setIsSticky] = useState();
   const sendRequest = useHttp();
 
-  const { data } = useQuery({
-    queryKey: ["users"],
-    queryFn: () => sendRequest({ url: `/reception/organization//` }),
-    staleTime: 1000,
-    refetchOnWindowFocus: false,
-    retry: false,
-  });
-
   const { data: allDocs } = useQuery({
     queryKey: ["docs"],
     queryFn: () => sendRequest({ url: `/reception/decisions//` }),
@@ -37,6 +29,14 @@ const Header = ({ isTopBar, variant }) => {
   const { data: institutionCategories } = useQuery({
     queryKey: ["institutionCategories"],
     queryFn: () => sendRequest({ url: `/reception/category-organization//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const { data: departments } = useQuery({
+    queryKey: ["departments"],
+    queryFn: () => sendRequest({ url: `/reception/department//` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
@@ -61,10 +61,12 @@ const Header = ({ isTopBar, variant }) => {
       {
         label: "Bo'limlar",
         href: "",
-        subItems: [
-          { label: "Nevrologiya", href: "/departments/neurology" },
-          { label: "Kardiologiya", href: "/departments/cardiology" },
-        ],
+        subItems: departments?.results?.length
+          ? departments?.results?.map((item) => ({
+              label: item?.name,
+              href: `/departments/${item?.id}`,
+            }))
+          : [],
       },
       {
         label: "Xizmatlar",
