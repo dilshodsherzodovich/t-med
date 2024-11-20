@@ -26,6 +26,14 @@ const Header = ({ isTopBar, variant }) => {
     retry: false,
   });
 
+  const { data: allDocs } = useQuery({
+    queryKey: ["docs"],
+    queryFn: () => sendRequest({ url: `/reception/decisions//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
   const menu = {
     email: "nsu-railway@gmail.com",
     location:
@@ -81,26 +89,30 @@ const Header = ({ isTopBar, variant }) => {
       },
       {
         label: "Qonunchilik bazasi",
-        href: "/docs?type=laws",
-        subItems: [
-          { label: "Qonunlar", href: "/docs?type=laws" },
-          {
-            label: "Prezident farmonlari",
-            href: "/docs?type=presidentalDecrees",
-          },
-          {
-            label: "Vazirlar mahkamising qarorlari",
-            href: "/docs?type=cabinetDecisions",
-          },
-          {
-            label: "Temir yo'l transporti haqidagi qonun",
-            href: "/docs?type=railwayLaws",
-          },
-          {
-            label: "SSV qarorlari",
-            href: "/docs?type=ssvDecisions",
-          },
-        ],
+        href: "/docs",
+        subItems: allDocs?.results?.map((item) => ({
+          label: item?.name,
+          href: `/docs?type=${item?.id}`,
+        })),
+        // subItems: [
+        //   { label: "Qonunlar", href: "/docs?type=laws" },
+        //   {
+        //     label: "Prezident farmonlari",
+        //     href: "/docs?type=presidentalDecrees",
+        //   },
+        //   {
+        //     label: "Vazirlar mahkamising qarorlari",
+        //     href: "/docs?type=cabinetDecisions",
+        //   },
+        //   {
+        //     label: "Temir yo'l transporti haqidagi qonun",
+        //     href: "/docs?type=railwayLaws",
+        //   },
+        //   {
+        //     label: "SSV qarorlari",
+        //     href: "/docs?type=ssvDecisions",
+        //   },
+        // ],
       },
     ],
     btnUrl: "/contact",

@@ -119,7 +119,7 @@ const BlogsPage = () => {
   };
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["users", page],
+    queryKey: ["blogs", page],
     queryFn: () => sendRequest({ url: `/blog/posts//?page=${page}` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
