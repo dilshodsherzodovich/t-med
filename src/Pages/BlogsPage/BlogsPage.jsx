@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import PageHeading from "../../Components/PageHeading";
 
 import BlogsSection1 from "../../Components/BlogsSection/BlogsSection1";
@@ -6,6 +6,7 @@ import Section from "../../Components/Section";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import Pagination from "../../Components/Pagination";
+import { formatDate } from "../../utils/format-date";
 
 const headingData = {
   title: "Yangiliklar",
@@ -125,6 +126,22 @@ const BlogsPage = () => {
     retry: false,
   });
 
+  const blogData = useMemo(() => {
+    return data?.results?.map((item) => {
+      console.log(item);
+      return {
+        id: item?.id,
+        category: "Ijtimoiy",
+        date: formatDate(item?.pub_date),
+        link: `/blog/${item?.id}`,
+        linkText: "Batafsil",
+        title: item?.title,
+        subtitle: item?.body,
+        image: item?.images[0]?.image,
+      };
+    });
+  }, [data]);
+
   return (
     <>
       <Section
@@ -141,7 +158,11 @@ const BlogsPage = () => {
         bottomSpaceLg="80"
         bottomSpaceMd="120"
       >
-        <BlogsSection1 data={blogsSectionData} />
+        <BlogsSection1
+          loading={isLoading}
+          data={blogsSectionData}
+          blogs={blogData}
+        />
 
         <Pagination
           pageCount={data?.count}

@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import loadBackgroudImages from "../Common/loadBackgroudImages";
 import { useMutation } from "@tanstack/react-query";
 import { postNewsLetter } from "../../api/newsletter";
+import { toast } from "react-toastify";
 
 const ContactSection2 = () => {
   const [resData, setResData] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const formRef = useRef();
 
   useEffect(() => {
     loadBackgroudImages();
@@ -13,8 +17,14 @@ const ContactSection2 = () => {
   const mutation = useMutation({
     mutationFn: postNewsLetter,
     onSuccess: (data) => {
-      // Invalidate and refetch
       setResData(data);
+      if (data?.status_code === 200) {
+        toast.success("Xabaringiz muvaffaqqiyatli jo'natildi");
+        formRef.current.reset();
+      }
+    },
+    onError: () => {
+      setLoading(false);
     },
   });
 
@@ -45,6 +55,7 @@ const ContactSection2 = () => {
             </div>
             <div className="cs_height_25 cs_height_lg_25"></div>
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="cs_contact_form row cs_gap_y_30 home_form_area"
             >
@@ -90,7 +101,7 @@ const ContactSection2 = () => {
               </div>
               <div className="col-lg-12">
                 <button type="submit" className="cs_btn cs_style_1 cs_color_1">
-                  Jo'natish
+                  {mutation?.isPending ? "Yuklanmoqda" : "Jo'natish"}
                 </button>
               </div>
             </form>
