@@ -1,4 +1,3 @@
-import { FaChevronCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ServiceSection5 = ({ data }) => {
@@ -22,7 +21,7 @@ const ServiceSection5 = ({ data }) => {
           {data?.services.map((service, index) => (
             <div className="col-12" key={index}>
               <div className="cs_iconbox cs_style_5 cs_radius_10 position-relative">
-                <h6 className="cs_iconbox_title cs_white_color mb-0 fs-5">
+                <h6 className="cs_iconbox_title cs_white_color mb-0 fs-6">
                   <Link to={service.link}>{service.title}</Link>
                 </h6>
               </div>

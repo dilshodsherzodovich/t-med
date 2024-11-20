@@ -205,7 +205,7 @@ const Header = ({ isTopBar, variant }) => {
                 <Link className="cs_site_branding" to={menu.logoLink}>
                   <img
                     src={menu.logoUrl}
-                    style={{ height: "60px" }}
+                    style={{ height: "70px" }}
                     alt="Logo"
                   />
                 </Link>

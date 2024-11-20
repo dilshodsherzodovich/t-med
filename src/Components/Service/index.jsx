@@ -48,22 +48,6 @@ const Service = ({ data, cardBg, services }) => {
             </div>
           ))}
         </div>
-        {/* <div className="cs_service_footer" data-aos="fade-up">
-          <div className="cs_service_footer_icon">
-            <img src={data.footerIcon} alt="Icon" />
-          </div>
-          <div className="cs_service_footer_text cs_medium">
-            <span dangerouslySetInnerHTML={{ __html: data.footerText }} />
-            <Link to={data.footerLink}>
-              {data.footerLinkText}
-              <span>
-                <i>
-                  <FaAngleDoubleRight />
-                </i>
-              </span>
-            </Link>
-          </div>
-        </div> */}
       </div>
     </>
   );
