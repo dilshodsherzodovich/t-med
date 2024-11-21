@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import Pagination from "../../Components/Pagination";
 import { formatDate } from "../../utils/format-date";
+import { useSearchParams } from "react-router-dom";
 
 const headingData = {
   title: "Yangiliklar",
@@ -109,28 +110,65 @@ const blogsSectionData = {
   ],
 };
 
+// const categories = [
+//   { name: "Tibbiy 08", link: "#" },
+//   { name: "Laborotoriya 14", link: "#" },
+//   { name: "Kasbiy 12", link: "#" },
+//   { name: "Texnologik 23", link: "#" },
+//   { name: "Ijtimoiy 17", link: "#" },
+//   { name: "Dorixona 22", link: "#" },
+// ];
+
 const BlogsPage = () => {
   const sendRequest = useHttp();
 
   const [page, setPage] = useState(1);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const category = searchParams.get("category");
+
   const handlePageChange = (e) => {
     setPage(+e.selected + 1);
   };
 
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["blogs", page],
-    queryFn: () => sendRequest({ url: `/blog/posts//?page=${page}` }),
+  const { data, isLoading } = useQuery({
+    queryKey: ["blogs", page, category],
+    queryFn: () =>
+      sendRequest({
+        url: `/blog/posts//?page=${page}${
+          category ? `&category=${category}` : ""
+        }`,
+      }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
   });
 
+  const { data: blogCategories, isLoading: categoryLoading } = useQuery({
+    queryKey: ["blogCategories"],
+    queryFn: () => sendRequest({ url: `/blog/post-category//` }),
+    staleTime: 10000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const categories = useMemo(() => {
+    if (!blogCategories?.results?.length) return [];
+    return blogCategories?.results?.map((item) => {
+      return {
+        id: item?.id,
+        name: item?.name,
+        link: `/blog?category=${item?.id}`,
+      };
+    });
+  }, [blogCategories]);
+
   const blogData = useMemo(() => {
     return data?.results?.map((item) => {
       return {
         id: item?.id,
-        category: "Ijtimoiy",
+        category: categories?.find((cat) => cat?.id === item?.category)?.name,
         date: formatDate(item?.pub_date),
         link: `/blog/${item?.id}`,
         linkText: "Batafsil",
@@ -139,7 +177,7 @@ const BlogsPage = () => {
         image: item?.images[0]?.image,
       };
     });
-  }, [data]);
+  }, [data, categories]);
 
   return (
     <>
@@ -161,6 +199,7 @@ const BlogsPage = () => {
           loading={isLoading}
           data={blogsSectionData}
           blogs={blogData}
+          categories={categories}
         />
 
         <Pagination

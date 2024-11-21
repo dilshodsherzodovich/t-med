@@ -1,6 +1,14 @@
 /*--------------------------------------------------------------
   13. Posts
 ----------------------------------------------------------------*/
+
+.cs_post_container {
+  width: 100%;
+  max-width: 1600px;
+  padding: 0 20px;
+  margin: auto;
+}
+
 .cs_post.cs_style_1 {
   overflow: hidden;
   display: flex;
@@ -180,7 +188,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1320px) {
     grid-template-columns: repeat(2, 1fr);
   }
 

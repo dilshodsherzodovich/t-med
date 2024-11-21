@@ -320,11 +320,8 @@ const MainHome = () => {
 
   return (
     <>
-      {/* End Header Section */}
-      {/* Start Hero Section */}
       <HeroSection data={heroData} />
-      {/* End Hero Section */}
-      {/* Start CTA Section */}
+
       <Section
         className={
           "cs_cta cs_style_1 cs_blue_bg position-relative overflow-hidden"
@@ -333,8 +330,6 @@ const MainHome = () => {
         <CtaSection data={ctaData} />
       </Section>
 
-      {/* End CTA Section */}
-      {/* Start About Section */}
       <Section
         topSpaceLg="80"
         topSpaceMd="120"
@@ -345,14 +340,9 @@ const MainHome = () => {
         <About data={aboutData} />
       </Section>
 
-      {/* End About Section */}
-      {/* Start Counter */}
       <Section className="cs_counter_area cs_gray_bg">
         <CounterSection data={countersData} />
       </Section>
-
-      {/* End Counter */}
-      {/* Start Service Section */}
 
       <Section
         topSpaceLg="70"
@@ -368,9 +358,6 @@ const MainHome = () => {
         />
       </Section>
 
-      {/* End Service Section */}
-      {/* Start Team Section */}
-
       <Section
         topSpaceLg="70"
         topSpaceMd="110"
@@ -382,11 +369,6 @@ const MainHome = () => {
           data={doctorsData}
         />
       </Section>
-      {/* End Team Section */}
-      {/* Start Brand Section */}
-
-      {/* End Brand Section */}
-      {/* Start Why Choose Us Section */}
 
       <Section
         topSpaceLg="70"
@@ -399,16 +381,6 @@ const MainHome = () => {
         <ChooseUs data={sectionData} />
       </Section>
 
-      {/* End Why Choose Us Section */}
-      {/* Start Projects Section */}
-
-      {/* <Section topSpaceLg="70" topSpaceMd="110" className="cs_tabs">
-        <ProjectSection data={projectData} />
-      </Section> */}
-
-      {/* End Projects Section */}
-      {/* Start CTA Section */}
-
       <Section
         topSpaceLg="70"
         topSpaceMd="110"
@@ -419,16 +391,6 @@ const MainHome = () => {
       >
         <CtaSection1 data={ctaData1} />
       </Section>
-
-      {/* End CTA Section */}
-      {/* Start Medical Tab Section */}
-
-      {/* <Section topSpaceLg="70" topSpaceMd="110">
-        <MedicalTabSection data={medicalTabsData} />
-      </Section> */}
-
-      {/* End Medical Tab Section */}
-      {/* Start Contact Solution */}
 
       <Section
         topSpaceLg="70"

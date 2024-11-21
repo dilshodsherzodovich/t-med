@@ -6,7 +6,7 @@
   grid-template-columns: repeat(1, 1fr);
   gap: 60px;
 
-  @media(max-width:991px) {
+  @media (max-width: 991px) {
     gap: 30px;
   }
 }
@@ -15,7 +15,11 @@
   border: 1px solid var(--border-color);
   padding: 35px 30px 40px;
 
-  @media(max-width:1199px) {
+  @media (max-width: 720px) {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 1199px) {
     padding: 30px 15px;
   }
 

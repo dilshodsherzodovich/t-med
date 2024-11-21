@@ -13,3 +13,12 @@
   --heading-font: "Poppins", sans-serif;
   --body-font: "Rubik", sans-serif;
 }
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+  // xxxl: 1500px,
+);

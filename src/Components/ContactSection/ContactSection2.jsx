@@ -100,7 +100,13 @@ const ContactSection2 = () => {
                 ></textarea>
               </div>
               <div className="col-lg-12">
-                <button type="submit" className="cs_btn cs_style_1 cs_color_1">
+                <button
+                  type="submit"
+                  disabled={mutation?.isPending || false}
+                  className={`cs_btn cs_style_1 ${
+                    mutation?.isPending ? "cs_color_4" : "cs_color_1"
+                  }`}
+                >
                   {mutation?.isPending ? "Yuklanmoqda" : "Jo'natish"}
                 </button>
               </div>
@@ -114,9 +120,7 @@ const ContactSection2 = () => {
           </div>
         </div>
       </div>
-      <div className="cs_solution_shape position-absolute">
-        <img src="/assets/img/stethoscope.png" alt="Shape" />
-      </div>
+
       <div className="cs_height_120 cs_height_lg_80"></div>
     </section>
   );
