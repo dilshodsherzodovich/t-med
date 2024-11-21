@@ -19,16 +19,16 @@ const Docs = () => {
 
   const [searchParams] = useSearchParams();
 
-  const type = searchParams.get("type");
-
   const types = docs?.results?.map((item) => ({
     label: item?.name,
-    href: `/docs?type=${item?.id}`,
+    href: `/docs?type=${item?.id}&type_name=${item?.name}`,
   }));
+
+  const type = searchParams.get("type");
 
   const headingData = {
     title: types?.length
-      ? types?.find((item) => item?.href?.includes(type)).label
+      ? types?.find((item) => item?.href?.includes(type))?.label
       : "Me'yoriy hujjatlar",
   };
 

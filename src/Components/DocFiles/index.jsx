@@ -7,7 +7,7 @@ function DocFiles({ data }) {
     <>
       <div className="container">
         <div className="row cs_gap_y_30">
-          {data.map((service, index) => (
+          {data?.map((service, index) => (
             <div className="col-12" key={index}>
               <div className="cs_iconbox cs_style_5 px-4 py-4 cs_radius_10 d-flex flex-row align-items-center justify-content-between">
                 <div className="d-flex align-items-center gap-2">
