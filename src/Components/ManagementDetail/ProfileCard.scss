@@ -1,0 +1,82 @@
+// ProfileCard.scss
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.3); // White with transparency
+  backdrop-filter: blur(10px); // Frosted glass effect
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5); // Soft border
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); // Subtle shadow on hover
+  }
+}
+
+.profile-image {
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.1); // Slight zoom effect on hover
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5),
+    transparent
+  ); // Dark gradient overlay
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-image:hover + .overlay {
+  opacity: 1; // Show overlay on hover
+}
+
+.profile-btn {
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  background-color: #3b82f6; // Tailwind's blue-500
+  color: white;
+  &:hover {
+    background-color: #2563eb; // Tailwind's blue-600
+  }
+}
+
+.profile-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  &.open {
+    max-height: 500px;
+  }
+}
+
+.bg-primary {
+  background-color: #3b82f6 !important; // Tailwind's blue-500
+}
+
+.text-muted {
+  color: #6b7280 !important; // Tailwind's gray-500
+}
+
+.text-dark {
+  color: #1f2937 !important; // Tailwind's gray-800
+}
+
+.text-light {
+  color: #d1d5db !important; // Tailwind's gray-300
+}
+
+.text-blue {
+  color: #3b82f6 !important; // Tailwind's blue-500
+}
+
+.text-blue-light {
+  color: #60a5fa !important; // Tailwind's blue-400
+}

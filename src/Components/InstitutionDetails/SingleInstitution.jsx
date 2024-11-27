@@ -9,9 +9,11 @@ function SingleInstitution({ data }) {
       <div className="cs_service_details">
         <h3 className="cs_service_heading">Muassasa haqida:</h3>
         {data.institutionDetails.map((detail, index) => (
-          <p key={index} className="cs_service_subtitle">
-            {detail}
-          </p>
+          <p
+            dangerouslySetInnerHTML={{ __html: detail }}
+            key={index}
+            className="cs_service_subtitle"
+          ></p>
         ))}
         <div className="cs_about_iconbox pt-0 d-flex align-items-center mb-4">
           <div className="cs_about_iconbox_icon cs_center">
@@ -26,7 +28,9 @@ function SingleInstitution({ data }) {
         </div>
 
         <h3 className="cs_service_heading">Muassasa rahbari:</h3>
-        <DepartmentManager data={data?.manager} />
+        {data?.managers?.map((manager) => (
+          <DepartmentManager key={manager?.id} data={manager} />
+        ))}
       </div>
     </div>
   );

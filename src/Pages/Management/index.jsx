@@ -1,38 +1,12 @@
 import React from "react";
 import PageHeading from "../../Components/PageHeading";
-import { FaLocationPin, FaPhone, FaReceipt, FaSuitcase } from "react-icons/fa6";
+import { FaPhone, FaReceipt } from "react-icons/fa6";
 import Section from "../../Components/Section";
 import ManagementDetail from "../../Components/ManagementDetail";
 import { IoIosMail } from "react-icons/io";
 
 const headingData = {
   title: "Rahbariyat",
-};
-
-const doctorDetails = {
-  name: "MAMASIDIKOV MUXSINJON MUSAJONOVICH",
-  subtitle: "Temir yo'l ijtimoiy xizmatlar muassasasi boshlig'i",
-  descriptionLabel: "Tarjimai hol",
-  description: [
-    `Mamasidikov Muxsinjon Mamajonovich 17.02.1976 yilda Farg‘ona vioyati Rishton tumanida tavallud topgan. Temir yo‘l soxasida 1994-yildan hozirgi vaqtgacha bir qator rahbarlik lavozimlarda ishlab kelmoqdalar. 2020-2023-yillarda “Sog‘liqni saqlash xizmati” boshlig‘i  lavozimida ishlaganlar. 2023-yildan hozirgi kunga qadar “Temir yo’l ijtimoiy xizmatlar” muassasasi boshlig‘I lavozimida faoliyat olib bormoqdalar. Kasbga bo‘lgan muxabbatlari va fidokorona mehnatlari uchun Faxriy temiryo‘lchi unvoni hamda “O‘zbekiston Respublikasi Sog‘liqni saqlash a’lochisi” ko‘krak nishoni bilan taqdirlanganlar.`,
-  ],
-  image:
-    "http://api.nsu-railway.uz/media/administration/photo_2021-10-15_20-51-16.jpg",
-  info: [
-    {
-      icon: <FaPhone width={28} height={28} />,
-      subtitle: "Telefon raqam",
-      title: "47-870",
-      secIcon: <IoIosMail width={28} height={28} />,
-      secSubtitle: "Email manzili",
-      secTitle: "nvs26@mail.ru",
-    },
-    {
-      icon: <FaReceipt width={28} height={28} />,
-      title: "Qabul kunlari",
-      subtitle: "Seshanba  soat 14-00 dan 16-00 gacha",
-    },
-  ],
 };
 
 const doctors = [
@@ -121,9 +95,11 @@ const Management = () => {
       </Section>
 
       <Section topSpaceLg="80" topSpaceMd="120">
-        {doctors?.map((item, index) => (
-          <ManagementDetail key={index} index={index} data={item} />
-        ))}
+        <div className="container">
+          {doctors?.map((item, index) => (
+            <ManagementDetail key={index} index={index} doctor={item} />
+          ))}
+        </div>
       </Section>
     </>
   );

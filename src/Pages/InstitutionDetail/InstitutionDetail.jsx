@@ -31,33 +31,31 @@ function InstitutionDetail() {
       institutionDetails: detail?.description ? [detail?.description] : [],
       subtitle: "Ishchilar soni",
       workers: detail?.count_of_employees,
-      manager: {
-        name: detail?.director?.fio,
-        subtitle: detail?.director?.specialist,
+      managers: detail?.directors?.map((director) => ({
+        name: director?.fio,
+        subtitle: director?.specialist,
         descriptionLabel: "Tarjimai hol",
-        description: detail?.director?.description
-          ? [detail?.director?.description]
-          : [],
-        image: detail?.director?.image,
+        description: director?.description ? [director?.description] : [],
+        image: director?.image,
         info: [
           {
             icon: <FaPhone width={28} height={28} />,
             title: "Telefon raqam",
-            subtitle: detail?.director?.reception_number,
+            subtitle: director?.reception_number,
             secIcon: <IoIosMail width={28} height={28} />,
             secTitle: "Email manzili",
-            secSubtitle: detail?.director?.email,
+            secSubtitle: director?.email,
           },
           {
             icon: <FaReceipt width={28} height={28} />,
             title: "Qabul kunlari",
-            subtitle: detail?.director?.reception_days,
+            subtitle: director?.reception_days,
             secIcon: <FaLocationPin width={28} height={28} />,
             secTitle: "Manzil",
             secSubtitle: detail?.address,
           },
         ],
-      },
+      })),
     };
   }, [detail]);
 
