@@ -37,11 +37,11 @@ function Institutions() {
     return {
       sectionSubtitle: "Muassasalar",
       institutions: allInstitutions?.results?.length
-        ? allInstitutions?.results?.map((item, index) => {
+        ? allInstitutions?.results?.map((item) => {
             return {
               id: item?.id,
               icon: "/assets/img/icons/service_icon_1.png",
-              imageUrl: item?.department_images?.length
+              imageUrl: item?.organization_images?.length
                 ? item?.department_images[0]?.image
                 : "/assets/img/service_2.jpg",
               title: item?.title,

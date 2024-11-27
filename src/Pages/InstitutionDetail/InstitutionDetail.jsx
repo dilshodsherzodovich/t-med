@@ -14,7 +14,7 @@ function InstitutionDetail() {
 
   const { id } = useParams();
 
-  const { data: detail, isLoading } = useQuery({
+  const { data: detail } = useQuery({
     queryKey: ["institutions", id],
     queryFn: () =>
       sendRequest({

@@ -1,6 +1,7 @@
-const ManagementDetail = ({ data }) => {
+const ManagementDetail = ({ data, index }) => {
   return (
     <div className="container">
+      {index !== 0 && <div class="cs_height_lg_80 cs_height_120"></div>}
       <div className="cs_doctor_details_wrapper">
         <div className="row cs_row_gap_30 cs_gap_y_30 align-items-start">
           <div className="col-lg-5">

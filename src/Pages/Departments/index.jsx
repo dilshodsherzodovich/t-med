@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
 import DepartmentDetails from "../../Components/Departments/DepartmentDetails";
@@ -14,7 +14,7 @@ function Departments() {
   const { id } = useParams();
 
   const { data: detail } = useQuery({
-    queryKey: ["institutions", id],
+    queryKey: ["department", id],
     queryFn: () =>
       sendRequest({
         url: `/reception/department//${id}/`,
@@ -64,7 +64,7 @@ function Departments() {
         backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
       >
         <PageHeading
-          secondaryData="Nevrologiya"
+          secondaryData={detail?.name}
           data={{ title: detail?.name }}
         />
       </Section>

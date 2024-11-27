@@ -5,9 +5,6 @@ import { postNewsLetter } from "../../api/newsletter";
 import { toast } from "react-toastify";
 
 const ContactSection2 = () => {
-  const [resData, setResData] = useState();
-  const [loading, setLoading] = useState(false);
-
   const formRef = useRef();
 
   useEffect(() => {
@@ -17,14 +14,12 @@ const ContactSection2 = () => {
   const mutation = useMutation({
     mutationFn: postNewsLetter,
     onSuccess: (data) => {
-      setResData(data);
-      if (data?.status_code === 200) {
-        toast.success("Xabaringiz muvaffaqqiyatli jo'natildi");
-        formRef.current.reset();
-      }
-    },
-    onError: () => {
-      setLoading(false);
+      console.log(data);
+      toast.success("Xabaringiz muvaffaqqiyatli jo'natildi", {
+        theme: "colored",
+        position: "bottom-center",
+      });
+      formRef.current.reset();
     },
   });
 
@@ -38,6 +33,8 @@ const ContactSection2 = () => {
     };
     mutation.mutate(data);
   };
+
+  console.log(mutation?.isPending);
 
   return (
     <section className="cs_card cs_style_3 cs_gray_bg position-relative">
