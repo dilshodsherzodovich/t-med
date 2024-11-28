@@ -110,15 +110,6 @@ const blogsSectionData = {
   ],
 };
 
-// const categories = [
-//   { name: "Tibbiy 08", link: "#" },
-//   { name: "Laborotoriya 14", link: "#" },
-//   { name: "Kasbiy 12", link: "#" },
-//   { name: "Texnologik 23", link: "#" },
-//   { name: "Ijtimoiy 17", link: "#" },
-//   { name: "Dorixona 22", link: "#" },
-// ];
-
 const BlogsPage = () => {
   const sendRequest = useHttp();
 

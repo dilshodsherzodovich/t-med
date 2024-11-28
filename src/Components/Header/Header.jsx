@@ -36,7 +36,7 @@ const Header = ({ isTopBar, variant }) => {
 
   const { data: departments } = useQuery({
     queryKey: ["departments"],
-    queryFn: () => sendRequest({ url: `/reception/department//` }),
+    queryFn: () => sendRequest({ url: `/reception/management-departments//` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,

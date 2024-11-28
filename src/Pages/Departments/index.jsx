@@ -17,7 +17,7 @@ function Departments() {
     queryKey: ["department", id],
     queryFn: () =>
       sendRequest({
-        url: `/reception/department//${id}/`,
+        url: `/reception/management-departments//${id}/`,
       }),
     staleTime: 1000,
     refetchOnWindowFocus: false,

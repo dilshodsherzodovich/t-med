@@ -31,10 +31,10 @@ export default function ManagementDetail({ director }) {
           <div className="col-md-9 p-4">
             <div className="info-text">
               <h2 className="h4 font-weight-semibold text-dark">
-                {director?.name}
+                {director?.fio}
               </h2>
               <p className="text-blue font-weight-medium">
-                {director?.position}
+                {director?.specialist}
               </p>
             </div>
 
@@ -52,7 +52,7 @@ export default function ManagementDetail({ director }) {
                   <MdPhone size={16} />
                 </div>
                 <span style={{ color: "#374151" }}>
-                  {director?.phone_number}
+                  {director?.reception_number}
                 </span>
               </div>
               <div className="d-flex align-items-center gap-3 mb-1 ">
@@ -107,22 +107,11 @@ export default function ManagementDetail({ director }) {
               }`}
             >
               <div className=" px-2 rounded-3xl mt-3">
-                <h3 className="h5 font-weight-semibold mb-2">Tarjimai hol</h3>
-                <p className="">
-                  Rajabbayev Sharof Raximberdieyevich is a distinguished leader
-                  in the field of innovation and development. With years of
-                  experience, he has been instrumental in driving
-                  forward-thinking initiatives and fostering a culture of
-                  innovation within the agency.
-                </p>
-                <ul className="mt-2 ">
-                  <li>Expert in strategic planning and policy development</li>
-                  <li>Advocate for technological advancement and research</li>
-                  <li>
-                    Committed to fostering collaboration between academia and
-                    industry
-                  </li>
-                </ul>
+                <h3>Tarjimai hol</h3>
+                <div
+                  style={{ fontSize: "15px" }}
+                  dangerouslySetInnerHTML={{ __html: director?.description }}
+                ></div>
               </div>
             </div>
           </div>
