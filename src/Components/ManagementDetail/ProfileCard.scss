@@ -6,6 +6,8 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.5); // Soft border
   transition: all 0.3s ease;
+  box-shadow: rgba(145, 158, 171, 0.5) 0px 0px 2px 0px,
+    rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
   &:hover {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); // Subtle shadow on hover
   }
@@ -40,7 +42,8 @@
 
 .profile-btn {
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  font-size: 14px !important;
+  transition: background-color 0.5s ease;
   background-color: #3b82f6; // Tailwind's blue-500
   color: white;
   &:hover {
@@ -48,10 +51,40 @@
   }
 }
 
+.info-text {
+  h2 {
+    color: rgb(17 24 39);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  p {
+    color: rgb(37 99 235);
+    font-weight: 500;
+  }
+}
+
 .profile-details {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
+  div {
+    padding: "14px";
+    h3 {
+      font-weight: 600;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+    p {
+      color: rgb(55 65 81);
+    }
+    ul {
+      color: rgb(55 65 81);
+      list-style-type: disc;
+    }
+  }
+
   &.open {
     max-height: 500px;
   }
