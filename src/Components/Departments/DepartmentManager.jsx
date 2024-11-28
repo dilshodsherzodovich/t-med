@@ -21,11 +21,10 @@ const DepartmentManager = ({ data }) => {
                   {data.descriptionLabel}
                 </h6>
               ) : null}
-              {data.description.map((desc, index) => (
-                <p className="mb-0" key={index}>
-                  {desc}
-                </p>
-              ))}
+              <p
+                dangerouslySetInnerHTML={{ __html: data?.description }}
+                className="mb-0"
+              ></p>
               <div className="cs_height_20 cs_height_lg_20" />
               <div className="cs_doctor_info_wrapper">
                 {data.info.map((info, index) => (

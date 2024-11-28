@@ -7,11 +7,10 @@ function DepartmentDetails({ data }) {
     <div className="container">
       <div className="cs_service_details">
         <h3 className="cs_service_heading">Bo'lim haqida:</h3>
-        {data.departmentDetails.map((detail, index) => (
-          <p key={index} className="cs_service_subtitle">
-            {detail}
-          </p>
-        ))}
+        <div
+          dangerouslySetInnerHTML={{ __html: data?.departmentDetails }}
+          className="cs_service_subtitle"
+        ></div>
         <div className="cs_about_iconbox pt-0 d-flex align-items-center mb-4">
           <div className="cs_about_iconbox_icon cs_center">
             <i>

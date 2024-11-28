@@ -27,16 +27,14 @@ function Departments() {
   const depDetail = useMemo(() => {
     return {
       mainImage: "/assets/img/service_details_1.jpg",
-      departmentDetails: detail?.description ? [detail?.description] : [],
+      departmentDetails: detail?.description,
       subtitle: "Ishchilar soni",
       workers: detail?.count_of_employees,
       manager: {
         name: detail?.director?.fio,
         subtitle: detail?.director?.specialist,
         descriptionLabel: "Tarjimai hol",
-        description: detail?.director?.description
-          ? [detail?.director?.description]
-          : [],
+        description: detail?.director?.description,
         image: detail?.director?.image,
         info: [
           {

@@ -55,7 +55,6 @@ const Header = ({ isTopBar, variant }) => {
         subItems: [
           { label: "Muassasa haqida", href: "/about" },
           { label: "Rahbariyat", href: "/management" },
-          { label: "Administratsiya", href: "/administration" },
         ],
       },
       {

@@ -47,7 +47,6 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/about" element={<AboutPage />} />
           <Route path="/management" element={<Management />} />
-          <Route path="/administration" element={<Administration />} />
           <Route path="/service" element={<ServicePage />} />
           <Route path="/blog" element={<BlogsPage />} />
           <Route path="/blog/:blogId" element={<BlogsDetails />} />
