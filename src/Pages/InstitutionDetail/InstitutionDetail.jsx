@@ -28,34 +28,36 @@ function InstitutionDetail() {
   const insDetails = useMemo(() => {
     return {
       mainImage: "/assets/img/service_details_1.jpg",
-      institutionDetails: detail?.description ? [detail?.description] : [],
+      institutionDetails: detail?.description,
       subtitle: "Ishchilar soni",
       workers: detail?.count_of_employees,
-      managers: detail?.directors?.map((director) => ({
-        name: director?.fio,
-        subtitle: director?.specialist,
+      managers: {
+        name: detail?.director?.fio,
+        subtitle: detail?.director?.specialist,
         descriptionLabel: "Tarjimai hol",
-        description: director?.description ? [director?.description] : [],
-        image: director?.image,
+        description: detail?.director?.description
+          ? [detail?.director?.description]
+          : [],
+        image: detail?.director?.image,
         info: [
           {
             icon: <FaPhone width={28} height={28} />,
             title: "Telefon raqam",
-            subtitle: director?.reception_number,
+            subtitle: detail?.director?.reception_number,
             secIcon: <IoIosMail width={28} height={28} />,
             secTitle: "Email manzili",
-            secSubtitle: director?.email,
+            secSubtitle: detail?.director?.email,
           },
           {
             icon: <FaReceipt width={28} height={28} />,
             title: "Qabul kunlari",
-            subtitle: director?.reception_days,
+            subtitle: detail?.director?.reception_days,
             secIcon: <FaLocationPin width={28} height={28} />,
             secTitle: "Manzil",
             secSubtitle: detail?.address,
           },
         ],
-      })),
+      },
     };
   }, [detail]);
 

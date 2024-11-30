@@ -4,17 +4,16 @@ import DepartmentManager from "../Departments/DepartmentManager";
 import { Link } from "react-router-dom";
 
 function SingleInstitution({ data }) {
+  console.log(data);
+
   return (
     <div className="container">
       <div className="cs_service_details">
         <h3 className="cs_service_heading">Muassasa haqida:</h3>
-        {data.institutionDetails.map((detail, index) => (
-          <p
-            dangerouslySetInnerHTML={{ __html: detail }}
-            key={index}
-            className="cs_service_subtitle"
-          ></p>
-        ))}
+        <p
+          dangerouslySetInnerHTML={{ __html: data?.institutionDetails }}
+          className="cs_service_subtitle"
+        ></p>
         <div className="cs_about_iconbox pt-0 d-flex align-items-center mb-4">
           <div className="cs_about_iconbox_icon cs_center">
             <i>
@@ -22,15 +21,13 @@ function SingleInstitution({ data }) {
             </i>
           </div>
           <p className="cs_about_iconbox_subtitle d-flex align-items-center ">
-            <Link to="">{data.subtitle}: </Link>{" "}
+            <Link to="">{data?.subtitle}: </Link>{" "}
             <p className=" text-secondary fs-5 mb-0 mx-1">{data.workers}</p>
           </p>
         </div>
 
         <h3 className="cs_service_heading">Muassasa rahbari:</h3>
-        {data?.managers?.map((manager) => (
-          <DepartmentManager key={manager?.id} data={manager} />
-        ))}
+        <DepartmentManager data={data?.managers} />
       </div>
     </div>
   );

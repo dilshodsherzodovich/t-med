@@ -4,6 +4,7 @@ import { truncateString } from "../../utils/truncate-string";
 import Button from "../Buttons";
 import SectionHeading from "../SectionHeading";
 import BlogLoadingSkeleton from "../BlogsSection/BlogLoadingSkeleton";
+import TruncatedHtml from "../TruncatedHtml";
 
 const InstitutionsList = ({ data, loading }) => {
   return (
@@ -23,7 +24,15 @@ const InstitutionsList = ({ data, loading }) => {
               <div className="cs_slide d-flex h-auto" key={index}>
                 <div className="cs_iconbox cs_style_7 flex-grow-1">
                   <Link to={slide.detailsLink} className="cs_iconbox_thumbnail">
-                    <img src={slide.imageUrl} alt="Image" />
+                    <img
+                      src={slide.imageUrl}
+                      style={{
+                        height: "292px",
+                        objectFit: "cover",
+                        objectPosition: "50% 50%",
+                      }}
+                      alt="Image"
+                    />
                   </Link>
                   <div
                     className="cs_iconbox_content h-100"
@@ -41,9 +50,9 @@ const InstitutionsList = ({ data, loading }) => {
                     <h3 className="cs_iconbox_title text-center">
                       <Link to={slide.detailsLink}>{slide.title}</Link>
                     </h3>
-                    <p className="cs_iconbox_subtitle">
-                      {truncateString(slide.subtitle)}
-                    </p>
+                    {/* <p className="cs_iconbox_subtitle">
+                      <TruncatedHtml content={slide?.subtitle} />
+                    </p> */}
                     <Button
                       btnIcons={<FaAngleRight />}
                       btnText={slide.detailsText}
