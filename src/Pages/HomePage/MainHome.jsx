@@ -20,7 +20,7 @@ const heroData = {
     {
       bgImageUrl:
         "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
-      title: `"O'zbekiston Temir yo'llari Aj" markaziy klinik <span>kasalxonasi</span>`,
+      title: `O'zbekiston Temir yo'llari "Temiryo'l ijtimoiy xizmatlar" <span>muassasasi</span>`,
       contactSubtitle: "",
       contactTitle: "Tibbiy xizmatdan foydalaning",
       contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",
@@ -60,7 +60,7 @@ const heroData = {
     {
       bgImageUrl:
         "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
-      title: `"O'zbekiston Temir yo'llari Aj" markaziy klinik <span>kasalxonasi</span>`,
+      title: `"O'zbekiston Temir yo'llari Aj" Temiryo'l ijtimoiy xizmatlar <span>muassasasi</span>`,
       contactSubtitle: "",
       contactTitle: "Tibbiy xizmatdan foydalaning",
       contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",
