@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 
 function SvgMap() {
+  const [activeRegion, setActiveRegion] = useState(null);
+
+  const handleMouseEnter = (e) => {
+    e.target.style.fill = "red";
+    console.log(e.target); // Hover effect
+  };
+
+  const handleMouseLeave = (e) => {
+    // if (activeRegion !== regionId) {
+    //   document.getElementById(regionId).style.fill = ""; // Reset hover effect
+    // }
+  };
+
+  const handleClick = (regionId) => {
+    setActiveRegion(regionId);
+  };
+
   return (
     <svg
       width="100%"
       height="100%"
-      onClick={(e) => console.log(e.target)}
+      onClick={(e) => {
+        setActiveRegion(e.target.parentElement.id);
+        e.target.style.fill = "red";
+      }}
       viewBox="0 0 886 578"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clip-path="url(#clip0)">
-        <g class="">
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Buxoro"
+        >
           <mask
             id="path-2-outside-1"
             maskUnits="userSpaceOnUse"
@@ -42,8 +66,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-2-outside-1)"
           ></path>
-        </g>{" "}
-        <g>
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Xorazm"
+        >
           <mask
             id="path-3-outside-2"
             maskUnits="userSpaceOnUse"
@@ -74,8 +102,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-3-outside-2)"
           ></path>
-        </g>{" "}
-        <g class="">
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Qoraqalpog'iston"
+        >
           <mask
             id="path-4-outside-3"
             maskUnits="userSpaceOnUse"
@@ -106,8 +138,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-4-outside-3)"
           ></path>
-        </g>{" "}
-        <g class="">
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Navoi"
+        >
           <mask
             id="path-5-outside-4"
             maskUnits="userSpaceOnUse"
@@ -132,8 +168,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-5-outside-4)"
           ></path>
-        </g>{" "}
-        <g>
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Samarqand"
+        >
           <mask
             id="path-6-outside-5"
             maskUnits="userSpaceOnUse"
@@ -164,8 +204,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-6-outside-5)"
           ></path>
-        </g>{" "}
-        <g class="">
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Qashqadaryo"
+        >
           <mask
             id="path-7-outside-6"
             maskUnits="userSpaceOnUse"
@@ -196,8 +240,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-7-outside-6)"
           ></path>
-        </g>{" "}
-        <g class="active">
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Surxandaryo"
+        >
           <mask
             id="path-8-outside-7"
             maskUnits="userSpaceOnUse"
@@ -228,8 +276,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-8-outside-7)"
           ></path>
-        </g>{" "}
-        <g class="">
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Andijon"
+        >
           <mask
             id="path-9-outside-8"
             maskUnits="userSpaceOnUse"
@@ -260,8 +312,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-9-outside-8)"
           ></path>
-        </g>{" "}
-        <g class="">
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Farg'ona"
+        >
           <mask
             id="path-10-outside-9"
             maskUnits="userSpaceOnUse"
@@ -292,8 +348,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-10-outside-9)"
           ></path>
-        </g>{" "}
-        <g>
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Namangan"
+        >
           <mask
             id="path-11-outside-10"
             maskUnits="userSpaceOnUse"
@@ -324,8 +384,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-11-outside-10)"
           ></path>
-        </g>{" "}
-        <g class="">
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Jizzax"
+        >
           <mask
             id="path-12-outside-11"
             maskUnits="userSpaceOnUse"
@@ -356,8 +420,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-12-outside-11)"
           ></path>
-        </g>{" "}
-        <g>
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Sirdaryo"
+        >
           <mask
             id="path-13-outside-12"
             maskUnits="userSpaceOnUse"
@@ -388,8 +456,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-13-outside-12)"
           ></path>
-        </g>{" "}
-        <g class="">
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Toshkent viloyati"
+        >
           <mask
             id="path-14-outside-13"
             maskUnits="userSpaceOnUse"
@@ -420,8 +492,12 @@ function SvgMap() {
             stroke-width="2"
             mask="url(#path-14-outside-13)"
           ></path>
-        </g>{" "}
-        <g>
+        </g>
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          id="Toshkent shahri"
+        >
           <path
             d="M689.864 302.976C690.032 303.172 689.971 303.473 689.74 303.588L688.442 304.238C688.311 304.303 688.19 304.387 688.083 304.487L685.675 306.73L684.604 308.027C684.233 308.477 683.628 308.662 683.069 308.497C682.696 308.387 682.382 308.133 682.198 307.791L682.09 307.59C681.948 307.327 681.934 307.013 682.052 306.738L682.123 306.573C682.128 306.559 682.131 306.545 682.131 306.53C682.131 306.436 682.02 306.387 681.95 306.45L681.521 306.836C681.369 306.973 681.135 306.959 681.001 306.805L680.166 305.85C680.059 305.728 679.972 305.591 679.906 305.442L679.682 304.94C679.661 304.892 679.648 304.842 679.642 304.79C679.603 304.441 679.228 304.237 678.914 304.394L678.739 304.482C678.699 304.502 678.653 304.502 678.613 304.482C678.549 304.45 678.519 304.373 678.546 304.306L679.714 301.344C679.79 301.152 679.849 300.955 679.891 300.754L680.028 300.097C680.186 299.335 680.564 298.635 681.114 298.085L682.394 296.804C682.795 296.403 683.331 296.164 683.898 296.134C684.418 296.107 684.931 296.257 685.355 296.559L685.412 296.6C685.759 296.848 686.164 297.003 686.588 297.05L686.766 297.07C687.272 297.126 687.757 297.303 688.181 297.586L688.909 298.071C689.222 298.28 689.444 298.601 689.528 298.968L689.561 299.109C689.626 299.391 689.579 299.688 689.43 299.936L689.218 300.291C689.022 300.617 689.123 301.041 689.446 301.242C689.53 301.295 689.602 301.365 689.657 301.447L689.907 301.823C690.027 302.002 690.023 302.236 689.898 302.411L689.843 302.488C689.737 302.636 689.746 302.838 689.864 302.976Z"
             fill="url(#paint26_linear)"
@@ -433,7 +509,7 @@ function SvgMap() {
             stroke-opacity="0.3"
           ></path>
         </g>
-      </g>{" "}
+      </g>
       <defs>
         <filter
           id="filter0_b"

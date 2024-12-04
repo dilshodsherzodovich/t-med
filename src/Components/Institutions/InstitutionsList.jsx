@@ -4,7 +4,6 @@ import { truncateString } from "../../utils/truncate-string";
 import Button from "../Buttons";
 import SectionHeading from "../SectionHeading";
 import BlogLoadingSkeleton from "../BlogsSection/BlogLoadingSkeleton";
-import TruncatedHtml from "../TruncatedHtml";
 
 const InstitutionsList = ({ data, loading }) => {
   return (

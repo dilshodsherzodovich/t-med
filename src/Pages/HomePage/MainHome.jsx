@@ -14,6 +14,8 @@ import { useHttp } from "../../hooks/useHttp.js";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { formatDate } from "../../utils/format-date.js";
+import SvgMap from "../../Components/SvgMap/index.jsx";
+import MapSection from "../../Components/MapSection/index.jsx";
 
 const heroData = {
   primarySlider: [
@@ -399,6 +401,17 @@ const MainHome = () => {
         bottomSpaceMd="120"
       >
         <BlogSection data={blogData} />
+      </Section>
+
+      <Section
+        topSpaceLg="70"
+        topSpaceMd="110"
+        bottomSpaceLg="80"
+        bottomSpaceMd="120"
+        className="cs_blue_bg cs_bg_filed"
+        backgroundImage="assets/img/service_bg_3.jpg"
+      >
+        <MapSection />
       </Section>
 
       <ContactSection2></ContactSection2>
