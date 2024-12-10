@@ -3,37 +3,22 @@ import React, { useState } from "react";
 function SvgMap() {
   const [activeRegion, setActiveRegion] = useState(null);
 
-  const handleMouseEnter = (e) => {
-    e.target.style.fill = "red";
-    console.log(e.target); // Hover effect
-  };
-
-  const handleMouseLeave = (e) => {
-    // if (activeRegion !== regionId) {
-    //   document.getElementById(regionId).style.fill = ""; // Reset hover effect
-    // }
-  };
-
-  const handleClick = (regionId) => {
-    setActiveRegion(regionId);
+  const handleClick = (e) => {
+    setActiveRegion(e.target.parentNode.id);
   };
 
   return (
     <svg
       width="100%"
       height="100%"
-      onClick={(e) => {
-        setActiveRegion(e.target.parentElement.id);
-        e.target.style.fill = "red";
-      }}
       viewBox="0 0 886 578"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clip-path="url(#clip0)">
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Buxoro" ? "active" : ""}
           id="Buxoro"
         >
           <mask
@@ -68,8 +53,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Xorazm" ? "active" : ""}
           id="Xorazm"
         >
           <mask
@@ -104,8 +89,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Qoraqalpog'iston" ? "active" : ""}
           id="Qoraqalpog'iston"
         >
           <mask
@@ -140,8 +125,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Navoi" ? "active" : ""}
           id="Navoi"
         >
           <mask
@@ -170,8 +155,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Samarqand" ? "active" : ""}
           id="Samarqand"
         >
           <mask
@@ -206,8 +191,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Qashqadaryo" ? "active" : ""}
           id="Qashqadaryo"
         >
           <mask
@@ -242,8 +227,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Surxandaryo" ? "active" : ""}
           id="Surxandaryo"
         >
           <mask
@@ -278,8 +263,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Andijon" ? "active" : ""}
           id="Andijon"
         >
           <mask
@@ -314,8 +299,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Farg'ona" ? "active" : ""}
           id="Farg'ona"
         >
           <mask
@@ -350,8 +335,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Namangan" ? "active" : ""}
           id="Namangan"
         >
           <mask
@@ -386,8 +371,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Jizzax" ? "active" : ""}
           id="Jizzax"
         >
           <mask
@@ -422,8 +407,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Sirdaryo" ? "active" : ""}
           id="Sirdaryo"
         >
           <mask
@@ -458,8 +443,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Toshkent viloyati" ? "active" : ""}
           id="Toshkent viloyati"
         >
           <mask
@@ -494,8 +479,8 @@ function SvgMap() {
           ></path>
         </g>
         <g
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          className={activeRegion === "Toshkent shahri" ? "active" : ""}
           id="Toshkent shahri"
         >
           <path

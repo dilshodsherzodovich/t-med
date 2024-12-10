@@ -1,3 +1,13 @@
-path {
-  cursor: pointer;
+g {
+  &.active {
+    path {
+      fill: red;
+    }
+  }
+  path {
+    cursor: pointer;
+    &:hover {
+      fill: red;
+    }
+  }
 }
