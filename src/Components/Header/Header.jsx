@@ -8,10 +8,14 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { FaAnglesRight, FaLocationDot, FaYoutube } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { TbView360Number } from "react-icons/tb";
+import roundicon from '/assets/img/icons/360-degrees.png'
+import { Link, useNavigate } from "react-router-dom";
 import { useHttp } from "../../hooks/useHttp";
 
 const Header = ({ isTopBar, variant }) => {
+  const navigate = useNavigate()
+
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [openMobileSubmenuIndex, setOpenMobileSubmenuIndex] = useState([]);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -156,6 +160,7 @@ const Header = ({ isTopBar, variant }) => {
                 </div>
                 <div className="cs_top_header_right">
                   <div className="cs_social_btns cs_style_1">
+                    <img src={roundicon} style={{width: 30, height: 30, marginRight: 10, cursor: 'pointer'}} alt="" onClick={() => navigate('/virtour')} />
                     <Link
                       to="https://www.facebook.com/nsurailways"
                       className="cs_center"
