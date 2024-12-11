@@ -78,7 +78,7 @@ function Institutions() {
       </Section>
 
       <Pagination
-        pageCount={institutions?.count}
+        pageCount={allInstitutions?.count}
         handlePageClick={handlePageChange}
       />
     </>

@@ -20,7 +20,7 @@ const BlogsSection1 = ({ data, loading = false, blogs, categories = [] }) => {
             <BlogLoadingSkeleton />
           ) : (
             <div className="cs_posts_grid cs_style_1 col-12 col-lg-9">
-              {blogs.map((blog) => (
+              {blogs?.map((blog) => (
                 <article key={blog.id} className="cs_post cs_style_1">
                   <Link
                     to={blog.link}

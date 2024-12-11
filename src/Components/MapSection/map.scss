@@ -1,3 +1,5 @@
+// @import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap-icons/font/bootstrap-icons";
 g {
   &.active {
     path {
@@ -8,6 +10,86 @@ g {
     cursor: pointer;
     &:hover {
       fill: red;
+    }
+  }
+}
+
+.profile-carousel {
+  max-width: 450px;
+  margin: 0 auto;
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: auto;
+    color: #fff;
+    opacity: 1;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
+
+  .card {
+    background-color: #0a1e5c;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+
+    .card-header {
+      background-color: transparent;
+      border-bottom: none;
+      padding: 1.5rem 1.5rem 0.5rem;
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+  }
+
+  .profile-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    .profile-image {
+      width: 100px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 0.25rem;
+    }
+
+    .profile-details-map {
+      .profile-name {
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+        color: #fff;
+      }
+
+      .profile-title {
+        font-size: 0.875rem;
+        color: #ccc;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .contact-info {
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+
+      i {
+        font-size: 1rem;
+      }
     }
   }
 }

@@ -1,8 +1,22 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import SvgMap from "../SvgMap";
 import "./map.scss";
+import MapSlider from "./MapSlider";
+import { useHttp } from "../../hooks/useHttp";
 
 function MapSection() {
+  const sendRequest = useHttp();
+
+  const { data: organizations } = useQuery({
+    queryKey: ["organizations-regions"],
+    queryFn: () => sendRequest({ url: `/reception/organization-by-region//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  console.log(organizations);
+
   return (
     <div className="uzb-map container">
       <div className="cs_section_heading cs_style_1 cs_type_1 mb-2">
@@ -20,7 +34,9 @@ function MapSection() {
         <div className="col-12 col-md-7">
           <SvgMap />
         </div>
-        <div className="col-12 col-md-5"></div>
+        <div className="col-12 col-md-5">
+          <MapSlider />
+        </div>
       </div>
     </div>
   );

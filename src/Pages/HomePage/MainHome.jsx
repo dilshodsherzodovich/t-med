@@ -14,7 +14,6 @@ import { useHttp } from "../../hooks/useHttp.js";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { formatDate } from "../../utils/format-date.js";
-import SvgMap from "../../Components/SvgMap/index.jsx";
 import MapSection from "../../Components/MapSection/index.jsx";
 
 const heroData = {

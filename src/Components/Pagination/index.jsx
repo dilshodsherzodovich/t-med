@@ -1,8 +1,9 @@
-import React from "react";
 import ReactPaginate from "react-paginate";
 import "./pagination.css";
 
 function Pagination({ pageCount, handlePageClick }) {
+  console.log(Math.floor(+pageCount / 10) + 1);
+
   return (
     <div className="d-flex justify-content-center my-4">
       <ReactPaginate
