@@ -12,7 +12,7 @@ const ChooseUs = ({ data }) => {
             <div className="cs_height_50 cs_height_lg_50" />
           </div>
         </div>
-        <div className="row">
+        <div className="row" data-aos="fade-up">
           <div className="col-xxl-7 col-xl-8 col-lg-9">
             <div className="cs_service_wrapper">
               <div className="cs_service_list">

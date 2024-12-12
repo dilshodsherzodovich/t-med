@@ -13,7 +13,10 @@ export default function ManagementDetail({ director }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="profile-card-wrapper d-flex justify-content-center align-items-center py-4">
+    <div
+      className="profile-card-wrapper d-flex justify-content-center align-items-center py-4"
+      data-aos="fade-up"
+    >
       <div className="card profile-card border-0 w-100">
         <div className="row g-0">
           {/* Profile Image Section */}

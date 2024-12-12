@@ -51,14 +51,14 @@ function MapSection() {
           </p>
         </div>
       </div>
-      <div className="row ">
-        <div className="col-12 col-md-7">
+      <div className="row">
+        <div className="col-12 col-md-7" data-aos="fade-right">
           <SvgMap
             activeRegion={activeRegion}
             setActiveRegion={setActiveRegion}
           />
         </div>
-        <div className="col-12 col-md-5">
+        <div className="col-12 col-md-5" data-aos="fade-left">
           <MapSlider sliders={activeRegionInts?.region_organizations} />
         </div>
       </div>

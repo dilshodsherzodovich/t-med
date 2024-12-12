@@ -3,7 +3,11 @@ import SectionHeading from "../SectionHeading";
 const History = ({ data }) => {
   return (
     <>
-      <div className="container mt-4" style={{ marginBottom: "5rem" }}>
+      <div
+        className="container mt-4"
+        style={{ marginBottom: "5rem" }}
+        data-aos="fade-up"
+      >
         <SectionHeading
           SectionSubtitle={data?.sectionSubtitle}
           SectionTitle={data?.sectionTitle}

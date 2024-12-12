@@ -11,8 +11,10 @@ const PageHeading = ({ data, secondaryData }) => {
   }, []);
   return (
     <div className="container">
-      <h1 className="cs_page_title">{data?.title}</h1>
-      <ol className="breadcrumb text-capitalize">
+      <h1 className="cs_page_title" data-aos="fade-up">
+        {data?.title}
+      </h1>
+      <ol className="breadcrumb text-capitalize" data-aos="fade-right">
         <li className="breadcrumb-item">
           <Link to="/">Asosiy</Link>
         </li>
