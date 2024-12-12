@@ -3,14 +3,14 @@ const DepartmentManager = ({ data }) => {
     <div className="container">
       <div className="cs_doctor_details_wrapper">
         <div className="row cs_row_gap_30 cs_gap_y_30 align-items-start">
-          <div className="col-lg-5">
+          <div className="col-lg-4">
             <div className="cs_doctor_details_thumbnail position-relative">
-              <img src={data.image} alt="Doctor Image" />
+              <img src={data.image} alt="Bo'lim rahbari" />
               <div className="cs_doctor_thumbnail_shape1 position-absolute cs_blue_bg" />
               <div className="cs_doctor_thumbnail_shape2 position-absolute cs_accent_bg" />
             </div>
           </div>
-          <div className="col-lg-7">
+          <div className="col-lg-8">
             <div className="cs_doctor_details">
               <div className="cs_doctor_info_header">
                 <h3 className="cs_doctor_title">{data.name}</h3>
