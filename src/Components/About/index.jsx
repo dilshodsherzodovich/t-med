@@ -22,7 +22,7 @@ const About = ({ data }) => {
     <>
       <div className="container">
         <div className="row align-items-center cs_gap_y_40">
-          <div className="col-lg-6">
+          <div className="col-lg-6" data-aos="fade-right">
             <div className="cs_about_thumb">
               <div className="cs_about_thumb_1">
                 <img src={data.headImgUrl} alt="" />

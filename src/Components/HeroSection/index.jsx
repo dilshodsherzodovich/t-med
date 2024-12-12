@@ -52,7 +52,11 @@ const HeroSection = ({ data }) => {
                 >
                   <div className="container">
                     <div className="cs_hero_text">
-                      <div className="cs_hero_text_in">
+                      <div
+                        className="cs_hero_text_in"
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                      >
                         <h1
                           className="cs_hero_title"
                           dangerouslySetInnerHTML={{ __html: items.title }}

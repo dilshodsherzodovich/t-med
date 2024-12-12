@@ -4,10 +4,10 @@ import Button from "../Buttons";
 const CtaSection = ({ data = {} }) => {
   return (
     <>
-      <div className="container">
+      <div className="container" data-aos="fade-up" data-aos-duration="1000">
         <div className="cs_cta_in">
           <div className="cs_cta_left">
-            <div className="cs_cta_thumb" data-aos="fade-right">
+            <div className="cs_cta_thumb">
               <img src={data?.imageUrl} alt="" />
             </div>
             <div className="cs_cta_info">

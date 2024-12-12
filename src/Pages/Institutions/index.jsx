@@ -3,15 +3,19 @@ import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
 import InstitutionsList from "../../Components/Institutions/InstitutionsList";
 import Pagination from "../../Components/Pagination";
-import { useQuery } from "@tanstack/react-query";
+import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { useSearchParams } from "react-router-dom";
 
-const headingData = {
-  title: "Muassasalar",
-};
-
 function Institutions() {
+  const queryClient = useQueryClient();
+
+  const institutionCategories = queryClient.getQueryData([
+    "institutionCategories",
+  ]);
+
+  console.log(institutionCategories);
+
   const [page, setPage] = useState(1);
 
   const [searchParams] = useSearchParams();
@@ -54,6 +58,12 @@ function Institutions() {
         : [],
     };
   });
+
+  const headingData = useMemo(() => {
+    return {
+      title: searchParams.get("name"),
+    };
+  }, [allInstitutions, searchParams]);
 
   const handlePageChange = (e) => {
     setPage(+e.selected + 1);
