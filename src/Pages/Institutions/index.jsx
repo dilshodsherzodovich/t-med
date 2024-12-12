@@ -39,7 +39,7 @@ function Institutions() {
 
   const institutions = useMemo(() => {
     return {
-      sectionSubtitle: "Muassasalar",
+      sectionSubtitle: searchParams.get("name"),
       institutions: allInstitutions?.results?.length
         ? allInstitutions?.results?.map((item) => {
             return {
