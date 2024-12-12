@@ -45,11 +45,11 @@ function Departments() {
             secTitle: "Email manzili",
             secSubtitle: detail?.director?.email,
           },
-          {
-            icon: <FaReceipt width={28} height={28} />,
-            title: "Qabul kunlari",
-            subtitle: detail?.director?.reception_days,
-          },
+          // {
+          //   icon: <FaReceipt width={28} height={28} />,
+          //   title: "Qabul kunlari",
+          //   subtitle: detail?.director?.reception_days,
+          // },
         ],
       },
     };

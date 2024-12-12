@@ -36,8 +36,8 @@ const AboutPage = () => {
   const historyData = useMemo(() => {
     if (!about?.results?.length) return;
     return {
-      sectionSubtitle: "Bizning tarixmiz",
-      sectionTitle: `"O'zbekiston temir yo'llari" AJ Sog'liqni saqlash xizmati tarixi`,
+      sectionSubtitle: "Biz haqimizda",
+      sectionTitle: `O'zbekiston Temir yo'llari "Temiryo'l ijtimoiy xizmatlar" muassasasi haqida`,
       description: about?.results[0]?.description,
     };
   }, [about]);
@@ -48,7 +48,7 @@ const AboutPage = () => {
         className={"cs_page_heading cs_bg_filed cs_center"}
         backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
       >
-        <PageHeading data={headingData} />
+        <PageHeading data={headingData} secondaryData={"Biz haqimizda"} />
       </Section>
       {/* Start About Section */}
       <History data={historyData} />
