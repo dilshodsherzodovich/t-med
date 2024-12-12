@@ -4166,23 +4166,6 @@ i {
     visibility: visible;
     pointer-events: auto;
   }
-  .cs_nav .cs_nav_list > li.menu-item-has-children > a {
-    position: relative;
-  }
-  .cs_nav .cs_nav_list > li.menu-item-has-children > a::after {
-    content: "";
-    display: inline-block;
-    height: 6px;
-    width: 6px;
-    border: 2px solid currentColor;
-    transform: rotate(45deg);
-    border-left: 0;
-    border-top: 0;
-    margin-left: 6px;
-    position: relative;
-    top: -1px;
-    border-radius: 0px 0px 2px 0px;
-  }
   .cs_nav .cs_nav_list li:not(.cs_mega_menu) {
     position: relative;
   }
@@ -4216,6 +4199,9 @@ i {
   .cs_nav .cs_nav_list ul ul {
     top: 15px;
     left: 100%;
+  }
+  .cs_nav .cs_nav_list ul ul.double-subItem {
+    left: calc(100% + 5px);
   }
   .cs_nav + .cs_toolbox {
     margin-left: 40px;

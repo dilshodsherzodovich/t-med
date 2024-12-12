@@ -9,12 +9,12 @@ import {
 } from "react-icons/fa";
 import { FaAnglesRight, FaLocationDot, FaYoutube } from "react-icons/fa6";
 import { TbView360Number } from "react-icons/tb";
-import roundicon from '/assets/img/icons/360-degrees.png'
+import roundicon from "/assets/img/icons/360-degrees.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useHttp } from "../../hooks/useHttp";
 
 const Header = ({ isTopBar, variant }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [openMobileSubmenuIndex, setOpenMobileSubmenuIndex] = useState([]);
@@ -59,32 +59,33 @@ const Header = ({ isTopBar, variant }) => {
         subItems: [
           { label: "Muassasa haqida", href: "/about" },
           { label: "Rahbariyat", href: "/management" },
+          {
+            label: "Bo'limlar",
+            href: "",
+            subItems: departments?.results?.length
+              ? departments?.results?.map((item) => ({
+                  label: item?.name,
+                  href: `/departments/${item?.id}`,
+                }))
+              : [],
+          },
+          {
+            label: "Muassasalar",
+            href: "",
+            subItems: institutionCategories?.results?.length
+              ? institutionCategories?.results?.map((item) => ({
+                  label: item?.name,
+                  href: `/institutions?category=${item?.id}`,
+                }))
+              : [],
+          },
         ],
-      },
-      {
-        label: "Bo'limlar",
-        href: "",
-        subItems: departments?.results?.length
-          ? departments?.results?.map((item) => ({
-              label: item?.name,
-              href: `/departments/${item?.id}`,
-            }))
-          : [],
       },
       {
         label: "Xizmatlar",
         href: "/service",
       },
-      {
-        label: "Muassasalar",
-        href: "/institutions?category=bolnitsa",
-        subItems: institutionCategories?.results?.length
-          ? institutionCategories?.results?.map((item) => ({
-              label: item?.name,
-              href: `/institutions?category=${item?.id}`,
-            }))
-          : [],
-      },
+
       {
         label: "Yangiliklar",
         href: "/blog",
@@ -160,7 +161,17 @@ const Header = ({ isTopBar, variant }) => {
                 </div>
                 <div className="cs_top_header_right">
                   <div className="cs_social_btns cs_style_1">
-                    <img src={roundicon} style={{width: 30, height: 30, marginRight: 10, cursor: 'pointer'}} alt="" onClick={() => navigate('/virtour')} />
+                    <img
+                      src={roundicon}
+                      style={{
+                        width: 30,
+                        height: 30,
+                        marginRight: 10,
+                        cursor: "pointer",
+                      }}
+                      alt=""
+                      onClick={() => navigate("/virtour")}
+                    />
                     <Link
                       to="https://www.facebook.com/nsurailways"
                       className="cs_center"
@@ -252,6 +263,35 @@ const Header = ({ isTopBar, variant }) => {
                                 >
                                   {subItem.label}
                                 </Link>
+                                {subItem.subItems && (
+                                  <ul
+                                    style={{
+                                      display: openMobileSubmenuIndex.includes(
+                                        index
+                                      )
+                                        ? "block"
+                                        : "none",
+                                    }}
+                                    className="double-subItem"
+                                  >
+                                    {subItem.subItems.map(
+                                      (subItem, subIndex) => (
+                                        <li key={subIndex}>
+                                          <Link
+                                            to={subItem.href}
+                                            onClick={() =>
+                                              setIsShowMobileMenu(
+                                                !isShowMobileMenu
+                                              )
+                                            }
+                                          >
+                                            {subItem.label}
+                                          </Link>
+                                        </li>
+                                      )
+                                    )}
+                                  </ul>
+                                )}
                               </li>
                             ))}
                           </ul>

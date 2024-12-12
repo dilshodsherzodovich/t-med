@@ -1,0 +1,76 @@
+g.active path {
+  fill: #057094;
+}
+g path {
+  cursor: pointer;
+}
+g path:hover {
+  fill: rgba(11, 240, 255, 0.3);
+}
+
+.profile-carousel {
+  max-width: 450px;
+  margin: 0 auto;
+}
+.profile-carousel .carousel-control-prev,
+.profile-carousel .carousel-control-next {
+  width: auto;
+  color: #fff;
+  opacity: 1;
+}
+.profile-carousel .carousel-control-prev:hover,
+.profile-carousel .carousel-control-next:hover {
+  color: #ccc;
+}
+.profile-carousel .card {
+  background-color: #0a1e5c;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+}
+.profile-carousel .card .card-header {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+.profile-carousel .card .card-header .card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.profile-carousel .card .card-body {
+  padding: 1.5rem;
+}
+.profile-carousel .profile-info {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.profile-carousel .profile-info .profile-image {
+  width: 100px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem;
+}
+.profile-carousel .profile-info .profile-details-map .profile-name {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #fff;
+}
+.profile-carousel .profile-info .profile-details-map .profile-title {
+  font-size: 0.875rem;
+  color: #ccc;
+  margin-bottom: 0;
+}
+.profile-carousel .contact-info .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+.profile-carousel .contact-info .contact-item i {
+  font-size: 1rem;
+}/*# sourceMappingURL=map.css.map */
