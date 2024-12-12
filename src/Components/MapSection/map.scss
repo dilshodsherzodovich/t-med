@@ -3,13 +3,13 @@
 g {
   &.active {
     path {
-      fill: red;
+      fill: #057094;
     }
   }
   path {
     cursor: pointer;
     &:hover {
-      fill: red;
+      fill: rgba(11, 240, 255, 0.3);
     }
   }
 }

@@ -3,11 +3,14 @@ import SvgMap from "../SvgMap";
 import "./map.scss";
 import MapSlider from "./MapSlider";
 import { useHttp } from "../../hooks/useHttp";
+import { useMemo, useState } from "react";
 
 function MapSection() {
   const sendRequest = useHttp();
 
-  const { data: organizations } = useQuery({
+  const [activeRegion, setActiveRegion] = useState(null);
+
+  const { data: organizationRegions } = useQuery({
     queryKey: ["organizations-regions"],
     queryFn: () => sendRequest({ url: `/reception/organization-by-region//` }),
     staleTime: 1000,
@@ -15,7 +18,25 @@ function MapSection() {
     retry: false,
   });
 
-  console.log(organizations);
+  const activeRegionId = useMemo(() => {
+    return organizationRegions?.results?.find((item) => {
+      return item?.name === activeRegion;
+    })?.id;
+  }, [activeRegion, organizationRegions]);
+
+  console.log(activeRegion, activeRegionId);
+
+  const { data: activeRegionInts, isLoading } = useQuery({
+    queryKey: ["activeRegionInts", activeRegionId],
+    queryFn: () =>
+      sendRequest({
+        url: `/reception/organization-by-region//${activeRegionId}/`,
+      }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+    enabled: activeRegionId !== null && activeRegionId !== undefined,
+  });
 
   return (
     <div className="uzb-map container">
@@ -32,10 +53,13 @@ function MapSection() {
       </div>
       <div className="row ">
         <div className="col-12 col-md-7">
-          <SvgMap />
+          <SvgMap
+            activeRegion={activeRegion}
+            setActiveRegion={setActiveRegion}
+          />
         </div>
         <div className="col-12 col-md-5">
-          <MapSlider />
+          <MapSlider sliders={activeRegionInts?.region_organizations} />
         </div>
       </div>
     </div>

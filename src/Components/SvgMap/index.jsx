@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-function SvgMap() {
-  const [activeRegion, setActiveRegion] = useState(null);
-
+function SvgMap({ activeRegion, setActiveRegion }) {
   const handleClick = (e) => {
     setActiveRegion(e.target.parentNode.id);
   };
@@ -228,8 +226,8 @@ function SvgMap() {
         </g>
         <g
           onClick={handleClick}
-          className={activeRegion === "Surxandaryo" ? "active" : ""}
-          id="Surxandaryo"
+          className={activeRegion === "Surxondaryo" ? "active" : ""}
+          id="Surxondaryo"
         >
           <mask
             id="path-8-outside-7"

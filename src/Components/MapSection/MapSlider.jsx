@@ -14,42 +14,42 @@ const profiles = [
   // Add more profiles as needed
 ];
 
-const MapSlider = () => {
+const MapSlider = ({ sliders }) => {
   return (
     <div className="profile-carousel">
       <Carousel indicators={false}>
-        {profiles.map((profile) => (
-          <Carousel.Item key={profile.id}>
+        {sliders?.map((profile) => (
+          <Carousel.Item key={profile?.id}>
             <div className="card">
               <div className="card-header">
-                <h2 className="card-title">
-                  {`Andijon tajriba-ko'rgazma maydoni`}
-                </h2>
+                <h2 className="card-title">{profile?.title}</h2>
               </div>
               <div className="card-body">
                 <div className="profile-info">
                   <img
-                    src={profile.image}
-                    alt={profile.name}
+                    src="https://innovation.gov.uz/media/CACHE/images/staff_images/Yakubov_Abdulaziz/12ed13de2eca29ed9458d2663beeff6e.JPG"
+                    alt={profile?.director?.fio}
                     className="profile-image"
                   />
                   <div className="profile-details-map">
-                    <h3 className="profile-name">{profile.name}</h3>
-                    <p className="profile-title">{profile.title}</p>
+                    <h3 className="profile-name">{profile?.director?.fio}</h3>
+                    <p className="profile-title">
+                      {profile?.director?.specialist}
+                    </p>
                   </div>
                 </div>
                 <div className="contact-info">
                   <div className="contact-item">
                     <i className="bi bi-telephone"></i>
-                    <span>{profile.phone}</span>
+                    <span>{profile?.director?.reception_number}</span>
                   </div>
                   <div className="contact-item">
                     <i className="bi bi-envelope"></i>
-                    <span>{profile.email}</span>
+                    <span>{profile?.director?.email}</span>
                   </div>
                   <div className="contact-item">
                     <i className="bi bi-geo-alt"></i>
-                    <span>{profile.location}</span>
+                    <span>{profile?.address}</span>
                   </div>
                 </div>
               </div>
