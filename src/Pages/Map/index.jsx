@@ -92,7 +92,7 @@ const CesiumGlobe = () => {
 
       const loadGeoJson = async () => {
         try {
-          const resource = await Cesium.IonResource.fromAssetId(2921255);
+          const resource = await Cesium.IonResource.fromAssetId(2922717);
           const dataSource = await Cesium.GeoJsonDataSource.load(resource);
           await viewer.current.dataSources.add(dataSource);
 
@@ -101,8 +101,8 @@ const CesiumGlobe = () => {
             duration: 5, // Animation duration in seconds
             offset: new Cesium.HeadingPitchRange(
               Cesium.Math.toRadians(0),
-              Cesium.Math.toRadians(-45), // Adjust pitch for a better view
-              1000 // Adjust distance for zoom
+              Cesium.Math.toRadians(-70), // Adjust pitch for a better view
+              700 // Adjust distance for zoom
             ),
           });
         } catch (error) {

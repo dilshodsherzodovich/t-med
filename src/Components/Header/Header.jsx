@@ -91,6 +91,10 @@ const Header = ({ isTopBar, variant }) => {
         href: "/blog",
       },
       {
+        label: "E-map",
+        href: "/gmap",
+      },
+      {
         label: "Qonunchilik bazasi",
         href: "/docs",
         subItems: allDocs?.results?.length
@@ -99,6 +103,10 @@ const Header = ({ isTopBar, variant }) => {
               href: `/docs?type=${item?.id}`,
             }))
           : [],
+      },
+      {
+        label: "E-map",
+        href: "/gmap",
       },
     ],
     btnUrl: "/contact",
@@ -320,40 +328,16 @@ const Header = ({ isTopBar, variant }) => {
                     <span></span>
                   </span>
                 </div>
-                {/* <div className="cs_search_wrap">
-                  <div
-                    className="cs_search_toggle cs_center"
-                    onClick={() => setIsSearchActive(!isSearchActive)}
-                  >
-                    <i>
-                      <HiMiniMagnifyingGlass />
-                    </i>
-                  </div>
-                  <form
-                    action="#"
-                    className={`cs_header_search_form ${
-                      isSearchActive ? "active" : ""
-                    }`}
-                  >
-                    <div className="cs_header_search_form_in">
-                      <input
-                        type="text"
-                        placeholder="Search"
-                        className="cs_header_search_field"
-                      />
-                      <button className="cs_header_submit_btn">
-                        <i>
-                          <HiMiniMagnifyingGlass />
-                        </i>
-                      </button>
-                    </div>
-                  </form>
-                </div> */}
+
                 <Link to={menu.btnUrl} className="cs_btn cs_style_1 cs_color_1">
                   <span>{menu.btnText}</span>
                   <i>
                     <FaAnglesRight />
                   </i>
+                </Link>
+
+                <Link to="gmap" className="cs_btn cs_style_1 cs_color_1">
+                  <span>E-Map</span>
                 </Link>
               </div>
             </div>
