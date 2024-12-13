@@ -2768,6 +2768,12 @@ label {
   bottom: 10%;
 }
 
+.react-stars {
+  transform: scale(3);
+  margin-left: 65px;
+  margin-top: 20px;
+}
+
 .cs_about_iconbox {
   border-top: 1px solid var(--border-color);
   margin-top: 30px;
@@ -7214,9 +7220,11 @@ i {
 }
 .cs_doctor_details_thumbnail img {
   width: 100%;
-  height: 100%;
+  height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 .cs_doctor_details_thumbnail .cs_doctor_thumbnail_shape1,
 .cs_doctor_details_thumbnail .cs_doctor_thumbnail_shape2 {
