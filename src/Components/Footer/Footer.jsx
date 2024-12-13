@@ -57,7 +57,7 @@ const Footer = () => {
         title: "The Medical Of This Working Health",
       },
     ],
-    copyrightText: `Copyright © ${new Date().getFullYear()} "O'zbekiston Temir yo'llari AJ", Barcha huqular himoyalangan.`,
+    copyrightText: `Copyright © ${new Date().getFullYear()} "O'zbekiston Temir yo'llari" AJ, Barcha huqular himoyalangan.`,
   };
 
   return (
