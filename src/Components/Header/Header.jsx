@@ -108,6 +108,11 @@ const Header = ({ isTopBar, variant }) => {
         label: "E-map",
         href: "/gmap",
       },
+      {
+        label: "Xodimlar uchun",
+        href: "https://nsu-admin-211q.vercel.app/login",
+        target: "_blank",
+      },
     ],
     btnUrl: "/contact",
     btnText: "Aloqa",
@@ -250,6 +255,7 @@ const Header = ({ isTopBar, variant }) => {
                         <Link
                           to={item.href}
                           onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
+                          target={item?.target}
                         >
                           {item.label}
                         </Link>
