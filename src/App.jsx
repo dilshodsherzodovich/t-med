@@ -21,6 +21,7 @@ import Departments from "./Pages/Departments";
 import Institutions from "./Pages/Institutions";
 import InstitutionDetail from "./Pages/InstitutionDetail/InstitutionDetail";
 import Virtour from "./Pages/Virtour";
+import Map from "./Pages/Map";
 
 function App() {
   Aos.init({
@@ -60,7 +61,8 @@ function App() {
           <Route path="/institutions/:id" element={<InstitutionDetail />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route path='/virtour' element={<Virtour />} />
+        <Route path="/gmap" element={<Map />} />
+        <Route path="/virtour" element={<Virtour />} />
       </Routes>
       <ScrollUpButton />
     </>
