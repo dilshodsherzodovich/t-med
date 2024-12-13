@@ -3146,11 +3146,23 @@ label {
 .cs_page_heading {
   height: 610px;
   padding: 130px 0 50px;
+  position: relative;
 }
 @media (max-width: 991px) {
   .cs_page_heading {
     height: 420px;
   }
+}
+.cs_page_heading .overflow {
+  width: 100% !important;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 130px 0 50px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
 }
 .cs_page_heading .breadcrumb {
   font-size: 19px;

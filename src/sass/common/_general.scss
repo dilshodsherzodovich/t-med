@@ -255,7 +255,7 @@ label {
 
   &:before,
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     top: 50%;
@@ -499,7 +499,7 @@ label {
   bottom: 0;
 
   &::after {
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     background-color: var(--blue-color);
@@ -701,8 +701,8 @@ label {
   }
 
   &::before {
-    content: '\f005\f005\f005\f005\f005';
-    font-family: 'Font Awesome 6 Free';
+    content: "\f005\f005\f005\f005\f005";
+    font-family: "Font Awesome 6 Free";
     position: absolute;
     top: 0;
     left: 0;
@@ -784,7 +784,7 @@ label {
     background-color: currentColor;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       height: 15px;
       width: 5px;
@@ -879,7 +879,7 @@ label {
     padding-right: 26%;
 
     &::before {
-      content: '';
+      content: "";
       height: 160px;
       width: 160px;
       position: absolute;
@@ -939,7 +939,7 @@ label {
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       width: 1px;
       height: 0%;
       background-color: var(--accent-color);
@@ -1162,7 +1162,7 @@ label {
 
       &::before,
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 50%;
         top: 50%;
@@ -1262,7 +1262,7 @@ label {
       transition: all 0.4s ease;
 
       &::before {
-        content: '';
+        content: "";
         height: 1px;
         width: 100%;
         position: absolute;
@@ -1296,7 +1296,7 @@ label {
   gap: 12px;
 
   &::before {
-    content: '';
+    content: "";
     height: 1px;
     width: 47px;
     background-color: var(--accent-color);
@@ -1314,7 +1314,6 @@ label {
     flex: none;
     margin-top: 6px;
   }
-  
 
   .cs_about_iconbox_subtitle {
     max-width: 450px;
@@ -1474,7 +1473,7 @@ label {
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     width: 100%;
     height: 220px;
     background-color: var(--blue-color);
@@ -1517,10 +1516,10 @@ label {
       }
 
       &::after {
-        content: '';
+        content: "";
         width: 40px;
         height: 40px;
-        background-image: url('/assets/img/icons/arrow_icon.png');
+        background-image: url("/assets/img/icons/arrow_icon.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -1643,7 +1642,7 @@ label {
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     height: 44px;
     width: 44px;
@@ -1655,7 +1654,7 @@ label {
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     height: 59px;
     width: 59px;
@@ -1689,8 +1688,21 @@ label {
 .cs_page_heading {
   height: 610px;
   padding: 130px 0 50px;
+  position: relative;
+
   @media (max-width: 991px) {
     height: 420px;
+  }
+  .overflow {
+    width: 100% !important;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 130px 0 50px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.75);
   }
 
   .breadcrumb {
