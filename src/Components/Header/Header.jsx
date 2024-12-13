@@ -335,10 +335,6 @@ const Header = ({ isTopBar, variant }) => {
                     <FaAnglesRight />
                   </i>
                 </Link>
-
-                <Link to="gmap" className="cs_btn cs_style_1 cs_color_1">
-                  <span>E-Map</span>
-                </Link>
               </div>
             </div>
           </div>
