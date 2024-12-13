@@ -70,6 +70,18 @@ function SingleInstitution({ data }) {
         <h3 className="cs_service_heading">Muassasa rahbari:</h3>
         <DepartmentManager data={data?.managers} />
 
+        <iframe
+          class="ku-embed"
+          frameborder="0"
+          allow="xr-spatial-tracking; gyroscope; accelerometer"
+          allowfullscreen
+          scrolling="no"
+          src="https://kuula.co/share/collection/7ZjhB?logo=-1&info=0&fs=1&vr=0&sd=1&initload=1&thumbs=3&inst=0&keys=0"
+          width="100%"
+          // height='100vh'
+          style={{ height: "80vh" }}
+        ></iframe>
+
         <div className="cs_comment_section mt-5" data-aos="fade-up">
           <h3 className="cs_service_heading">Tashkilot haqida fikringiz</h3>
           <form action="" onSubmit={handleSubmit} ref={formRef}>
