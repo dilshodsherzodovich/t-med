@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const BlogsRight = ({ data }) => {
   return (
     <>
-      <aside className="col-lg-4">
+      <aside className="col-lg-4" data-aos="fade-up" data-aos-delay="500">
         <div className="cs_height_0 cs_height_lg_50" />
         <div className="cs_sidebar cs_style_1">
           {/* Search */}

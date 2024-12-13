@@ -1,6 +1,6 @@
 const LocationMap = ({ mapSrc }) => {
   return (
-    <div className="cs_location_map">
+    <div className="cs_location_map" data-aos="fade-up">
       <iframe src={mapSrc} title="Google Map Location" />
     </div>
   );

@@ -20,7 +20,11 @@ const InstitutionsList = ({ data, loading }) => {
         ) : (
           <div className="cs_posts_grid cs_style_1">
             {data?.institutions.map((slide, index) => (
-              <div className="cs_slide d-flex h-auto" key={index}>
+              <div
+                className="cs_slide d-flex h-auto"
+                key={index}
+                data-aos="fade-up"
+              >
                 <div className="cs_iconbox cs_style_7 flex-grow-1">
                   <Link to={slide.detailsLink} className="cs_iconbox_thumbnail">
                     <img

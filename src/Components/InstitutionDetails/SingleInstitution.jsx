@@ -47,8 +47,10 @@ function SingleInstitution({ data }) {
 
   return (
     <div className="container">
-      <div className="cs_service_details">
-        <h3 className="cs_service_heading">Muassasa haqida:</h3>
+      <div className="cs_service_details" data-aos="fade-up">
+        <h3 className="cs_service_heading" data-aos="fade-up">
+          Muassasa haqida:
+        </h3>
         <p
           dangerouslySetInnerHTML={{ __html: data?.institutionDetails }}
           className="cs_service_subtitle"
@@ -68,7 +70,7 @@ function SingleInstitution({ data }) {
         <h3 className="cs_service_heading">Muassasa rahbari:</h3>
         <DepartmentManager data={data?.managers} />
 
-        <div className="cs_comment_section mt-5">
+        <div className="cs_comment_section mt-5" data-aos="fade-up">
           <h3 className="cs_service_heading">Tashkilot haqida fikringiz</h3>
           <form action="" onSubmit={handleSubmit} ref={formRef}>
             <textarea

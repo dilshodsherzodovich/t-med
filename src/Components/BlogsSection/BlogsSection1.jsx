@@ -21,7 +21,11 @@ const BlogsSection1 = ({ data, loading = false, blogs, categories = [] }) => {
           ) : (
             <div className="cs_posts_grid cs_style_1 col-12 col-lg-9">
               {blogs?.map((blog) => (
-                <article key={blog.id} className="cs_post cs_style_1">
+                <article
+                  key={blog.id}
+                  className="cs_post cs_style_1"
+                  data-aos="fade-up"
+                >
                   <Link
                     to={blog.link}
                     className="cs_post_thumbnail position-relative"
@@ -60,7 +64,11 @@ const BlogsSection1 = ({ data, loading = false, blogs, categories = [] }) => {
             </div>
           )}
 
-          <div className="col-12 col-lg-3">
+          <div
+            className="col-12 col-lg-3"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
             <div className="cs_sidebar_widget cs_radius_15 ">
               <h3 className="cs_sidebar_title">Kategoriyalar</h3>
               <ul className="cs_categories cs_mp0">

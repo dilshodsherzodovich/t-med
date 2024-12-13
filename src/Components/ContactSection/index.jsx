@@ -36,7 +36,7 @@ const ContactSection = ({ data, reverseOrder }) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="row cs_gap_y_30">
           {reverseOrder ? (
             <>
