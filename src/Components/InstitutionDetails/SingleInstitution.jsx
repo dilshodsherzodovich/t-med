@@ -1,19 +1,16 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { FaCheckCircle } from "react-icons/fa";
 import DepartmentManager from "../Departments/DepartmentManager";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import Quiz from "./Quiz";
-import { useHttp } from "../../hooks/useHttp";
 
 function SingleInstitution({ data, isLoading }) {
   const [rating, setRaiting] = useState(0);
   const formRef = useRef();
-
-  const sendRequest = useHttp();
 
   const { id } = useParams();
 
@@ -74,8 +71,8 @@ function SingleInstitution({ data, isLoading }) {
         <DepartmentManager data={data?.managers} />
         {id === 9 && (
           <iframe
-            class="ku-embed"
-            frameborder="0"
+            className="ku-embed"
+            frameBorder="0"
             allow="xr-spatial-tracking; gyroscope; accelerometer"
             allowfullscreen
             scrolling="no"
