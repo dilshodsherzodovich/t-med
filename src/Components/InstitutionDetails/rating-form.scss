@@ -1,0 +1,92 @@
+$primary-bg: #002261;
+$text-light: #ffffff;
+$accent-color: #60a5fa;
+$secondary-bg: #003399;
+
+.rating-form {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: $primary-bg;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: $text-light;
+
+  h2 {
+    color: $accent-color;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .star-rating {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+
+    .star {
+      color: #4b5563;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      margin: 0 0.2rem;
+
+      &.selected {
+        color: $accent-color;
+      }
+
+      &:hover {
+        color: lighten($accent-color, 20%);
+      }
+    }
+  }
+
+  label {
+    color: #b4d3ff;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: $text-light;
+    font-size: 1rem;
+    padding: 0.75rem;
+
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.25);
+      border-color: $accent-color;
+    }
+
+    &::placeholder {
+      color: #8bacd9;
+    }
+  }
+
+  .btn-submit {
+    background-color: $accent-color;
+    border: none;
+    color: $primary-bg;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      transform: translateY(-1px);
+    }
+  }
+
+  .feedback-message {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    color: $accent-color;
+  }
+}

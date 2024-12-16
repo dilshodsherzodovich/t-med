@@ -14,7 +14,7 @@ function InstitutionDetail() {
 
   const { id } = useParams();
 
-  const { data: detail } = useQuery({
+  const { data: detail, isLoading } = useQuery({
     queryKey: ["institutions", id],
     queryFn: () =>
       sendRequest({
@@ -58,6 +58,7 @@ function InstitutionDetail() {
           },
         ],
       },
+      organization_questions: detail?.organization_questions,
     };
   }, [detail]);
 
@@ -79,7 +80,7 @@ function InstitutionDetail() {
         bottomSpaceLg="70"
         bottomSpaceMd="120"
       >
-        <SingleInstitution data={insDetails} />
+        <SingleInstitution data={insDetails} isLoading={isLoading} />
       </Section>
     </>
   );

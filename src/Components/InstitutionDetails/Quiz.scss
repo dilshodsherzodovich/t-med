@@ -1,0 +1,82 @@
+$primary-bg: #002261;
+$text-light: #ffffff;
+$accent-color: #60a5fa;
+$secondary-bg: #003399;
+
+.quiz-section {
+  max-width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: $primary-bg;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: $text-light;
+
+  h2 {
+    color: $accent-color;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .question-col {
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: #e6f3ff;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-check {
+    margin-bottom: 0.5rem;
+  }
+
+  .form-check-label {
+    color: #b4d3ff;
+  }
+
+  .form-check-input:checked {
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+
+  .btn-submit {
+    background-color: $accent-color;
+    border: none;
+    color: $primary-bg;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  .feedback {
+    display: flex;
+    justify-content: center;
+    .feedback-message {
+      margin-top: 1.5rem;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #e6f3ff; // Light blue-white for results
+      padding: 1rem;
+      background-color: $secondary-bg;
+      border-radius: 10px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

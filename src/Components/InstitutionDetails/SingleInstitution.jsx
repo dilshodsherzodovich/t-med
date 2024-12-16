@@ -4,12 +4,16 @@ import { FaCheckCircle } from "react-icons/fa";
 import DepartmentManager from "../Departments/DepartmentManager";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
+import Quiz from "./Quiz";
+import { useHttp } from "../../hooks/useHttp";
 
-function SingleInstitution({ data }) {
+function SingleInstitution({ data, isLoading }) {
   const [rating, setRaiting] = useState(0);
   const formRef = useRef();
+
+  const sendRequest = useHttp();
 
   const { id } = useParams();
 
@@ -66,10 +70,8 @@ function SingleInstitution({ data }) {
             <p className=" text-secondary fs-5 mb-0 mx-1">{data.workers}</p>
           </p>
         </div>
-
         <h3 className="cs_service_heading">Muassasa rahbari:</h3>
         <DepartmentManager data={data?.managers} />
-
         {id === 9 && (
           <iframe
             class="ku-embed"
@@ -83,7 +85,9 @@ function SingleInstitution({ data }) {
             style={{ height: "80vh" }}
           ></iframe>
         )}
-
+        <Quiz quizes={data?.organization_questions} isLoading={isLoading} />
+        {/* 
+        <RatingForm /> */}
         <div className="cs_comment_section mt-5" data-aos="fade-up">
           <h3 className="cs_service_heading">Tashkilot haqida fikringiz</h3>
           <form action="" onSubmit={handleSubmit} ref={formRef}>
