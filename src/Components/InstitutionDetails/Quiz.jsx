@@ -1,7 +1,6 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import "./quiz.scss";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { useHttp } from "../../hooks/useHttp";
+import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import LoadingSpinner from "../Loaders/LoadingSpinner";
 
@@ -24,7 +23,7 @@ const Quiz = ({ quizes, isLoading }) => {
 
   const postQuiz = async (data) => {
     const response = await axios.post(
-      "https://4322-84-54-84-39.ngrok-free.app/account/create-quiz/",
+      "https://nsuback.taskmanager.uz/account/create-quiz/",
       data
     );
     return response.data;
@@ -32,7 +31,7 @@ const Quiz = ({ quizes, isLoading }) => {
 
   const mutation = useMutation({
     mutationFn: postQuiz,
-    onSuccess: (data) => {
+    onSuccess: () => {
       // if (data?.id) {
       //   formRef.current.reset();
       //   setRaiting(0);
