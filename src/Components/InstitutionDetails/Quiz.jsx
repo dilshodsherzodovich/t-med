@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import LoadingSpinner from "../Loaders/LoadingSpinner";
-import "./quiz.scss";
+import "./Quiz.scss";
 
 const Quiz = ({ quizes, isLoading }) => {
   const [quizAnswers, setQuizAnswers] = useState(
