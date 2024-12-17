@@ -1,6 +1,7 @@
-import { useMemo, useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
 import LoadingSpinner from "../Loaders/LoadingSpinner";
 import "./Quiz.scss";
 
@@ -32,20 +33,13 @@ const Quiz = ({ quizes, isLoading }) => {
   const mutation = useMutation({
     mutationFn: postQuiz,
     onSuccess: () => {
-      // if (data?.id) {
-      //   formRef.current.reset();
-      //   setRaiting(0);
-      //   toast.success("Murojaatingiz muvaffaqiyatli yuborildi!", {
-      //     theme: "colored",
-      //   });
-      // }
       setQuizSubmitted(true);
       setTimeout(() => {
         setQuizSubmitted(false);
-      }, [3000]);
+      }, 3000);
     },
     onError: (error) => {
-      console.log(error);
+      console.error("Error submitting quiz:", error);
     },
   });
 
@@ -58,72 +52,72 @@ const Quiz = ({ quizes, isLoading }) => {
     mutation.mutate({ result_quizzes });
   };
 
+  if (isLoading) {
+    return (
+      <div className="quiz-section" data-aos="fade-up">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
   return (
     <div className="quiz-section" data-aos="fade-up">
       <h2>So'rovnoma</h2>
-      {isLoading ? (
-        <div className="quiz-section" data-aos="fade-up">
-          <LoadingSpinner />
-        </div>
-      ) : (
-        <form onSubmit={handleQuizSubmit}>
-          <div className="row">
-            {questions.map((question, index) => (
-              <div key={index} className="col-md-6 question-col">
-                <p>{question}</p>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    id={`1-${index}`}
-                    name={`question-${index}`}
-                    value="1"
-                    onChange={() => handleQuizAnswer(index, "1")}
-                    required
-                  />
-                  <label className="form-check-label" htmlFor={`1-${index}`}>
-                    Ha
+      <form onSubmit={handleQuizSubmit}>
+        <div className="quiz-grid">
+          {questions.map((question, index) => (
+            <div key={index} className="question-card">
+              <p>{question}</p>
+              <div className="options">
+                {["Ha", "Yo'q"].map((option, optionIndex) => (
+                  <label key={optionIndex} className="option">
+                    <input
+                      type="radio"
+                      name={`question-${index}`}
+                      value={String(optionIndex + 1)}
+                      onChange={() =>
+                        handleQuizAnswer(index, String(optionIndex + 1))
+                      }
+                      required={optionIndex === 0}
+                    />
+                    <span className="option-text">{option}</span>
                   </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    id={`2-${index}`}
-                    name={`question-${index}`}
-                    value="2"
-                    onChange={() => handleQuizAnswer(index, "2")}
-                  />
-                  <label className="form-check-label" htmlFor={`2-${index}`}>
-                    Yo'q
-                  </label>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="btn btn-submit"
-              disabled={mutation.isLoading}
-            >
-              {mutation.isPending ? (
-                <LoadingSpinner isMini />
-              ) : (
-                "Javoblarni jo'natish"
-              )}
-            </button>
-          </div>
-        </form>
-      )}
-
-      {quizSubmitted && (
-        <div className="feedback">
-          <div className="feedback-message">
-            <p>Javoblaringiz muvaffaqiyatli yuborildi. Rahmat !</p>
-          </div>
+            </div>
+          ))}
         </div>
-      )}
+        <div className="submit-container">
+          <motion.button
+            type="submit"
+            className="btn btn-submit"
+            disabled={mutation.isLoading}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {mutation.isPending ? (
+              <LoadingSpinner isMini />
+            ) : (
+              "Javoblarni jo'natish"
+            )}
+          </motion.button>
+        </div>
+      </form>
+
+      <AnimatePresence>
+        {quizSubmitted && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="feedback"
+          >
+            <div className="feedback-message">
+              <p>Javoblaringiz muvaffaqiyatli yuborildi. Rahmat!</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

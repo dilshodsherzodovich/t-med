@@ -1,59 +1,134 @@
-$primary-bg: #002261;
-$text-light: #ffffff;
-$accent-color: #60a5fa;
-$secondary-bg: #003399;
+$primary-bg: #1a1a2e;
+$secondary-bg: #16213e;
+$text-light: #2ea6f7;
+$accent-color: #0f3460;
+$option-bg: #1a1a2e;
+$option-hover-bg: #16213e;
 
 .quiz-section {
-  max-width: 100%;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 3rem;
   background-color: $primary-bg;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   color: $text-light;
 
   h2 {
-    color: $accent-color;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 2.5rem;
+    font-size: 3.2rem;
     font-weight: bold;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
-  .question-col {
-    margin-bottom: 1.5rem;
+  .quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
   }
 
-  p {
-    color: #e6f3ff;
-    margin-bottom: 0.5rem;
-  }
+  .question-card {
+    background-color: $secondary-bg;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 
-  .form-check {
-    margin-bottom: 0.5rem;
-  }
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
 
-  .form-check-label {
-    color: #b4d3ff;
-  }
+    p {
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
 
-  .form-check-input:checked {
-    background-color: $accent-color;
-    border-color: $accent-color;
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: $option-bg;
+      border-radius: 8px;
+      padding: 0.8rem 1.3rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid $accent-color;
+
+      &:hover {
+        background-color: $option-hover-bg;
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked + .option-text {
+          color: $text-light;
+          font-weight: 600;
+
+          &::before {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }
+
+      .option-text {
+        font-size: 1.2rem;
+        padding-left: 2.5rem;
+        position: relative;
+        transition: all 0.3s ease;
+        color: #ffffff;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          // top: 50%;
+          // transform: translateX(-50%, -5) scale(0);
+          width: 1.5rem;
+          height: 1.5rem;
+          background-color: $text-light;
+          border-radius: 50%;
+          transition: all 0.3s ease;
+          opacity: 0;
+        }
+      }
+    }
   }
 
   .btn-submit {
-    background-color: $accent-color;
+    background-color: $text-light;
     border: none;
-    color: $primary-bg;
-    padding: 0.75rem 2rem;
+    color: #ffffff;
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
     font-weight: 600;
+    border-radius: 8px;
     transition: all 0.3s ease;
-    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 
     &:hover {
-      background-color: darken($accent-color, 10%);
-      transform: translateY(-1px);
+      background-color: darken($text-light, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     &:disabled {
@@ -62,21 +137,10 @@ $secondary-bg: #003399;
     }
   }
 
-  .feedback {
-    display: flex;
-    justify-content: center;
-    .feedback-message {
-      margin-top: 1.5rem;
-      display: inline-block;
-      font-weight: bold;
-      font-size: 1rem;
-      color: #e6f3ff; // Light blue-white for results
-      padding: 1rem;
-      background-color: $secondary-bg;
-      border-radius: 10px;
-      p {
-        margin: 0;
-      }
-    }
+  .feedback-message {
+    background-color: $secondary-bg;
+    border-radius: 12px;
+    padding: 1.5rem 3rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 }

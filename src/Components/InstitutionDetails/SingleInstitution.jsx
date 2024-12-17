@@ -82,7 +82,11 @@ function SingleInstitution({ data, isLoading }) {
             style={{ height: "80vh" }}
           ></iframe>
         )}
-        <Quiz quizes={data?.organization_questions} isLoading={isLoading} />
+
+        {data?.organization_questions?.length > 0 && (
+          <Quiz quizes={data?.organization_questions} isLoading={isLoading} />
+        )}
+
         {/* 
         <RatingForm /> */}
         <div className="cs_comment_section mt-5" data-aos="fade-up">
