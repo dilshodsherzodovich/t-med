@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useRef, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { FaCheckCircle } from "react-icons/fa";

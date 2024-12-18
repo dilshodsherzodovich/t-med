@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
 import { FaPhone, FaReceipt } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { useHttp } from "../../hooks/useHttp";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { FaLocationPin } from "react-icons/fa6";
+import OrganizationDetails from "./OrganizationDetails";
 
 function InstitutionDetail() {
   const sendRequest = useHttp();
@@ -61,6 +62,22 @@ function InstitutionDetail() {
       organization_questions: detail?.organization_questions,
     };
   }, [detail]);
+  const organizationData = {
+    name: "TechCorp International",
+    address: "123 Tech Street, Silicon Valley, CA 94000",
+    numberOfWorkers: 500,
+    description:
+      "TechCorp International is a leading technology company specializing in innovative software solutions and cutting-edge hardware development.",
+    ceo: {
+      fullName: "Jane Doe",
+      position: "Chief Executive Officer",
+      biography:
+        "Jane Doe is a visionary leader with over 20 years of experience in the tech industry. She has led TechCorp to become a Fortune 500 company and a pioneer in AI and machine learning technologies.",
+      phone: "+1 (555) 123-4567",
+      email: "jane.doe@techcorp.com",
+      receptionDays: "Monday and Wednesday, 2 PM - 4 PM",
+    },
+  };
 
   return (
     <>
@@ -80,7 +97,8 @@ function InstitutionDetail() {
         bottomSpaceLg="70"
         bottomSpaceMd="120"
       >
-        <SingleInstitution data={insDetails} isLoading={isLoading} />
+        {/* <SingleInstitution data={insDetails} isLoading={isLoading} /> */}
+        <OrganizationDetails organization={organizationData} />
       </Section>
     </>
   );
