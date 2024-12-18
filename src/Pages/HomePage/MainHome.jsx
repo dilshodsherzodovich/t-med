@@ -19,7 +19,7 @@ import { useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
-import DesktopHome from "./DesktopHome.jsx";
+import DesktopHome from "./DeskTopHome.jsx";
 
 const heroData = {
   primarySlider: [
