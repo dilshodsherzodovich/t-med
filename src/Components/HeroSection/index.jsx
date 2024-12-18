@@ -35,7 +35,10 @@ const HeroSection = ({ data }) => {
 
   return (
     <>
-      <section className="position-relative">
+      <section
+        className="position-relative section"
+        style={{ maxHeight: "calc(100vh-150px)" }}
+      >
         <div className="cs_hero_slider_thumb slick-slider">
           <Slider
             {...settings}
@@ -52,11 +55,7 @@ const HeroSection = ({ data }) => {
                 >
                   <div className="container">
                     <div className="cs_hero_text">
-                      <div
-                        className="cs_hero_text_in"
-                        data-aos="fade-up"
-                        data-aos-duration="1000"
-                      >
+                      <div className="cs_hero_text_in">
                         <h1
                           className="cs_hero_title"
                           dangerouslySetInnerHTML={{ __html: items.title }}
@@ -102,22 +101,6 @@ const HeroSection = ({ data }) => {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-        <div className="cs_hero_slider_nav slick-slider">
-          <Slider
-            asNavFor={nav1}
-            ref={(slider) => (sliderRef2 = slider)}
-            slidesToShow={3}
-            swipeToSlide={true}
-            focusOnSelect={true}
-            {...settings2}
-          >
-            {data?.secondarySlider?.map((items, index) => (
-              <div className="cs_hero_slider_thumb_mini" key={index}>
-                <img src={items} alt="" />
               </div>
             ))}
           </Slider>

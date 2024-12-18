@@ -44,10 +44,7 @@ const BlogSection = ({ data }) => {
         />
 
         <div className="cs_height_50 cs_height_lg_50" />
-        <div
-          className="cs_slider cs_style_1 cs_slider_gap_24"
-          data-aos="fade-up"
-        >
+        <div className="cs_slider cs_style_1 cs_slider_gap_24">
           <div className="cs_slider_container">
             <div className="cs_slider_wrapper">
               <Slider {...settings}>

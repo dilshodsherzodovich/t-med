@@ -42,23 +42,20 @@ function MapSection() {
     <div className="uzb-map container">
       <div className="cs_section_heading cs_style_1 cs_type_1 mb-2">
         <div className="cs_section_heading_left">
-          <p
-            className="cs_section_subtitle cs_accent_color"
-            data-aos="fade-left"
-          >
+          <p className="cs_section_subtitle cs_accent_color">
             <span className="cs_shape_left" />
             Muassasalar
           </p>
         </div>
       </div>
       <div className="row">
-        <div className="col-12 col-md-7" data-aos="fade-right">
+        <div className="col-12 col-md-7">
           <SvgMap
             activeRegion={activeRegion}
             setActiveRegion={setActiveRegion}
           />
         </div>
-        <div className="col-12 col-md-5" data-aos="fade-left">
+        <div className="col-12 col-md-5">
           <MapSlider sliders={activeRegionInts?.region_organizations} />
         </div>
       </div>

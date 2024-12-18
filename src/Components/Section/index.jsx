@@ -13,7 +13,7 @@ export default function Section({
 }) {
   return (
     <section
-      className={`${className ? className : ""}`}
+      className={`${className ? className : ""} section`}
       id={id}
       {...props}
       style={

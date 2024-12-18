@@ -43,13 +43,10 @@ const ContactSection2 = () => {
         <div className="row cs_gap_y_40">
           <div className="col-lg-6">
             <div className="cs_section_heading cs_style_1">
-              <p
-                className="cs_section_subtitle cs_accent_color"
-                data-aos="fade-right"
-              >
+              <p className="cs_section_subtitle cs_accent_color">
                 <span className="cs_shape_left"></span>Bog'lanish
               </p>
-              <h2 className="cs_section_title" data-aos="fade-up">
+              <h2 className="cs_section_title">
                 Sizni qiziqtirgan savollaringizni yozib qoldiring
               </h2>
             </div>
@@ -58,7 +55,6 @@ const ContactSection2 = () => {
               ref={formRef}
               onSubmit={handleSubmit}
               className="cs_contact_form row cs_gap_y_30 home_form_area"
-              data-aos="fade-up"
             >
               <div className="col-md-6">
                 <input

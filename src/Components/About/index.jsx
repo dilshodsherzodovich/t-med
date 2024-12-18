@@ -22,7 +22,7 @@ const About = ({ data }) => {
     <>
       <div className="container">
         <div className="row align-items-center cs_gap_y_40">
-          <div className="col-lg-6" data-aos="fade-right">
+          <div className="col-lg-6">
             <div className="cs_about_thumb">
               <div className="cs_about_thumb_1">
                 <img src={data.headImgUrl} alt="" />
@@ -46,7 +46,7 @@ const About = ({ data }) => {
                   className="cs_about_thumb_shape_2"
                 />
               </div>
-              <div className="cs_experience_box cs_center" data-aos="zoom-in">
+              <div className="cs_experience_box cs_center">
                 <p className="cs_experience_box_number">
                   {data.experienceYears}
                 </p>
@@ -56,7 +56,7 @@ const About = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className="col-lg-6" data-aos="fade-left">
+          <div className="col-lg-6">
             <div className="cs_about_content">
               <SectionHeading
                 SectionSubtitle={data.sectionSubtitle}

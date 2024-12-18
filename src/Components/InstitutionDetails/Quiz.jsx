@@ -4,12 +4,15 @@ import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import LoadingSpinner from "../Loaders/LoadingSpinner";
 import "./Quiz.scss";
+import { useSearchParams } from "react-router-dom";
 
 const Quiz = ({ quizes, isLoading }) => {
   const [quizAnswers, setQuizAnswers] = useState(
     new Array(quizes?.length).fill(null)
   );
   const [quizSubmitted, setQuizSubmitted] = useState(false);
+
+  const [searchParams] = useSearchParams();
 
   const questions = useMemo(() => {
     if (!quizes?.length) return [];
@@ -49,7 +52,7 @@ const Quiz = ({ quizes, isLoading }) => {
       question: item?.id,
       option: quizAnswers[index],
     }));
-    mutation.mutate({ result_quizzes });
+    mutation.mutate({ customer: searchParams.get("userId"), result_quizzes });
   };
 
   if (isLoading) {

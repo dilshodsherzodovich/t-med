@@ -8,10 +8,7 @@ const SectionHeading = ({
   return (
     <div className={`cs_section_heading cs_style_1  ${variant ? variant : ""}`}>
       <div className="cs_section_heading_left">
-        <p
-          className="cs_section_subtitle cs_accent_color"
-          data-aos="fade-right"
-        >
+        <p className="cs_section_subtitle cs_accent_color">
           <span className="cs_shape_left" />
           {SectionSubtitle}
           {variant === "text-center" && (
@@ -21,7 +18,6 @@ const SectionHeading = ({
         <h2
           className={`cs_section_title ${textColor ? textColor : ""}`}
           dangerouslySetInnerHTML={{ __html: SectionTitle }}
-          data-aos="fade-up"
         />
       </div>
       {SectionDescription && (

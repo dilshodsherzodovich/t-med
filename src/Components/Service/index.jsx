@@ -14,11 +14,7 @@ const Service = ({ data, cardBg, services }) => {
         <div className="cs_height_50 cs_height_lg_50" />
         <div className="row cs_row_gap_30 cs_gap_y_30">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="col-xl-3 col-lg-4 col-sm-6"
-              data-aos="fade-up"
-            >
+            <div key={index} className="col-xl-3 col-lg-4 col-sm-6">
               <div
                 className={`cs_iconbox cs_style_2 cs_radius_15 cs_hover_layer_2 ${
                   cardBg ? "" : "cs_gray_bg"

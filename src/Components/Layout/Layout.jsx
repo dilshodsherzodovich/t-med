@@ -5,9 +5,9 @@ import Footer from "../Footer/Footer";
 const Layout = ({ isTopBar, variant }) => {
   return (
     <div>
-      <Header isTopBar={isTopBar} variant={variant} />
+      {!isTopBar && <Header isTopBar={isTopBar} variant={variant} />}
       <Outlet />
-      <Footer />
+      {!isTopBar && <Footer />}
     </div>
   );
 };

@@ -15,7 +15,6 @@ import ScrollUpButton from "./Components/ScrollUpButton";
 import "aos/dist/aos.css";
 import Aos from "aos";
 import { useEffect } from "react";
-import Administration from "./Pages/Administration";
 import Docs from "./Pages/Docs";
 import Departments from "./Pages/Departments";
 import Institutions from "./Pages/Institutions";
@@ -29,8 +28,6 @@ function App() {
     delay: 0.25,
   });
   const { pathname } = useLocation();
-
-  console.log(pathname);
 
   useEffect(() => {
     window.scrollTo(0, 0);
