@@ -1,11 +1,33 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
-import { Tooltip, OverlayTrigger, Collapse } from "react-bootstrap";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaClock,
+  FaChevronDown,
+  FaChevronUp,
+} from "react-icons/fa";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import "./ManagerInfo.scss";
 
 const ManagerInfo = ({ ceoData }) => {
-  const [biographyOpen, setBiographyOpen] = useState(false);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const bioRef = useRef(null);
+  const [showSeeAllButton, setShowSeeAllButton] = useState();
+
+  useEffect(() => {
+    if (bioRef.current) {
+      const lineHeight = parseInt(
+        window.getComputedStyle(bioRef.current).lineHeight
+      );
+      const height = bioRef.current.offsetHeight;
+      setShowSeeAllButton(height > lineHeight * 3);
+    }
+  }, [ceoData.biography]);
+
+  const toggleDescription = () => {
+    setIsDescriptionOpen(!isDescriptionOpen);
+  };
 
   return (
     <motion.section
@@ -15,7 +37,7 @@ const ManagerInfo = ({ ceoData }) => {
       className="ceo-info"
     >
       <div className="container">
-        <h2 className="section-title">Leadership</h2>
+        <h2 className="section-title">Muassasa rahbari</h2>
 
         <div className="row">
           <div className="col-lg-12">
@@ -26,19 +48,35 @@ const ManagerInfo = ({ ceoData }) => {
               transition={{ delay: 0.2 }}
             >
               <div className="row g-0">
-                <div className="col-md-4">
-                  <div className="image-wrapper">
-                    <motion.img
-                      src={ceoData.photo}
-                      alt="CEO"
-                      className="ceo-image"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    />
+                <div className="col-md-3">
+                  <div className="image-wrapper  px-2 pt-1">
+                    <div
+                      className="w-100"
+                      style={{
+                        height: "350px",
+                        borderRadius: "14px",
+                        backgroundImage: `url(${ceoData.photo})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "top center",
+                      }}
+                    >
+                      {/* <motion.img
+                        src={}
+                        alt="CEO"
+                        className="ceo-image"
+                        style={{
+                          width: "100%",
+                          height: "300px",
+                          objectFit: "cover",
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      /> */}
+                    </div>
                   </div>
                 </div>
 
-                <div className="col-md-8">
+                <div className="col-md-9">
                   <div className="card-body">
                     <div className="ceo-header">
                       <h3 className="ceo-name">{ceoData.fullName}</h3>
@@ -46,24 +84,47 @@ const ManagerInfo = ({ ceoData }) => {
                     </div>
 
                     <div className="bio-section">
-                      <h4
-                        className="bio-toggle"
-                        onClick={() => setBiographyOpen(!biographyOpen)}
-                        style={{ cursor: "pointer" }}
-                      >
-                        Biography {biographyOpen ? "▲" : "▼"}
-                      </h4>
-                      <Collapse in={biographyOpen}>
-                        <div>
-                          <p className="bio-text">{ceoData.biography}</p>
-                        </div>
-                      </Collapse>
+                      <div
+                        ref={bioRef}
+                        className={`bio-text ${
+                          isDescriptionOpen ? "expanded" : "collapsed"
+                        }`}
+                        dangerouslySetInnerHTML={{ __html: ceoData.biography }}
+                      />
+                      <AnimatePresence>
+                        {!isDescriptionOpen && (
+                          <motion.button
+                            className="btn btn-link p-0 see-all-btn"
+                            onClick={toggleDescription}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            Hammasini ko'rish <FaChevronDown className="ms-1" />
+                          </motion.button>
+                        )}
+                      </AnimatePresence>
+                      <AnimatePresence>
+                        {isDescriptionOpen && (
+                          <motion.button
+                            className="btn btn-link p-0 see-less-btn"
+                            onClick={toggleDescription}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            Kamroq ko'rsatish <FaChevronUp className="ms-1" />
+                          </motion.button>
+                        )}
+                      </AnimatePresence>
                     </div>
 
                     <div className="contact-grid">
                       <OverlayTrigger
                         placement="top"
-                        overlay={<Tooltip>Phone</Tooltip>}
+                        overlay={<Tooltip>Telefon raqam</Tooltip>}
                       >
                         <div className="contact-item">
                           <FaPhone className="icon" />
@@ -83,7 +144,7 @@ const ManagerInfo = ({ ceoData }) => {
 
                       <OverlayTrigger
                         placement="top"
-                        overlay={<Tooltip>Reception Hours</Tooltip>}
+                        overlay={<Tooltip>Qabul kunlari</Tooltip>}
                       >
                         <div className="contact-item">
                           <FaClock className="icon" />
@@ -91,14 +152,6 @@ const ManagerInfo = ({ ceoData }) => {
                         </div>
                       </OverlayTrigger>
                     </div>
-
-                    <motion.button
-                      className="btn btn-primary mt-4"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      View Full Profile
-                    </motion.button>
                   </div>
                 </div>
               </div>

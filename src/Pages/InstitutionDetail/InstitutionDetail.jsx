@@ -1,13 +1,9 @@
 import { useMemo } from "react";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
-import { FaPhone, FaReceipt } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
-import SingleInstitution from "../../Components/InstitutionDetails/SingleInstitution";
 import { useHttp } from "../../hooks/useHttp";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { FaLocationPin } from "react-icons/fa6";
 import OrganizationDetails from "./OrganizationDetails";
 
 function InstitutionDetail() {
@@ -15,7 +11,7 @@ function InstitutionDetail() {
 
   const { id } = useParams();
 
-  const { data: detail, isLoading } = useQuery({
+  const { data: detail } = useQuery({
     queryKey: ["institutions", id],
     queryFn: () =>
       sendRequest({
@@ -26,58 +22,29 @@ function InstitutionDetail() {
     retry: false,
   });
 
-  const insDetails = useMemo(() => {
+  const orgData = useMemo(() => {
     return {
-      mainImage: "/assets/img/service_details_1.jpg",
-      institutionDetails: detail?.description,
-      subtitle: "Ishchilar soni",
-      workers: detail?.count_of_employees,
-      managers: {
-        name: detail?.director?.fio,
-        subtitle: detail?.director?.specialist,
-        descriptionLabel: "Tarjimai hol",
-        description: detail?.director?.description
-          ? [detail?.director?.description]
-          : [],
-        image: detail?.director?.image,
-        info: [
-          {
-            icon: <FaPhone width={28} height={28} />,
-            title: "Telefon raqam",
-            subtitle: detail?.director?.reception_number,
-            secIcon: <IoIosMail width={28} height={28} />,
-            secTitle: "Email manzili",
-            secSubtitle: detail?.director?.email,
-          },
-          {
-            icon: <FaReceipt width={28} height={28} />,
-            title: "Qabul kunlari",
-            subtitle: detail?.director?.reception_days,
-            secIcon: <FaLocationPin width={28} height={28} />,
-            secTitle: "Manzil",
-            secSubtitle: detail?.address,
-          },
-        ],
-      },
-      organization_questions: detail?.organization_questions,
+      name: detail?.title,
+      logo: "",
+      description: detail?.description,
+      address: detail?.address,
+      employeeCount: detail?.count_of_employees,
+      establishedYear: 2014,
+      images: detail?.organization_images?.map((item) => item?.image),
     };
   }, [detail]);
-  const organizationData = {
-    name: "TechCorp International",
-    address: "123 Tech Street, Silicon Valley, CA 94000",
-    numberOfWorkers: 500,
-    description:
-      "TechCorp International is a leading technology company specializing in innovative software solutions and cutting-edge hardware development.",
-    ceo: {
-      fullName: "Jane Doe",
-      position: "Chief Executive Officer",
-      biography:
-        "Jane Doe is a visionary leader with over 20 years of experience in the tech industry. She has led TechCorp to become a Fortune 500 company and a pioneer in AI and machine learning technologies.",
-      phone: "+1 (555) 123-4567",
-      email: "jane.doe@techcorp.com",
-      receptionDays: "Monday and Wednesday, 2 PM - 4 PM",
-    },
-  };
+
+  const ceoData = useMemo(() => {
+    return {
+      fullName: detail?.director?.fio,
+      position: detail?.director?.specialist,
+      photo: detail?.director?.image,
+      biography: detail?.director?.description,
+      phone: detail?.director?.reception_number,
+      email: detail?.director?.email,
+      receptionDays: detail?.director?.reception_days,
+    };
+  }, [detail]);
 
   return (
     <>
@@ -86,19 +53,14 @@ function InstitutionDetail() {
         backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
       >
         <PageHeading
-          secondaryData="Markaziy bolnitsa"
+          secondaryData={detail?.title}
           data={{ title: detail?.title }}
         />
       </Section>
 
-      <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="70"
-        bottomSpaceMd="120"
-      >
+      <Section>
         {/* <SingleInstitution data={insDetails} isLoading={isLoading} /> */}
-        <OrganizationDetails organization={organizationData} />
+        <OrganizationDetails orgData={orgData} ceoData={ceoData} />
       </Section>
     </>
   );

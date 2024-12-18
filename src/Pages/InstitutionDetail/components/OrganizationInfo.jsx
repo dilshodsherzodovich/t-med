@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaBuilding, FaUsers, FaMapMarkerAlt } from "react-icons/fa";
 import CountUp from "react-countup";
 import { Modal } from "react-bootstrap";
@@ -24,7 +24,7 @@ const OrganizationInfo = ({ orgData }) => {
       className="organization-info"
     >
       <div className="container">
-        <h2 className="section-title">Organization Details</h2>
+        <h2 className="section-title">Muassasa haqida</h2>
 
         <div className="row g-4">
           {/* Main Info Card */}
@@ -36,24 +36,21 @@ const OrganizationInfo = ({ orgData }) => {
             >
               <div className="card-body">
                 <div className="d-flex align-items-center mb-4">
-                  <img
-                    src={orgData.logo}
-                    alt="Organization Logo"
-                    className="org-logo me-3"
-                  />
                   <h3 className="card-title mb-0">{orgData.name}</h3>
                 </div>
 
                 <div className="info-grid">
                   <div className="info-item">
                     <FaBuilding className="icon" />
-                    <h4>Description</h4>
-                    <p>{orgData.description}</p>
+                    <h4>Muassasa haqida</h4>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: orgData.description }}
+                    ></div>
                   </div>
 
                   <div className="info-item">
                     <FaMapMarkerAlt className="icon" />
-                    <h4>Address</h4>
+                    <h4>Manzil</h4>
                     <p>{orgData.address}</p>
                   </div>
                 </div>
@@ -61,7 +58,7 @@ const OrganizationInfo = ({ orgData }) => {
             </motion.div>
           </div>
 
-          {/* Stats Card */}
+          {/* Stats Card and Images */}
           <div className="col-lg-4">
             <motion.div
               className="card stats-card"
@@ -72,49 +69,56 @@ const OrganizationInfo = ({ orgData }) => {
               <div className="card-body">
                 <div className="stat-item">
                   <FaUsers className="stat-icon" />
-                  <h4>Total Employees</h4>
+                  <h4 style={{ color: "#fff" }}>Ishchilar soni</h4>
                   <div className="stat-number">
                     <CountUp end={orgData.employeeCount} duration={2.5} />
                   </div>
                 </div>
 
-                <div className="stat-item">
-                  <div className="stat-badge">
-                    Est. {orgData.establishedYear}
+                {/* <div className="stat-item">
+                  <div className="stat-badge">Ishchilar soni.</div>
+                </div> */}
+
+                {/* Organization Images */}
+                <div className="org-images mt-4">
+                  <h5 className="mb-3">Galereya</h5>
+                  <div className="image-grid">
+                    {orgData?.images?.map((image, index) => (
+                      <motion.img
+                        key={index}
+                        src={image}
+                        alt={`Organization image ${index + 1}`}
+                        className="org-image"
+                        onClick={() => handleImageClick(image)}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
             </motion.div>
           </div>
-
-          {/* Image Gallery */}
-          <div className="col-lg-12">
-            <div className="card">
-              <div className="card-body">
-                <h4>Gallery</h4>
-                <div className="row g-3">
-                  {orgData.images.map((image, index) => (
-                    <div key={index} className="col-4">
-                      <img
-                        src={image}
-                        alt={`Organization image ${index + 1}`}
-                        className="img-fluid rounded cursor-pointer"
-                        onClick={() => handleImageClick(image)}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
-      <Modal show={previewImage !== null} onHide={handleClosePreview} centered>
-        <Modal.Body>
-          <img src={previewImage} alt="Preview" className="img-fluid" />
-        </Modal.Body>
-      </Modal>
+      <AnimatePresence>
+        {previewImage && (
+          <Modal show={true} onHide={handleClosePreview} centered>
+            <Modal.Body>
+              <motion.img
+                src={previewImage}
+                alt="Preview"
+                className="img-fluid"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+              />
+            </Modal.Body>
+          </Modal>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 };

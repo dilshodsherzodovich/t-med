@@ -47,15 +47,29 @@
         .bio-text {
           color: lighten($text-color, 20%);
           line-height: 1.8;
+          margin-bottom: 0.5rem;
+          overflow: hidden;
+
+          &.collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
+
+          &.expanded {
+            display: block;
+          }
         }
 
-        .bio-toggle {
-          color: $primary-color;
-          margin-bottom: 1rem;
-          cursor: pointer;
+        .see-all-btn,
+        .see-less-btn {
+          color: $secondary-color;
+          font-weight: 600;
+          text-decoration: none;
+          transition: color 0.3s ease;
 
           &:hover {
-            text-decoration: underline;
+            color: darken($secondary-color, 10%);
           }
         }
       }
