@@ -91,10 +91,6 @@ const Header = ({ isTopBar, variant }) => {
         href: "/blog",
       },
       {
-        label: "E-map",
-        href: "/gmap",
-      },
-      {
         label: "Qonunchilik bazasi",
         href: "/docs",
         subItems: allDocs?.results?.length

@@ -1,5 +1,6 @@
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../Loaders/LoadingSpinner";
 
 const profiles = [
   {
@@ -15,9 +16,10 @@ const profiles = [
   // Add more profiles as needed
 ];
 
-const MapSlider = ({ sliders }) => {
+const MapSlider = ({ sliders, isLoading }) => {
   return (
     <div className="profile-carousel">
+      {isLoading && <LoadingSpinner />}
       <Carousel indicators={false}>
         {sliders?.map((profile) => (
           <Carousel.Item key={profile?.id}>

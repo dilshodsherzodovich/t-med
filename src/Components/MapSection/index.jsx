@@ -3,7 +3,7 @@ import SvgMap from "../SvgMap";
 import "./map.scss";
 import MapSlider from "./MapSlider";
 import { useHttp } from "../../hooks/useHttp";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 function MapSection() {
   const sendRequest = useHttp();
@@ -23,8 +23,6 @@ function MapSection() {
       return item?.name === activeRegion;
     })?.id;
   }, [activeRegion, organizationRegions]);
-
-  console.log(activeRegion, activeRegionId);
 
   const { data: activeRegionInts, isLoading } = useQuery({
     queryKey: ["activeRegionInts", activeRegionId],
@@ -56,7 +54,10 @@ function MapSection() {
           />
         </div>
         <div className="col-12 col-md-5">
-          <MapSlider sliders={activeRegionInts?.region_organizations} />
+          <MapSlider
+            isLoading={isLoading}
+            sliders={activeRegionInts?.region_organizations}
+          />
         </div>
       </div>
     </div>
