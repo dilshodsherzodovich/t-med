@@ -408,15 +408,31 @@ const MainHome = () => {
 
               <motion.div ref={(el) => (sectionRefs.current[2] = el)}>
                 <Section
+                  id="map"
+                  topSpaceLg="70"
+                  topSpaceMd="110"
+                  bottomSpaceLg="80"
+                  bottomSpaceMd="120"
+                  className="section cs_blue_bg cs_bg_filed"
+                  backgroundImage="assets/img/service_bg_3.jpg"
+                >
+                  <MapSection />
+                </Section>
+              </motion.div>
+
+              <motion.div ref={(el) => (sectionRefs.current[3] = el)}>
+                <Section
                   id="about"
-                  topSpaceMd="40"
+                  topSpaceMd="70"
+                  bottomSpaceLg="80"
+                  bottomSpaceMd="120"
                   className="section cs_about cs_style_1 position-relative"
                 >
                   <About data={aboutData} />
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[3] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[4] = el)}>
                 <Section
                   id="counter"
                   className="section cs_counter_area cs_gray_bg"
@@ -425,7 +441,7 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[4] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[5] = el)}>
                 <Section
                   id="services"
                   topSpaceMd="70"
@@ -441,7 +457,7 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[5] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[6] = el)}>
                 <Section
                   id="doctors"
                   topSpaceLg="70"
@@ -456,7 +472,7 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[6] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[7] = el)}>
                 <Section
                   id="chooseus"
                   topSpaceLg="70"
@@ -470,7 +486,7 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[7] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[8] = el)}>
                 <Section
                   id="cta1"
                   topSpaceLg="70"
@@ -484,23 +500,15 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[8] = el)}>
-                <Section topSpaceMd="10" id="blog" className="section">
-                  <BlogSection data={blogData} />
-                </Section>
-              </motion.div>
-
               <motion.div ref={(el) => (sectionRefs.current[9] = el)}>
                 <Section
-                  id="map"
-                  topSpaceLg="70"
-                  topSpaceMd="110"
+                  topSpaceMd="70"
                   bottomSpaceLg="80"
                   bottomSpaceMd="120"
-                  className="section cs_blue_bg cs_bg_filed"
-                  backgroundImage="assets/img/service_bg_3.jpg"
+                  id="blog"
+                  className="section"
                 >
-                  <MapSection />
+                  <BlogSection data={blogData} />
                 </Section>
               </motion.div>
 

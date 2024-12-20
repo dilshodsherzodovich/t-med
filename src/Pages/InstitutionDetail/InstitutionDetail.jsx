@@ -31,6 +31,7 @@ function InstitutionDetail() {
       employeeCount: detail?.count_of_employees,
       establishedYear: 2014,
       images: detail?.organization_images?.map((item) => item?.image),
+      organization_questions: detail?.organization_questions,
     };
   }, [detail]);
 
