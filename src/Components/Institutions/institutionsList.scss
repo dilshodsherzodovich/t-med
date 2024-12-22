@@ -1,0 +1,71 @@
+.institutions-wrapper {
+  background-color: #092966;
+  padding: 4rem 0;
+}
+
+.institutions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .institution-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+      color: white;
+    }
+
+    .institution-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+
+      .doc-icon {
+        font-size: 1.5rem;
+        min-width: 24px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .institution-title {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+
+    .arrow-icon {
+      font-size: 1.2rem;
+      opacity: 0.7;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .institutions-list {
+    .institution-item {
+      padding: 1rem;
+
+      .institution-content {
+        gap: 0.75rem;
+
+        .doc-icon {
+          font-size: 1.25rem;
+        }
+
+        .institution-title {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

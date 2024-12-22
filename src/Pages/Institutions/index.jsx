@@ -14,8 +14,6 @@ function Institutions() {
     "institutionCategories",
   ]);
 
-  console.log(institutionCategories);
-
   const [page, setPage] = useState(1);
 
   const [searchParams] = useSearchParams();
@@ -84,7 +82,11 @@ function Institutions() {
         bottomSpaceLg="70"
         bottomSpaceMd="120"
       >
-        <InstitutionsList data={institutions} loading={isLoading} />
+        <InstitutionsList
+          data={institutions}
+          loading={isLoading}
+          category={category}
+        />
       </Section>
 
       <Pagination

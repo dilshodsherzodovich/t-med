@@ -4,13 +4,10 @@ import Slider from "react-slick";
 import Button from "../Buttons";
 const HeroSection = ({ data }) => {
   const [nav1, setNav1] = useState(null);
-  const [nav2, setNav2] = useState(null);
   let sliderRef1 = useRef(null);
-  let sliderRef2 = useRef(null);
 
   useEffect(() => {
     setNav1(sliderRef1);
-    setNav2(sliderRef2);
   }, []);
 
   const settings = {
@@ -22,17 +19,6 @@ const HeroSection = ({ data }) => {
     swipeToSlide: true,
   };
 
-  const settings2 = {
-    dots: false,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 3,
-    fade: false,
-    swipeToSlide: true,
-    vertical: true,
-    arrows: false,
-  };
-
   return (
     <>
       <section
@@ -40,11 +26,7 @@ const HeroSection = ({ data }) => {
         style={{ maxHeight: "calc(100vh-150px)" }}
       >
         <div className="cs_hero_slider_thumb slick-slider">
-          <Slider
-            {...settings}
-            asNavFor={nav2}
-            ref={(slider) => (sliderRef1 = slider)}
-          >
+          <Slider {...settings} ref={(slider) => (sliderRef1 = slider)}>
             {data?.primarySlider.map((items, index) => (
               <div className="cs_hero_slider_thumb_item" key={index}>
                 <div
