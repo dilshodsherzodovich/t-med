@@ -20,6 +20,8 @@ function Institutions() {
 
   const category = searchParams.get("category");
 
+  const categoryName = searchParams.get("name");
+
   const sendRequest = useHttp();
 
   const { data: allInstitutions, isLoading } = useQuery({
@@ -73,7 +75,7 @@ function Institutions() {
         className={"cs_page_heading cs_bg_filed cs_center"}
         backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
       >
-        <PageHeading secondaryData={"Muassasalar"} data={headingData} />
+        <PageHeading secondaryData={categoryName} data={headingData} />
       </Section>
 
       <Section

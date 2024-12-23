@@ -31,7 +31,7 @@ const OrganizationInfo = ({ orgData }) => {
 
         <div className="row g-4">
           {/* Main Info Card */}
-          <div className="col-lg-8">
+          <div className="col-lg-8" data-aos="fade-right">
             <motion.div
               className="card main-info-card"
               whileHover={{ scale: 1.02 }}
@@ -62,7 +62,7 @@ const OrganizationInfo = ({ orgData }) => {
           </div>
 
           {/* Stats Card and Images */}
-          <div className="col-lg-4">
+          <div className="col-lg-4" data-aos="fade-left">
             <motion.div
               className="card stats-card"
               initial={{ opacity: 0, x: 20 }}

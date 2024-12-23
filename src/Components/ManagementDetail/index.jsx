@@ -9,7 +9,7 @@ import {
 import "./ProfileCard.scss"; // Import SCSS file
 
 // ProfileCard component
-export default function ManagementDetail({ director }) {
+export default function ManagementDetail({ director, imageSize }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -21,12 +21,29 @@ export default function ManagementDetail({ director }) {
         <div className="row g-0">
           {/* Profile Image Section */}
           <div className="col-md-3 position-relative">
-            <img
-              src={director?.image}
-              alt="Profile photo"
-              className="img-fluid w-100 h-100 object-cover rounded-start profile-image object-fit-cover"
-              style={{ objectPosition: "55% 45%" }}
-            />
+            {imageSize !== "default" ? (
+              <img
+                src={director?.image}
+                alt="Profile photo"
+                className="img-fluid w-100 object-cover rounded-start profile-image object-fit-cover"
+                style={{
+                  height: imageSize === "default" ? "300px" : "100%",
+                  objectPosition: "65% 45%",
+                }}
+              />
+            ) : (
+              <div
+                className="w-100"
+                style={{
+                  height: "300px",
+                  backgroundImage: `url(${director?.image}) `,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "top center",
+                }}
+              ></div>
+            )}
+
             <div className="overlay"></div>
           </div>
 

@@ -35,18 +35,6 @@ function InstitutionDetail() {
     };
   }, [detail]);
 
-  const ceoData = useMemo(() => {
-    return {
-      fullName: detail?.director?.fio,
-      position: detail?.director?.specialist,
-      photo: detail?.director?.image,
-      biography: detail?.director?.description,
-      phone: detail?.director?.reception_number,
-      email: detail?.director?.email,
-      receptionDays: detail?.director?.reception_days,
-    };
-  }, [detail]);
-
   return (
     <>
       <Section
@@ -68,7 +56,7 @@ function InstitutionDetail() {
         {/* <SingleInstitution data={insDetails} isLoading={isLoading} /> */}
         <OrganizationDetails
           orgData={orgData}
-          ceoData={ceoData}
+          ceoData={detail?.director}
           isLoading={isLoading}
         />
       </Section>
