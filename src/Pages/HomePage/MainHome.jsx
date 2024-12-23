@@ -353,11 +353,11 @@ const MainHome = () => {
       ) {
         setCurrentSectionIndex(currentSectionIndex + 1);
         setIsScrollingDisabled(true);
-        setTimeout(() => setIsScrollingDisabled(false), 500);
+        setTimeout(() => setIsScrollingDisabled(false), 100);
       } else if (event.key === "ArrowUp" && currentSectionIndex > 0) {
         setCurrentSectionIndex(currentSectionIndex - 1);
         setIsScrollingDisabled(true);
-        setTimeout(() => setIsScrollingDisabled(false), 500);
+        setTimeout(() => setIsScrollingDisabled(false), 100);
       }
     },
     [currentSectionIndex, isScrollingDisabled, isDesktop]

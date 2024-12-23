@@ -10,7 +10,7 @@ function MapSection() {
 
   const [activeRegion, setActiveRegion] = useState(null);
 
-  const { data: organizationRegions } = useQuery({
+  const { data: organizationRegions, isSuccess } = useQuery({
     queryKey: ["organizations-regions"],
     queryFn: () => sendRequest({ url: `/reception/organization-by-region//` }),
     staleTime: 1000,
@@ -18,11 +18,19 @@ function MapSection() {
     retry: false,
   });
 
+  useEffect(() => {
+    if (isSuccess) {
+      setActiveRegion("Toshkent shahri");
+    }
+  }, [isSuccess]);
+
   const activeRegionId = useMemo(() => {
     return organizationRegions?.results?.find((item) => {
       return item?.name === activeRegion;
     })?.id;
   }, [activeRegion, organizationRegions]);
+
+  console.log(activeRegion);
 
   const { data: activeRegionInts, isLoading } = useQuery({
     queryKey: ["activeRegionInts", activeRegionId],

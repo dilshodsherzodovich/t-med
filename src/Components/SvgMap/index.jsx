@@ -124,8 +124,8 @@ function SvgMap({ activeRegion, setActiveRegion }) {
         </g>
         <g
           onClick={handleClick}
-          className={activeRegion === "Navoi" ? "active" : ""}
-          id="Navoi"
+          className={activeRegion === "Navoiy" ? "active" : ""}
+          id="Navoiy"
         >
           <mask
             id="path-5-outside-4"
@@ -442,8 +442,8 @@ function SvgMap({ activeRegion, setActiveRegion }) {
         </g>
         <g
           onClick={handleClick}
-          className={activeRegion === "Toshkent viloyati" ? "active" : ""}
-          id="Toshkent viloyati"
+          className={activeRegion === "Toshkent shahri" ? "active" : ""}
+          id="Toshkent shahri"
         >
           <mask
             id="path-14-outside-13"
