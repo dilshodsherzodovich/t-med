@@ -30,6 +30,18 @@ function DesktopHome({
     <>
       <Header isTopBar />
       <HeroSection data={heroData} />
+
+      <Section
+        topSpaceLg="70"
+        topSpaceMd="110"
+        bottomSpaceLg="80"
+        bottomSpaceMd="120"
+        className="cs_blue_bg cs_bg_filed"
+        backgroundImage="assets/img/service_bg_3.jpg"
+      >
+        <MapSection />
+      </Section>
+
       <Section
         topSpaceLg="80"
         topSpaceMd="120"
@@ -94,16 +106,7 @@ function DesktopHome({
       >
         <BlogSection data={blogData} />
       </Section>
-      <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="80"
-        bottomSpaceMd="120"
-        className="cs_blue_bg cs_bg_filed"
-        backgroundImage="assets/img/service_bg_3.jpg"
-      >
-        <MapSection />
-      </Section>
+
       <ContactSection2></ContactSection2>
       <Section
         topSpaceLg="80"
