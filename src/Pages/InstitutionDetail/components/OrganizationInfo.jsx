@@ -4,9 +4,12 @@ import { FaBuilding, FaUsers, FaMapMarkerAlt } from "react-icons/fa";
 import CountUp from "react-countup";
 import { Modal } from "react-bootstrap";
 import "./OrganizationInfo.scss";
+import { useParams } from "react-router";
 
 const OrganizationInfo = ({ orgData }) => {
   const [previewImage, setPreviewImage] = useState(null);
+
+  const { id } = useParams();
 
   const handleImageClick = (image) => {
     setPreviewImage(image);
@@ -17,7 +20,7 @@ const OrganizationInfo = ({ orgData }) => {
   };
 
   return (
-    <motion.section
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -100,6 +103,19 @@ const OrganizationInfo = ({ orgData }) => {
             </motion.div>
           </div>
         </div>
+
+        {id === "22" && (
+          <iframe
+            class="ku-embed mt-4"
+            frameborder="0"
+            allow="xr-spatial-tracking; gyroscope; accelerometer"
+            allowfullscreen
+            scrolling="no"
+            src="https://kuula.co/share/collection/7ZjhB?logo=-1&info=0&fs=1&vr=0&sd=1&initload=1&thumbs=3&inst=0&keys=0"
+            width="100%"
+            height="500px"
+          ></iframe>
+        )}
       </div>
 
       <AnimatePresence>
@@ -119,7 +135,7 @@ const OrganizationInfo = ({ orgData }) => {
           </Modal>
         )}
       </AnimatePresence>
-    </motion.section>
+    </motion.div>
   );
 };
 

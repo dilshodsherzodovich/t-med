@@ -30,7 +30,7 @@ const ManagerInfo = ({ ceoData }) => {
   };
 
   return (
-    <motion.section
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -159,7 +159,7 @@ const ManagerInfo = ({ ceoData }) => {
           </div>
         </div>
       </div>
-    </motion.section>
+    </motion.div>
   );
 };
 

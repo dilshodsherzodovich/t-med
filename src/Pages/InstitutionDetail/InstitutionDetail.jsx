@@ -59,7 +59,12 @@ function InstitutionDetail() {
         />
       </Section>
 
-      <Section>
+      <Section
+        topSpaceLg="0"
+        topSpaceMd="0"
+        bottomSpaceLg="80"
+        bottomSpaceMd="120"
+      >
         {/* <SingleInstitution data={insDetails} isLoading={isLoading} /> */}
         <OrganizationDetails
           orgData={orgData}
