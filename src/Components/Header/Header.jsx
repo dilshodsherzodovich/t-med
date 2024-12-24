@@ -61,7 +61,7 @@ const Header = ({ isTopBar, variant }) => {
           { label: "Rahbariyat", href: "/management" },
           {
             label: "Bo'limlar",
-            href: "",
+            href: "/departments",
             subItems: departments?.results?.length
               ? departments?.results?.map((item) => ({
                   label: item?.name,

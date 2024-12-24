@@ -21,6 +21,7 @@ import Institutions from "./Pages/Institutions";
 import InstitutionDetail from "./Pages/InstitutionDetail/InstitutionDetail";
 import Virtour from "./Pages/Virtour";
 import Map from "./Pages/Map";
+import DepartmentsList from "./Pages/DepartmenList";
 
 function App() {
   Aos.init({
@@ -52,6 +53,7 @@ function App() {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/docs" element={<Docs />} />
+          <Route path="/departments" element={<DepartmentsList />} />
           <Route path="/departments/:id" element={<Departments />} />
           <Route path="/institutions/" element={<Institutions />} />
           <Route path="/institutions/:id" element={<InstitutionDetail />} />

@@ -25,7 +25,7 @@ function MapSection() {
   }, [isSuccess]);
 
   const activeRegionId = useMemo(() => {
-    return organizationRegions?.results?.find((item) => {
+    return organizationRegions?.find((item) => {
       return item?.name === activeRegion;
     })?.id;
   }, [activeRegion, organizationRegions]);
@@ -57,7 +57,7 @@ function MapSection() {
       <div className="row">
         <div className="col-12 col-md-7">
           <SvgMap
-            activeRegion={activeRegion}
+            activeRegion={activeRegion} 
             setActiveRegion={setActiveRegion}
           />
         </div>

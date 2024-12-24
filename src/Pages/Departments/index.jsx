@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
 import DepartmentDetails from "../../Components/Departments/DepartmentDetails";
-import { FaPhone, FaReceipt } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
