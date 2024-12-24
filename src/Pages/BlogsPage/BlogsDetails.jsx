@@ -8,6 +8,8 @@ import { useHttp } from "../../hooks/useHttp";
 import { useMemo } from "react";
 import { formatDate } from "../../utils/format-date";
 import { truncateString } from "../../utils/truncate-string";
+import hero2 from "/assets/img/hero2.png";
+
 
 const BlogsDetails = () => {
   const { blogId } = useParams();
@@ -70,7 +72,7 @@ const BlogsDetails = () => {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading data={{ title: data?.title }} />
       </Section>

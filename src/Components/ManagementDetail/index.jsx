@@ -27,6 +27,7 @@ export default function ManagementDetail({ director, imageSize }) {
                 alt="Profile photo"
                 className="img-fluid w-100 object-cover rounded-start profile-image object-fit-cover"
                 style={{
+                  maxHeight: "293px",
                   height: imageSize === "default" ? "300px" : "100%",
                   objectPosition: "65% 45%",
                 }}

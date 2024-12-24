@@ -1,15 +1,19 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
 import { useHttp } from "../../hooks/useHttp";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import OrganizationDetails from "./OrganizationDetails";
+import hero2 from "/assets/img/hero2.png";
+
 
 function InstitutionDetail() {
   const sendRequest = useHttp();
 
   const { id } = useParams();
+
+  const [searchParams] = useSearchParams() 
 
   const { data: detail, isLoading } = useQuery({
     queryKey: ["institutions", id],
@@ -35,11 +39,20 @@ function InstitutionDetail() {
     };
   }, [detail]);
 
+  useEffect(() => {
+    if (searchParams.get("userId")) {
+      const section = document.getElementById("quiz");
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the section
+      }
+    }
+  }, [])
+
   return (
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading
           secondaryData={detail?.title}

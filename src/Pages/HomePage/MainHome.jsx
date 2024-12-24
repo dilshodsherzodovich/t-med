@@ -20,13 +20,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import DesktopHome from "./DeskTopHome.jsx";
+import hero1 from "/assets/img/hero1.png"
+import hero2 from "/assets/img/hero2.png";
+
 
 const heroData = {
   primarySlider: [
     {
       bgImageUrl:
-        "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
-      title: `O'zbekiston Temir yo'llari "Temiryo'l ijtimoiy xizmatlar" <span>muassasasi</span>`,
+       hero1,
+      title: `"O'zbekiston Temir yo'llari" AJ "Temiryo'l ijtimoiy xizmatlar" <span>muassasasi</span>`,
       contactSubtitle: "",
       contactTitle: "Tibbiy xizmatdan foydalaning",
       contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",

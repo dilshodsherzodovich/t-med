@@ -2,6 +2,8 @@ import PageHeading from "../../Components/PageHeading";
 import ContactSection from "../../Components/ContactSection";
 import Section from "../../Components/Section";
 import LocationMap from "../../Components/LocationMap/Index";
+import hero2 from "/assets/img/hero2.png";
+
 
 const headingData = {
   backgroundImage: "/assets/img/page_heading_bg.jpg",
@@ -30,7 +32,7 @@ const ContactPage = () => {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading data={headingData} />
       </Section>

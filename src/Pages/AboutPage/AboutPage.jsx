@@ -5,6 +5,8 @@ import PageHeading from "../../Components/PageHeading";
 import Section from "../../Components/Section";
 import { useHttp } from "../../hooks/useHttp";
 import { useMemo } from "react";
+import hero2 from "/assets/img/hero2.png";
+
 
 const headingData = {
   title: "Biz haqimizda",
@@ -46,7 +48,7 @@ const AboutPage = () => {
     <div className="about-page-area">
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading data={headingData} secondaryData={"Biz haqimizda"} />
       </Section>

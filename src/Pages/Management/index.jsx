@@ -5,6 +5,8 @@ import ManagementDetail from "../../Components/ManagementDetail";
 import { useHttp } from "../../hooks/useHttp";
 import { useQuery } from "@tanstack/react-query";
 import ManagemetLoading from "../../Components/ManagementDetail/ManagemetLoading";
+import hero2 from "/assets/img/hero2.png";
+
 
 const headingData = {
   title: "Rahbariyat",
@@ -25,12 +27,12 @@ const Management = () => {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center "}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading secondaryData="Rahbariyat" data={headingData} />
       </Section>
 
-      <Section topSpaceLg="80" topSpaceMd="120">
+      <Section  topSpaceLg="80" topSpaceMd="120">
         <div className="container pb-5">
           {isLoading ? (
             <ManagemetLoading />

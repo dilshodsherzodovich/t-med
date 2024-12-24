@@ -3,6 +3,8 @@ import PageHeading from "../../Components/PageHeading";
 import { useHttp } from "../../hooks/useHttp";
 import { useQuery } from "@tanstack/react-query";
 import DepList from "./components/List";
+import hero2 from "/assets/img/hero2.png";
+
 
 function DepartmentsList() {
   const sendRequest = useHttp();
@@ -19,7 +21,7 @@ function DepartmentsList() {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading
           secondaryData="Bo'limlar"

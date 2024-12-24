@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import DocFiles from "../../Components/DocFiles";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
+import hero2 from "/assets/img/hero2.png";
 
 const Docs = () => {
   const sendRequest = useHttp();
@@ -49,7 +50,7 @@ const Docs = () => {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center "}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading secondaryData={headingData?.title} data={headingData} />
       </Section>

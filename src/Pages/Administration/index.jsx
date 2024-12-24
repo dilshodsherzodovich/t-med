@@ -10,6 +10,8 @@ import {
 import { IoIosMail } from "react-icons/io";
 import Section from "../../Components/Section";
 import ManagementDetail from "../../Components/ManagementDetail";
+import hero2 from "/assets/img/hero2.png";
+
 
 const headingData = {
   title: "Adminstratsiya",
@@ -47,7 +49,7 @@ const Administration = () => {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading secondaryData="Rahbariyat" data={headingData} />
       </Section>

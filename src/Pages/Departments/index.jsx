@@ -7,6 +7,8 @@ import { IoIosMail } from "react-icons/io";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { useParams } from "react-router-dom";
+import hero2 from "/assets/img/hero2.png";
+
 
 function Departments() {
   const sendRequest = useHttp();
@@ -59,7 +61,7 @@ function Departments() {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage="https://medilo-react.vercel.app/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading
           secondaryData={detail?.name}

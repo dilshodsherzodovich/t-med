@@ -3,6 +3,8 @@ import PageHeading from "../../Components/PageHeading";
 import ServiceSection4 from "../../Components/Service/ServiceSection4";
 import CounterSection2 from "../../Components/FunSection/CounterSection2";
 import Section from "../../Components/Section";
+import hero2 from "/assets/img/hero2.png";
+
 
 const headingData = {
   title: "Our Service",
@@ -82,7 +84,7 @@ const ServiceDetails = () => {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage="/assets/img/page_heading_bg.jpg"
+        backgroundImage={hero2}
       >
         <PageHeading data={headingData} />
       </Section>

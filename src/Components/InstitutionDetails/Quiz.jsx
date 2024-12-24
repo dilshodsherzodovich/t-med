@@ -64,7 +64,7 @@ const Quiz = ({ quizes, isLoading }) => {
   }
 
   return (
-    <div className="quiz-section" data-aos="fade-up">
+    <div className="quiz-section" id="quiz" data-aos="fade-up">
       <h2>So'rovnoma</h2>
       <form onSubmit={handleQuizSubmit}>
         <div className="quiz-grid">
