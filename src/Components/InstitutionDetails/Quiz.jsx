@@ -52,7 +52,7 @@ const Quiz = ({ quizes, isLoading }) => {
       question: item?.id,
       option: quizAnswers[index],
     }));
-    mutation.mutate({ customer: searchParams.get("userId"), result_quizzes });
+    mutation.mutate({ customer: searchParams.get("user_id"), result_quizzes });
   };
 
   if (isLoading) {

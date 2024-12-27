@@ -40,7 +40,7 @@ function InstitutionDetail() {
   }, [detail]);
 
   useEffect(() => {
-    if (searchParams.get("userId")) {
+    if (searchParams.get("user_id")) {
       const section = document.getElementById("quiz");
         if (section) {
           section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the section

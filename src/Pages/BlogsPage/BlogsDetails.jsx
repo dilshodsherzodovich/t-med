@@ -10,7 +10,6 @@ import { formatDate } from "../../utils/format-date";
 import { truncateString } from "../../utils/truncate-string";
 import hero2 from "/assets/img/hero2.png";
 
-
 const BlogsDetails = () => {
   const { blogId } = useParams();
 

@@ -10,7 +10,6 @@ import { formatDate } from "../../utils/format-date";
 import { useSearchParams } from "react-router-dom";
 import hero2 from "/assets/img/hero2.png";
 
-
 const headingData = {
   title: "Yangiliklar",
 };

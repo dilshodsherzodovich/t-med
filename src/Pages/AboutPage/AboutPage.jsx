@@ -53,7 +53,15 @@ const AboutPage = () => {
         <PageHeading data={headingData} secondaryData={"Biz haqimizda"} />
       </Section>
       {/* Start About Section */}
-      <History data={historyData} />
+
+      <Section
+        topSpaceLg="80"
+        topSpaceMd="120"
+        bottomSpaceLg="80"
+        bottomSpaceMd="120"
+      >
+        <History data={historyData} />
+      </Section>
       {/* End About Section */}
 
       {/* Start CTA Section */}

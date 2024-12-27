@@ -21,7 +21,11 @@ import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import DesktopHome from "./DeskTopHome.jsx";
 import hero1 from "/assets/img/hero1.png"
-import hero2 from "/assets/img/hero2.png";
+import hero2 from "/assets/img/hero2.png"
+import hero3 from "/assets/img/hero3.png"
+import hero4 from "/assets/img/hero4.png";
+import hero5 from "/assets/img/hero5.png";
+
 
 
 const heroData = {
@@ -41,7 +45,7 @@ const heroData = {
     },
     {
       bgImageUrl:
-        "https://medilo-react.vercel.app/assets/img/hero_slider_3.jpg",
+        hero2,
       title: "Yuqori malakali <span>Mutaxasislar.</span>",
       contactSubtitle: `Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.`,
       contactTitle: "Tibbiy xizmatdan foydalaning",
@@ -54,7 +58,7 @@ const heroData = {
     },
     {
       bgImageUrl:
-        "https://medilo-react.vercel.app/assets/img/hero_slider_2.jpg",
+        hero4,
       title: "Ruhiy salomatlik <span>markazingiz.</span>",
       contactSubtitle:
         "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.",
@@ -66,19 +70,7 @@ const heroData = {
       link2: "/about",
       iconImgUrl: "assets/img/icons/hero_icon.png",
     },
-    {
-      bgImageUrl:
-        "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
-      title: `"O'zbekiston Temir yo'llari Aj" Temiryo'l ijtimoiy xizmatlar <span>muassasasi</span>`,
-      contactSubtitle: "",
-      contactTitle: "Tibbiy xizmatdan foydalaning",
-      contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",
-      btnText1: "Aloqa",
-      link: "/contact",
-      btnText2: "Biz haqimizda",
-      link2: "/about",
-      iconImgUrl: "assets/img/icons/hero_icon.png",
-    },
+  
   ],
   secondarySlider: [
     "https://medilo-react.vercel.app/assets/img/hero_slider_sm_3.png",
@@ -460,22 +452,9 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[6] = el)}>
-                <Section
-                  id="doctors"
-                  topSpaceLg="70"
-                  topSpaceMd="110"
-                  className="section cs_team_section position-relative"
-                >
-                  <TeamSection
-                    hr={true}
-                    variant="cs_pagination cs_style_2"
-                    data={doctorsData}
-                  />
-                </Section>
-              </motion.div>
+              
 
-              <motion.div ref={(el) => (sectionRefs.current[7] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[6] = el)}>
                 <Section
                   id="chooseus"
                   topSpaceLg="70"
@@ -483,13 +462,13 @@ const MainHome = () => {
                   bottomSpaceLg="80"
                   bottomSpaceMd="120"
                   className="section cs_gray_bg cs_bg_filed"
-                  backgroundImage="https://medilo-react.vercel.app/assets/img/service_bg_2.jpg"
+                  backgroundImage={hero2}
                 >
                   <ChooseUs data={sectionData} />
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[8] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[7] = el)}>
                 <Section
                   id="cta1"
                   topSpaceLg="70"
@@ -503,7 +482,7 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[9] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[8] = el)}>
                 <Section
                   topSpaceMd="70"
                   bottomSpaceLg="80"
@@ -515,13 +494,13 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[10] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[9] = el)}>
                 <Section id="contact" className="section">
                   <ContactSection2 />
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[11] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[10] = el)}>
                 <Section
                   id="testimonials"
                   topSpaceLg="80"
@@ -535,7 +514,7 @@ const MainHome = () => {
                 </Section>
               </motion.div>
 
-              <motion.div ref={(el) => (sectionRefs.current[12] = el)}>
+              <motion.div ref={(el) => (sectionRefs.current[11] = el)}>
                 <Section id="footer" className="section">
                   <Footer />
                 </Section>
