@@ -104,7 +104,7 @@ const OrganizationInfo = ({ orgData }) => {
           </div>
         </div>
 
-        {id === "22" && (
+        {id === "9" && (
           <iframe
             class="ku-embed mt-4"
             frameborder="0"
