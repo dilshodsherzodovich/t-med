@@ -9,7 +9,6 @@ import { useHttp } from "../../hooks/useHttp";
 import { useParams } from "react-router-dom";
 import hero2 from "/assets/img/hero2.png";
 
-
 function Departments() {
   const sendRequest = useHttp();
 

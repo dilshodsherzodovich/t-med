@@ -106,8 +106,8 @@ const OrganizationInfo = ({ orgData }) => {
 
         {id === "9" && (
           <iframe
-            class="ku-embed mt-4"
-            frameborder="0"
+            className="ku-embed mt-4"
+            frameBorder="0"
             allow="xr-spatial-tracking; gyroscope; accelerometer"
             allowfullscreen
             scrolling="no"

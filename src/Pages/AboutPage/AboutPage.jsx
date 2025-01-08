@@ -6,7 +6,7 @@ import Section from "../../Components/Section";
 import { useHttp } from "../../hooks/useHttp";
 import { useMemo } from "react";
 import hero2 from "/assets/img/hero2.png";
-
+import ImageGallery from "./components/ImageGallery";
 
 const headingData = {
   title: "Biz haqimizda",
@@ -30,6 +30,14 @@ const AboutPage = () => {
   const { data: about } = useQuery({
     queryKey: ["about"],
     queryFn: () => sendRequest({ url: `/reception/management//` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const { data: gallery } = useQuery({
+    queryKey: ["gallery"],
+    queryFn: () => sendRequest({ url: `/blog/gallery/` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
@@ -75,7 +83,15 @@ const AboutPage = () => {
       >
         <CtaSection1 data={ctaData} />
       </Section>
-      {/* End CTA Section */}
+      <Section
+        topSpaceLg="70"
+        topSpaceMd="110"
+        bottomSpaceLg="80"
+        bottomSpaceMd="120"
+        className={"cs_cta cs_style_2  cs_bg_filed cs_center"}
+      >
+        <ImageGallery gallery={gallery} />
+      </Section>
     </div>
   );
 };
