@@ -31,6 +31,7 @@ function Departments() {
       departmentDetails: detail?.description,
       subtitle: "Ishchilar soni",
       workers: detail?.count_of_employees,
+      department_employees: detail?.department_employees,
       manager: {
         name: detail?.director?.fio,
         subtitle: detail?.director?.specialist,
@@ -74,7 +75,10 @@ function Departments() {
         bottomSpaceLg="70"
         bottomSpaceMd="120"
       >
-        <DepartmentDetails data={depDetail} />
+        <DepartmentDetails
+          data={depDetail}
+          department_employees={depDetail?.department_employees}
+        />
       </Section>
     </>
   );

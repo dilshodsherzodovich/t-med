@@ -1,8 +1,9 @@
 import { FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DepartmentManager from "./DepartmentManager";
+import DepartmentStaff from "./StaffList/DepartmentStaff";
 
-function DepartmentDetails({ data }) {
+function DepartmentDetails({ data, department_employees }) {
   return (
     <div className="container">
       <div className="cs_service_details">
@@ -30,9 +31,10 @@ function DepartmentDetails({ data }) {
         </div>
 
         <h3 className="cs_service_heading" data-aos="fade-up">
-          Bo'lim rahbari:
+          {"Bo'lim rahbari:"}
         </h3>
         <DepartmentManager data={data?.manager} />
+        <DepartmentStaff department_employees={department_employees} />
       </div>
     </div>
   );
