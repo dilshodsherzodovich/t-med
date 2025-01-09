@@ -7,13 +7,12 @@ import { useParams, useSearchParams } from "react-router-dom";
 import OrganizationDetails from "./OrganizationDetails";
 import hero2 from "/assets/img/hero2.png";
 
-
 function InstitutionDetail() {
   const sendRequest = useHttp();
 
   const { id } = useParams();
 
-  const [searchParams] = useSearchParams() 
+  const [searchParams] = useSearchParams();
 
   const { data: detail, isLoading } = useQuery({
     queryKey: ["institutions", id],
@@ -36,17 +35,21 @@ function InstitutionDetail() {
       establishedYear: 2014,
       images: detail?.organization_images?.map((item) => item?.image),
       organization_questions: detail?.organization_questions,
+      long: detail?.longitude,
+      lat: detail?.latitude,
     };
   }, [detail]);
 
   useEffect(() => {
     if (searchParams.get("user_id")) {
       const section = document.getElementById("quiz");
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the section
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the section
       }
     }
-  }, [])
+
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
@@ -71,6 +74,8 @@ function InstitutionDetail() {
           orgData={orgData}
           ceoData={detail?.director}
           isLoading={isLoading}
+          long={orgData.long}
+          lat={orgData.lat}
         />
       </Section>
     </>

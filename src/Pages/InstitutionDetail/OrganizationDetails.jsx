@@ -8,8 +8,9 @@ import { useMutation } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { toast } from "react-toastify";
+import YandexMap from "./components/YandexMap";
 
-const OrganizationDetail = ({ orgData, ceoData, isLoading }) => {
+const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const [rating, setRaiting] = useState(0);
   const formRef = useRef();
   const { id } = useParams();
@@ -82,6 +83,7 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading }) => {
             </div>
           </form>
         </div>
+        {long && lat && <YandexMap long={long} lat={lat} />}
       </Container>
     </div>
   );
