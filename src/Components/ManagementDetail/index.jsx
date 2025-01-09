@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   MdPhone,
   MdMail,
   MdKeyboardArrowDown,
   MdKeyboardArrowUp,
   MdReceipt,
+  MdLocationPin,
 } from "react-icons/md";
 import "./ProfileCard.scss"; // Import SCSS file
 
 // ProfileCard component
-export default function ManagementDetail({ director, imageSize }) {
+export default function ManagementDetail({
+  director,
+  imageSize,
+  address,
+  isAddress,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -90,7 +96,7 @@ export default function ManagementDetail({ director, imageSize }) {
                 </div>
                 <span style={{ color: "#374151" }}>{director?.email}</span>
               </div>
-              <div className="d-flex align-items-center gap-3">
+              <div className="d-flex align-items-center gap-3 mb-1">
                 <div
                   style={{
                     background: "#dbeafe",
@@ -106,6 +112,22 @@ export default function ManagementDetail({ director, imageSize }) {
                   {director?.reception_days}
                 </span>
               </div>
+              {isAddress && ( // Check if isAddress is true then render the address
+                <div className="d-flex align-items-center gap-3 mb-1">
+                  <div
+                    style={{
+                      background: "#dbeafe",
+                      color: "#2563eb",
+                      width: "30px",
+                      height: "30px",
+                    }}
+                    className="rounded-circle d-flex align-items-center justify-content-center "
+                  >
+                    <MdLocationPin size={16} />
+                  </div>
+                  <span style={{ color: "#374151" }}>{address}</span>
+                </div>
+              )}
             </div>
 
             {/* Toggle Button */}
@@ -113,7 +135,7 @@ export default function ManagementDetail({ director, imageSize }) {
               onClick={() => setIsOpen(!isOpen)}
               className="btn btn-primary profile-btn"
             >
-              <span>Batafsil</span>
+              <span>Mehnat faoliyati</span>
               {isOpen ? (
                 <MdKeyboardArrowUp className="ms-2" />
               ) : (

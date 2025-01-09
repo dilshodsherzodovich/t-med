@@ -1686,12 +1686,12 @@ label {
 }
 
 .cs_page_heading {
-  height: 610px;
+  height: 450px;
   padding: 130px 0 50px;
   position: relative;
 
   @media (max-width: 991px) {
-    height: 420px;
+    height: 300px;
   }
   .overflow {
     width: 100% !important;
@@ -1715,10 +1715,10 @@ label {
   }
 
   .cs_page_title {
-    font-size: 66px;
+    font-size: 50px;
     margin-bottom: 12px;
     @media (max-width: 991px) {
-      font-size: 48px;
+      font-size: 30px;
     }
   }
 }

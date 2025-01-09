@@ -1,4 +1,3 @@
-import React from "react";
 import PageHeading from "../../Components/PageHeading";
 import Section from "../../Components/Section";
 import ManagementDetail from "../../Components/ManagementDetail";
@@ -6,7 +5,6 @@ import { useHttp } from "../../hooks/useHttp";
 import { useQuery } from "@tanstack/react-query";
 import ManagemetLoading from "../../Components/ManagementDetail/ManagemetLoading";
 import hero2 from "/assets/img/hero2.png";
-
 
 const headingData = {
   title: "Rahbariyat",
@@ -32,7 +30,7 @@ const Management = () => {
         <PageHeading secondaryData="Rahbariyat" data={headingData} />
       </Section>
 
-      <Section  topSpaceLg="80" topSpaceMd="120">
+      <Section topSpaceLg="80" topSpaceMd="120">
         <div className="container pb-5">
           {isLoading ? (
             <ManagemetLoading />

@@ -3,10 +3,15 @@
 import { Container } from "react-bootstrap";
 import ManagementDetail from "../../../Components/ManagementDetail";
 
-const ManagerInfo = ({ ceoData }) => {
+const ManagerInfo = ({ ceoData, address }) => {
   return (
     <Container>
-      <ManagementDetail director={ceoData} imageSize="default" />
+      <ManagementDetail
+        isAddress={true}
+        address={address}
+        director={ceoData}
+        imageSize="default"
+      />
     </Container>
   );
 };

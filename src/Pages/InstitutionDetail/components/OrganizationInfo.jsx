@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBuilding, FaUsers, FaMapMarkerAlt } from "react-icons/fa";
+import { FaBuilding, FaUsers } from "react-icons/fa";
 import CountUp from "react-countup";
 import { Modal } from "react-bootstrap";
 import "./OrganizationInfo.scss";
@@ -49,12 +49,6 @@ const OrganizationInfo = ({ orgData }) => {
                     <div
                       dangerouslySetInnerHTML={{ __html: orgData.description }}
                     ></div>
-                  </div>
-
-                  <div className="info-item">
-                    <FaMapMarkerAlt className="icon" />
-                    <h4>Manzil</h4>
-                    <p>{orgData.address}</p>
                   </div>
                 </div>
               </div>

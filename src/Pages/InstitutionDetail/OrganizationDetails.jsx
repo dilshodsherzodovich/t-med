@@ -48,7 +48,7 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading }) => {
   return (
     <div className="organization-detail-page">
       <OrganizationInfo orgData={orgData} />
-      <ManagerInfo ceoData={ceoData} />
+      <ManagerInfo ceoData={ceoData} address={orgData?.address} />
 
       {orgData?.organization_questions?.length > 0 && (
         <Container>
@@ -77,7 +77,7 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading }) => {
             />
             <div className="d-flex justify-content-end mt-2">
               <button className="btn btn-dark" type="submit">
-                Jo'natish
+                {"Jo'natish"}
               </button>
             </div>
           </form>

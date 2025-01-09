@@ -20,6 +20,7 @@ export default function Section({
         backgroundImage
           ? {
               backgroundImage: `url(${backgroundImage})`,
+              backgroundPosition: "top center",
             }
           : {}
       }
