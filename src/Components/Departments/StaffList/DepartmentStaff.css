@@ -1,0 +1,67 @@
+.staff-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.staff-card:hover {
+  transform: translateY(-5px);
+}
+.staff-card .staff-image {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+.staff-card .staff-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.staff-card .staff-info {
+  padding: 1.5rem;
+}
+.staff-card .staff-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+.staff-card .staff-title {
+  color: #3498db;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.staff-card .staff-title .staff-icon {
+  font-size: 1.2rem;
+}
+.staff-card .staff-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.staff-card .staff-contact a {
+  color: #7f8c8d;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.staff-card .staff-contact a:hover {
+  color: #3498db;
+}
+.staff-card .staff-contact a svg {
+  font-size: 1rem;
+}
+
+@media (max-width: 576px) {
+  .staff-card .staff-image {
+    height: 240px;
+  }
+}/*# sourceMappingURL=DepartmentStaff.css.map */

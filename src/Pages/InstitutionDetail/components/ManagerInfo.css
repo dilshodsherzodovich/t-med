@@ -1,0 +1,146 @@
+body {
+  font-family: "Inter", sans-serif;
+  color: #2c3333;
+  background-color: #f5f5f5;
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 3rem;
+}
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #1363df;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #002b5b;
+  border-color: #002b5b;
+}
+.btn-primary:hover {
+  background-color: #001328;
+  border-color: #001328;
+}
+
+.text-primary {
+  color: #002b5b !important;
+}
+
+.bg-light {
+  background-color: #f5f5f5 !important;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 2rem 0;
+  }
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+.ceo-info {
+  padding: 4rem 0;
+}
+.ceo-info .ceo-card {
+  background: white;
+}
+.ceo-info .ceo-card .image-wrapper {
+  height: 100%;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+.ceo-info .ceo-card .image-wrapper .ceo-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ceo-info .ceo-card .card-body {
+  padding: 2rem;
+}
+.ceo-info .ceo-card .card-body .ceo-header {
+  margin-bottom: 1.5rem;
+}
+.ceo-info .ceo-card .card-body .ceo-header .ceo-name {
+  font-size: 1.8rem;
+  color: #002b5b;
+  margin-bottom: 0.5rem;
+}
+.ceo-info .ceo-card .card-body .ceo-header .position-badge {
+  display: inline-block;
+  background: #1363df;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+.ceo-info .ceo-card .card-body .bio-section {
+  margin-bottom: 2rem;
+}
+.ceo-info .ceo-card .card-body .bio-section .bio-text {
+  color: #5b6a6a;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+.ceo-info .ceo-card .card-body .bio-section .bio-text.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.ceo-info .ceo-card .card-body .bio-section .bio-text.expanded {
+  display: block;
+}
+.ceo-info .ceo-card .card-body .bio-section .see-all-btn,
+.ceo-info .ceo-card .card-body .bio-section .see-less-btn {
+  color: #1363df;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.ceo-info .ceo-card .card-body .bio-section .see-all-btn:hover,
+.ceo-info .ceo-card .card-body .bio-section .see-less-btn:hover {
+  color: #0f4eb0;
+}
+.ceo-info .ceo-card .card-body .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.ceo-info .ceo-card .card-body .contact-grid .contact-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.ceo-info .ceo-card .card-body .contact-grid .contact-item:hover {
+  background: #e8e8e8;
+}
+.ceo-info .ceo-card .card-body .contact-grid .contact-item .icon {
+  color: #1363df;
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+.ceo-info .ceo-card .card-body .contact-grid .contact-item span {
+  font-size: 0.9rem;
+}/*# sourceMappingURL=ManagerInfo.css.map */

@@ -3144,13 +3144,13 @@ label {
 }
 
 .cs_page_heading {
-  height: 610px;
+  height: 450px;
   padding: 130px 0 50px;
   position: relative;
 }
 @media (max-width: 991px) {
   .cs_page_heading {
-    height: 420px;
+    height: 300px;
   }
 }
 .cs_page_heading .overflow {
@@ -3172,12 +3172,12 @@ label {
   color: var(--accent-color);
 }
 .cs_page_heading .cs_page_title {
-  font-size: 66px;
+  font-size: 50px;
   margin-bottom: 12px;
 }
 @media (max-width: 991px) {
   .cs_page_heading .cs_page_title {
-    font-size: 48px;
+    font-size: 30px;
   }
 }
 
@@ -3931,7 +3931,7 @@ i {
 }
 
 .cs_site_header {
-  position: absolute;
+  position: sticky;
   z-index: 101;
   width: 100%;
   left: 0;
@@ -4217,9 +4217,6 @@ i {
   .cs_nav .cs_nav_list ul ul {
     top: 15px;
     left: 100%;
-  }
-  .cs_nav .cs_nav_list ul ul.double-subItem {
-    left: calc(100% + 5px);
   }
   .cs_nav + .cs_toolbox {
     margin-left: 40px;

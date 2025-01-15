@@ -1,0 +1,78 @@
+.rating-form {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #002261;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+.rating-form h2 {
+  color: #60a5fa;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+.rating-form .star-rating {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.rating-form .star-rating .star {
+  color: #4b5563;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  margin: 0 0.2rem;
+}
+.rating-form .star-rating .star.selected {
+  color: #60a5fa;
+}
+.rating-form .star-rating .star:hover {
+  color: #c3ddfd;
+}
+.rating-form label {
+  color: #b4d3ff;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.rating-form textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 0.75rem;
+}
+.rating-form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.25);
+  border-color: #60a5fa;
+}
+.rating-form textarea::-moz-placeholder {
+  color: #8bacd9;
+}
+.rating-form textarea::placeholder {
+  color: #8bacd9;
+}
+.rating-form .btn-submit {
+  background-color: #60a5fa;
+  border: none;
+  color: #002261;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+.rating-form .btn-submit:hover {
+  background-color: #2f89f8;
+  transform: translateY(-1px);
+}
+.rating-form .feedback-message {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #60a5fa;
+}/*# sourceMappingURL=rating-form.css.map */

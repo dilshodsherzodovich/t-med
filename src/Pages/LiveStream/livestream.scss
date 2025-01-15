@@ -1,0 +1,83 @@
+// Custom variables
+$primary: #0d6efd;
+$secondary: #6c757d;
+$light: #f8f9fa;
+
+// Custom styles
+.livestream {
+  padding: 8rem 0;
+}
+.card {
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  .card-header {
+    padding: 1rem;
+    h2 {
+      font-size: 1.25rem;
+      line-height: 2rem;
+    }
+  }
+
+  .card-body {
+    padding: 2rem;
+    .image-box {
+      padding: 1rem;
+      background-color: rgb(239 246 255);
+      border-radius: 0.5rem;
+      height: 280px;
+      margin-bottom: 2rem;
+      img {
+        max-width: 100%;
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 0.5rem;
+        inset: 0px;
+        color: transparent;
+        object-fit: contain;
+      }
+    }
+    input {
+      font-size: 0.875rem;
+      // line-height: 1.25rem;
+      padding: 0.75rem;
+      background-color: rgb(249 250 251);
+      border: 1px solid rgb(229 231 235);
+      border-radius: calc(0.5rem - 2px);
+      ::placeholder {
+        color: gray;
+        line-height: 1.25rem;
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+    transform: translateY(0px);
+  }
+}
+
+.card-header {
+  background: linear-gradient(
+    to right,
+    darken(rgb(46 166 247), 10%),
+    rgb(46 166 247)
+  ) !important;
+}
+
+.form-control {
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 0.25rem rgba($primary, 0.25);
+  }
+}
+
+.btn-primary {
+  &:hover {
+    background-color: darken($primary, 10%);
+    border-color: darken($primary, 10%);
+  }
+}

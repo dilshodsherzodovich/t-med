@@ -22,6 +22,7 @@ import InstitutionDetail from "./Pages/InstitutionDetail/InstitutionDetail";
 import Virtour from "./Pages/Virtour";
 import Map from "./Pages/Map";
 import DepartmentsList from "./Pages/DepartmenList";
+import LiveStream from "./Pages/LiveStream";
 
 function App() {
   Aos.init({
@@ -57,6 +58,7 @@ function App() {
           <Route path="/departments/:id" element={<Departments />} />
           <Route path="/institutions/" element={<Institutions />} />
           <Route path="/institutions/:id" element={<InstitutionDetail />} />
+          <Route path="/livestream" element={<LiveStream />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
         <Route path="/gmap" element={<Map />} />

@@ -1,0 +1,124 @@
+.organization-detail {
+  background: #fff;
+}
+.organization-detail .org-header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+.organization-detail .org-logo {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.organization-detail .org-title {
+  color: #1a237e;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.organization-detail .contact-info {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.organization-detail .contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0d47a1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.organization-detail .contact-link:hover {
+  color: #283593;
+}
+.organization-detail .info-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+.organization-detail .info-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.organization-detail .section-title {
+  color: #1a237e;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.organization-detail .info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.organization-detail .info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #0d47a1;
+}
+.organization-detail .info-list li:last-child {
+  border-bottom: none;
+}
+.organization-detail .info-list li strong {
+  color: #1a237e;
+  margin-right: 0.5rem;
+}
+.organization-detail .icon {
+  color: #283593;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+.organization-detail .ceo-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+.organization-detail .ceo-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 3px solid #1a237e;
+}
+.organization-detail .ceo-basic-info h3 {
+  color: #1a237e;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+.organization-detail .ceo-basic-info .position {
+  color: #283593;
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .organization-detail .contact-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .organization-detail .ceo-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  .organization-detail .ceo-image {
+    width: 100px;
+    height: 100px;
+  }
+}/*# sourceMappingURL=OrganizationDetails.css.map */

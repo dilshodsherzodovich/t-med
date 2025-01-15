@@ -8,7 +8,7 @@ function DepartmentDetails({ data, department_employees }) {
     <div className="container">
       <div className="cs_service_details">
         <h3 className="cs_service_heading" data-aos="fade-up">
-          Bo'lim haqida:
+          {"Bo'lim haqida:"}
         </h3>
         <div
           dangerouslySetInnerHTML={{ __html: data?.departmentDetails }}
@@ -25,7 +25,7 @@ function DepartmentDetails({ data, department_employees }) {
             </i>
           </div>
           <p className="cs_about_iconbox_subtitle d-flex align-items-center ">
-            <Link to="">{data.subtitle}: </Link>{" "}
+            <Link to="">{data.subtitle}: </Link>
             <p className=" text-secondary fs-5 mb-0 mx-1">{data.workers}</p>
           </p>
         </div>

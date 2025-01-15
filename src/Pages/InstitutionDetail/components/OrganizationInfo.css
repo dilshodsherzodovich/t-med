@@ -1,0 +1,130 @@
+body {
+  font-family: "Inter", sans-serif;
+  color: #2c3333;
+  background-color: #f5f5f5;
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 3rem;
+}
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #1363df;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #002b5b;
+  border-color: #002b5b;
+}
+.btn-primary:hover {
+  background-color: #001328;
+  border-color: #001328;
+}
+
+.text-primary {
+  color: #002b5b !important;
+}
+
+.bg-light {
+  background-color: #f5f5f5 !important;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 2rem 0;
+  }
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+.organization-info {
+  padding: 4rem 0;
+}
+.organization-info .main-info-card {
+  background: white;
+  height: 100%;
+}
+.organization-info .main-info-card .org-logo {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.organization-info .main-info-card .info-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.organization-info .main-info-card .info-grid .info-item .icon {
+  color: #1363df;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.organization-info .main-info-card .info-grid .info-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #002b5b;
+}
+.organization-info .main-info-card .info-grid .info-item p {
+  color: #5b6a6a;
+  line-height: 1.6;
+}
+.organization-info .stats-card {
+  background: #002b5b;
+  color: white;
+  height: 100%;
+}
+.organization-info .stats-card .stat-item {
+  text-align: center;
+  padding: 1.5rem;
+}
+.organization-info .stats-card .stat-item .stat-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1363df;
+}
+.organization-info .stats-card .stat-item .stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+.organization-info .stats-card .stat-item .stat-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+.organization-info .stats-card .org-images h5 {
+  color: #1363df;
+}
+.organization-info .stats-card .org-images .image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.organization-info .stats-card .org-images .org-image {
+  width: 100%;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}/*# sourceMappingURL=OrganizationInfo.css.map */
