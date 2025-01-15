@@ -2,7 +2,7 @@ const LiveStreamCard = () => {
   return (
     <div className="card border-0 h-100 ">
       <div className="card-header text-white">
-        <h2 className="h4 mb-0">T-MED VISION CONNECT</h2>
+        <h2 className="h4 mb-0">LIVE STREAM</h2>
       </div>
       <div className="card-body d-flex flex-column">
         <div

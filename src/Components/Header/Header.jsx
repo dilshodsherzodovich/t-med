@@ -8,7 +8,6 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { FaAnglesRight, FaLocationDot, FaYoutube } from "react-icons/fa6";
-import { TbView360Number } from "react-icons/tb";
 import roundicon from "/assets/img/icons/360-degrees.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useHttp } from "../../hooks/useHttp";
@@ -103,6 +102,10 @@ const Header = ({ isTopBar, variant }) => {
       {
         label: "E-map",
         href: "/gmap",
+      },
+      {
+        label: "Jonli efir",
+        href: "/livestream",
       },
       {
         label: "Xodimlar uchun",
