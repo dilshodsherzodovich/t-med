@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import YandexMap from "./components/YandexMap";
+import Services from "./components/Services";
 
 const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const [rating, setRaiting] = useState(0);
@@ -50,6 +51,8 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
     <div className="organization-detail-page">
       <OrganizationInfo orgData={orgData} />
       <ManagerInfo ceoData={ceoData} address={orgData?.address} />
+
+      <Services />
 
       {orgData?.organization_questions?.length > 0 && (
         <Container>

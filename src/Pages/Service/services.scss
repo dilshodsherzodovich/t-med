@@ -1,0 +1,134 @@
+.services {
+  background: #f9fafb;
+  &-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 40px 0px;
+  }
+  &__header {
+    text-align: center;
+    margin-bottom: 48px;
+
+    h1 {
+      font-size: 36px;
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: #64748b;
+      font-size: 18px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+
+    .button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 21px;
+      border: none;
+      background: #fff;
+      color: #64748b;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 100px !important;
+      transition: all 0.2s;
+
+      &:hover {
+        color: #0f172a;
+      }
+
+      &.active {
+        background: #38bdf8;
+        box-shadow: 0 10px 15px -3px rgb(100 190 239 / 0.3),
+          0 4px 6px -4px rgb(100 190 239 / 0.3);
+        // box-shadow: 0 0 2rem rgba(100, 190, 239, 0.5);
+        color: white;
+
+        &:hover {
+          color: white;
+          background: #0ea5e9;
+        }
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  &__card {
+    background: white;
+    border-radius: 16px;
+    padding: 21px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    &:hover {
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      margin-bottom: 0.875rem;
+    }
+
+    &-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      background: #f0f9ff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.875rem;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: #38bdf8;
+      }
+    }
+
+    &-info {
+      & > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        color: #64748b;
+        font-size: 14px;
+        div {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          line-height: 1.25rem;
+        }
+
+        span {
+          font-weight: 500;
+          color: #38bdf8;
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+          color: #38bdf8;
+        }
+      }
+    }
+  }
+}

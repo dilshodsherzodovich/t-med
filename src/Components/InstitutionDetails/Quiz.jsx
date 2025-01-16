@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
@@ -55,6 +55,18 @@ const Quiz = ({ quizes, isLoading }) => {
     mutation.mutate({ customer: searchParams.get("user_id"), result_quizzes });
   };
 
+  useEffect(() => {
+    if (searchParams.get("user_id")) {
+      const section = document.getElementById("quiz");
+      console.log(section);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the section
+      }
+    }
+
+    // eslint-disable-next-line
+  }, []);
+
   if (isLoading) {
     return (
       <div className="quiz-section" data-aos="fade-up">
@@ -64,7 +76,7 @@ const Quiz = ({ quizes, isLoading }) => {
   }
 
   return (
-    <div className="quiz-section" id="quiz" data-aos="fade-up">
+    <div className="quiz-section" id="quiz">
       <h2>So'rovnoma</h2>
       <form onSubmit={handleQuizSubmit}>
         <div className="quiz-grid">

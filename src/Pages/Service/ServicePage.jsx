@@ -6,7 +6,7 @@ import { useHttp } from "../../hooks/useHttp";
 import { useMemo } from "react";
 import ServiceSection5 from "../../Components/Service/ServiceSection5";
 import hero2 from "/assets/img/hero2.png";
-
+import Services from "./Services";
 
 const headingData = {
   title: "Xizmatlar",
@@ -116,7 +116,7 @@ const serviceData = {
 const ServicePage = () => {
   const sendRequest = useHttp();
 
-  const { data, isLoading, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ["services"],
     queryFn: () => sendRequest({ url: `/blog/services//?page_size=30` }),
     staleTime: 1000,
@@ -206,6 +206,8 @@ const ServicePage = () => {
         >
           <ServiceSection5 data={govermentServices} />
         </Section>
+
+        <Services />
       </>
     </>
   );
