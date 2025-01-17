@@ -81,8 +81,6 @@ const ImageGallery = ({ gallery }) => {
     return pairImages;
   }, [images]);
 
-  console.log(imagePairs);
-
   return (
     <div className="image-gallery-carousel">
       <SectionHeading

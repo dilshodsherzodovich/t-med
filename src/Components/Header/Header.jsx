@@ -86,8 +86,26 @@ const Header = ({ isTopBar, variant }) => {
       },
 
       {
-        label: "Yangiliklar",
-        href: "/blog",
+        label: "Matbuot markazi",
+        href: "",
+        subItems: [
+          { label: "Axborot xizmati bilan bog'lanish", href: "/contact" },
+          { label: "Yangiliklar", href: "/blog" },
+          {
+            label: "Aholini favqulodda vaziyatlarga tayyorlash",
+            href: "https://gov.uz/oz/fvv/sections/aholini-favqulodda-vaziyatlarda-togri-harakat-qilishga-orgatuvchi-foydali-havolalar",
+            target: "_blank",
+          },
+          {
+            label: "Fotogalereya",
+            href: "/gallery",
+          },
+          {
+            label: "Videogalereya",
+            href: "https://www.youtube.com/@nsurailway",
+            target: "_blank",
+          },
+        ],
       },
       {
         label: "Qonunchilik bazasi",
@@ -272,6 +290,7 @@ const Header = ({ isTopBar, variant }) => {
                             {item.subItems.map((subItem, subIndex) => (
                               <li key={subIndex}>
                                 <Link
+                                  target={subItem?.target}
                                   to={subItem.href}
                                   onClick={() =>
                                     setIsShowMobileMenu(!isShowMobileMenu)

@@ -1,21 +1,14 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
 import InstitutionsList from "../../Components/Institutions/InstitutionsList";
 import Pagination from "../../Components/Pagination";
-import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { useSearchParams } from "react-router-dom";
 import hero2 from "/assets/img/hero2.png";
 
-
 function Institutions() {
-  const queryClient = useQueryClient();
-
-  const institutionCategories = queryClient.getQueryData([
-    "institutionCategories",
-  ]);
-
   const [page, setPage] = useState(1);
 
   const [searchParams] = useSearchParams();
@@ -65,6 +58,8 @@ function Institutions() {
     return {
       title: searchParams.get("name"),
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allInstitutions, searchParams]);
 
   const handlePageChange = (e) => {

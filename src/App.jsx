@@ -12,8 +12,6 @@ import ErrorPage from "./Pages/Pages/ErrorPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import Management from "./Pages/Management";
 import ScrollUpButton from "./Components/ScrollUpButton";
-import "aos/dist/aos.css";
-import Aos from "aos";
 import { useEffect } from "react";
 import Docs from "./Pages/Docs";
 import Departments from "./Pages/Departments";
@@ -23,6 +21,10 @@ import Virtour from "./Pages/Virtour";
 import Map from "./Pages/Map";
 import DepartmentsList from "./Pages/DepartmenList";
 import LiveStream from "./Pages/LiveStream";
+import Gallery from "./Pages/Gallery";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import "./init";
 
 function App() {
   Aos.init({
@@ -59,6 +61,7 @@ function App() {
           <Route path="/institutions/" element={<Institutions />} />
           <Route path="/institutions/:id" element={<InstitutionDetail />} />
           <Route path="/livestream" element={<LiveStream />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
         <Route path="/gmap" element={<Map />} />
