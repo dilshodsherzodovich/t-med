@@ -1,6 +1,6 @@
 const VisionConnectCard = () => {
   return (
-    <div className="card border-0 h-100 ">
+    <div className="card stream border-0 h-100 ">
       <div className="card-header text-white">
         <h2 className="h4 mb-0">VISION CONNECT</h2>
       </div>

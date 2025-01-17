@@ -60,7 +60,7 @@ $light: #f8f9fa;
   }
 }
 
-.card-header {
+.card.stream .card-header {
   background: linear-gradient(
     to right,
     darken(rgb(46 166 247), 10%),

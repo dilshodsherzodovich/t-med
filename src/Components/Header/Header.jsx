@@ -81,6 +81,30 @@ const Header = ({ isTopBar, variant }) => {
         ],
       },
       {
+        label: "Faoliyat",
+        href: "",
+        subItems: [
+          { label: "Onlayn so'rovnoma", href: "/about" },
+          { label: "Memorandumlar", href: "/memorandum" },
+          {
+            label: "Hamkorlik",
+            href: "/cooperation",
+          },
+          {
+            label: "Safarlar",
+            href: "/trips",
+          },
+          {
+            label: "Uchrashuvlar",
+            href: "/meetings",
+          },
+          {
+            label: "Tadbirlar",
+            href: "/events",
+          },
+        ],
+      },
+      {
         label: "Xizmatlar",
         href: "/service",
       },
