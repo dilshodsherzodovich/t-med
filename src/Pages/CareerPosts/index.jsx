@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CalendarDays, MapPin, Plane, Music, Briefcase } from "lucide-react";
+import { CalendarDays, MapPin, Plane, Music } from "lucide-react";
 import Modal from "./components/Modal";
 import "./careerPosts.scss";
 import Section from "../../Components/Section";
@@ -101,7 +101,7 @@ function CareerPosts() {
                         className="showcase-card__button"
                         onClick={() => setSelectedItem(item)}
                       >
-                        Learn More
+                        Batafsil
                       </button>
                     </div>
                   </div>
