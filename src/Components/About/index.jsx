@@ -3,6 +3,8 @@ import { FaAnglesRight, FaRegCircleCheck } from "react-icons/fa6";
 import Button from "../Buttons";
 import SectionHeading from "../SectionHeading";
 import VideoModal from "../VideoSection/Modal";
+import about1 from "/assets/img/about/about1.png";
+import about2 from "/assets/img/about/about2.png";
 import { Link } from "react-router-dom";
 
 const About = ({ data }) => {
@@ -25,7 +27,7 @@ const About = ({ data }) => {
           <div className="col-lg-6">
             <div className="cs_about_thumb">
               <div className="cs_about_thumb_1">
-                <img src={data.headImgUrl} alt="" />
+                <img src={about1} alt="" />
                 <Link
                   className="cs_about_player_btn cs_video_open"
                   onClick={handelClick}
@@ -39,7 +41,7 @@ const About = ({ data }) => {
                 </Link>
               </div>
               <div className="cs_about_thumb_2">
-                <img src={data?.headSecondImgUrl} alt="About Image" />
+                <img src={about2} alt="About Image" />
                 <img
                   src="assets/img/icons/about_shape_1.png"
                   alt="Shape Image"
@@ -94,7 +96,7 @@ const About = ({ data }) => {
                 btnText={data.btnText}
                 variant={"cs_btn cs_style_1 cs_color_1"}
                 btnIcons={<FaAnglesRight />}
-                btnUrl={data.btnText}
+                btnUrl={data.btnUrl}
               />
             </div>
           </div>

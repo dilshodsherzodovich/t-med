@@ -3,6 +3,7 @@ import loadBackgroudImages from "../Common/loadBackgroudImages";
 import { useMutation } from "@tanstack/react-query";
 import { postNewsLetter } from "../../api/newsletter";
 import { toast } from "react-toastify";
+import contactBg from "/assets/img/about/contact.png";
 
 const ContactSection2 = () => {
   const formRef = useRef();
@@ -33,8 +34,6 @@ const ContactSection2 = () => {
     };
     mutation.mutate(data);
   };
-
-  console.log(mutation?.isPending);
 
   return (
     <section className="cs_card cs_style_3 cs_gray_bg position-relative">
@@ -112,7 +111,7 @@ const ContactSection2 = () => {
           <div className="col-lg-6">
             <div
               className="cs_solution_thumbnail cs_bg_filed"
-              data-background="https://medilo-react.vercel.app/assets/img/medical_solution_1.jpg"
+              data-background={contactBg}
             ></div>
           </div>
         </div>

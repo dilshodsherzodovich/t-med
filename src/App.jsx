@@ -25,6 +25,8 @@ import Gallery from "./Pages/Gallery";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "./init";
+import CooperationPage from "./Pages/Cooperation";
+import CareerPosts from "./Pages/CareerPosts";
 
 function App() {
   Aos.init({
@@ -62,6 +64,8 @@ function App() {
           <Route path="/institutions/:id" element={<InstitutionDetail />} />
           <Route path="/livestream" element={<LiveStream />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/cooperation" element={<CooperationPage />} />
+          <Route path="/events" element={<CareerPosts />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
         <Route path="/gmap" element={<Map />} />

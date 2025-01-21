@@ -30,8 +30,6 @@ function MapSection() {
     })?.id;
   }, [activeRegion, organizationRegions]);
 
-  console.log(activeRegion);
-
   const { data: activeRegionInts, isLoading } = useQuery({
     queryKey: ["activeRegionInts", activeRegionId],
     queryFn: () =>
@@ -57,7 +55,7 @@ function MapSection() {
       <div className="row">
         <div className="col-12 col-md-7">
           <SvgMap
-            activeRegion={activeRegion} 
+            activeRegion={activeRegion}
             setActiveRegion={setActiveRegion}
           />
         </div>

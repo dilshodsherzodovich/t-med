@@ -4,7 +4,7 @@ import HeroSection from "../../Components/HeroSection";
 import About from "../../Components/About/index.jsx";
 import CounterSection from "../../Components/FunSection/CounterSection.jsx";
 import Service from "../../Components/Service/index.jsx";
-import TeamSection from "../../Components/TeamSection/index.jsx";
+// import TeamSection from "../../Components/TeamSection/index.jsx";
 import ChooseUs from "../../Components/ChooseUs/index.jsx";
 import CtaSection1 from "../../Components/CtaSection.jsx/CtaSection1.jsx";
 import BlogSection from "../../Components/BlogsSection/index.jsx";
@@ -20,19 +20,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import DesktopHome from "./DeskTopHome.jsx";
-import hero1 from "/assets/img/hero1.png"
-import hero2 from "/assets/img/hero2.png"
-import hero3 from "/assets/img/hero3.png"
+import hero1 from "/assets/img/hero1.png";
+import hero2 from "/assets/img/hero2.png";
 import hero4 from "/assets/img/hero4.png";
-import hero5 from "/assets/img/hero5.png";
-
-
 
 const heroData = {
   primarySlider: [
     {
-      bgImageUrl:
-       hero1,
+      bgImageUrl: hero4,
       title: `"O'zbekiston Temir yo'llari" AJ "Temiryo'l ijtimoiy xizmatlar" <span>muassasasi</span>`,
       contactSubtitle: "",
       contactTitle: "Tibbiy xizmatdan foydalaning",
@@ -44,8 +39,7 @@ const heroData = {
       iconImgUrl: "assets/img/icons/hero_icon.png",
     },
     {
-      bgImageUrl:
-        hero2,
+      bgImageUrl: hero2,
       title: "Yuqori malakali <span>Mutaxasislar.</span>",
       contactSubtitle: `Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.`,
       contactTitle: "Tibbiy xizmatdan foydalaning",
@@ -57,8 +51,7 @@ const heroData = {
       iconImgUrl: "assets/img/icons/hero_icon.png",
     },
     {
-      bgImageUrl:
-        hero4,
+      bgImageUrl: hero1,
       title: "Ruhiy salomatlik <span>markazingiz.</span>",
       contactSubtitle:
         "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.",
@@ -70,7 +63,6 @@ const heroData = {
       link2: "/about",
       iconImgUrl: "assets/img/icons/hero_icon.png",
     },
-  
   ],
   secondarySlider: [
     "https://medilo-react.vercel.app/assets/img/hero_slider_sm_3.png",
@@ -207,7 +199,7 @@ const testimonialData = {
       rating: 2,
       subtitle:
         "“Meni ortiqcha vazn, nafas qisilishi va oyoqlarimdagi og‘riqlar tashvishga solardi. Operatsiya natijasidan mamnunman, - deydi jarrohlik bo'limidagi bemorimiz.",
-      avatar: "assets/img/avatar_1.png",
+      avatar: "assets/img/reviews/review1.png",
       name: "Bemor",
       position: "",
     },
@@ -451,8 +443,6 @@ const MainHome = () => {
                   />
                 </Section>
               </motion.div>
-
-              
 
               <motion.div ref={(el) => (sectionRefs.current[6] = el)}>
                 <Section

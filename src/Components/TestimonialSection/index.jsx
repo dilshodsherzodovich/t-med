@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 const TestimonialSection = ({ data }) => {
+  // eslint-disable-next-line no-unused-vars
   const [rating, setRating] = useState();
   const settings = {
     dots: true,

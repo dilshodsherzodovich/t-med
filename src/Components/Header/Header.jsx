@@ -154,9 +154,11 @@ const Header = ({ isTopBar, variant }) => {
         href: "https://nsu-admin-211q.vercel.app/login",
         target: "_blank",
       },
+      {
+        label: "Aloqa",
+        href: "/contact",
+      },
     ],
-    btnUrl: "/contact",
-    btnText: "Aloqa",
   };
 
   const handleOpenMobileSubmenu = (index) => {
@@ -380,12 +382,12 @@ const Header = ({ isTopBar, variant }) => {
                   </span>
                 </div>
 
-                <Link to={menu.btnUrl} className="cs_btn cs_style_1 cs_color_1">
+                {/* <Link to={menu.btnUrl} className="cs_btn cs_style_1 cs_color_1">
                   <span>{menu.btnText}</span>
                   <i>
                     <FaAnglesRight />
                   </i>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
