@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
-$primary-color: #3b82f6;
-$secondary-color: #3b82f6;
+$primary-color: #2ea6f7;
+$secondary-color: #2ea6f7;
 $text-color: #1e3a8a;
 $background-color: #f0f9ff;
 
@@ -33,11 +33,11 @@ $background-color: #f0f9ff;
   padding: 2rem;
 }
 
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
+// .showcase-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+//   gap: 1.5rem;
+// }
 
 .showcase-card {
   background-color: white;
@@ -45,6 +45,7 @@ $background-color: #f0f9ff;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+  height: 100%;
 
   &:hover {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -52,7 +53,7 @@ $background-color: #f0f9ff;
 
   &__image-container {
     position: relative;
-    height: 200px;
+    height: 300px;
     overflow: hidden;
   }
 
@@ -93,8 +94,10 @@ $background-color: #f0f9ff;
   &__title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: $primary-color;
+    // color: $primary-color;
     margin: 0;
+    transition: color 0.1s linear;
+    cursor: pointer;
   }
 
   &__icon {
