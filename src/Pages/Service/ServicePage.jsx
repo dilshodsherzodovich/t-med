@@ -186,12 +186,13 @@ const ServicePage = () => {
         {/* Start Service Section */}
 
         <Section
-          topSpaceLg="80"
-          topSpaceMd="120"
-          bottomSpaceLg="80"
-          bottomSpaceMd="120"
+          topSpaceLg="0"
+          topSpaceMd="0"
+          bottomSpaceLg="0"
+          bottomSpaceMd="0"
         >
-          <Service data={serviceData} services={servicesData} />
+          <Services />
+          {/* <Service data={serviceData} services={servicesData} /> */}
         </Section>
 
         {/* End Service Section */}
@@ -206,8 +207,6 @@ const ServicePage = () => {
         >
           <ServiceSection5 data={govermentServices} />
         </Section>
-
-        <Services />
       </>
     </>
   );

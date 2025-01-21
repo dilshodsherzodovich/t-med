@@ -10,50 +10,76 @@ $gray-600: #4b5563;
 $gray-700: #374151;
 
 // Breakpoints
+$breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
 
 .cooperation-page {
   margin-top: 2rem;
   min-height: 100vh;
   background: #fff;
+  padding: 1rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 2rem;
+  }
 }
 
 .header {
-  // padding: 4rem 0;
   text-align: center;
+  padding: 1rem;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     color: $blue-800;
     margin-bottom: 1rem;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
   }
 
   p {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: $blue-600;
-    max-width: 40rem;
+    max-width: 100%;
     margin: 0 auto;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.25rem;
+      max-width: 40rem;
+    }
   }
 }
 
 .main-content {
-  // max-width: 1200px;
   margin: 0 auto;
-  // padding: 0 1rem;
+  // padding: 1rem;
+
+  @media (min-width: $breakpoint-md) {
+    // max-width: 1200px;
+    padding: 0 1rem;
+  }
 }
 
 .why-cooperate {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+
+  @media (min-width: $breakpoint-md) {
+    margin-bottom: 5rem;
+  }
 
   .content-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
 
-    @media (max-width: 768px) {
-      flex-direction: column;
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      gap: 3rem;
     }
   }
 
@@ -61,16 +87,24 @@ $breakpoint-lg: 1024px;
     flex: 1;
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 600;
       color: $blue-900;
       margin-bottom: 1rem;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 2rem;
+      }
     }
 
     p {
-      font-size: 1.125rem;
+      font-size: 1rem;
       color: $gray-700;
       margin-bottom: 1.5rem;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 1.125rem;
+      }
     }
   }
 
@@ -94,30 +128,48 @@ $breakpoint-lg: 1024px;
 }
 
 .cooperation-areas {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+
+  @media (min-width: $breakpoint-md) {
+    margin-bottom: 5rem;
+  }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: $blue-900;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
   }
 
   .areas-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
   }
 
   .area-card {
     background-color: white;
     border-radius: 0.5rem;
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
     transition: box-shadow 0.3s ease;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 1.5rem;
+    }
 
     &:hover {
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
@@ -125,15 +177,23 @@ $breakpoint-lg: 1024px;
     }
 
     .icon {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: $blue-600;
       margin-bottom: 1rem;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 2rem;
+      }
     }
 
     h3 {
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 1.25rem;
+      }
     }
 
     p {
@@ -146,54 +206,102 @@ $breakpoint-lg: 1024px;
   background-color: $blue-900;
   color: white;
   border-radius: 0.5rem;
-  padding: 3rem;
+  padding: 2rem;
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 3rem;
+    margin-bottom: 5rem;
+  }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   p {
-    font-size: 1.25rem;
-    max-width: 40rem;
-    margin: 0 auto 2rem;
+    font-size: 1rem;
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.25rem;
+      max-width: 40rem;
+      margin: 0 auto 2rem;
+    }
   }
 }
 
 .success-stories {
-  margin-bottom: 5rem;
+  padding: 2rem 1rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 4rem 2rem;
+  }
 
   h2 {
+    text-align: center;
+    margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: 600;
-    color: $blue-900;
-    text-align: center;
-    margin-bottom: 3rem;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
   }
 
   .stories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+    }
   }
 
   .story-card {
-    background-color: white;
-    border-radius: 0.5rem;
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.2s;
 
     &:hover {
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: white;
+      font-size: 0.875rem;
+      text-transform: capitalize;
     }
 
     .image-wrapper {
-      height: 200px;
+      height: 150px;
       overflow: hidden;
+
+      @media (min-width: $breakpoint-md) {
+        height: 200px;
+      }
 
       img {
         width: 100%;
@@ -203,17 +311,174 @@ $breakpoint-lg: 1024px;
     }
 
     .content {
-      padding: 1.5rem;
+      padding: 1rem;
+
+      @media (min-width: $breakpoint-md) {
+        padding: 1.5rem;
+      }
 
       h3 {
-        font-size: 1.25rem;
+        font-size: 1rem;
         font-weight: 600;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
+
+        @media (min-width: $breakpoint-md) {
+          font-size: 1.25rem;
+        }
+      }
+
+      .meta {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 0.75rem;
+        color: #666;
+
+        @media (min-width: $breakpoint-md) {
+          gap: 1rem;
+          font-size: 0.875rem;
+        }
+
+        .date,
+        .location {
+          display: flex;
+          align-items: center;
+        }
       }
 
       p {
-        color: $gray-600;
+        color: #444;
         margin-bottom: 1rem;
+        line-height: 1.6;
+
+        @media (min-width: $breakpoint-md) {
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      .learn-more {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #1a73e8;
+        font-weight: 500;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: gap 0.2s;
+
+        &:hover {
+          gap: 0.75rem;
+        }
+
+        .icon {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+
+  .success-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 1000;
+  }
+
+  .success-modal {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 100%;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 2rem;
+      max-width: 800px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: #666;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 1.25rem;
+      }
+
+      &:hover {
+        color: #000;
+      }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: left;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 2rem;
+      }
+    }
+
+    .success-modal-meta {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      color: #666;
+
+      @media (min-width: $breakpoint-md) {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .full-description {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+
+      @media (min-width: $breakpoint-md) {
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+    }
+
+    .detail-images {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+
+      @media (min-width: $breakpoint-md) {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .detail-image {
+        border-radius: 8px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
   }
@@ -221,8 +486,12 @@ $breakpoint-lg: 1024px;
 
 .footer {
   background-color: $blue-100;
-  padding: 2rem 0;
+  padding: 1rem 0;
   text-align: center;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 2rem 0;
+  }
 
   p {
     color: $blue-800;

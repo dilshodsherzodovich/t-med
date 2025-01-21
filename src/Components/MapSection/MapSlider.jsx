@@ -21,13 +21,14 @@ const MapSlider = ({ sliders, isLoading }) => {
   return (
     <div className="profile-carousel">
       <Carousel
+        // indicators={false}
         activeIndex={activeIndex}
         onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
       >
         {sliders?.map((profile) => {
           return (
             <Carousel.Item key={profile?.id}>
-              <div className="card">
+              <div className="card  px-2">
                 <div className="card-header">
                   <h2 className="card-title">{profile?.title}</h2>
                 </div>
