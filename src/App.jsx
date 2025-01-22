@@ -27,6 +27,7 @@ import "aos/dist/aos.css";
 import "./init";
 import CooperationPage from "./Pages/Cooperation";
 import CareerPosts from "./Pages/CareerPosts";
+import CreativeClientPreferenceQuiz from "./Pages/CreativeClientPreferenceQuiz";
 
 function App() {
   Aos.init({
@@ -66,10 +67,11 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/cooperation" element={<CooperationPage />} />
           <Route path="/events" element={<CareerPosts />} />
-          <Route path="/memorandum" element={<CareerPosts />} />
+          <Route path="/careers/:id" element={<CareerPosts />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
         <Route path="/gmap" element={<Map />} />
+        <Route path="/review" element={<CreativeClientPreferenceQuiz />} />
         <Route path="/virtour" element={<Virtour />} />
       </Routes>
       <ScrollUpButton />

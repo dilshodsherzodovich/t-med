@@ -5,6 +5,9 @@ import "./careerPosts.scss";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
 import hero2 from "/assets/img/hero2.png";
+import { useQuery } from "@tanstack/react-query";
+import { useHttp } from "../../hooks/useHttp";
+import { useParams } from "react-router-dom";
 
 const showcaseItems = [
   {
@@ -40,6 +43,18 @@ Bugun, 2024-yil 1-mart kuni, “O‘zbekiston temir yo‘llari” AJning  “Tem
 ];
 
 function CareerPosts() {
+  const sendRequest = useHttp();
+
+  const { id } = useParams();
+
+  const { data: careers } = useQuery({
+    queryKey: ["careers"],
+    queryFn: () => sendRequest({ url: `/blog/activity//${id}/` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
   const [selectedItem, setSelectedItem] = useState(null);
 
   return (

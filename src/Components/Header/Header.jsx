@@ -7,7 +7,7 @@ import {
   FaTelegramPlane,
   FaTwitter,
 } from "react-icons/fa";
-import { FaAnglesRight, FaLocationDot, FaYoutube } from "react-icons/fa6";
+import { FaLocationDot, FaYoutube } from "react-icons/fa6";
 import roundicon from "/assets/img/icons/360-degrees.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useHttp } from "../../hooks/useHttp";
@@ -84,8 +84,8 @@ const Header = ({ isTopBar, variant }) => {
         label: "Faoliyat",
         href: "",
         subItems: [
-          { label: "Onlayn so'rovnoma", href: "/about" },
-          { label: "Memorandumlar", href: "/memorandum" },
+          { label: "Onlayn so'rovnoma", href: "/review" },
+          { label: "Memorandumlar", href: "/careers/1?category=memorandum" },
           {
             label: "Hamkorlik",
             href: "/cooperation",
@@ -381,13 +381,6 @@ const Header = ({ isTopBar, variant }) => {
                     <span></span>
                   </span>
                 </div>
-
-                {/* <Link to={menu.btnUrl} className="cs_btn cs_style_1 cs_color_1">
-                  <span>{menu.btnText}</span>
-                  <i>
-                    <FaAnglesRight />
-                  </i>
-                </Link> */}
               </div>
             </div>
           </div>
