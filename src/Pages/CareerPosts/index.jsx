@@ -7,7 +7,7 @@ import PageHeading from "../../Components/PageHeading";
 import hero2 from "/assets/img/hero2.png";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const showcaseItems = [
   {
@@ -42,10 +42,37 @@ Bugun, 2024-yil 1-mart kuni, “O‘zbekiston temir yo‘llari” AJning  “Tem
   },
 ];
 
+const categories = [
+  {
+    name: "Memorandumlar",
+    value: "memorandum",
+  },
+  {
+    name: "Sayohatlar",
+    value: "trips",
+  },
+  {
+    name: "Uchrashuvlar",
+    value: "meetings",
+  },
+  {
+    name: "Tadbirlar",
+    value: "events",
+  },
+];
+
 function CareerPosts() {
   const sendRequest = useHttp();
 
   const { id } = useParams();
+
+  const [searchParams] = useSearchParams();
+
+  const category = categories?.find(
+    (item) => item?.value === searchParams.get("category")
+  )?.name;
+
+  console.log(category);
 
   const { data: careers } = useQuery({
     queryKey: ["careers"],
@@ -63,10 +90,7 @@ function CareerPosts() {
         className={"cs_page_heading cs_bg_filed cs_center"}
         backgroundImage={hero2}
       >
-        <PageHeading
-          secondaryData={"Uchrashuvlar"}
-          data={{ title: "Uchrashuvlar" }}
-        />
+        <PageHeading secondaryData={category} data={{ title: category }} />
       </Section>
 
       <Section
@@ -83,12 +107,12 @@ function CareerPosts() {
 
           <main className="main container">
             <div className="row  showcase-grid">
-              {showcaseItems.map((item, index) => (
+              {careers?.modules?.map((item, index) => (
                 <div key={index} className="col-12 col-md-6 col-lg-4 p-3">
                   <div className="showcase-card">
                     <div className="showcase-card__image-container">
                       <img
-                        src={item.image || "/placeholder.svg"}
+                        src={item?.images[0]?.image || "/placeholder.svg"}
                         alt={item.title}
                         className="showcase-card__image"
                       />
