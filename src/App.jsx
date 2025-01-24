@@ -49,7 +49,7 @@ function App() {
         <Route path="/" element={<Layout variant="cs_type_1" />}>
           <Route path="/home-v3" element={<HomeV3 />} />
         </Route>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout isTopBar />}>
           <Route path="/about" element={<AboutPage />} />
           <Route path="/management" element={<Management />} />
           <Route path="/service" element={<ServicePage />} />

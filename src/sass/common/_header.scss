@@ -68,7 +68,7 @@
 }
 
 .cs_site_header {
-  position: fixed;
+  position: absolute;
   z-index: 101;
   width: 100%;
   left: 0;
@@ -302,7 +302,7 @@
       height: inherit;
 
       > li {
-        margin-right: 25px;
+        margin-right: 40px;
         height: inherit;
 
         &:last-child {
@@ -315,11 +315,6 @@
           position: relative;
           height: inherit;
           align-items: center;
-          text-transform: uppercase;
-          font-size: 15.5px;
-          @media (max-width: 1440px) {
-            font-size: 14px;
-          }
         }
 
         > ul {
@@ -398,9 +393,9 @@
         ul {
           top: 15px;
           left: 100%;
-          // &.double-subItem {
-          //   left: calc(100% + 5px);
-          // }
+          &.double-subItem {
+            left: calc(100% + 5px);
+          }
         }
       }
     }
