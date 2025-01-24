@@ -116,7 +116,7 @@ const BlogsPage = () => {
 
   const [page, setPage] = useState(1);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const category = searchParams.get("category");
 
@@ -137,7 +137,7 @@ const BlogsPage = () => {
     retry: false,
   });
 
-  const { data: blogCategories, isLoading: categoryLoading } = useQuery({
+  const { data: blogCategories } = useQuery({
     queryKey: ["blogCategories"],
     queryFn: () => sendRequest({ url: `/blog/post-category//` }),
     staleTime: 10000,

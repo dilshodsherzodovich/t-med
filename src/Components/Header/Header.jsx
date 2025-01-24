@@ -92,15 +92,15 @@ const Header = ({ isTopBar, variant }) => {
           },
           {
             label: "Safarlar",
-            href: "/trips",
+            href: "/careers/3?category=trips",
           },
           {
             label: "Uchrashuvlar",
-            href: "/meetings",
+            href: "/careers/4?category=meetings",
           },
           {
             label: "Tadbirlar",
-            href: "/events",
+            href: "/careers/5?category=events",
           },
         ],
       },

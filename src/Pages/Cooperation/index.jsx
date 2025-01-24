@@ -12,69 +12,43 @@ import PageHeading from "../../Components/PageHeading";
 import hero2 from "/assets/img/hero2.png";
 import InfiniteLogoSlider from "./components/InfiniteLogoSlider";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import post1 from "/assets/img/posts/post1.jpg";
-import post2 from "/assets/img/posts/post2.jpg";
-import post3 from "/assets/img/posts/post3.jpg";
-
-const stories = [
-  {
-    id: 1,
-    type: "kongress",
-    badgeColor: "#1a73e8",
-    title: "II Xalqaro Kongress",
-    date: "2024, 10-oktabr",
-    location: "Markaziy klinik kasalxonasi",
-    description:
-      "Bariatrik va metabolik Oʻzbekiston jarrohlar assotsiatsiyasining II Xalqaro Kongressida ishtirok etish uchun jarrohlar tashrifi",
-    image: post1,
-    detailImages: [post1],
-    fullDescription: `Kecha, 10-oktyabr kuni Markaziy klinik kasalxonasida poytaxtimizda o‘tkaziladigan "Bariatrik va metabolik Oʻzbekiston jarrohlar assotsiatsiyasining II Xalqaro Kongressi" da ishtirok etish uchun barcha davolash-profilaktika muassasalarida faoliyat yuritayotgan jarrohlar taklif etildi.
-
-🔹Ushbu kongress oldidan "Temir yo'l ijtimoiy xizmatlar" muassasasi boshlig‘i  M.M.Mamasidikov va Markaziy klinik kasalxonasida faoliyat yuritayotgan Toshkent tibbiyot akademiyasi umumiy jarrohlik kafedrasi t.f.d. professori O.R.Teshayev ishtirokida jarrohlar bilan yig'ilish bo'lib o'tdi. 
-
-🔹Yigʻilishda “Temir yoʻl ijtimoiy xizmatlar” muassasasi boshligʻi tizimdagi davolash-profilaktika muassasalarida jarrohlik xizmati sifatini hamda jarrohlar malakasini muntazam  oshirib borilishi lozimligi toʻgʻrisida gapirib, Toshkent Tibbiyot Akademiyasi kafedrasi mutaxassislari bilan yaqindan hamkorlik qilish rejalashtirilganligi toʻgʻrisida maʼlum qildi. Soʻng soʻzga Toshkent tibbiyot akademiyasi professori O.R.Teshayev chiqib, Oʻzbekiston temir yoʻllari tibbiyoti faoliyatini yanada rivojlantirib, temiryoʻlchilarga hamda aholiga jarrohlik xizmati hajmini kengaytirish maqsadida, kelgusida hamkorlikda ishlash uchun barcha shart-sharoitlar mavjudligi toʻgʻrisida gapirdi. Shu bilan birga  zarur boʻlgan hollarda kafedraning malakali jarrohlari joylarga borib, master klasslar oʻtib, birgalikda operatsiyalar qilishlarida amaliy yordam koʻrsatishlari rejalashtirilganligini aytib oʻtdi.
- 
-✅Yigʻilishdan soʻng, barcha davolash-profilaktika muassasalari jarrohlari poytaxtimizda joylashgan “Star Med” klinikasiga bordilar va kongressga Dubay shahridan taklif etilgan  t.f.d professor Imran Abbas tomonidan bajariladigan jarrohlik amaliyotini  koʻrib, oʻrganish maqsadida  video konferensiyada qatnashdilar. Shuningdek, zamonaviy usulda oʻtkazilgan operatsiya jarayoni onlayn kuzatilib, soʻng interfaol usulda muhokama qilindi.
-
-📌11-12 oktyabr kunlari Toshkent shahrida o‘tkazilayotgan “Bariatrik va metabolik Oʻzbekiston jarrohlar assotsiatsiyasining II Xalqaro Kongressi” albatta, jarrohlik amaliyotidagi yangiliklar bilan birga temir yo'lchilar orasida kasalliklarni o'z vaqtida aniqlash, davolash usullarini zamonaviy yuqori texnologiya talablari asosida olib borish va shifokorlarning kasbiy mahoratiga, ularning bilim hamda amaliyotda zamonaviy yuqori texnologiyalarni qo'llash imkoniyatiga zamin bo‘ladi.
-`,
-  },
-  {
-    id: 2,
-    type: "hamkorlik",
-    badgeColor: "#34a853",
-    title: "Tibbiyot sohasida yana bir manfaatli hamkorlik",
-    date: "2024, 10-yanvar",
-    location: "Markaziy klinik kasalxonasi",
-    description:
-      "“O‘zbekiston temir yo‘llari” AJ “Temir yo‘l ijtimoiy xizmatlar” muassasasi hamda “Olmaliq kon metallurgiya kombinati” AJ o‘rtasida o’zaro hamkorlik memorandumi asosida malakali tibbiy ko’rik tashkil etildi. ",
-    image: post2,
-    detailImages: [post2],
-    fullDescription: `🚉“O‘zbekiston temir yo‘llari” AJ “Temir yo‘l ijtimoiy xizmatlar” muassasasi hamda “Olmaliq kon metallurgiya kombinati” AJ o‘rtasida o’zaro hamkorlik memorandumi asosida malakali tibbiy ko’rik tashkil etildi. 
-
-✅Shu bois, “Temir yo‘l ijtimoiy xizmatlar” muassasasi tizimidagi Markaziy klinik kasalxonasi, Samarqand temiryo‘l shifoxonasi hamda Tibbiyot xodimlarining kasbiy malakasini rivojlantirish markazi ilmiy xodimlari va  Toshkent Tibbiyot Akademiyasida faoliyat yuritayotgan malakali mutaxassislar tomonidan “Olmaliq kon metallurgiya kombinati” AJ ishchi-xodimlarini sog‘lomlashtirish maqsadida chuqurlashtirilgan tibbiy ko’rik o‘tkazilindi`,
-  },
-  {
-    id: 3,
-    type: "joint venture",
-    badgeColor: "#9c27b0",
-    title: "Tibbiyot sohasida yana bir manfaatli hamkorlik",
-    date: "2024, 1-fevral",
-    location: "Markaziy klinik kasalxonasi",
-    description:
-      "Markaziy klinik kasalxona va MIOT xalqaro kasalxonasi o‘rtasida hamkorlik",
-    image: post3,
-    detailImages: [post3],
-    fullDescription: `🏥Hamkorlik natijasida, Hindiston xalqaro MIOT kasalxonasidan malakali mutaxassislar Markaziy klinik kasalxonasiga tashrif buyurdi. 
-
-🧬Hindistonlik shifokorlar ushbu tashrifi davomida saraton kasalligi, miya, orqa miya va asab tizimi bilan muammosi bor bemorlarni bepul tibbiy ko‘rikdan o‘tkazdilar va bemorlarga samarali maslahatlar berdilar.
-
-🔹Bu boradagi ishlarni davom ettirish maqsadida Markaziy klinik kasalxona va MIOT xalqaro kasalxonalari o‘rtasida hamkorlik ishlari kelishib olindi. `,
-  },
-];
+import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useHttp } from "../../hooks/useHttp";
+import { truncateString } from "../../utils/truncate-string";
 
 const CooperationPage = () => {
+  const sendRequest = useHttp();
+
+  const { data: cooperations } = useQuery({
+    queryKey: ["cooperations"],
+    queryFn: () => sendRequest({ url: `/blog/activity//2/` }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const stories = useMemo(() => {
+    if (!cooperations?.modules?.length) return [];
+    return cooperations?.modules?.map((item) => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(item?.description, "text/html");
+      const shortDescription = truncateString(doc.body.textContent, 200);
+      return {
+        id: item?.id,
+        type: "hamkorlik",
+        badgeColor: "#1a73e8",
+        title: item?.title,
+        date: item?.date || "2024, 10-mart",
+        location: item?.locatoin || "Markaziy klinik kasalxonasi",
+        description: shortDescription,
+        image: item?.images[0]?.image || "",
+        detailImages: item?.images?.map((img) => img?.image),
+        fullDescription: item?.description,
+      };
+    });
+  }, [cooperations]);
+
   const [selectedStory, setSelectedStory] = useState(null);
   return (
     <>
@@ -160,7 +134,7 @@ const CooperationPage = () => {
           <section className="cta-section">
             <h2 style={{ color: "#fff" }}>Hamkorlik qilishga tayyormisiz?</h2>
             <p>
-              {`  Samarali hamkorlik sari birinchi qadamni qo'ying. Qanday qilib 
+              {`Samarali hamkorlik sari birinchi qadamni qo'ying. Qanday qilib 
               birgalikda ishlashimiz mumkinligini o'rganish uchun biz bilan
               bog'laning.`}
             </p>
@@ -174,7 +148,7 @@ const CooperationPage = () => {
             <h2>Muvaffaqqiyatli hamkorliklar</h2>
 
             <div className="stories-grid">
-              {stories.map((story) => (
+              {stories?.map((story) => (
                 <div key={story.id} className="story-card">
                   <div
                     className="badge"

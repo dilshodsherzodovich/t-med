@@ -2,7 +2,6 @@ import { X, CalendarDays, MapPin } from "lucide-react";
 import "./Modal.scss";
 
 function Modal({ item, onClose }) {
-  console.log(item);
   return (
     <div className="modal-overlay">
       <div className="detail-modal">
@@ -12,7 +11,7 @@ function Modal({ item, onClose }) {
         <h2 className="detail-modal__title">{item.title}</h2>
         <div className="detail-modal__image-container">
           <img
-            src={item.image || "/placeholder.svg"}
+            src={item?.images[0]?.image || "/placeholder.svg"}
             alt={item.title}
             className="detail-modal__image"
           />
@@ -28,11 +27,7 @@ function Modal({ item, onClose }) {
           </div>
         </div>
         <div className="detail-modal__content">
-          {item.detailedInfo.split("\n").map((paragraph, index) => (
-            <p key={index} className="detail-modal__paragraph">
-              {paragraph}
-            </p>
-          ))}
+          <p dangerouslySetInnerHTML={{ __html: item?.description }}></p>
         </div>
       </div>
     </div>

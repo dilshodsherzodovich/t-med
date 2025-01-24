@@ -296,11 +296,11 @@ $breakpoint-xl: 1200px;
     }
 
     .image-wrapper {
-      height: 150px;
+      height: 250px;
       overflow: hidden;
 
       @media (min-width: $breakpoint-md) {
-        height: 200px;
+        height: 250px;
       }
 
       img {
