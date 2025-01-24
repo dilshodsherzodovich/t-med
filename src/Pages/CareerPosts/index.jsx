@@ -42,7 +42,7 @@ function CareerPosts() {
   )?.name;
 
   const { data: careers, isLoading } = useQuery({
-    queryKey: ["careers"],
+    queryKey: ["careers", id],
     queryFn: () => sendRequest({ url: `/blog/activity//${id}/` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
