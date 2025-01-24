@@ -2,12 +2,12 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-const Layout = ({ isTopBar, variant }) => {
+const Layout = ({ isTopBar }) => {
   return (
     <div>
-      {!isTopBar && <Header isTopBar={isTopBar} variant={variant} />}
+      <Header isTopBar={isTopBar} />
       <Outlet />
-      {!isTopBar && <Footer />}
+      <Footer />
     </div>
   );
 };
