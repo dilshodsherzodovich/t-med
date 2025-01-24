@@ -9,7 +9,7 @@ import {
   BadgeDollarSign,
   Stethoscope,
 } from "lucide-react";
-import "./services.scss";
+import "./Services.scss";
 
 const services = [
   {
