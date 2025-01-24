@@ -20,47 +20,51 @@ const BlogsSection1 = ({ data, loading = false, blogs, categories = [] }) => {
             <BlogLoadingSkeleton />
           ) : (
             <div className="cs_posts_grid cs_style_1 col-12 col-lg-9">
-              {blogs?.map((blog) => (
-                <article
-                  key={blog.id}
-                  className="cs_post cs_style_1"
-                  data-aos="fade-up"
-                >
-                  <Link
-                    to={blog.link}
-                    className="cs_post_thumbnail position-relative"
+              {blogs?.map((blog) => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(blog?.subtitle, "text/html")
+                  .body.textContent;
+                const shortDescription = truncateString(doc, 100);
+                return (
+                  <article
+                    key={blog.id}
+                    className="cs_post cs_style_1"
+                    data-aos="fade-up"
                   >
-                    <img src={blog.image} alt="Post Thumbnail" />
-                    <div className="cs_post_category position-absolute">
-                      {blog.category}
-                    </div>
-                  </Link>
-                  <div className="cs_post_content position-relative">
-                    <div>
-                      <div className="cs_post_meta_wrapper">
-                        <div className="cs_posted_by cs_center position-absolute">
-                          {blog.date}
-                        </div>
+                    <Link
+                      to={blog.link}
+                      className="cs_post_thumbnail position-relative"
+                    >
+                      <img src={blog.image} alt="Post Thumbnail" />
+                      <div className="cs_post_category position-absolute">
+                        {blog.category}
                       </div>
-                      <h3 className="cs_post_title">
-                        <Link to={blog.link}>{blog.title}</Link>
-                      </h3>
-                      <p className="cs_post_subtitle">
-                        {truncateString(blog.subtitle)}
-                      </p>
-                    </div>
-                    <Link to={blog.link} className="cs_post_btn">
-                      <span>{blog.linkText}</span>
-                      <span>
-                        <i>
-                          <FaAngleRight />
-                        </i>
-                      </span>
                     </Link>
-                    <div className="cs_post_shape position-absolute" />
-                  </div>
-                </article>
-              ))}
+                    <div className="cs_post_content position-relative">
+                      <div>
+                        <div className="cs_post_meta_wrapper">
+                          <div className="cs_posted_by cs_center position-absolute">
+                            {blog.date}
+                          </div>
+                        </div>
+                        <h3 className="cs_post_title">
+                          <Link to={blog.link}>{blog.title}</Link>
+                        </h3>
+                        <p className="cs_post_subtitle">{shortDescription}</p>
+                      </div>
+                      <Link to={blog.link} className="cs_post_btn">
+                        <span>{blog.linkText}</span>
+                        <span>
+                          <i>
+                            <FaAngleRight />
+                          </i>
+                        </span>
+                      </Link>
+                      <div className="cs_post_shape position-absolute" />
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           )}
 

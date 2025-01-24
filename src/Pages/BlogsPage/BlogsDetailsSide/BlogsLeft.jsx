@@ -1,6 +1,7 @@
 import { FaCalendarAlt, FaUser } from "react-icons/fa";
 
 const BlogsLeft = ({ data }) => {
+  console.log(data);
   return (
     <>
       <div className="col-lg-8" data-aos="fade-up">
@@ -22,9 +23,8 @@ const BlogsLeft = ({ data }) => {
               {data.secText}
             </li>
           </ul>
-          {data.content.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+
+          <p dangerouslySetInnerHTML={{ __html: data?.content[0] }}></p>
         </div>
       </div>
     </>
