@@ -170,7 +170,6 @@ const Header = ({ isTopBar, variant }) => {
   };
 
   useEffect(() => {
-    if (isTopBar) return;
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       if (currentScrollPos > prevScrollPos) {
@@ -188,7 +187,8 @@ const Header = ({ isTopBar, variant }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll); // Cleanup the event listener
     };
-  }, [prevScrollPos, isTopBar]);
+  }, [prevScrollPos]);
+
   return (
     <>
       <header
