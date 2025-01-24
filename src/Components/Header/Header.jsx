@@ -192,11 +192,9 @@ const Header = ({ isTopBar, variant }) => {
   return (
     <>
       <header
-        className={`cs_site_header cs_style_1 ${variant ? variant : ""} ${
-          isTopBar
-            ? ""
-            : `cs_primary_color cs_sticky_header ${isSticky ? isSticky : ""}`
-        }`}
+        className={`cs_site_header cs_style_1 ${
+          variant ? variant : ""
+        } cs_primary_color cs_sticky_header ${isSticky ? isSticky : ""}`}
       >
         {isTopBar && (
           <div className="cs_top_header cs_blue_bg cs_white_color">
@@ -406,6 +404,7 @@ const Header = ({ isTopBar, variant }) => {
           </div>
         )}
       </header>
+      {isTopBar && <div className="cs_site_header_spacing_150" />}
     </>
   );
 };

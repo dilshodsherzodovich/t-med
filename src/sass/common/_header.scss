@@ -68,11 +68,11 @@
 }
 
 .cs_site_header {
-  position: absolute;
+  position: fixed;
   z-index: 101;
   width: 100%;
   left: 0;
-  top: 0px;
+  top: 0;
   transition: all 0.4s ease;
 }
 
@@ -211,6 +211,7 @@
 .cs_sticky_header {
   position: fixed !important;
   width: 100%;
+
   z-index: 999;
   .cs_top_header_in {
     overflow: hidden;

@@ -1,9 +1,7 @@
 import HeroSection from "../../Components/HeroSection";
-import CtaSection from "../../Components/CtaSection.jsx";
 import About from "../../Components/About/index.jsx";
 import CounterSection from "../../Components/FunSection/CounterSection.jsx";
 import Service from "../../Components/Service/index.jsx";
-import TeamSection from "../../Components/TeamSection/index.jsx";
 import ChooseUs from "../../Components/ChooseUs/index.jsx";
 import CtaSection1 from "../../Components/CtaSection.jsx/CtaSection1.jsx";
 import BlogSection from "../../Components/BlogsSection/index.jsx";
@@ -15,12 +13,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { formatDate } from "../../utils/format-date.js";
 import MapSection from "../../Components/MapSection/index.jsx";
+import hero1 from "/assets/img/hero1.png";
+import hero2 from "/assets/img/hero2.png";
+import hero4 from "/assets/img/hero4.png";
 
 const heroData = {
   primarySlider: [
     {
-      bgImageUrl:
-        "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
+      bgImageUrl: hero4,
       title: `O'zbekiston Temir yo'llari "Temiryo'l ijtimoiy xizmatlar" <span>muassasasi</span>`,
       contactSubtitle: "",
       contactTitle: "Tibbiy xizmatdan foydalaning",
@@ -32,8 +32,7 @@ const heroData = {
       iconImgUrl: "assets/img/icons/hero_icon.png",
     },
     {
-      bgImageUrl:
-        "https://medilo-react.vercel.app/assets/img/hero_slider_3.jpg",
+      bgImageUrl: hero2,
       title: "Yuqori malakali <span>Mutaxasislar.</span>",
       contactSubtitle: `Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.`,
       contactTitle: "Tibbiy xizmatdan foydalaning",
@@ -45,24 +44,10 @@ const heroData = {
       iconImgUrl: "assets/img/icons/hero_icon.png",
     },
     {
-      bgImageUrl:
-        "https://medilo-react.vercel.app/assets/img/hero_slider_2.jpg",
+      bgImageUrl: hero1,
       title: "Ruhiy salomatlik <span>markazingiz.</span>",
       contactSubtitle:
         "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.",
-      contactTitle: "Tibbiy xizmatdan foydalaning",
-      contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",
-      btnText1: "Aloqa",
-      link: "/contact",
-      btnText2: "Biz haqimizda",
-      link2: "/about",
-      iconImgUrl: "assets/img/icons/hero_icon.png",
-    },
-    {
-      bgImageUrl:
-        "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
-      title: `"O'zbekiston Temir yo'llari Aj" Temiryo'l ijtimoiy xizmatlar <span>muassasasi</span>`,
-      contactSubtitle: "",
       contactTitle: "Tibbiy xizmatdan foydalaning",
       contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",
       btnText1: "Aloqa",
@@ -79,13 +64,13 @@ const heroData = {
   ],
 };
 
-const ctaData = {
-  imageUrl: "https://medilo-react.vercel.app/assets/img/cta_img_1.jpg",
-  title: "Sizni qiziqtirayotgan savollaringizga javob oling",
-  subtitle: "Biz uchun mijozlarimizga sifatli xizmat ko'rsatish oliy maqsad",
-  buttonUrl: "/appointments",
-  buttonText: "Murojaat qoldiring",
-};
+// const ctaData = {
+//   imageUrl: "https://medilo-react.vercel.app/assets/img/cta_img_1.jpg",
+//   title: "Sizni qiziqtirayotgan savollaringizga javob oling",
+//   subtitle: "Biz uchun mijozlarimizga sifatli xizmat ko'rsatish oliy maqsad",
+//   buttonUrl: "/appointments",
+//   buttonText: "Murojaat qoldiring",
+// };
 
 const aboutData = {
   sectionSubtitle: "Biz haqimizda",
@@ -324,11 +309,14 @@ const MainHome = () => {
       <HeroSection data={heroData} />
 
       <Section
-        className={
-          "cs_cta cs_style_1 cs_blue_bg position-relative overflow-hidden"
-        }
+        topSpaceLg="70"
+        topSpaceMd="110"
+        bottomSpaceLg="80"
+        bottomSpaceMd="120"
+        className="cs_blue_bg cs_bg_filed"
+        backgroundImage="assets/img/service_bg_3.jpg"
       >
-        <CtaSection data={ctaData} />
+        <MapSection />
       </Section>
 
       <Section
@@ -359,7 +347,7 @@ const MainHome = () => {
         />
       </Section>
 
-      <Section
+      {/* <Section
         topSpaceLg="70"
         topSpaceMd="110"
         className={"cs_team_section position-relative"}
@@ -369,7 +357,7 @@ const MainHome = () => {
           variant={"cs_pagination cs_style_2"}
           data={doctorsData}
         />
-      </Section>
+      </Section> */}
 
       <Section
         topSpaceLg="70"
@@ -377,7 +365,7 @@ const MainHome = () => {
         bottomSpaceLg="80"
         bottomSpaceMd="120"
         className="cs_gray_bg cs_bg_filed"
-        backgroundImage="https://medilo-react.vercel.app/assets/img/service_bg_2.jpg"
+        backgroundImage="/assets/img/hero2.png"
       >
         <ChooseUs data={sectionData} />
       </Section>
@@ -400,17 +388,6 @@ const MainHome = () => {
         bottomSpaceMd="120"
       >
         <BlogSection data={blogData} />
-      </Section>
-
-      <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="80"
-        bottomSpaceMd="120"
-        className="cs_blue_bg cs_bg_filed"
-        backgroundImage="assets/img/service_bg_3.jpg"
-      >
-        <MapSection />
       </Section>
 
       <ContactSection2></ContactSection2>
