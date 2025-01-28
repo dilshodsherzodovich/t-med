@@ -3,13 +3,15 @@ import ManagerInfo from "./components/ManagerInfo";
 import Quiz from "../../Components/InstitutionDetails/Quiz";
 import ReactStars from "react-rating-stars-component";
 import axios from "axios";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import YandexMap from "./components/YandexMap";
 import Services from "./components/Services";
+import Section from "../../Components/Section";
+import AppointmentSection from "../../Components/AppointmentSection";
 
 const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const [rating, setRaiting] = useState(0);
@@ -39,6 +41,25 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
     },
   });
 
+  const appointmentSectionData = useMemo(() => {
+    if (!orgData?.doctors?.length) return [];
+    return {
+      subtitle: "Bizning shifokorlarimiz",
+      title: "",
+      doctorsData: orgData?.doctors?.map((doc) => ({
+        name: doc?.full_name,
+        specialty: doc?.position,
+        imageUrl: doc?.image,
+        profileLink: "",
+        tel: doc?.phone,
+        email: doc?.email,
+        iconUrl: doc?.facebook,
+        iconUrl2: doc?.pinterest,
+        iconUrl3: doc?.instagram,
+      })),
+    };
+  }, [orgData?.doctors]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -53,6 +74,15 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
       <ManagerInfo ceoData={ceoData} address={orgData?.address} />
 
       <Services />
+
+      <Section
+        topSpaceLg="70"
+        topSpaceMd="110"
+        bottomSpaceLg="80"
+        bottomSpaceMd="120"
+      >
+        <AppointmentSection data={appointmentSectionData} />
+      </Section>
 
       {orgData?.organization_questions?.length > 0 && (
         <Container>

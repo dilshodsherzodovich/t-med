@@ -35,6 +35,7 @@ function InstitutionDetail() {
       organization_questions: detail?.organization_questions,
       long: detail?.longitude,
       lat: detail?.latitude,
+      doctors: detail?.doctors,
     };
   }, [detail]);
 

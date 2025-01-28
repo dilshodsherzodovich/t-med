@@ -1,11 +1,14 @@
+import { FaMailBulk, FaMailchimp, FaPhone, FaPhoneAlt } from "react-icons/fa";
 import SectionHeading from "../SectionHeading";
 import {
   FaFacebookF,
   FaInstagram,
+  FaLetterboxd,
   FaPinterestP,
   FaTwitter,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { MdEmail } from "react-icons/md";
 
 const AppointmentSection = ({ data }) => {
   return (
@@ -19,7 +22,7 @@ const AppointmentSection = ({ data }) => {
 
         <div className="cs_height_50 cs_height_lg_50" />
         <div className="cs_doctors_grid cs_style_1">
-          {data.doctorsData.map((doctor, index) => (
+          {data?.doctorsData?.map((doctor, index) => (
             <div className="cs_team cs_style_1 cs_blue_bg" key={index}>
               <div className="cs_team_shape cs_accent_bg" />
               <Link to={doctor.profileLink} className="cs_team_thumbnail">
@@ -31,50 +34,69 @@ const AppointmentSection = ({ data }) => {
                 </h3>
                 <p className="cs_team_subtitle">{doctor.specialty}</p>
                 <div className="cs_social_btns cs_style_1">
-                  <Link
-                    to={doctor.iconUrl}
-                    className="cs_center"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i>
-                      {" "}
-                      <FaFacebookF />
-                    </i>
-                  </Link>{" "}
-                  <Link
-                    to={doctor.iconUrl2}
-                    className="cs_center"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i>
-                      {" "}
-                      <FaPinterestP />
-                    </i>
-                  </Link>{" "}
-                  <Link
-                    to={doctor.iconUrl3}
-                    className="cs_center"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i>
-                      {" "}
-                      <FaTwitter />
-                    </i>
-                  </Link>{" "}
-                  <a
-                    href={doctor.iconUrl}
-                    className="cs_center"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i>
-                      {" "}
-                      <FaInstagram />
-                    </i>
-                  </a>
+                  {doctor?.tel && (
+                    <a
+                      href={`tel:${doctor?.tel}`}
+                      className="cs_center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i>
+                        <FaPhoneAlt />
+                      </i>
+                    </a>
+                  )}
+                  {doctor?.email && (
+                    <a
+                      href={`mailTo:${doctor?.email}`}
+                      className="cs_center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i>
+                        <MdEmail />
+                      </i>
+                    </a>
+                  )}
+                  {doctor?.iconUrl && (
+                    <Link
+                      to={doctor.iconUrl}
+                      className="cs_center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i>
+                        {" "}
+                        <FaFacebookF />
+                      </i>
+                    </Link>
+                  )}
+                  {doctor?.iconUrl2 && (
+                    <Link
+                      to={doctor.iconUrl2}
+                      className="cs_center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i>
+                        {" "}
+                        <FaPinterestP />
+                      </i>
+                    </Link>
+                  )}
+                  {doctor?.iconUrl3 && (
+                    <Link
+                      to={doctor.iconUrl3}
+                      className="cs_center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i>
+                        {" "}
+                        <FaTwitter />
+                      </i>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

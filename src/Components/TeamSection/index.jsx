@@ -11,6 +11,7 @@ import SectionHeading from "../SectionHeading";
 import Spacing from "../Spacing";
 
 const TeamSection = ({ data, bgColor, variant, hr }) => {
+  console.log(data);
   const settings = {
     dots: true,
     infinite: true,
