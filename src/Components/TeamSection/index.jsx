@@ -1,10 +1,4 @@
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaPinterestP,
-  FaTelegramPlane,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import SectionHeading from "../SectionHeading";

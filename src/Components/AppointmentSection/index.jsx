@@ -1,12 +1,6 @@
-import { FaMailBulk, FaMailchimp, FaPhone, FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 import SectionHeading from "../SectionHeading";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLetterboxd,
-  FaPinterestP,
-  FaTwitter,
-} from "react-icons/fa6";
+import { FaFacebookF, FaPinterestP, FaTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 
