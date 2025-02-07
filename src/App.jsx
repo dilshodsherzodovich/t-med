@@ -28,6 +28,7 @@ import "./init";
 import CooperationPage from "./Pages/Cooperation";
 import CareerPosts from "./Pages/CareerPosts";
 import CreativeClientPreferenceQuiz from "./Pages/CreativeClientPreferenceQuiz";
+import LangLayout from "./Components/Layout/LangLayout";
 
 function App() {
   Aos.init({
@@ -42,37 +43,46 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout isTopBar={true} />}>
-          <Route index element={<MainHome />} />
-          <Route path="/home-v2" element={<HomeV2 />} />
-        </Route>
-        <Route path="/" element={<Layout variant="cs_type_1" />}>
-          <Route path="/home-v3" element={<HomeV3 />} />
-        </Route>
-        <Route path="/" element={<Layout isTopBar />}>
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/management" element={<Management />} />
-          <Route path="/service" element={<ServicePage />} />
-          <Route path="/blog" element={<BlogsPage />} />
-          <Route path="/blog/:blogId" element={<BlogsDetails />} />
-          <Route path="/doctors/:doctorId" element={<DoctorsDetailsPage />} />
-          <Route path="/error" element={<ErrorPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/docs" element={<Docs />} />
-          <Route path="/departments" element={<DepartmentsList />} />
-          <Route path="/departments/:id" element={<Departments />} />
-          <Route path="/institutions/" element={<Institutions />} />
-          <Route path="/institutions/:id" element={<InstitutionDetail />} />
-          <Route path="/livestream" element={<LiveStream />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/cooperation" element={<CooperationPage />} />
-          <Route path="/events" element={<CareerPosts />} />
-          <Route path="/careers/:id" element={<CareerPosts />} />
+        {/* Language-prefixed routes */}
+        <Route path="/" element={<LangLayout />}>
+          <Route path="/:lang" element={<Layout isTopBar={true} />}>
+            <Route index element={<MainHome />} />
+            <Route path="home-v2" element={<HomeV2 />} />
+          </Route>
+          <Route path="/:lang" element={<Layout variant="cs_type_1" />}>
+            <Route path="home-v3" element={<HomeV3 />} />
+          </Route>
+          <Route path="/:lang" element={<Layout isTopBar />}>
+            <Route path="about" element={<AboutPage />} />
+            <Route path="management" element={<Management />} />
+            <Route path="service" element={<ServicePage />} />
+            <Route path="blog" element={<BlogsPage />} />
+            <Route path="blog/:blogId" element={<BlogsDetails />} />
+            <Route path="doctors/:doctorId" element={<DoctorsDetailsPage />} />
+            <Route path="error" element={<ErrorPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="docs" element={<Docs />} />
+            <Route path="departments" element={<DepartmentsList />} />
+            <Route path="departments/:id" element={<Departments />} />
+            <Route path="institutions" element={<Institutions />} />
+            <Route path="institutions/:id" element={<InstitutionDetail />} />
+            <Route path="livestream" element={<LiveStream />} />
+            <Route path="gallery" element={<Gallery />} />
+            <Route path="cooperation" element={<CooperationPage />} />
+            <Route path="events" element={<CareerPosts />} />
+            <Route path="careers/:id" element={<CareerPosts />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+          <Route path="/:lang/gmap" element={<Map />} />
+          <Route
+            path="/:lang/review"
+            element={<CreativeClientPreferenceQuiz />}
+          />
+          <Route path="/:lang/virtour" element={<Virtour />} />
+
+          {/* Default route (e.g., redirect to default language) */}
           <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route path="/gmap" element={<Map />} />
-        <Route path="/review" element={<CreativeClientPreferenceQuiz />} />
-        <Route path="/virtour" element={<Virtour />} />
       </Routes>
       <ScrollUpButton />
     </>

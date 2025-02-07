@@ -11,6 +11,7 @@ import { FaLocationDot, FaYoutube } from "react-icons/fa6";
 import roundicon from "/assets/img/icons/360-degrees.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useHttp } from "../../hooks/useHttp";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 const Header = ({ isTopBar, variant }) => {
   const navigate = useNavigate();
@@ -403,7 +404,9 @@ const Header = ({ isTopBar, variant }) => {
             </svg>
           </div>
         )}
+        <LanguageSwitcher />
       </header>
+
       {isTopBar && <div className="cs_site_header_spacing_150" />}
     </>
   );
