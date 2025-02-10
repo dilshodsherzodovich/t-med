@@ -8,6 +8,7 @@ import {
   MdLocationPin,
 } from "react-icons/md";
 import "./ProfileCard.scss"; // Import SCSS file
+import { useTranslation } from "react-i18next";
 
 // ProfileCard component
 export default function ManagementDetail({
@@ -17,6 +18,8 @@ export default function ManagementDetail({
   isAddress,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { t } = useTranslation();
 
   return (
     <div
@@ -135,7 +138,7 @@ export default function ManagementDetail({
               onClick={() => setIsOpen(!isOpen)}
               className="btn btn-primary profile-btn"
             >
-              <span>Mehnat faoliyati</span>
+              <span>{t("pages.management.career")}</span>
               {isOpen ? (
                 <MdKeyboardArrowUp className="ms-2" />
               ) : (
@@ -150,7 +153,7 @@ export default function ManagementDetail({
               }`}
             >
               <div className=" px-2 rounded-3xl mt-3">
-                <h3>Tarjimai hol</h3>
+                <h3>{t("pages.management.biography")}</h3>
                 <div
                   style={{ fontSize: "15px" }}
                   dangerouslySetInnerHTML={{ __html: director?.description }}

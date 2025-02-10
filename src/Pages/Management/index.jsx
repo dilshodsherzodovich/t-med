@@ -5,13 +5,16 @@ import { useHttp } from "../../hooks/useHttp";
 import { useQuery } from "@tanstack/react-query";
 import ManagemetLoading from "../../Components/ManagementDetail/ManagemetLoading";
 import hero2 from "/assets/img/hero2.png";
-
-const headingData = {
-  title: "Rahbariyat",
-};
+import { useTranslation } from "react-i18next";
 
 const Management = () => {
   const sendRequest = useHttp();
+
+  const { t } = useTranslation();
+
+  const headingData = {
+    title: t("pages.management.title"),
+  };
 
   const { data: directors, isLoading } = useQuery({
     queryKey: ["directors"],
@@ -27,7 +30,10 @@ const Management = () => {
         className={"cs_page_heading cs_bg_filed cs_center "}
         backgroundImage={hero2}
       >
-        <PageHeading secondaryData="Rahbariyat" data={headingData} />
+        <PageHeading
+          secondaryData={t("pages.management.title")}
+          data={headingData}
+        />
       </Section>
 
       <Section topSpaceLg="80" topSpaceMd="120">

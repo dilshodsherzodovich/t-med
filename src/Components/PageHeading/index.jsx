@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Link, useParams } from "react-router-dom";
 
 const PageHeading = ({ data, secondaryData }) => {
   const [urlSegments, setUrlSegments] = useState([]);
+
+  const { t } = useTranslation();
+
+  const { lang } = useParams();
+
   useEffect(() => {
     const pathSegments = window.location.pathname
       .split("/")
@@ -17,7 +23,7 @@ const PageHeading = ({ data, secondaryData }) => {
         </h1>
         <ol className="breadcrumb text-capitalize" data-aos="fade-right">
           <li className="breadcrumb-item">
-            <Link to="/">Asosiy</Link>
+            <Link to={`/${lang}`}>{t("root.home")}</Link>
           </li>
           {secondaryData ? (
             <>

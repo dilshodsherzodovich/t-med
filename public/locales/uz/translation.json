@@ -46,6 +46,37 @@
       "title": "Aloqa"
     }
   },
+  "footer": {
+    "contact": {
+      "reception": "Rahbraiyat qabul kunlari: <br /> Du - Juma: 8.00 - 18.00",
+      "address": "Toshkent sh., Yashnabod tumani, Taraqqiyot kuchasi 2-proyezd, 12A uy"
+    },
+    "services": {
+      "title": "Xizmatlar",
+      "sublinks": {
+        "service1": "Farmakologiya",
+        "service2": "Ortopedik",
+        "service3": "Gematologiya",
+        "service4": "Nevrologiya",
+        "service5": "Kardiologiya",
+        "service6": "Xirurgiya"
+      }
+    },
+    "quickLinks": {
+      "title": "Tez havolalar",
+      "sublinks": {
+        "home": "Asosiy",
+        "about": "Biz haqimizda",
+        "services": "Xizmatlar",
+        "media": "Axborot markazi",
+        "docs": "Qonunchilik bazasi",
+        "contact": "Aloqa"
+      }
+    },
+    "socials": {
+      "title": "Ijtimoiy tarmoqlar"
+    }
+  },
   "pages": {
     "home": {
       "hero": {
@@ -143,14 +174,48 @@
           "author": "Bemor"
         }
       },
-
       "blogSection": {
         "title": "Yangiliklar",
         "subtitle": "So'nggi yangiliklar va tadbirlar"
+      },
+      "contact": {
+        "title": "Bog'lanish",
+        "subtitle": "Sizni qiziqtirgan savollaringizni yozib qoldiring",
+        "form": {
+          "first_name": "Ism",
+          "last_name": "Familiya",
+          "email": "Elektron pochta",
+          "phone": "Telefon raqam",
+          "message": "Xabar",
+          "buttonText": "Jo'natish"
+        }
       }
+    },
+    "about": {
+      "title": "Biz haqimizda",
+      "subtitle": "O'zbekiston Temir yo'llari Temiryo'l ijtimoiy xizmatlar muassasasi haqida"
+    },
+    "management": {
+      "title": "Rahbariyat",
+      "career": "Mehnat faoliyati",
+      "biography": "Tarjimai hol"
+    },
+    "departments": {
+      "title": "Bo'limlar",
+      "staff": "ta xodimlar"
+    },
+    "singleDepartment": {
+      "title": "Bo'lim",
+      "about": "Bo'lim haqida",
+      "head": "Bo'lim rahbari",
+      "staff": "Ishchilar soni",
+      "biography": "Tarjimai hol",
+      "phone": "Telefon raqam",
+      "email": "Elektron pochta"
     }
   },
   "root": {
-    "readMore": "Batafsil"
+    "readMore": "Batafsil",
+    "home": "Asosiy"
   }
 }

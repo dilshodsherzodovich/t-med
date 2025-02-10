@@ -1,12 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import loadBackgroudImages from "../Common/loadBackgroudImages";
 import { useMutation } from "@tanstack/react-query";
 import { postNewsLetter } from "../../api/newsletter";
 import { toast } from "react-toastify";
 import contactBg from "/assets/img/about/contact.png";
+import { useTranslation } from "react-i18next";
 
 const ContactSection2 = () => {
   const formRef = useRef();
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     loadBackgroudImages();
@@ -43,10 +46,11 @@ const ContactSection2 = () => {
           <div className="col-lg-6">
             <div className="cs_section_heading cs_style_1">
               <p className="cs_section_subtitle cs_accent_color">
-                <span className="cs_shape_left"></span>Bog'lanish
+                <span className="cs_shape_left"></span>
+                {t("pages.home.contact.title")}
               </p>
               <h2 className="cs_section_title">
-                Sizni qiziqtirgan savollaringizni yozib qoldiring
+                {t("pages.home.contact.subtitle")}
               </h2>
             </div>
             <div className="cs_height_25 cs_height_lg_25"></div>
@@ -60,7 +64,7 @@ const ContactSection2 = () => {
                   type="text"
                   name="first_name"
                   className="cs_form_field"
-                  placeholder="Ismingiz"
+                  placeholder={t("pages.home.contact.form.first_name")}
                 />
               </div>
               <div className="col-md-6">
@@ -68,7 +72,7 @@ const ContactSection2 = () => {
                   type="text"
                   name="last_name"
                   className="cs_form_field"
-                  placeholder="Familiyangiz"
+                  placeholder={t("pages.home.contact.form.last_name")}
                 />
               </div>
               <div className="col-md-6">
@@ -76,7 +80,7 @@ const ContactSection2 = () => {
                   type="email"
                   name="email"
                   className="cs_form_field"
-                  placeholder="Email"
+                  placeholder={t("pages.home.contact.form.email")}
                 />
               </div>
               <div className="col-md-6">
@@ -84,7 +88,7 @@ const ContactSection2 = () => {
                   type="text"
                   name="phone"
                   className="cs_form_field"
-                  placeholder="Telefon raqamingiz"
+                  placeholder={t("pages.home.contact.form.phone")}
                 />
               </div>
               <div className="col-lg-12">
@@ -92,7 +96,7 @@ const ContactSection2 = () => {
                   rows="5"
                   name="message"
                   className="cs_form_field"
-                  placeholder="Xabaringiz"
+                  placeholder={t("pages.home.contact.form.message")}
                 ></textarea>
               </div>
               <div className="col-lg-12">
@@ -103,7 +107,9 @@ const ContactSection2 = () => {
                     mutation?.isPending ? "cs_color_4" : "cs_color_1"
                   }`}
                 >
-                  {mutation?.isPending ? "Yuklanmoqda" : "Jo'natish"}
+                  {mutation?.isPending
+                    ? "Yuklanmoqda"
+                    : t("pages.home.contact.form.buttonText")}
                 </button>
               </div>
             </form>

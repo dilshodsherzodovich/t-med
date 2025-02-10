@@ -8,11 +8,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { useParams } from "react-router-dom";
 import hero2 from "/assets/img/hero2.png";
+import { useTranslation } from "react-i18next";
 
 function Departments() {
   const sendRequest = useHttp();
 
   const { id } = useParams();
+
+  const { t } = useTranslation();
 
   const { data: detail } = useQuery({
     queryKey: ["department", id],
@@ -29,22 +32,22 @@ function Departments() {
     return {
       mainImage: "/assets/img/service_details_1.jpg",
       departmentDetails: detail?.description,
-      subtitle: "Ishchilar soni",
+      subtitle: t("pages.singleDepartment.staff"),
       workers: detail?.count_of_employees,
       department_employees: detail?.department_employees,
       manager: {
         name: detail?.director?.fio,
         subtitle: detail?.director?.specialist,
-        descriptionLabel: "Tarjimai hol",
+        descriptionLabel: t("pages.singleDepartment.biography"),
         description: detail?.director?.description,
         image: detail?.director?.image,
         info: [
           {
             icon: <FaPhone width={28} height={28} />,
-            title: "Telefon raqam",
+            title: t("pages.singleDepartment.phone"),
             subtitle: detail?.director?.reception_number,
             secIcon: <IoIosMail width={28} height={28} />,
-            secTitle: "Email manzili",
+            secTitle: t("pages.singleDepartment.email"),
             secSubtitle: detail?.director?.email,
           },
           // {

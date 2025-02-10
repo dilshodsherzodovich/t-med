@@ -85,7 +85,7 @@ const Header = ({ isTopBar, variant }) => {
             subItems: institutionCategories?.results?.length
               ? institutionCategories?.results?.map((item) => ({
                   label: item?.name,
-                  href: `/institutions?category=${item?.id}&name=${item?.name}`,
+                  href: `/${lang}/institutions?category=${item?.id}&name=${item?.name}`,
                 }))
               : [],
           },

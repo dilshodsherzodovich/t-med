@@ -2,13 +2,16 @@ import { FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DepartmentManager from "./DepartmentManager";
 import DepartmentStaff from "./StaffList/DepartmentStaff";
+import { useTranslation } from "react-i18next";
 
 function DepartmentDetails({ data, department_employees }) {
+  const { t } = useTranslation();
+
   return (
     <div className="container">
       <div className="cs_service_details">
         <h3 className="cs_service_heading" data-aos="fade-up">
-          {"Bo'lim haqida:"}
+          {t("pages.singleDepartment.about")}
         </h3>
         <div
           dangerouslySetInnerHTML={{ __html: data?.departmentDetails }}
@@ -31,7 +34,7 @@ function DepartmentDetails({ data, department_employees }) {
         </div>
 
         <h3 className="cs_service_heading" data-aos="fade-up">
-          {"Bo'lim rahbari:"}
+          {t("pages.singleDepartment.head")}
         </h3>
         <DepartmentManager data={data?.manager} />
         <DepartmentStaff department_employees={department_employees} />

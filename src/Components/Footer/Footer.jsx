@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaPhoneAlt, FaTelegramPlane, FaYoutube } from "react-icons/fa";
 import {
   FaFacebookF,
@@ -6,15 +7,18 @@ import {
   FaRegClock,
   FaXTwitter,
 } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
+  const { lang } = useParams();
+
   const data = {
     backgroundImage: "/assets/img/footer_bg.jpg",
     logo: "/assets/img/logo.PNG",
-    contactText: "Rahbraiyat qabul kunlari: <br /> Du - Juma: 8.00 - 18.00",
-    contactText2:
-      "Toshkent sh., Yashnabod tumani, Taraqqiyot kuchasi 2-proyezd, 12A uy",
+    contactText: t("footer.contact.reception"),
+    contactText2: t("footer.contact.address"),
     contactText3: "+998 (71) 299 98 27",
     facebookHref: "https://facebook.com/nsurailways",
     telegramHref: "https://t.me/nsurailways",
@@ -23,23 +27,58 @@ const Footer = () => {
     youtubeHref: "https://youtube.com/nsurailway",
     widgets: [
       {
-        title: "Xizmatlar",
+        title: t("footer.services.title"),
         links: [
-          { href: "/service", text: "Farmakologiya" },
-          { href: "/service", text: "Ortopedik" },
-          { href: "/service", text: "Gematologiya" },
-          { href: "/service", text: "Nevrologiya" },
-          { href: "/service", text: "Urologiya" },
+          {
+            href: `/${lang}/service`,
+            text: t("footer.services.sublinks.service1"),
+          },
+          {
+            href: `/${lang}/service`,
+            text: t("footer.services.sublinks.service2"),
+          },
+          {
+            href: `/${lang}/service`,
+            text: t("footer.services.sublinks.service3"),
+          },
+          {
+            href: `/${lang}/service`,
+            text: t("footer.services.sublinks.service4"),
+          },
+          {
+            href: `/${lang}/service`,
+            text: t("footer.services.sublinks.service5"),
+          },
+          {
+            href: `/${lang}/service`,
+            text: t("footer.services.sublinks.service6"),
+          },
         ],
       },
       {
-        title: "Tezkor havolalar",
+        title: t("footer.quickLinks.title"),
         links: [
-          { href: "/", text: "Asosiy" },
-          { href: "/about", text: "Biz haqimizda" },
-          { href: "/service", text: "Xizmatlar" },
-          { href: "/contact", text: "Aloqa" },
-          { href: "/doctor", text: "Shifokorlar" },
+          { href: `/${lang}`, text: t("footer.quickLinks.sublinks.home") },
+          {
+            href: `/${lang}/about`,
+            text: t("footer.quickLinks.sublinks.about"),
+          },
+          {
+            href: `/${lang}/service`,
+            text: t("footer.quickLinks.sublinks.services"),
+          },
+          {
+            href: `/${lang}/blog`,
+            text: t("footer.quickLinks.sublinks.media"),
+          },
+          {
+            href: `/${lang}/docs`,
+            text: t("footer.quickLinks.sublinks.docs"),
+          },
+          {
+            href: `/${lang}/contact`,
+            text: t("footer.quickLinks.sublinks.contact"),
+          },
         ],
       },
     ],
@@ -136,7 +175,9 @@ const Footer = () => {
 
           <div className="cs_footer_col">
             <div className="cs_footer_widget">
-              <h2 className="cs_footer_widget_title">Ijtimoiy tarmoqlar</h2>
+              <h2 className="cs_footer_widget_title">
+                {t("footer.socials.title")}
+              </h2>
               <div className="cs_social_btns cs_style_1">
                 <Link to={data.facebookHref} className="cs_center">
                   <i>

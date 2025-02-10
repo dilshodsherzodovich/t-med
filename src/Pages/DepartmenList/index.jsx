@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import DepList from "./components/List";
 import hero2 from "/assets/img/hero2.png";
 
-
 function DepartmentsList() {
   const sendRequest = useHttp();
 
@@ -23,10 +22,7 @@ function DepartmentsList() {
         className={"cs_page_heading cs_bg_filed cs_center"}
         backgroundImage={hero2}
       >
-        <PageHeading
-          secondaryData="Bo'limlar"
-          data={{ title: "Bo'limlar" }}
-        />
+        <PageHeading secondaryData="Bo'limlar" data={{ title: "Bo'limlar" }} />
       </Section>
 
       <Section

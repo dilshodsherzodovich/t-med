@@ -7,25 +7,43 @@ import { useHttp } from "../../hooks/useHttp";
 import { useMemo } from "react";
 import hero2 from "/assets/img/hero2.png";
 import ImageGallery from "./components/ImageGallery";
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 const headingData = {
   title: "Biz haqimizda",
 };
 
-const ctaData = {
-  videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",
-  videoButtonText: "Videoni tomosha qiling",
-  subtitle: "VIDEO",
-  title: "Professional tibbiy yordam",
-  description:
-    "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
-  buttonLink: "/contact",
-  buttonText: "Bog'lanish",
-  brandImage: "assets/img/medical_brand.png",
-};
+// const ctaData = {
+//   videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",
+//   videoButtonText: "Videoni tomosha qiling",
+//   subtitle: "VIDEO",
+//   title: "Professional tibbiy yordam",
+//   description:
+//     "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
+//   buttonLink: "/contact",
+//   buttonText: "Bog'lanish",
+//   brandImage: "assets/img/medical_brand.png",
+// };
 
 const AboutPage = () => {
   const sendRequest = useHttp();
+
+  const { t } = useTranslation();
+
+  const { lang } = useParams();
+
+  const ctaData = {
+    videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",
+    videoButtonText: t("pages.home.ctaSection.videoButtonText"),
+    subtitle: "VIDEO",
+    title: t("pages.home.ctaSection.title"),
+    description:
+      "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
+    buttonLink: `/${lang}/contact`,
+    buttonText: t("pages.home.ctaSection.buttonText"),
+    brandImage: "assets/img/medical_brand.png",
+  };
 
   const { data: about } = useQuery({
     queryKey: ["about"],
@@ -46,10 +64,12 @@ const AboutPage = () => {
   const historyData = useMemo(() => {
     if (!about?.results?.length) return;
     return {
-      sectionSubtitle: "Biz haqimizda",
-      sectionTitle: `O'zbekiston Temir yo'llari "Temiryo'l ijtimoiy xizmatlar" muassasasi haqida`,
+      sectionSubtitle: t("pages.about.title"),
+      sectionTitle: t("pages.about.subtitle"),
       description: about?.results[0]?.description,
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [about]);
 
   return (
@@ -58,7 +78,10 @@ const AboutPage = () => {
         className={"cs_page_heading cs_bg_filed cs_center"}
         backgroundImage={hero2}
       >
-        <PageHeading data={headingData} secondaryData={"Biz haqimizda"} />
+        <PageHeading
+          data={headingData}
+          secondaryData={t("pages.about.title")}
+        />
       </Section>
       {/* Start About Section */}
 
