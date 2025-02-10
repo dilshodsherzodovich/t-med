@@ -4,9 +4,12 @@ import "./map.scss";
 import MapSlider from "./MapSlider";
 import { useHttp } from "../../hooks/useHttp";
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function MapSection() {
   const sendRequest = useHttp();
+
+  const { t } = useTranslation();
 
   const [activeRegion, setActiveRegion] = useState(null);
 
@@ -48,7 +51,7 @@ function MapSection() {
         <div className="cs_section_heading_left">
           <p className="cs_section_subtitle cs_accent_color">
             <span className="cs_shape_left" />
-            Muassasalar
+            {t("pages.home.svgMap.title")}
           </p>
         </div>
       </div>

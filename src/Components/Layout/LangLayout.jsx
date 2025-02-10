@@ -9,12 +9,16 @@ function LangLayout() {
 
   useEffect(() => {
     const languagesList = ["uz", "en", "ru"];
+    if (lang && languagesList?.includes(lang)) {
+      i18n.changeLanguage(lang);
+    }
     if (!lang) {
-      navigate(`/${i18n.language || "uz"}`);
+      navigate(`/uz`);
+      i18n.changeLanguage("uz");
     } else if (lang && !languagesList?.includes(lang)) {
       navigate(`/${i18n.language || "uz"}/${lang}`);
     }
-  }, [lang, navigate, i18n.language]);
+  }, [lang, navigate, i18n]);
 
   return (
     <div>

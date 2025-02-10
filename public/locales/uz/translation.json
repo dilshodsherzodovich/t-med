@@ -1,0 +1,156 @@
+{
+  "navlinks": {
+    "about": {
+      "title": "Biz haqimizda",
+      "sublinks": {
+        "instituion": "Muassasa haqida",
+        "management": "Rahbariyat",
+        "departments": "Bo'limlar",
+        "institutions": "Muassasalar"
+      }
+    },
+    "career": {
+      "title": "Faoliyat",
+      "sublinks": {
+        "onlineSurvey": "Onlayn so'rovnoma",
+        "memorandums": "Memorandumlar",
+        "cooperation": "Hamkorlik",
+        "trips": "Safarlar",
+        "meetings": "Uchrashuvlar",
+        "events": "Tadbirlar"
+      }
+    },
+    "services": {
+      "title": "Xizmatlar"
+    },
+    "media": {
+      "title": "Axborot markazi",
+      "sublinks": {
+        "contact": "Axborot xizmati bilan bog'lanish",
+        "news": "Yangiliklar",
+        "gettingReady": "Aholini favqulodda vaziyatlarga tayyorlash",
+        "gallery": "Fotogallereya",
+        "video": "Videogallereya"
+      }
+    },
+    "docs": {
+      "title": "Qonunchilik bazasi"
+    },
+    "live": {
+      "title": "Jonli efir"
+    },
+    "forAdmins": {
+      "title": "Xodimlar uchun"
+    },
+    "contact": {
+      "title": "Aloqa"
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "slider1": {
+          "title": "O'zbekiston Temir Yo'llari Temiryo'l Ijtimoiy ximatlar ",
+          "oneWord": "muassasasi",
+          "subtitle": ""
+        },
+        "slider2": {
+          "title": "Yuqori malakali",
+          "oneWord": "mutaxassislar",
+          "subtitle": "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa."
+        },
+        "slider3": {
+          "title": "Ruhiy salomatlik ",
+          "oneWord": "markazingiz",
+          "subtitle": "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa."
+        },
+        "info": {
+          "title": "Tibbiy xizmatdan foydalaning",
+          "phoneText": "Qo'ng'iroq qiling",
+          "contactText": "Aloqa",
+          "aboutText": "Biz haqimizda"
+        }
+      },
+      "svgMap": {
+        "title": "Muassasalar"
+      },
+      "aboutSection": {
+        "title": "Biz haqimizda",
+        "subtitle": "25 yildan ko'proq vaqt davomida sifatli xizmat",
+        "text": "Biz dunyoning yetakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
+        "contactText": "Mijozlar bilan aloqa",
+        "consultationText": "Online maslahat",
+        "staticText1": "Muammolaringizni biz bilan bo'lishing",
+        "staticText2": "Shifokorlarimizdan onlayn tarzda maslahatlat oling",
+        "learnMoreText": "Biz haqimizdagi ko'proq bilishni xohlasangiz quyidagi havola orqali o'ting",
+        "buttonText": "Biz haqimizda",
+        "howWeWork": "Biz qanday ishlaymiz",
+        "experienceYears": "25+",
+        "experienceTitle": "Tajriba"
+      },
+      "countersSection": {
+        "activeClients": "Faol mijozlar",
+        "medicalCenters": "Tibbiyot markazlar",
+        "medicalSummary": "Tibbiy xulosalar",
+        "medicalServices": "Tibbiy xizmatlar"
+      },
+      "servicesSection": {
+        "title": "Xizmatlarimiz",
+        "subtitle": "Yuqori sifatli xizmatlar"
+      },
+      "chooseUsSection": {
+        "title": "Nima uchun biz",
+        "subtitle1": "Ko'plab kasalliklaringizga biz",
+        "subtitle2": "bilan davo toping",
+        "service1": {
+          "title": "Yuqori sifatli e'tibor",
+          "subtitle": "Barchasi mijozlarimiz uchun"
+        },
+        "service2": {
+          "title": "Tezkor yordam",
+          "subtitle": "Barchasi mijozlarimiz uchun"
+        },
+        "service3": {
+          "title": "Malakali shifokorlar",
+          "subtitle": "Barchasi mijozlarimiz uchun"
+        },
+        "service4": {
+          "title": "Tibbiy maslahatlar",
+          "subtitle": "Barchasi mijozlarimiz uchun"
+        },
+        "service5": {
+          "title": "Tibbiy tadqiqotlar",
+          "subtitle": "Barchasi mijozlarimiz uchun"
+        },
+        "service6": {
+          "title": "Hamyonbop narxlar",
+          "subtitle": "Barchasi mijozlarimiz uchun"
+        }
+      },
+      "ctaSection": {
+        "videoButtonText": "Videoni tomosha qiling",
+        "title": "Professional tibbiy xizmatlar",
+        "description": "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
+        "buttonText": "Bog'lanish"
+      },
+      "testimonialsSection": {
+        "testimonial1": {
+          "text": "Bizning tibbiyot markazimizda xizmat olish juda qulay. Shifokorlar malakali va tezkor yordam berishadi. Bizning kasalligimizga tez va samarali davo topdik.",
+          "author": "Bemor"
+        },
+        "testimonial2": {
+          "text": "Bizning tibbiyot markazimizda xizmat olish juda qulay. Shifokorlar malakali va tezkor yordam berishadi. Bizning kasalligimizga tez va samarali davo topdik.",
+          "author": "Bemor"
+        }
+      },
+
+      "blogSection": {
+        "title": "Yangiliklar",
+        "subtitle": "So'nggi yangiliklar va tadbirlar"
+      }
+    }
+  },
+  "root": {
+    "readMore": "Batafsil"
+  }
+}

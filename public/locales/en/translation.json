@@ -1,0 +1,155 @@
+{
+  "navlinks": {
+    "about": {
+      "title": "About Us",
+      "sublinks": {
+        "instituion": "About the Institution",
+        "management": "Management",
+        "departments": "Departments",
+        "institutions": "Institutions"
+      }
+    },
+    "career": {
+      "title": "Career",
+      "sublinks": {
+        "onlineSurvey": "Online Survey",
+        "memorandums": "Memorandums",
+        "cooperation": "Cooperation",
+        "trips": "Trips",
+        "meetings": "Meetings",
+        "events": "Events"
+      }
+    },
+    "services": {
+      "title": "Services"
+    },
+    "media": {
+      "title": "Media Center",
+      "sublinks": {
+        "contact": "Contact Information Service",
+        "news": "News",
+        "gettingReady": "Preparing the Population for Emergencies",
+        "gallery": "Photo Gallery",
+        "video": "Video Gallery"
+      }
+    },
+    "docs": {
+      "title": "Legislation"
+    },
+    "live": {
+      "title": "Live Broadcast"
+    },
+    "forAdmins": {
+      "title": "For Staff"
+    },
+    "contact": {
+      "title": "Contact"
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "slider1": {
+          "title": "Uzbekistan Railways Social Services Institution",
+          "oneWord": "institution",
+          "subtitle": ""
+        },
+        "slider2": {
+          "title": "Highly Qualified",
+          "oneWord": "specialists",
+          "subtitle": "A medical institution with highly qualified specialists who perform operations of any complexity, offering all types of diagnostics and effective treatment."
+        },
+        "slider3": {
+          "title": "Your Mental Health",
+          "oneWord": "center",
+          "subtitle": "A medical institution with highly qualified specialists who perform operations of any complexity, offering all types of diagnostics and effective treatment."
+        },
+        "info": {
+          "title": "Use Medical Services",
+          "phoneText": "Call",
+          "contactText": "Contact",
+          "aboutText": "About Us"
+        }
+      },
+      "svgMap": {
+        "title": "Institutions"
+      },
+      "aboutSection": {
+        "title": "About Us",
+        "subtitle": "Over 25 years of quality service",
+        "text": "We have the opportunity to work with hundreds of forward-looking medical professionals from the world's leading hardware, software, and brands.",
+        "contactText": "Customer Contact",
+        "consultationText": "Online Consultation",
+        "staticText1": "Share your problems with us",
+        "staticText2": "Get online consultations from our doctors",
+        "learnMoreText": "If you want to know more about us, follow the link below",
+        "buttonText": "About Us",
+        "howWeWork": "How We Work",
+        "experienceYears": "25+",
+        "experienceTitle": "Experience"
+      },
+      "countersSection": {
+        "activeClients": "Active Clients",
+        "medicalCenters": "Medical Centers",
+        "medicalSummary": "Medical Summaries",
+        "medicalServices": "Medical Services"
+      },
+      "servicesSection": {
+        "title": "Our Services",
+        "subtitle": "High Quality Services"
+      },
+      "chooseUsSection": {
+        "title": "Why Choose Us",
+        "subtitle1": "Find a cure for many of your",
+        "subtitle2": "diseases with us",
+        "service1": {
+          "title": "High Quality Attention",
+          "subtitle": "All for our clients"
+        },
+        "service2": {
+          "title": "Quick Help",
+          "subtitle": "All for our clients"
+        },
+        "service3": {
+          "title": "Qualified Doctors",
+          "subtitle": "All for our clients"
+        },
+        "service4": {
+          "title": "Medical Consultations",
+          "subtitle": "All for our clients"
+        },
+        "service5": {
+          "title": "Medical Research",
+          "subtitle": "All for our clients"
+        },
+        "service6": {
+          "title": "Affordable Prices",
+          "subtitle": "All for our clients"
+        }
+      },
+      "ctaSection": {
+        "videoButtonText": "Watch the Video",
+        "title": "Professional Medical Services",
+        "description": "We have the opportunity to work with hundreds of forward-looking medical professionals from the world's leading hardware, software, and brands.",
+        "buttonText": "Contact"
+      },
+      "testimonialsSection": {
+        "testimonial1": {
+          "text": "Receiving services at our medical center is very convenient. The doctors are qualified and provide quick help. We found a quick and effective cure for our illness.",
+          "author": "Patient"
+        },
+        "testimonial2": {
+          "text": "Receiving services at our medical center is very convenient. The doctors are qualified and provide quick help. We found a quick and effective cure for our illness.",
+          "author": "Patient"
+        }
+      },
+      "blogSection": {
+        "title": "News",
+        "subtitle": "Latest News and Events"
+      }
+    }
+  },
+  "root": {
+    "readMore": "Read More"
+  }
+}

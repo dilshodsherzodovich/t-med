@@ -9,12 +9,16 @@ import {
 } from "react-icons/fa";
 import { FaLocationDot, FaYoutube } from "react-icons/fa6";
 import roundicon from "/assets/img/icons/360-degrees.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useHttp } from "../../hooks/useHttp";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Header = ({ isTopBar, variant }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const { lang } = useParams();
 
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [openMobileSubmenuIndex, setOpenMobileSubmenuIndex] = useState([]);
@@ -51,27 +55,33 @@ const Header = ({ isTopBar, variant }) => {
     location:
       "Toshkent sh., Yashnabod tumani, Taraqqiyot kuchasi 2-proyezd, 12A uy",
     logoUrl: "/assets/img/logo.PNG",
-    logoLink: "/",
+    logoLink: `/${lang}`,
     navItems: [
       {
-        label: "Biz haqimizda",
-        href: "/about",
+        label: t("navlinks.about.title"),
+        href: `/${lang}/about`,
         subItems: [
-          { label: "Muassasa haqida", href: "/about" },
-          { label: "Rahbariyat", href: "/management" },
           {
-            label: "Bo'limlar",
-            href: "/departments",
+            label: t("navlinks.about.sublinks.instituion"),
+            href: `/${lang}/about`,
+          },
+          {
+            label: t("navlinks.about.sublinks.management"),
+            href: `/${lang}/management`,
+          },
+          {
+            label: t("navlinks.about.sublinks.departments"),
+            href: `/${lang}/departments`,
             subItems: departments?.results?.length
               ? departments?.results?.map((item) => ({
                   label: item?.name,
-                  href: `/departments/${item?.id}`,
+                  href: `/${lang}/departments/${item?.id}`,
                 }))
               : [],
           },
           {
-            label: "Muassasalar",
-            href: "",
+            label: t("navlinks.about.sublinks.institutions"),
+            href: `/${lang}/institutions`,
             subItems: institutionCategories?.results?.length
               ? institutionCategories?.results?.map((item) => ({
                   label: item?.name,
@@ -82,82 +92,91 @@ const Header = ({ isTopBar, variant }) => {
         ],
       },
       {
-        label: "Faoliyat",
+        label: t("navlinks.career.title"),
         href: "",
         subItems: [
-          { label: "Onlayn so'rovnoma", href: "/review" },
-          { label: "Memorandumlar", href: "/careers/1?category=memorandum" },
           {
-            label: "Hamkorlik",
+            label: t("navlinks.career.sublinks.onlineSurvey"),
+            href: `/${lang}/review`,
+          },
+          {
+            label: t("navlinks.career.sublinks.memorandums"),
+            href: `/${lang}/careers/1?category=memorandum`,
+          },
+          {
+            label: t("navlinks.career.sublinks.cooperation"),
             href: "/cooperation",
           },
           {
-            label: "Safarlar",
-            href: "/careers/3?category=trips",
+            label: t("navlinks.career.sublinks.trips"),
+            href: `/${lang}/careers/3?category=trip`,
           },
           {
-            label: "Uchrashuvlar",
-            href: "/careers/4?category=meetings",
+            label: t("navlinks.career.sublinks.meetings"),
+            href: `/${lang}/careers/4?category=meeting`,
           },
           {
-            label: "Tadbirlar",
-            href: "/careers/5?category=events",
+            label: t("navlinks.career.sublinks.events"),
+            href: `/${lang}/careers/5?category=events`,
           },
         ],
       },
       {
-        label: "Xizmatlar",
-        href: "/service",
+        label: t("navlinks.services.title"),
+        href: `/${lang}/service`,
       },
 
       {
-        label: "Matbuot markazi",
-        href: "",
+        label: t("navlinks.media.title"),
+        href: `/${lang}`,
         subItems: [
-          { label: "Axborot xizmati bilan bog'lanish", href: "/contact" },
-          { label: "Yangiliklar", href: "/blog" },
           {
-            label: "Aholini favqulodda vaziyatlarga tayyorlash",
+            label: t("navlinks.media.sublinks.contact"),
+            href: `/${lang}/contact`,
+          },
+          { label: t("navlinks.media.sublinks.news"), href: `/${lang}/blog` },
+          {
+            label: t("navlinks.media.sublinks.gettingReady"),
             href: "https://gov.uz/oz/fvv/sections/aholini-favqulodda-vaziyatlarda-togri-harakat-qilishga-orgatuvchi-foydali-havolalar",
             target: "_blank",
           },
           {
-            label: "Fotogalereya",
-            href: "/gallery",
+            label: t("navlinks.media.sublinks.gallery"),
+            href: `/${lang}/gallery`,
           },
           {
-            label: "Videogalereya",
+            label: t("navlinks.media.sublinks.video"),
             href: "https://www.youtube.com/@nsurailway",
             target: "_blank",
           },
         ],
       },
       {
-        label: "Qonunchilik bazasi",
-        href: "/docs",
+        label: t("navlinks.docs.title"),
+        href: `/${lang}/docs`,
         subItems: allDocs?.results?.length
           ? allDocs?.results?.map((item) => ({
               label: item?.name,
-              href: `/docs?type=${item?.id}`,
+              href: `/${lang}/docs?type=${item?.id}`,
             }))
           : [],
       },
       {
         label: "E-map",
-        href: "/gmap",
+        href: `/${lang}/gmap`,
       },
       {
-        label: "Jonli efir",
-        href: "/livestream",
+        label: t("navlinks.live.title"),
+        href: `/${lang}/livestream`,
       },
       {
-        label: "Xodimlar uchun",
+        label: t("navlinks.forAdmins.title"),
         href: "https://nsu-admin-211q.vercel.app/login",
         target: "_blank",
       },
       {
-        label: "Aloqa",
-        href: "/contact",
+        label: t("navlinks.contact.title"),
+        href: `/${lang}/contact`,
       },
     ],
   };
@@ -267,6 +286,7 @@ const Header = ({ isTopBar, variant }) => {
                         <FaYoutube />
                       </i>
                     </Link>
+                    <LanguageSwitcher />
                   </div>
                 </div>
               </div>
@@ -404,7 +424,7 @@ const Header = ({ isTopBar, variant }) => {
             </svg>
           </div>
         )}
-        <LanguageSwitcher />
+        {/* <LanguageSwitcher /> */}
       </header>
 
       {isTopBar && <div className="cs_site_header_spacing_150" />}

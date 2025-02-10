@@ -16,213 +16,208 @@ import MapSection from "../../Components/MapSection/index.jsx";
 import hero1 from "/assets/img/hero1.png";
 import hero2 from "/assets/img/hero2.png";
 import hero4 from "/assets/img/hero4.png";
-
-const heroData = {
-  primarySlider: [
-    {
-      bgImageUrl: hero4,
-      title: `O'zbekiston Temir yo'llari "Temiryo'l ijtimoiy xizmatlar" <span>muassasasi</span>`,
-      contactSubtitle: "",
-      contactTitle: "Tibbiy xizmatdan foydalaning",
-      contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",
-      btnText1: "Aloqa",
-      link: "/contact",
-      btnText2: "Biz haqimizda",
-      link2: "/about",
-      iconImgUrl: "assets/img/icons/hero_icon.png",
-    },
-    {
-      bgImageUrl: hero2,
-      title: "Yuqori malakali <span>Mutaxasislar.</span>",
-      contactSubtitle: `Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.`,
-      contactTitle: "Tibbiy xizmatdan foydalaning",
-      contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",
-      btnText1: "Aloqa",
-      link: "/contact",
-      btnText2: "Biz haqimizda",
-      link2: "/about",
-      iconImgUrl: "assets/img/icons/hero_icon.png",
-    },
-    {
-      bgImageUrl: hero1,
-      title: "Ruhiy salomatlik <span>markazingiz.</span>",
-      contactSubtitle:
-        "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.",
-      contactTitle: "Tibbiy xizmatdan foydalaning",
-      contact: "Qo'ngiroq qiling: +998 (71) 299 98 27",
-      btnText1: "Aloqa",
-      link: "/contact",
-      btnText2: "Biz haqimizda",
-      link2: "/about",
-      iconImgUrl: "assets/img/icons/hero_icon.png",
-    },
-  ],
-  secondarySlider: [
-    "https://medilo-react.vercel.app/assets/img/hero_slider_sm_3.png",
-    "https://medilo-react.vercel.app/assets/img/hero_slider_sm_1.png",
-    "https://medilo-react.vercel.app/assets/img/hero_slider_sm_2.png",
-  ],
-};
-
-// const ctaData = {
-//   imageUrl: "https://medilo-react.vercel.app/assets/img/cta_img_1.jpg",
-//   title: "Sizni qiziqtirayotgan savollaringizga javob oling",
-//   subtitle: "Biz uchun mijozlarimizga sifatli xizmat ko'rsatish oliy maqsad",
-//   buttonUrl: "/appointments",
-//   buttonText: "Murojaat qoldiring",
-// };
-
-const aboutData = {
-  sectionSubtitle: "Biz haqimizda",
-  sectionTitle: "25 yildan ko'proq vaqt davomida sifatli xizmat",
-  aboutText:
-    "Biz dunyoning yetakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
-  service:
-    "Biz haqimizdagi ko'proq bilishni xohlasangiz quyidagi havola orqali o'ting",
-  experienceYears: "25+",
-  experienceTitle: "Tajriba",
-  videoUrl: "https://www.youtube.com/embed/rRid6GCJtgc",
-  videoText: "Biz qanday ishlaymiz",
-  iconboxes: [
-    {
-      imgUrl: "/assets/img/icons/about_icon_1.png",
-      title: "Mijozlar bilan aloqa",
-      subtitle: "Muammolaringizni biz bilan bo'lishing",
-    },
-    {
-      imgUrl: "/assets/img/icons/about_icon_2.png",
-      title: "Onlayn maslahat",
-      subtitle: "Shifokorlarimizdan onlayn tarzda maslahatlat oling",
-    },
-  ],
-
-  btnUrl: "/about",
-  btnText: "Biz haqimizda",
-  sectionImgUrl: "assets/img/about_section_img_1.png",
-  headImgUrl: "https://medilo-react.vercel.app/assets/img/about_img_1.jpg",
-  headSecondImgUrl:
-    "https://medilo-react.vercel.app/assets/img/about_img_2.jpg",
-};
-
-const countersData = [
-  {
-    iconUrl: "/assets/img/icons/counter_icon_1.png",
-    number: "1000+",
-    title: "Faol Mijozlar",
-  },
-  {
-    iconUrl: "/assets/img/icons/counter_icon_2.png",
-    number: "100+",
-    title: "Tibbiyot markazlari",
-  },
-  {
-    iconUrl: "/assets/img/icons/counter_icon_3.png",
-    number: "3.5 mln + ",
-    title: "Tibbiy xulosalar",
-  },
-  {
-    iconUrl: "/assets/img/icons/counter_icon_4.png",
-    number: "20+",
-    title: "Tibbiy xizmatlar",
-  },
-];
-
-const serviceData = {
-  subtitle: "Xizmatlarimiz",
-  title: "Yuqori sifatli xizmatlar",
-  description: "",
-  footerIcon: "/assets/img/icons/service_footer_icon_1.png",
-  footerText:
-    "Delivering tomorrow's health care for your family.<br>medical this View",
-  footerLink: "/",
-  footerLinkText: "SEE MORE",
-};
-
-const sectionData = {
-  subtitle: "Nima uchun biz",
-  title: "Ko'pab kasalliklaringizga biz <br/> bilan davo toping",
-  services: [
-    {
-      iconUrl: "/assets/img/icons/service_icon_9.png",
-      title: "Yuqori sifatli e'tibor",
-      subtitle: "Barchasi mijozlarimiz uchun",
-      duration: "25 daqiqa",
-    },
-    {
-      iconUrl: "/assets/img/icons/service_icon_10.png",
-      title: "Tezkor yordam",
-      subtitle: "Barchasi mijozlarimiz uchun",
-      duration: "25 daqiqa",
-    },
-    {
-      iconUrl: "/assets/img/icons/service_icon_11.png",
-      title: "Malakali shifokorlar",
-      subtitle: "Barchasi mijozlarimiz uchun",
-      duration: "25 daqiqa",
-    },
-    {
-      iconUrl: "/assets/img/icons/service_icon_12.png",
-      title: "Tibbiy maslahatlar",
-      subtitle: "Barchasi mijozlarimiz uchun",
-      duration: "25 daqiqa",
-    },
-    {
-      iconUrl: "/assets/img/icons/service_icon_13.png",
-      title: "Tibbiy tadqiqotlar",
-      subtitle: "Barchasi mijozlarimiz uchun",
-      duration: "25 daqiqa",
-    },
-    {
-      iconUrl: "/assets/img/icons/service_icon_14.png",
-      title: "Hamyonbop narxlar",
-      subtitle: "Barchasi mijozlarimiz uchun",
-      duration: "25 daqiqa",
-    },
-  ],
-};
-
-const ctaData1 = {
-  videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",
-  videoButtonText: "Videoni tomosha qiling",
-  subtitle: "VIDEO",
-  title: "Professional tibbiy yordam",
-  description:
-    "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
-  buttonLink: "/contact",
-  buttonText: "Bog'lanish",
-  brandImage: "assets/img/medical_brand.png",
-};
-
-const testimonialData = {
-  thumbnail: "https://medilo-react.vercel.app/assets/img/testimonial_1.png",
-  testimonials: [
-    {
-      rating: 2,
-      subtitle:
-        "“Meni ortiqcha vazn, nafas qisilishi va oyoqlarimdagi og‘riqlar tashvishga solardi. Operatsiya natijasidan mamnunman, - deydi jarrohlik bo'limidagi bemorimiz.",
-      avatar: "assets/img/avatar_1.png",
-      name: "Bemor",
-      position: "",
-    },
-    {
-      rating: 4,
-      subtitle: `"Ko'zlarim deyarli ko'rmay qoldi, men siz bilan operatsiya qildim va operatsiya natijasidan to'liq qoniqdim", - deydi oftalmologiya bo'limi bemorimiz.`,
-      avatar: "assets/img/avatar_2.png",
-      name: "Bemor",
-      position: "",
-    },
-    {
-      rating: 3,
-      subtitle: `"Men 5 oydan beri deyarli ko'r bo'lib yuraman, sizning mahoratingizdan mamnunman, operatsiya muvaffaqiyatli o'tdi", deydi oftalmologiya bo'limidagi bemor.`,
-      avatar: "assets/img/avatar_2.png",
-      name: "Bemor",
-      position: "",
-    },
-  ],
-};
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 const MainHome = () => {
   const sendRequest = useHttp();
+
+  const { t } = useTranslation();
+
+  const { lang } = useParams();
+
+  const heroData = {
+    primarySlider: [
+      {
+        bgImageUrl: hero4,
+        title: `${t("pages.home.hero.slider1.title")} <span>${t(
+          "pages.home.hero.slider1.oneWord"
+        )}</span>`,
+        contactSubtitle: "",
+        contactTitle: t("pages.home.hero.info.title"),
+        contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 98 27`,
+        btnText1: `${t("pages.home.hero.info.contactText")}`,
+        link: `/${lang}/contact`,
+        btnText2: `${t("pages.home.hero.info.aboutText")}`,
+        link2: `/${lang}/about`,
+        iconImgUrl: "assets/img/icons/hero_icon.png",
+      },
+      {
+        bgImageUrl: hero2,
+        title: `${t("pages.home.hero.slider2.title")} <span>${t(
+          "pages.home.hero.slider2.oneWord"
+        )}</span>`,
+        contactSubtitle: t("pages.home.hero.slider2.subtitle"),
+        contactTitle: t("pages.home.hero.info.title"),
+        contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 98 27`,
+        btnText1: `${t("pages.home.hero.info.contactText")}`,
+        link: `/${lang}/contact`,
+        btnText2: `${t("pages.home.hero.info.aboutText")}`,
+        link2: `/${lang}/about`,
+        iconImgUrl: "assets/img/icons/hero_icon.png",
+      },
+      {
+        bgImageUrl: hero1,
+        title: `${t("pages.home.hero.slider3.title")} <span>${t(
+          "pages.home.hero.slider3.oneWord"
+        )}</span>`,
+        contactSubtitle: t("pages.home.hero.slider3.subtitle"),
+        contactTitle: t("pages.home.hero.info.title"),
+        contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 98 27`,
+        btnText1: `${t("pages.home.hero.info.contactText")}`,
+        link: `/${lang}/contact`,
+        btnText2: `${t("pages.home.hero.info.aboutText")}`,
+        link2: `/${lang}/about`,
+        iconImgUrl: "assets/img/icons/hero_icon.png",
+      },
+    ],
+    secondarySlider: [
+      "https://medilo-react.vercel.app/assets/img/hero_slider_sm_3.png",
+      "https://medilo-react.vercel.app/assets/img/hero_slider_sm_1.png",
+      "https://medilo-react.vercel.app/assets/img/hero_slider_sm_2.png",
+    ],
+  };
+
+  const aboutData = {
+    sectionSubtitle: t("pages.home.aboutSection.title"),
+    sectionTitle: t("pages.home.aboutSection.subtitle"),
+    aboutText: t("pages.home.aboutSection.text"),
+    service: t("pages.home.aboutSection.contactText"),
+    experienceYears: t("pages.home.aboutSection.experienceYears"),
+    experienceTitle: t("pages.home.aboutSection.experienceTitle"),
+    videoUrl: "https://www.youtube.com/embed/rRid6GCJtgc",
+    videoText: t("pages.home.aboutSection.howWeWork"),
+    iconboxes: [
+      {
+        imgUrl: "/assets/img/icons/about_icon_1.png",
+        title: t("pages.home.aboutSection.contactText"),
+        subtitle: t("pages.home.aboutSection.staticText1"),
+      },
+      {
+        imgUrl: "/assets/img/icons/about_icon_2.png",
+        title: t("pages.home.aboutSection.consultationText"),
+        subtitle: t("pages.home.aboutSection.staticText2"),
+      },
+    ],
+
+    btnUrl: `/${lang}/about`,
+    btnText: t("pages.home.aboutSection.buttonText"),
+    sectionImgUrl: "assets/img/about_section_img_1.png",
+    headImgUrl: "https://medilo-react.vercel.app/assets/img/about_img_1.jpg",
+    headSecondImgUrl:
+      "https://medilo-react.vercel.app/assets/img/about_img_2.jpg",
+  };
+
+  const countersData = [
+    {
+      iconUrl: "/assets/img/icons/counter_icon_1.png",
+      number: "1000+",
+      title: t("pages.home.countersSection.activeClients"),
+    },
+    {
+      iconUrl: "/assets/img/icons/counter_icon_2.png",
+      number: "100+",
+      title: t("pages.home.countersSection.medicalCenters"),
+    },
+    {
+      iconUrl: "/assets/img/icons/counter_icon_3.png",
+      number: "3.5 mln + ",
+      title: t("pages.home.countersSection.medicalSummary"),
+    },
+    {
+      iconUrl: "/assets/img/icons/counter_icon_4.png",
+      number: "20+",
+      title: t("pages.home.countersSection.medicalServices"),
+    },
+  ];
+
+  const serviceData = {
+    subtitle: t("pages.home.servicesSection.title"),
+    title: t("pages.home.servicesSection.subtitle"),
+    description: "",
+    footerIcon: "/assets/img/icons/service_footer_icon_1.png",
+    footerText:
+      "Delivering tomorrow's health care for your family.<br>medical this View",
+    footerLink: "/",
+    footerLinkText: "SEE MORE",
+  };
+
+  const sectionData = {
+    subtitle: t("pages.home.chooseUsSection.title"),
+    title: `${t("pages.home.chooseUsSection.subtitle1")} <br/> ${t(
+      "pages.home.chooseUsSection.subtitle2"
+    )}`,
+    services: [
+      {
+        iconUrl: "/assets/img/icons/service_icon_9.png",
+        title: t("pages.home.chooseUsSection.service1.title"),
+        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
+        duration: "25 daqiqa",
+      },
+      {
+        iconUrl: "/assets/img/icons/service_icon_10.png",
+        title: t("pages.home.chooseUsSection.service2.title"),
+        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
+        duration: "25 daqiqa",
+      },
+      {
+        iconUrl: "/assets/img/icons/service_icon_11.png",
+        title: t("pages.home.chooseUsSection.service6.title"),
+        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
+        duration: "25 daqiqa",
+      },
+      {
+        iconUrl: "/assets/img/icons/service_icon_12.png",
+        title: t("pages.home.chooseUsSection.service3.title"),
+        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
+        duration: "25 daqiqa",
+      },
+      {
+        iconUrl: "/assets/img/icons/service_icon_13.png",
+        title: t("pages.home.chooseUsSection.service4.title"),
+        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
+        duration: "25 daqiqa",
+      },
+      {
+        iconUrl: "/assets/img/icons/service_icon_14.png",
+        title: t("pages.home.chooseUsSection.service5.title"),
+        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
+        duration: "25 daqiqa",
+      },
+    ],
+  };
+
+  const ctaData1 = {
+    videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",
+    videoButtonText: t("pages.home.ctaSection.videoButtonText"),
+    subtitle: "VIDEO",
+    title: t("pages.home.ctaSection.title"),
+    description:
+      "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
+    buttonLink: `/${lang}/contact`,
+    buttonText: t("pages.home.ctaSection.buttonText"),
+    brandImage: "assets/img/medical_brand.png",
+  };
+
+  const testimonialData = {
+    thumbnail: "https://medilo-react.vercel.app/assets/img/testimonial_1.png",
+    testimonials: [
+      {
+        rating: 2,
+        subtitle: t("pages.home.testimonialsSection.testimonial1.text"),
+        avatar: "assets/img/avatar_1.png",
+        name: t("pages.home.testimonialsSection.testimonial1.author"),
+        position: "",
+      },
+      {
+        rating: 4,
+        subtitle: t("pages.home.testimonialsSection.testimonial2.text"),
+        avatar: "assets/img/avatar_2.png",
+        name: t("pages.home.testimonialsSection.testimonial2.author"),
+        position: "",
+      },
+    ],
+  };
 
   const { data: services } = useQuery({
     queryKey: ["services"],
@@ -284,19 +279,19 @@ const MainHome = () => {
 
   const blogData = useMemo(() => {
     return {
-      sectionTitle: "YANGILIKLAR",
-      sectionSubtitle: "So'ngi yangiliklar &amp; Maqolalar",
+      sectionTitle: t("pages.home.blogSection.title"),
+      sectionSubtitle: t("pages.home.blogSection.subtitle"),
       postsData: blogs?.results?.length
         ? blogs?.results?.map((item) => {
             return {
               id: item?.id,
-              category: "Ijtimoiy",
+              category: "Tibbiy",
               date: formatDate(item?.pub_date),
-              link: `/blog/${item?.id}`,
-              linkText: "Batafsil",
+              link: `/${lang}/blog/${item?.id}`,
+              linkText: t("root.readMore"),
               title: item?.title,
               subtitle: item?.body,
-              btnText: "Batafsil",
+              btnText: t("root.readMore"),
               thumbnail: item?.images[0]?.image,
             };
           })
