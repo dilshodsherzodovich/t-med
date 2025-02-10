@@ -16,9 +16,12 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { truncateString } from "../../utils/truncate-string";
+import { useTranslation } from "react-i18next";
 
 const CooperationPage = () => {
   const sendRequest = useHttp();
+
+  const { t } = useTranslation();
 
   const { data: cooperations } = useQuery({
     queryKey: ["cooperations"],
@@ -57,33 +60,29 @@ const CooperationPage = () => {
         backgroundImage={hero2}
       >
         <PageHeading
-          secondaryData={"Hamkorlik"}
-          data={{ title: "Hamkorlik" }}
+          secondaryData={t("pages.cooperation.title")}
+          data={{ title: t("pages.cooperation.title") }}
         />
       </Section>
       <div className="cooperation-page container">
         <header className="header">
-          <h1>Hamkorlik imkoniyatlari</h1>
+          <h1>{t("pages.cooperation.opportunities")}</h1>
         </header>
 
         <main className="main-content">
           <section className="why-cooperate">
             <div className="content-wrapper">
               <div className="text-content">
-                <h2>Nega aynan biz?</h2>
-                <p>
-                  Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan,
-                  barcha turdagi diagnostika va samarali davo muolajasini taklif
-                  qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.
-                </p>
+                <h2>{t("pages.cooperation.chooseUs")}</h2>
+                <p>{t("pages.cooperation.description")}</p>
                 <button className="btn btn-primary">
-                  Batafsil
+                  {t("root.readMore")}
                   <FaArrowRight className="icon" />
                 </button>
               </div>
               <div className="image-wrapper">
                 <img
-                  src="https://nsu.taskmanager.uz/assets/img/hero1.png"
+                  src="/assets/img/hero1.png"
                   alt="Cooperation illustration"
                 />
               </div>
@@ -91,30 +90,28 @@ const CooperationPage = () => {
           </section>
 
           <section className="cooperation-areas">
-            <h2>Hamkorlik sohalari</h2>
+            <h2>{t("pages.cooperation.fields.title")}</h2>
             <div className="areas-grid">
               {[
                 {
                   icon: FaSyringe,
-                  title: "XIRURGIYA",
-                  description: "Jarrohlik sohasida keng tarmoqli hamkorlik",
+                  title: t("pages.cooperation.fields.field1"),
+                  description: t("pages.cooperation.fields.description1"),
                 },
                 {
                   icon: FaSuitcaseMedical,
-                  title: "Travmatologiya",
-                  description:
-                    "Kattalar va bolalar travmatologiyasi sohasida hamkorlik",
+                  title: t("pages.cooperation.fields.field2"),
+                  description: t("pages.cooperation.fields.description2"),
                 },
                 {
                   icon: FaHandHoldingMedical,
-                  title: "Tibbiy ko'rik",
-                  description: "Aholi va xodimlarni tibbiy ko'rikdan o'tkazish",
+                  title: t("pages.cooperation.fields.field3"),
+                  description: t("pages.cooperation.fields.description3"),
                 },
                 {
                   icon: FaGlobe,
-                  title: "Malaka oshirish",
-                  description:
-                    "Xodimlarning qayta tayyorlash va malakasini oshirish",
+                  title: t("pages.cooperation.fields.field4"),
+                  description: t("pages.cooperation.fields.description4"),
                 },
               ].map((item, index) => (
                 <div key={index} className="area-card">
@@ -127,7 +124,7 @@ const CooperationPage = () => {
           </section>
 
           <section className="cooperation-areas">
-            <h2>Hamkor tashkilotlar</h2>
+            <h2>{t("pages.cooperation.organizaitons")}</h2>
             <InfiniteLogoSlider />
           </section>
 
@@ -145,7 +142,7 @@ const CooperationPage = () => {
           </section>
 
           <section className="success-stories">
-            <h2>Muvaffaqqiyatli hamkorliklar</h2>
+            <h2>{t("pages.cooperation.successfullSponsorships")}</h2>
 
             <div className="stories-grid">
               {stories?.map((story) => (
@@ -173,7 +170,7 @@ const CooperationPage = () => {
                       className="learn-more"
                       onClick={() => setSelectedStory(story)}
                     >
-                      Batafsil
+                      {t("root.readMore")}
                       <FaArrowRight className="icon" />
                     </button>
                   </div>

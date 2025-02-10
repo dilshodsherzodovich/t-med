@@ -9,107 +9,7 @@ import Pagination from "../../Components/Pagination";
 import { formatDate } from "../../utils/format-date";
 import { useSearchParams } from "react-router-dom";
 import hero2 from "/assets/img/hero2.png";
-
-const headingData = {
-  title: "Yangiliklar",
-};
-
-const blogsSectionData = {
-  sectionSubtitle: "YANGILIKLAR",
-  sectionTitle: "",
-  blogsData: [
-    {
-      id: 1,
-      category: "Tibbiyot",
-      date: "11 Noyabr",
-      author: "Admin",
-      comments: "2 Comments",
-      title: "Hurmatli va aziz temir yo‘l tibbiyot xodimlari!",
-      subtitle: `Siz, aziz hamkasblarimni “Temir
-        yo‘l ijtimoiy xizmatlar” muassasasi rahbariyati nomidan kasb bayramingiz - Tibbiyot xodimlari kuni munosabati bilan samimiy tabriklayman.`,
-      image:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5294395942738453394.jpg",
-      link: "/blog/blog-details",
-      linkText: "Batafsil",
-    },
-    {
-      id: 2,
-      category: "Ijtimoiy",
-      date: "11 Noyabr",
-      author: "Admin",
-      comments: "2 Comments",
-      title:
-        "“Oʻzbekiston temir yoʻllari” AJ tashkil etilganligining 30 yilligi",
-      subtitle: `“Oʻzbekiston temir yoʻllari” AJ tashkil etilganligining 30 yilligi
-        munosabati bilan, temir yoʻl sohasidagi uzoq yillik samarali va unumli mehnatlari, soha rivojiga qoʻshgan munosib hissasi hamda jamoat ishlaridagi faol ishtiroki uchun "Temir yo‘l ijtimoiy xizmatlar" muassasasi bir guruh tibbiy xodimlariga “Oʻzbekiston temir yoʻllari” AJ raisi nomidan taqdim etilgan ko‘krak nishonlari va esdalik sovg‘alari Muassasa boshlig‘i M.M.Mamasidikov tomonidan tantanali topshirildi.
-        `,
-      image:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5291775295428354997.jpg",
-      link: "/blog/blog-details",
-      linkText: "Batafsil",
-    },
-    {
-      id: 3,
-      category: "Tibbiyot",
-      date: "11 Noyabr",
-      author: "Admin",
-      comments: "2 Comments",
-      title: "Hurmatli va aziz temir yo‘l tibbiyot xodimlari!",
-      subtitle: `Siz, aziz hamkasblarimni “Temir
-        yo‘l ijtimoiy xizmatlar” muassasasi rahbariyati nomidan kasb bayramingiz - Tibbiyot xodimlari kuni munosabati bilan samimiy tabriklayman.`,
-      image:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5294395942738453394.jpg",
-      link: "/blog/blog-details",
-      linkText: "Batafsil",
-    },
-    {
-      id: 4,
-      category: "Ijtimoiy",
-      date: "11 Noyabr",
-      author: "Admin",
-      comments: "2 Comments",
-      title:
-        "“Oʻzbekiston temir yoʻllari” AJ tashkil etilganligining 30 yilligi",
-      subtitle: `“Oʻzbekiston temir yoʻllari” AJ tashkil etilganligining 30 yilligi
-        munosabati bilan, temir yoʻl sohasidagi uzoq yillik samarali va unumli mehnatlari, soha rivojiga qoʻshgan munosib hissasi hamda jamoat ishlaridagi faol ishtiroki uchun "Temir yo‘l ijtimoiy xizmatlar" muassasasi bir guruh tibbiy xodimlariga “Oʻzbekiston temir yoʻllari” AJ raisi nomidan taqdim etilgan ko‘krak nishonlari va esdalik sovg‘alari Muassasa boshlig‘i M.M.Mamasidikov tomonidan tantanali topshirildi.
-        `,
-      image:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5291775295428354997.jpg",
-      link: "/blog/blog-details",
-      linkText: "Batafsil",
-    },
-    {
-      id: 5,
-      category: "Tibbiyot",
-      date: "11 Noyabr",
-      author: "Admin",
-      comments: "2 Comments",
-      title: "Hurmatli va aziz temir yo‘l tibbiyot xodimlari!",
-      subtitle: `Siz, aziz hamkasblarimni “Temir
-        yo‘l ijtimoiy xizmatlar” muassasasi rahbariyati nomidan kasb bayramingiz - Tibbiyot xodimlari kuni munosabati bilan samimiy tabriklayman.`,
-      image:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5294395942738453394.jpg",
-      link: "/blog/blog-details",
-      linkText: "Batafsil",
-    },
-    {
-      id: 6,
-      category: "Ijtimoiy",
-      date: "11 Noyabr",
-      author: "Admin",
-      comments: "2 Comments",
-      title:
-        "“Oʻzbekiston temir yoʻllari” AJ tashkil etilganligining 30 yilligi",
-      subtitle: `“Oʻzbekiston temir yoʻllari” AJ tashkil etilganligining 30 yilligi
-        munosabati bilan, temir yoʻl sohasidagi uzoq yillik samarali va unumli mehnatlari, soha rivojiga qoʻshgan munosib hissasi hamda jamoat ishlaridagi faol ishtiroki uchun "Temir yo‘l ijtimoiy xizmatlar" muassasasi bir guruh tibbiy xodimlariga “Oʻzbekiston temir yoʻllari” AJ raisi nomidan taqdim etilgan ko‘krak nishonlari va esdalik sovg‘alari Muassasa boshlig‘i M.M.Mamasidikov tomonidan tantanali topshirildi.
-        `,
-      image:
-        "http://api.nsu-railway.uz/media/contents/photos/main/5291775295428354997.jpg",
-      link: "/blog/blog-details",
-      linkText: "Batafsil",
-    },
-  ],
-};
+import { useTranslation } from "react-i18next";
 
 const BlogsPage = () => {
   const sendRequest = useHttp();
@@ -119,6 +19,17 @@ const BlogsPage = () => {
   const [searchParams] = useSearchParams();
 
   const category = searchParams.get("category");
+
+  const { t } = useTranslation();
+
+  const headingData = {
+    title: t("pages.news.title"),
+  };
+
+  const blogsSectionData = {
+    sectionSubtitle: t("pages.news.title"),
+    sectionTitle: "",
+  };
 
   const handlePageChange = (e) => {
     setPage(+e.selected + 1);
@@ -163,7 +74,7 @@ const BlogsPage = () => {
         category: categories?.find((cat) => cat?.id === item?.category)?.name,
         date: formatDate(item?.pub_date),
         link: `/blog/${item?.id}`,
-        linkText: "Batafsil",
+        linkText: t("root.readMore"),
         title: item?.title,
         subtitle: item?.body,
         image: item?.images[0]?.image,
@@ -177,7 +88,7 @@ const BlogsPage = () => {
         className={"cs_page_heading cs_bg_filed cs_center"}
         backgroundImage={hero2}
       >
-        <PageHeading data={headingData} />
+        <PageHeading data={headingData} secondaryData={t("pages.news.title")} />
       </Section>
 
       {/* Start Blog Section */}

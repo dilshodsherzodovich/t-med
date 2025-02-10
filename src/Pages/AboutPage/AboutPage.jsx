@@ -10,10 +10,6 @@ import ImageGallery from "./components/ImageGallery";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
-const headingData = {
-  title: "Biz haqimizda",
-};
-
 // const ctaData = {
 //   videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",
 //   videoButtonText: "Videoni tomosha qiling",
@@ -32,6 +28,10 @@ const AboutPage = () => {
   const { t } = useTranslation();
 
   const { lang } = useParams();
+
+  const headingData = {
+    title: t("pages.about.title"),
+  };
 
   const ctaData = {
     videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",

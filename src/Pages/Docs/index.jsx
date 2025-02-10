@@ -39,7 +39,7 @@ const Docs = () => {
       ?.find((item) => +item?.id === +type)
       ?.decisions?.map((doc) => {
         return {
-          iconSrc: "assets/img/icons/ic_word.svg",
+          iconSrc: "/assets/img/icons/ic_word.svg",
           title: doc?.title,
           file: doc?.file_link,
         };

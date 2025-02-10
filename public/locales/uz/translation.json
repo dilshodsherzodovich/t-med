@@ -212,10 +212,68 @@
       "biography": "Tarjimai hol",
       "phone": "Telefon raqam",
       "email": "Elektron pochta"
+    },
+    "cooperation": {
+      "title": "Hamkorlik",
+      "opportunities": "Hamkorlik imkoniyatlari",
+      "chooseUs": "Nima uchun biz",
+      "description": "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.",
+      "fields": {
+        "title": "Hamkorlik sohalari",
+        "field1": "XIRURGIYA",
+        "description1": "Jarrohlik sohasida keng tarmoqli hamkorlik",
+        "field2": "TRAVMATOLOGIYA",
+        "description2": "Kattalar va bolalar travmatologiyasi sohasida hamkorlik",
+        "field3": "TIBBIY KO'RIK",
+        "description3": "Aholi va xodimlarni tibbiy ko'rikdan o'tkazish",
+        "field4": "MALAKA OSHIRISH",
+        "description4": "Xodimlarning qayta tayyorlash va malakasini oshirish"
+      },
+      "organizaitons": "Hamkor tashkilotlar",
+      "successfullSponsorships": "Muvaffaqiyatli hamkorliklar"
+    },
+    "services": {
+      "title": "Xizmatlar",
+      "subtitle": "Bizning xizmatlarimiz",
+      "price": "Narxi",
+      "duration": "Davomiyligi",
+      "govermentServices": {
+        "title": "Davlat xizmatlari",
+        "service1": "Narkologiya dispanseri hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma olish",
+        "service2": "Ruhiy kasalliklar bo‘yicha dispanser hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma berish",
+        "service3": "Bolalarning emlanish taqvimi",
+        "service4": "Oilaviy shifokorlik punktlari, oilaviy poliklinikalar va ko‘p tarmoqli markaziy poliklinikalarda davlat tomonidan bepul beriladigan dori vositalari va tibbiyot buyumlari to‘g‘risida ma’lumot",
+        "service5": "Tana vazni va og'irligi kalkulyatori",
+        "service6": "Tibbiyot tashkilotlarini akkreditatsiya qilish"
+      }
+    },
+    "contact": {
+      "title": "Aloqa",
+      "subtitle": "Biz bilan bog'laning",
+      "emergancyCall": "Tezkor qo'ng'iroq",
+      "form": {
+        "first_name": "Ism",
+        "last_name": "Familiya",
+        "email": "Elektron pochta",
+        "phone": "Telefon raqam",
+        "message": "Xabar",
+        "buttonText": "Jo'natish"
+      }
+    },
+    "news": {
+      "title": "Yangiliklar",
+      "subtitle": "So'nggi yangiliklar va tadbirlar"
+    },
+    "livestream": {
+      "title": "Jonli efir",
+      "username": "Foydalanuvchi nomi",
+      "joinConference": "VC konferentsiyasiga qo'shilish"
     }
   },
   "root": {
     "readMore": "Batafsil",
-    "home": "Asosiy"
+    "home": "Asosiy",
+    "address": "Toshkent sh., Yashnabod tumani, Taraqqiyot kuchasi 2-proyezd, 12A uy",
+    "copyright": "O'zbekiston Temir Yo'llari AJ, Barcha huquqlar himoyalangan."
   }
 }

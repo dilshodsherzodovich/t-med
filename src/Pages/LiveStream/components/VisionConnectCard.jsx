@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 const VisionConnectCard = () => {
+  const { t } = useTranslation();
   return (
     <div className="card stream border-0 h-100 ">
       <div className="card-header text-white">
@@ -20,7 +23,7 @@ const VisionConnectCard = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Foydalanuvchi nomi"
+              placeholder={t("pages.livestream.username")}
             />
           </div>
           <div className="mb-3">
@@ -31,7 +34,7 @@ const VisionConnectCard = () => {
             />
           </div>
           <button className="btn btn-primary w-100">
-            {"VC konferentsiyasiga qo'shilish"}
+            {t("pages.livestream.joinConference")}
           </button>
         </div>
       </div>

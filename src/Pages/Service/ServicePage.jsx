@@ -7,114 +7,12 @@ import { useMemo } from "react";
 import ServiceSection5 from "../../Components/Service/ServiceSection5";
 import hero2 from "/assets/img/hero2.png";
 import Services from "./Services";
-
-const headingData = {
-  title: "Xizmatlar",
-};
-
-const serviceData = {
-  subtitle: "Xizmatlarimiz",
-  title: "Yuqori sifatli xizmatlar",
-  description: "",
-  services: [
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_1.png",
-      index: "01",
-      title: "Farmakologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_2.png",
-      index: "02",
-      title: "Ortopedik",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_3.png",
-      index: "03",
-      title: "Gematologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_5.png",
-      index: "05",
-      title: "Nevrologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_6.png",
-      index: "06",
-      title: "Urologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_7.png",
-      index: "07",
-      title: "Tish kasalliklari",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_8.png",
-      index: "08",
-      title: "Kardiologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-    {
-      backgroundImage:
-        "https://medilo-react.vercel.app/assets/img/service_bg.jpg",
-      iconUrl: "/assets/img/icons/service_icon_4.png",
-      index: "08",
-      title: "Endokrinologiya",
-      cost: "13.499 so'm ",
-      subtitle: "",
-      duration: "25 daqiqa",
-      link: "/service/service-details",
-    },
-  ],
-  footerIcon: "/assets/img/icons/service_footer_icon_1.png",
-  footerText:
-    "Delivering tomorrow's health care for your family.<br>medical this View",
-  footerLink: "/",
-  footerLinkText: "SEE MORE",
-};
+import { useTranslation } from "react-i18next";
 
 const ServicePage = () => {
   const sendRequest = useHttp();
+
+  const { t } = useTranslation();
 
   const { data } = useQuery({
     queryKey: ["services"],
@@ -143,35 +41,36 @@ const ServicePage = () => {
   const govermentServices = {
     services: [
       {
-        title:
-          "Narkologiya dispanseri hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma olish",
+        title: t("pages.services.govermentServices.service1"),
         link: "https://my.gov.uz/oz/service/338",
       },
       {
-        title:
-          "Ruhiy kasalliklar bo‘yicha dispanser hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma berish",
+        title: t("pages.services.govermentServices.service2"),
         link: "https://my.gov.uz/oz/service/334",
       },
       {
-        title:
-          "Oilaviy shifokorlik punktlari, oilaviy poliklinikalar va ko‘p tarmoqli markaziy poliklinikalarda davlat tomonidan bepul beriladigan dori vositalari va tibbiyot buyumlari to‘g‘risida ma’lumot",
+        title: t("pages.services.govermentServices.service3"),
         link: "https://my.gov.uz/oz/service/798",
       },
       {
-        title: "Bolalarning emlanish taqvimi",
+        title: t("pages.services.govermentServices.service4"),
         link: "https://my.gov.uz/oz/service/718",
       },
       {
-        title: "Tana vazni va og'irligi kalkulyatori",
+        title: t("pages.services.govermentServices.service5"),
         link: "https://my.gov.uz/oz/service/716",
       },
       {
-        title: "Tibbiyot tashkilotlarini akkreditatsiya qilish",
+        title: t("pages.services.govermentServices.service6"),
         link: "https://my.gov.uz/oz/service/519",
       },
     ],
-    title: "Davlat xizmatlari",
-    subtitle: "Xizmatlar",
+    title: t("pages.services.govermentServices.title"),
+    subtitle: t("pages.services.title"),
+  };
+
+  const headingData = {
+    title: t("pages.services.title"),
   };
 
   return (
@@ -180,7 +79,10 @@ const ServicePage = () => {
         className={"cs_page_heading cs_bg_filed cs_center"}
         backgroundImage={hero2}
       >
-        <PageHeading data={headingData} />
+        <PageHeading
+          data={headingData}
+          secondaryData={t("pages.services.title")}
+        />
       </Section>
       <>
         {/* Start Service Section */}

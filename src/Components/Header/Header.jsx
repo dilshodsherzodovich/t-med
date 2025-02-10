@@ -52,8 +52,7 @@ const Header = ({ isTopBar, variant }) => {
 
   const menu = {
     email: "nsu-railway@gmail.com",
-    location:
-      "Toshkent sh., Yashnabod tumani, Taraqqiyot kuchasi 2-proyezd, 12A uy",
+    location: t("root.address"),
     logoUrl: "/assets/img/logo.PNG",
     logoLink: `/${lang}`,
     navItems: [
@@ -81,7 +80,7 @@ const Header = ({ isTopBar, variant }) => {
           },
           {
             label: t("navlinks.about.sublinks.institutions"),
-            href: `/${lang}/institutions`,
+            href: ``,
             subItems: institutionCategories?.results?.length
               ? institutionCategories?.results?.map((item) => ({
                   label: item?.name,
@@ -95,10 +94,10 @@ const Header = ({ isTopBar, variant }) => {
         label: t("navlinks.career.title"),
         href: "",
         subItems: [
-          {
-            label: t("navlinks.career.sublinks.onlineSurvey"),
-            href: `/${lang}/review`,
-          },
+          // {
+          //   label: t("navlinks.career.sublinks.onlineSurvey"),
+          //   href: `/${lang}/review`,
+          // },
           {
             label: t("navlinks.career.sublinks.memorandums"),
             href: `/${lang}/careers/1?category=memorandum`,

@@ -1,11 +1,25 @@
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { useRouter } from "../../hooks/use-router";
+import { useState } from "react";
+
+const languages = [
+  { code: "UZ", name: "Uzbek", flag: "🇺🇿" },
+  { code: "RU", name: "Russian", flag: "🇷🇺" },
+  { code: "EN", name: "English", flag: "🇬🇧" },
+];
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
   const { pathname } = useLocation();
   const router = useRouter();
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const selectLanguage = (language) => {
+    setSelectedLanguage(language);
+    setDropdownOpen(false);
+  };
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -17,11 +31,19 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div>
-      <button onClick={() => changeLanguage("en")}>En</button>
-      <button onClick={() => changeLanguage("uz")}>Uz</button>
-      <button onClick={() => changeLanguage("ru")}>Ru</button>
-    </div>
+    <select
+      onChange={(e) => changeLanguage(e.target.value.toLocaleLowerCase())}
+      style={{
+        backgroundColor: "transparent",
+        border: "none",
+        cursor: "pointer",
+        color: "#fff",
+      }}
+    >
+      {languages.map((language) => (
+        <option key={language.code}>{language.code}</option>
+      ))}
+    </select>
   );
 };
 

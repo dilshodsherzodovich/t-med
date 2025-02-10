@@ -10,6 +10,7 @@ import {
   Stethoscope,
 } from "lucide-react";
 import "./services.scss";
+import { useTranslation } from "react-i18next";
 
 const services = [
   {
@@ -66,6 +67,8 @@ const categories = [
 const Services = () => {
   const [activeCategory, setActiveCategory] = React.useState("all");
 
+  const { t } = useTranslation();
+
   const filteredServices = services.filter(
     (service) =>
       activeCategory === "all" ||
@@ -75,11 +78,6 @@ const Services = () => {
   return (
     <div className="services">
       <div className="services-container">
-        <div className="services__header">
-          <h1>Bizning xizmatlar</h1>
-          <p> Sizning ehtiyojlaringiz uchun kompleks tibbiy yordam </p>
-        </div>
-
         <nav className="services__nav">
           {categories.map((category) => (
             <button
@@ -104,14 +102,14 @@ const Services = () => {
                 <div>
                   <div>
                     <BadgeDollarSign />
-                    Narxi:
+                    {t("pages.services.price")}:
                   </div>
                   <span>${service.price.toFixed(2)}</span>
                 </div>
                 <div>
                   <div>
                     <Timer />
-                    Davomilyligi:
+                    {t("pages.services.duration")}:
                   </div>
                   <span>{service.duration} min</span>
                 </div>

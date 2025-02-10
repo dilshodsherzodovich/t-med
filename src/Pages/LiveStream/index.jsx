@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import PageHeading from "../../Components/PageHeading";
 import Section from "../../Components/Section";
 import LiveStreamCard from "./components/LiveStreamCard";
@@ -6,8 +7,10 @@ import "./livestream.scss";
 import hero2 from "/assets/img/hero2.png";
 
 function LiveStream() {
+  const { t } = useTranslation();
+
   const headingData = {
-    title: "Jonli efir",
+    title: t("pages.livestream.title"),
   };
 
   return (
@@ -16,7 +19,10 @@ function LiveStream() {
         className={"cs_page_heading cs_bg_filed cs_center "}
         backgroundImage={hero2}
       >
-        <PageHeading secondaryData="Jonli efir" data={headingData} />
+        <PageHeading
+          secondaryData={t("pages.livestream.title")}
+          data={headingData}
+        />
       </Section>
       <div className="livestream bg-light ">
         <div className="container">

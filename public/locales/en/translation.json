@@ -37,13 +37,44 @@
       "title": "Legislation"
     },
     "live": {
-      "title": "Live Broadcast"
+      "title": "Live Stream"
     },
     "forAdmins": {
-      "title": "For Staff"
+      "title": "For Employees"
     },
     "contact": {
       "title": "Contact"
+    }
+  },
+  "footer": {
+    "contact": {
+      "reception": "Reception Days: <br /> Mon - Fri: 8.00 - 18.00",
+      "address": "Tashkent, Yashnobod district, Taraqqiyot street, 2nd passage, 12A"
+    },
+    "services": {
+      "title": "Services",
+      "sublinks": {
+        "service1": "Pharmacology",
+        "service2": "Orthopedic",
+        "service3": "Hematology",
+        "service4": "Neurology",
+        "service5": "Cardiology",
+        "service6": "Surgery"
+      }
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "sublinks": {
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "media": "Media Center",
+        "docs": "Legislation",
+        "contact": "Contact"
+      }
+    },
+    "socials": {
+      "title": "Social Networks"
     }
   },
   "pages": {
@@ -57,12 +88,12 @@
         "slider2": {
           "title": "Highly Qualified",
           "oneWord": "specialists",
-          "subtitle": "A medical institution with highly qualified specialists who perform operations of any complexity, offering all types of diagnostics and effective treatment."
+          "subtitle": "A medical institution with highly qualified specialists offering all types of diagnostics and effective treatment procedures for any complexity of operations."
         },
         "slider3": {
-          "title": "Your Mental Health",
+          "title": "Mental Health",
           "oneWord": "center",
-          "subtitle": "A medical institution with highly qualified specialists who perform operations of any complexity, offering all types of diagnostics and effective treatment."
+          "subtitle": "A medical institution with highly qualified specialists offering all types of diagnostics and effective treatment procedures for any complexity of operations."
         },
         "info": {
           "title": "Use Medical Services",
@@ -77,7 +108,7 @@
       "aboutSection": {
         "title": "About Us",
         "subtitle": "Over 25 years of quality service",
-        "text": "We have the opportunity to work with hundreds of forward-looking medical professionals from the world's leading hardware, software, and brands.",
+        "text": "We have the opportunity to work with hundreds of future-oriented medical professionals from the world's leading hardware, software, and brands.",
         "contactText": "Customer Contact",
         "consultationText": "Online Consultation",
         "staticText1": "Share your problems with us",
@@ -100,8 +131,8 @@
       },
       "chooseUsSection": {
         "title": "Why Choose Us",
-        "subtitle1": "Find a cure for many of your",
-        "subtitle2": "diseases with us",
+        "subtitle1": "Find a cure for many of your diseases",
+        "subtitle2": "with us",
         "service1": {
           "title": "High Quality Attention",
           "subtitle": "All for our clients"
@@ -130,7 +161,7 @@
       "ctaSection": {
         "videoButtonText": "Watch the Video",
         "title": "Professional Medical Services",
-        "description": "We have the opportunity to work with hundreds of forward-looking medical professionals from the world's leading hardware, software, and brands.",
+        "description": "We have the opportunity to work with hundreds of future-oriented medical professionals from the world's leading hardware, software, and brands.",
         "buttonText": "Contact"
       },
       "testimonialsSection": {
@@ -146,10 +177,103 @@
       "blogSection": {
         "title": "News",
         "subtitle": "Latest News and Events"
+      },
+      "contact": {
+        "title": "Contact",
+        "subtitle": "Leave your questions",
+        "form": {
+          "first_name": "First Name",
+          "last_name": "Last Name",
+          "email": "Email",
+          "phone": "Phone Number",
+          "message": "Message",
+          "buttonText": "Send"
+        }
       }
+    },
+    "about": {
+      "title": "About Us",
+      "subtitle": "About Uzbekistan Railways Social Services Institution"
+    },
+    "management": {
+      "title": "Management",
+      "career": "Career",
+      "biography": "Biography"
+    },
+    "departments": {
+      "title": "Departments",
+      "staff": "staff"
+    },
+    "singleDepartment": {
+      "title": "Department",
+      "about": "About the Department",
+      "head": "Department Head",
+      "staff": "Number of Employees",
+      "biography": "Biography",
+      "phone": "Phone Number",
+      "email": "Email"
+    },
+    "cooperation": {
+      "title": "Cooperation",
+      "opportunities": "Cooperation Opportunities",
+      "chooseUs": "Why Choose Us",
+      "description": "A medical institution with highly qualified specialists offering all types of diagnostics and effective treatment procedures for any complexity of operations.",
+      "fields": {
+        "title": "Cooperation Fields",
+        "field1": "SURGERY",
+        "description1": "Broad cooperation in the field of surgery",
+        "field2": "TRAUMATOLOGY",
+        "description2": "Cooperation in the field of adult and pediatric traumatology",
+        "field3": "MEDICAL EXAMINATION",
+        "description3": "Medical examination of the population and employees",
+        "field4": "QUALIFICATION IMPROVEMENT",
+        "description4": "Retraining and qualification improvement of employees"
+      },
+      "organizaitons": "Partner Organizations",
+      "successfullSponsorships": "Successful Partnerships"
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "Our Services",
+      "price": "Price",
+      "duration": "Duration",
+      "govermentServices": {
+        "title": "Government Services",
+        "service1": "Certificate of whether or not registered with the narcological dispensary",
+        "service2": "Certificate of whether or not registered with the psychiatric dispensary",
+        "service3": "Children's vaccination schedule",
+        "service4": "Information on free medicines and medical supplies provided by the state at family doctor points, family polyclinics, and multi-profile central polyclinics",
+        "service5": "Body Mass Index Calculator",
+        "service6": "Accreditation of medical institutions"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Get in Touch",
+      "emergancyCall": "Emergency Call",
+      "form": {
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email": "Email",
+        "phone": "Phone Number",
+        "message": "Message",
+        "buttonText": "Send"
+      }
+    },
+    "news": {
+      "title": "News",
+      "subtitle": "Latest News and Events"
+    },
+    "livestream": {
+      "title": "Live Stream",
+      "username": "Username",
+      "joinConference": "Join VC Conference"
     }
   },
   "root": {
-    "readMore": "Read More"
+    "readMore": "Read More",
+    "home": "Home",
+    "address": "Tashkent, Yashnobod district, Taraqqiyot street, 2nd passage, 12A",
+    "copyright": "Uzbekistan Railways JSC, All rights reserved."
   }
 }

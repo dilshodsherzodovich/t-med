@@ -3,11 +3,14 @@ import SectionHeading from "../SectionHeading";
 import { postNewsLetter } from "../../api/newsletter";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const ContactSection = ({ data, reverseOrder }) => {
   const [loading, setLoading] = useState(false);
 
   const formRef = useRef();
+
+  const { t } = useTranslation();
 
   const mutation = useMutation({
     mutationFn: postNewsLetter,
@@ -86,7 +89,7 @@ const ContactSection = ({ data, reverseOrder }) => {
                     <input
                       type="text"
                       className="cs_form_field"
-                      placeholder="Ismingiz"
+                      placeholder={t("pages.contact.form.first_name")}
                       name="first_name"
                     />
                   </div>
@@ -94,7 +97,7 @@ const ContactSection = ({ data, reverseOrder }) => {
                     <input
                       type="text"
                       className="cs_form_field"
-                      placeholder="Familiyangiz"
+                      placeholder={t("pages.contact.form.last_name")}
                       name="last_name "
                     />
                   </div>
@@ -102,7 +105,7 @@ const ContactSection = ({ data, reverseOrder }) => {
                     <input
                       type="email"
                       className="cs_form_field"
-                      placeholder="Email"
+                      placeholder={t("pages.contact.form.email")}
                       name="email"
                     />
                   </div>
@@ -110,7 +113,7 @@ const ContactSection = ({ data, reverseOrder }) => {
                     <input
                       type="text"
                       className="cs_form_field"
-                      placeholder="Telefon raqamingiz"
+                      placeholder={t("pages.contact.form.phone")}
                       name="phone"
                     />
                   </div>
@@ -118,7 +121,7 @@ const ContactSection = ({ data, reverseOrder }) => {
                     <textarea
                       rows={5}
                       className="cs_form_field"
-                      placeholder="Xabaringiz"
+                      placeholder={t("pages.contact.form.message")}
                       defaultValue={""}
                     />
                   </div>
@@ -128,7 +131,7 @@ const ContactSection = ({ data, reverseOrder }) => {
                       type="submit"
                       className="cs_btn cs_style_1 cs_color_1"
                     >
-                      Jo'natish
+                      {t("pages.contact.form.buttonText")}
                     </button>
                   </div>
                 </form>

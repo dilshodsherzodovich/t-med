@@ -48,43 +48,48 @@ const BlogSection = ({ data }) => {
           <div className="cs_slider_container">
             <div className="cs_slider_wrapper">
               <Slider {...settings}>
-                {data.postsData.map((post, index) => (
-                  <div key={index} className="cs_slide">
-                    <article className="cs_post cs_style_1">
-                      <Link
-                        to={post.postLink}
-                        className="cs_post_thumbnail position-relative"
-                      >
-                        <img src={post.thumbnail} alt="post Thumbnail" />
-                        <div className="cs_post_category position-absolute">
-                          {post.category}
-                        </div>
-                      </Link>
-                      <div className="cs_post_content position-relative">
-                        <div className="cs_post_meta_wrapper">
-                          <div className="cs_posted_by cs_center position-absolute">
-                            {post.date}
+                {data.postsData.map((post, index) => {
+                  const d = document.createElement("div");
+                  d.innerHTML = post?.subtitle;
+                  const subtitle = d.textContent || d.innerText;
+                  return (
+                    <div key={index} className="cs_slide">
+                      <article className="cs_post cs_style_1">
+                        <Link
+                          to={post.postLink}
+                          className="cs_post_thumbnail position-relative"
+                        >
+                          <img src={post.thumbnail} alt="post Thumbnail" />
+                          <div className="cs_post_category position-absolute">
+                            {post.category}
                           </div>
+                        </Link>
+                        <div className="cs_post_content position-relative">
+                          <div className="cs_post_meta_wrapper">
+                            <div className="cs_posted_by cs_center position-absolute">
+                              {post.date}
+                            </div>
+                          </div>
+                          <h3 className="cs_post_title">
+                            <Link to={post.postLink}>{post.title}</Link>
+                          </h3>
+                          <p className="cs_post_subtitle">
+                            {truncateString(subtitle, 100)}
+                          </p>
+
+                          <Button
+                            variant={"cs_post_btn"}
+                            btnIcons={<FaAngleRight />}
+                            btnUrl={post.postLink}
+                            btnText={post.btnText}
+                          />
+
+                          <div className="cs_post_shape position-absolute" />
                         </div>
-                        <h3 className="cs_post_title">
-                          <Link to={post.postLink}>{post.title}</Link>
-                        </h3>
-                        <p className="cs_post_subtitle">
-                          {truncateString(post.subtitle)}
-                        </p>
-
-                        <Button
-                          variant={"cs_post_btn"}
-                          btnIcons={<FaAngleRight />}
-                          btnUrl={post.postLink}
-                          btnText={post.btnText}
-                        />
-
-                        <div className="cs_post_shape position-absolute" />
-                      </div>
-                    </article>
-                  </div>
-                ))}
+                      </article>
+                    </div>
+                  );
+                })}
               </Slider>
             </div>
           </div>

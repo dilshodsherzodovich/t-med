@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { CalendarDays, MapPin } from "lucide-react";
 import Modal from "./components/Modal";
 import "./careerPosts.scss";
@@ -10,36 +10,42 @@ import { useHttp } from "../../hooks/useHttp";
 import { useParams, useSearchParams } from "react-router-dom";
 import { truncateString } from "../../utils/truncate-string";
 import BlogLoadingSkeleton from "../../Components/BlogsSection/BlogLoadingSkeleton";
-
-const categories = [
-  {
-    name: "Memorandumlar",
-    value: "memorandum",
-  },
-  {
-    name: "Sayohatlar",
-    value: "trips",
-  },
-  {
-    name: "Uchrashuvlar",
-    value: "meetings",
-  },
-  {
-    name: "Tadbirlar",
-    value: "events",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 function CareerPosts() {
   const sendRequest = useHttp();
 
   const { id } = useParams();
 
+  const { t } = useTranslation();
+
   const [searchParams] = useSearchParams();
 
-  const category = categories?.find(
-    (item) => item?.value === searchParams.get("category")
-  )?.name;
+  const careerType = searchParams.get("category");
+
+  const categories = [
+    {
+      name: t("navlinks.career.sublinks.memorandums"),
+      value: "memorandum",
+    },
+    {
+      name: t("navlinks.career.sublinks.trips"),
+      value: "trip",
+    },
+    {
+      name: t("navlinks.career.sublinks.meetings"),
+      value: "meeting",
+    },
+    {
+      name: t("navlinks.career.sublinks.events"),
+      value: "events",
+    },
+  ];
+
+  const category = useMemo(() => {
+    return categories.find((category) => category.value === careerType)?.name;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [careerType]);
 
   const { data: careers, isLoading } = useQuery({
     queryKey: ["careers", id],
