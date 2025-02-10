@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import Pagination from "../../Components/Pagination";
 import { formatDate } from "../../utils/format-date";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import hero2 from "/assets/img/hero2.png";
 import { useTranslation } from "react-i18next";
 
@@ -15,6 +15,8 @@ const BlogsPage = () => {
   const sendRequest = useHttp();
 
   const [page, setPage] = useState(1);
+
+  const { lang } = useParams();
 
   const [searchParams] = useSearchParams();
 
@@ -62,10 +64,10 @@ const BlogsPage = () => {
       return {
         id: item?.id,
         name: item?.name,
-        link: `/blog?category=${item?.id}`,
+        link: `/${lang}/blog?category=${item?.id}`,
       };
     });
-  }, [blogCategories]);
+  }, [blogCategories, lang]);
 
   const blogData = useMemo(() => {
     return data?.results?.map((item) => {
@@ -73,7 +75,7 @@ const BlogsPage = () => {
         id: item?.id,
         category: categories?.find((cat) => cat?.id === item?.category)?.name,
         date: formatDate(item?.pub_date),
-        link: `/blog/${item?.id}`,
+        link: `/${lang}/blog/${item?.id}`,
         linkText: t("root.readMore"),
         title: item?.title,
         subtitle: item?.body,

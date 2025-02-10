@@ -5,13 +5,15 @@ import InstitutionsList from "../../Components/Institutions/InstitutionsList";
 import Pagination from "../../Components/Pagination";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import hero2 from "/assets/img/hero2.png";
 
 function Institutions() {
   const [page, setPage] = useState(1);
 
   const [searchParams] = useSearchParams();
+
+  const { lang } = useParams();
 
   const category = searchParams.get("category");
 
@@ -45,7 +47,7 @@ function Institutions() {
                 : "/assets/img/service_2.jpg",
               title: item?.title,
               subtitle: item?.description,
-              detailsLink: `/institutions/${item?.id}`,
+              detailsLink: `/${lang}/institutions/${item?.id}`,
               detailsText: "Batafsil",
               bgImagUrl: "/assets/img/service_bg_3.jpg",
             };

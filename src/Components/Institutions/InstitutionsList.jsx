@@ -1,12 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 import { FcOrganization } from "react-icons/fc";
-import { FaAngleRight } from "react-icons/fa";
 import SectionHeading from "../SectionHeading";
 import "./institutionsList.scss";
-import BlogLoadingSkeleton from "../BlogsSection/BlogLoadingSkeleton";
-import Button from "../Buttons";
 
 const InstitutionsList = ({ data, loading, category }) => {
   console.log(category);
@@ -15,7 +11,7 @@ const InstitutionsList = ({ data, loading, category }) => {
     if (!category) return;
     return (
       <>
-  <div className="institutions-wrapper">
+        <div className="institutions-wrapper">
           <div className="container">
             <SectionHeading
               SectionSubtitle={data.sectionSubtitle}

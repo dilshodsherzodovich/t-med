@@ -11,11 +11,11 @@ import { truncateString } from "../../utils/truncate-string";
 import hero2 from "/assets/img/hero2.png";
 
 const BlogsDetails = () => {
-  const { blogId } = useParams();
+  const { blogId, lang } = useParams();
 
   const sendRequest = useHttp();
 
-  const { data, isLoading, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ["blogDetail"],
     queryFn: () => sendRequest({ url: `/blog/posts//${blogId}` }),
     staleTime: 1000,
@@ -31,6 +31,25 @@ const BlogsDetails = () => {
     retry: false,
   });
 
+  const { data: blogCategories } = useQuery({
+    queryKey: ["blogCategories"],
+    queryFn: () => sendRequest({ url: `/blog/post-category//` }),
+    staleTime: 10000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const categories = useMemo(() => {
+    if (!blogCategories?.results?.length) return [];
+    return blogCategories?.results?.map((item) => {
+      return {
+        id: item?.id,
+        name: item?.name,
+        link: `/${lang}/blog?category=${item?.id}`,
+      };
+    });
+  }, [blogCategories, lang]);
+
   const lastThreeNews = useMemo(() => {
     return {
       searchPlaceholder: "Qidiruv....",
@@ -45,16 +64,9 @@ const BlogsDetails = () => {
               link: `/blog/${item?.id}`,
             }))
         : [],
-      categories: [
-        { name: "Tibbiy 08", link: "#" },
-        { name: "Laborotoriya 14", link: "#" },
-        { name: "Kasbiy 12", link: "#" },
-        { name: "Texnologik 23", link: "#" },
-        { name: "Ijtimoiy 17", link: "#" },
-        { name: "Dorixona 22", link: "#" },
-      ],
+      categories,
     };
-  }, [news]);
+  }, [news, categories]);
 
   const detail = useMemo(() => {
     return {

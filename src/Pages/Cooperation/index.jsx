@@ -195,9 +195,12 @@ const CooperationPage = () => {
                     <span className="location">{selectedStory.location}</span>
                   </div>
 
-                  <p className="full-description">
-                    {selectedStory.fullDescription}
-                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: selectedStory.fullDescription,
+                    }}
+                    className="full-description"
+                  ></p>
 
                   <div className="detail-images">
                     {selectedStory.detailImages.map((image, index) => (
