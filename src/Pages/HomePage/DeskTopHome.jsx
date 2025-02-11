@@ -36,7 +36,7 @@ function DesktopHome({
         bottomSpaceLg="80"
         bottomSpaceMd="120"
         className="cs_blue_bg cs_bg_filed"
-        backgroundImage="assets/img/service_bg_3.jpg"
+        backgroundImage="/assets/img/service_bg_3.jpg"
       >
         <MapSection />
       </Section>

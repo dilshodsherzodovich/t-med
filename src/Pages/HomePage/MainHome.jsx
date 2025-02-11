@@ -85,7 +85,7 @@ const MainHome = () => {
     service: t("pages.home.aboutSection.contactText"),
     experienceYears: t("pages.home.aboutSection.experienceYears"),
     experienceTitle: t("pages.home.aboutSection.experienceTitle"),
-    videoUrl: "https://www.youtube.com/embed/rRid6GCJtgc",
+    videoUrl: "https://www.youtube.com/embed/DmmqYVu7GYA",
     videoText: t("pages.home.aboutSection.howWeWork"),
     iconboxes: [
       {
@@ -188,7 +188,7 @@ const MainHome = () => {
   };
 
   const ctaData1 = {
-    videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",
+    videoLink: "https://www.youtube.com/embed/DmmqYVu7GYA",
     videoButtonText: t("pages.home.ctaSection.videoButtonText"),
     subtitle: "VIDEO",
     title: t("pages.home.ctaSection.title"),

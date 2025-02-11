@@ -34,7 +34,7 @@ const AboutPage = () => {
   };
 
   const ctaData = {
-    videoLink: "https://www.youtube.com/embed/rRid6GCJtgc",
+    videoLink: "https://www.youtube.com/embed/DmmqYVu7GYA",
     videoButtonText: t("pages.home.ctaSection.videoButtonText"),
     subtitle: "VIDEO",
     title: t("pages.home.ctaSection.title"),
@@ -42,7 +42,7 @@ const AboutPage = () => {
       "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
     buttonLink: `/${lang}/contact`,
     buttonText: t("pages.home.ctaSection.buttonText"),
-    brandImage: "assets/img/medical_brand.png",
+    brandImage: "/assets/img/medical_brand.png",
   };
 
   const { data: about } = useQuery({

@@ -24,7 +24,7 @@ const AboutSection1 = ({ data }) => {
         <div className="row cs_gap_y_40">
           <div className="col-lg-6">
             <div className="cs_about_thumb">
-              <img src="assets/img/about_img_3.png" alt="" />
+              <img src="/assets/img/about_img_3.png" alt="" />
               <div
                 className="cs_experience_box cs_center "
                 data-aos="fade-down"

@@ -8,7 +8,7 @@ const headingData = {
 };
 
 const errorData = {
-  imageUrl: "assets/img/error_thumbnail.png",
+  imageUrl: "/assets/img/error_thumbnail.png",
   heading: "Page can’t be found",
   subtitle:
     "Sorry, this page cannot be found. Take a look at our most popular pages.",

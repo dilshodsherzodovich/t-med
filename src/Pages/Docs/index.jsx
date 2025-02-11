@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import PageHeading from "../../Components/PageHeading";
 import Section from "../../Components/Section";
 import { useSearchParams } from "react-router-dom";
@@ -61,7 +61,7 @@ const Docs = () => {
         bottomSpaceLg="80"
         bottomSpaceMd="120"
         className="cs_blue_bg cs_bg_filed"
-        backgroundImage="assets/img/service_bg_3.jpg"
+        backgroundImage="/assets/img/service_bg_3.jpg"
       >
         <DocFiles data={filesData} />
       </Section>

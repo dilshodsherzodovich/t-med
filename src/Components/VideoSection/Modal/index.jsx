@@ -1,4 +1,8 @@
-export default function VideoModal({ isTrue, iframeSrc, handelClose }) {
+export default function VideoModal({
+  isTrue,
+  iframeSrc = "https://www.youtube.com/embed/DmmqYVu7GYA",
+  handelClose,
+}) {
   return (
     <>
       <div className={`cs_video_popup ${isTrue === true ? "active" : ""}`}>

@@ -34,7 +34,7 @@ const MapSlider = ({ sliders, isLoading }) => {
                 </div>
                 <div className="card-body">
                   <div className="contact-info">
-                    {profile?.organization_images?.length > 0 && (
+                    {/* {profile?.organization_images?.length > 0 && (
                       <img
                         style={{
                           width: "400px",
@@ -47,7 +47,7 @@ const MapSlider = ({ sliders, isLoading }) => {
                         src={profile?.organization_images[0].image}
                         alt=""
                       />
-                    )}
+                    )} */}
                     <div className="contact-item">
                       <i className="bi bi-telephone"></i>
                       <span>{profile?.director?.reception_number}</span>

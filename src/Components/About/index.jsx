@@ -43,7 +43,7 @@ const About = ({ data }) => {
               <div className="cs_about_thumb_2">
                 <img src={about2} alt="About Image" />
                 <img
-                  src="assets/img/icons/about_shape_1.png"
+                  src="/assets/img/icons/about_shape_1.png"
                   alt="Shape Image"
                   className="cs_about_thumb_shape_2"
                 />

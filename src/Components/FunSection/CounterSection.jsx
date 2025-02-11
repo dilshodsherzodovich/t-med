@@ -3,7 +3,7 @@ const CounterSection = ({ data }) => {
     <div className="container">
       <div className="cs_counter_content cs_blue_bg">
         <div className="cs_counter_shape position-absolute">
-          <img src="assets/img/counter_shape.png" alt="Shape" />
+          <img src="/assets/img/counter_shape.png" alt="Shape" />
         </div>
         <div className="cs_counter_1_wrap">
           {data.map((counter, index) => (
