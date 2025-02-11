@@ -170,7 +170,7 @@ const Header = ({ isTopBar, variant }) => {
       },
       {
         label: t("navlinks.forAdmins.title"),
-        href: "https://nsu-admin-211q.vercel.app/login",
+        href: "https://admin.nsu-railway.uz/login",
         target: "_blank",
       },
       {
