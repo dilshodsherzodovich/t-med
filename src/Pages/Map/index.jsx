@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as Cesium from "cesium";
 
 Cesium.Ion.defaultAccessToken =
@@ -7,57 +7,8 @@ Cesium.Ion.defaultAccessToken =
 const CesiumGlobe = () => {
   const cesiumContainer = useRef(null);
   const viewer = useRef(null);
-
-  // useEffect(() => {
-  //   if (cesiumContainer.current) {
-  //     // Create default terrain provider
-  //     const defaultTerrainProvider = new Cesium.EllipsoidTerrainProvider({});
-
-  //     // Initialize viewer with default terrain
-  //     viewer.current = new Cesium.Viewer(cesiumContainer.current, {
-  //       terrainProvider: defaultTerrainProvider,
-  //       scene3DOnly: true,
-  //       shadows: true,
-  //       vrButton: false,
-  //       timeline: false,
-  //       homeButton: false,
-  //       baseLayerPicker: true, // Enable the base layer picker
-  //       imageryProvider: new Cesium.IonImageryProvider({ assetId: 3 }), // Default Bing Maps Aerial
-  //     });
-
-  //     // Ensure the globe is visible
-  //     viewer.current.scene.globe.show = true;
-
-  //     // Set initial camera position
-  //     viewer.current.camera.setView({
-  //       destination: Cesium.Cartesian3.fromDegrees(100, 100, 20000000),
-  //       orientation: {
-  //         heading: Cesium.Math.toRadians(0),
-  //         pitch: Cesium.Math.toRadians(-90),
-  //         roll: 0,
-  //       },
-  //     });
-
-  //     const loadGeoJson = async () => {
-  //       try {
-  //         const resource = await Cesium.IonResource.fromAssetId(2921255);
-  //         const dataSource = await Cesium.GeoJsonDataSource.load(resource);
-  //         await viewer.current.dataSources.add(dataSource);
-  //         await viewer.current.zoomTo(dataSource);
-  //       } catch (error) {
-  //         console.error("Error loading GeoJSON data:", error);
-  //       }
-  //     };
-
-  //     loadGeoJson();
-  //   }
-
-  //   return () => {
-  //     if (viewer.current && !viewer.current.isDestroyed()) {
-  //       viewer.current.destroy();
-  //     }
-  //   };
-  // }, []);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (cesiumContainer.current) {
@@ -92,9 +43,25 @@ const CesiumGlobe = () => {
 
       const loadGeoJson = async () => {
         try {
+          setLoading(true);
           const resource = await Cesium.IonResource.fromAssetId(2922717);
           const dataSource = await Cesium.GeoJsonDataSource.load(resource);
           await viewer.current.dataSources.add(dataSource);
+
+          // Add click event listener to handle links
+          const handler = new Cesium.ScreenSpaceEventHandler(
+            viewer.current.scene.canvas
+          );
+          handler.setInputAction((click) => {
+            const pickedObject = viewer.current.scene.pick(click.position);
+            if (pickedObject && pickedObject.id && pickedObject.id.properties) {
+              const properties = pickedObject.id.properties;
+              if (properties.url) {
+                // Open the link in a new tab
+                window.open(properties.url.getValue(), "_blank");
+              }
+            }
+          }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
           // Use flyTo for a smooth transition
           viewer.current.flyTo(dataSource, {
@@ -107,6 +74,9 @@ const CesiumGlobe = () => {
           });
         } catch (error) {
           console.error("Error loading GeoJSON data:", error);
+          setError("Failed to load GeoJSON data.");
+        } finally {
+          setLoading(false);
         }
       };
 
@@ -121,13 +91,17 @@ const CesiumGlobe = () => {
   }, []);
 
   return (
-    <div
-      ref={cesiumContainer}
-      style={{
-        height: "100vh",
-        width: "100%",
-      }}
-    />
+    <div>
+      {loading && <div>Loading...</div>}
+      {error && <div style={{ color: "red" }}>{error}</div>}
+      <div
+        ref={cesiumContainer}
+        style={{
+          height: "100vh",
+          width: "100%",
+        }}
+      />
+    </div>
   );
 };
 
