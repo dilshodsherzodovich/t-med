@@ -238,7 +238,7 @@ const Header = ({ isTopBar, variant }) => {
         } cs_primary_color cs_sticky_header ${isSticky ? isSticky : ""}`}
       >
         {isTopBar && (
-          <div className="cs_top_header cs_blue_bg cs_white_color">
+          <div className="cs_top_header desktop cs_blue_bg cs_white_color">
             <div className="container">
               <div className="cs_top_header_in">
                 <div className="cs_top_header_left">
@@ -429,7 +429,107 @@ const Header = ({ isTopBar, variant }) => {
                         )}
                       </li>
                     ))}
+
+                    <div className="header_mobile_info_box container">
+                      <ul className="mobile_links p-0 mb-4">
+                        <li className="d-flex align-items-center gap-1">
+                          <i>
+                            <FaEnvelope />
+                          </i>
+                          <Link to={`mailto:${menu.email}`}>{menu.email}</Link>
+                        </li>
+                        <li className="d-flex align-items-center gap-1">
+                          <i>
+                            <FaLocationDot />
+                          </i>
+                          {menu.location}
+                        </li>
+                      </ul>
+
+                      <div className="d-flex social_btns">
+                        <Link
+                          to="https://www.facebook.com/nsurailways"
+                          className="cs_center"
+                        >
+                          <i>
+                            <FaFacebookF />
+                          </i>
+                        </Link>
+                        <Link
+                          to="https://t.me/nsurailway"
+                          className="cs_center"
+                        >
+                          <i>
+                            <FaTelegramPlane />
+                          </i>
+                        </Link>
+                        <Link
+                          to="https://twitter.com/nsurailway"
+                          className="cs_center"
+                        >
+                          <i>
+                            <FaTwitter />
+                          </i>
+                        </Link>
+                        <Link
+                          to="https://www.instagram.com/nsurailway"
+                          className="cs_center"
+                        >
+                          <i>
+                            <FaInstagram />
+                          </i>
+                        </Link>
+                        <Link
+                          to="https://www.youtube.com/@nsurailway"
+                          className="cs_center"
+                        >
+                          <i>
+                            <FaYoutube />
+                          </i>
+                        </Link>
+                        <LanguageSwitcher />
+                      </div>
+
+                      <div className="mt-3">
+                        {username ? (
+                          <div className="d-flex align-items-center gap-2">
+                            <span>{username}</span>
+                            <span
+                              style={{ cursor: "pointer" }}
+                              onClick={handleLogout}
+                            >
+                              <MdLogout fontSize={22} />
+                            </span>
+                          </div>
+                        ) : (
+                          <button
+                            className="btn btn-primary"
+                            onClick={() => setSearchParams({ auth: true })}
+                          >
+                            Kirish
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   </ul>
+                  {/* {username ? (
+                    <div className="d-flex align-items-center gap-2">
+                      <span>{username}</span>
+                      <span
+                        style={{ cursor: "pointer" }}
+                        onClick={handleLogout}
+                      >
+                        <MdLogout fontSize={22} />
+                      </span>
+                    </div>
+                  ) : (
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => setSearchParams({ auth: true })}
+                    >
+                      Kirish
+                    </button>
+                  )} */}
                   <span
                     className={`cs_menu_toggle ${
                       isShowMobileMenu && "cs_toggle_active"

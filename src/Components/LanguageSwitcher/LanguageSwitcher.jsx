@@ -26,12 +26,13 @@ const LanguageSwitcher = () => {
   return (
     <select
       defaultValue={lang.toLocaleUpperCase()}
+      className="language-switcher"
       onChange={(e) => changeLanguage(e.target.value.toLocaleLowerCase())}
       style={{
         backgroundColor: "transparent",
         border: "none",
         cursor: "pointer",
-        color: "#fff",
+        // color: "#fff",
       }}
     >
       {languages.map((language) => (

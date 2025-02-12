@@ -64,7 +64,7 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("user"));
-    if (!user.access) {
+    if (!user?.access) {
       setSearchParams({ auth: true });
       return;
     }
