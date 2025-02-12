@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,7 +12,9 @@ const Quiz = ({ quizes, isLoading }) => {
   );
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const userId = searchParams.get("user_id");
 
   const questions = useMemo(() => {
     if (!quizes?.length) return [];
@@ -27,7 +29,7 @@ const Quiz = ({ quizes, isLoading }) => {
 
   const postQuiz = async (data) => {
     const response = await axios.post(
-      "https://nsuback.taskmanager.uz/account/create-quiz/",
+      "https://back.nsu-railway.uz/account/create-quiz/",
       data
     );
     return response.data;
@@ -48,24 +50,30 @@ const Quiz = ({ quizes, isLoading }) => {
 
   const handleQuizSubmit = (e) => {
     e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user?.access) {
+      setSearchParams({ auth: true });
+      return;
+    }
     const result_quizzes = quizes?.map((item, index) => ({
       question: item?.id,
       option: quizAnswers[index],
     }));
-    mutation.mutate({ customer: searchParams.get("user_id"), result_quizzes });
+    mutation.mutate({
+      customer: searchParams.get("user_id") || user?.id,
+      result_quizzes,
+    });
   };
 
   useEffect(() => {
-    if (searchParams.get("user_id")) {
+    if (userId) {
       const section = document.getElementById("quiz");
       console.log(section);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the section
       }
     }
-
-    // eslint-disable-next-line
-  }, []);
+  }, [userId]);
 
   if (isLoading) {
     return (

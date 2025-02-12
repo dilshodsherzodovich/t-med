@@ -5,7 +5,7 @@ import ReactStars from "react-rating-stars-component";
 import axios from "axios";
 import { useMemo, useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import YandexMap from "./components/YandexMap";
@@ -17,9 +17,10 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const [rating, setRaiting] = useState(0);
   const formRef = useRef();
   const { id } = useParams();
+  const [, setSearchParams] = useSearchParams();
   const postData = async (data) => {
     const response = await axios.post(
-      "https://nsuback.taskmanager.uz/reception/create-rating/",
+      "https://back.nsu-railway.uz/reception/create-rating/",
       data
     );
     return response.data;
@@ -62,6 +63,11 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user.access) {
+      setSearchParams({ auth: true });
+      return;
+    }
     const formData = new FormData(e.target);
     formData.append("organization", id);
     formData.append("rating", rating);

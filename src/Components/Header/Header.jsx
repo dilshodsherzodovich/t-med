@@ -9,10 +9,16 @@ import {
 } from "react-icons/fa";
 import { FaLocationDot, FaYoutube } from "react-icons/fa6";
 import roundicon from "/assets/img/icons/360-degrees.png";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { useHttp } from "../../hooks/useHttp";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+import { MdLogout } from "react-icons/md";
 
 const Header = ({ isTopBar, variant }) => {
   const navigate = useNavigate();
@@ -20,6 +26,11 @@ const Header = ({ isTopBar, variant }) => {
 
   const { lang } = useParams();
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const isAuthOpen = searchParams.get("auth");
+
+  const [username, setUsername] = useState();
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [openMobileSubmenuIndex, setOpenMobileSubmenuIndex] = useState([]);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -188,6 +199,17 @@ const Header = ({ isTopBar, variant }) => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUsername("");
+  };
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    setUsername(user?.username);
+  }, [isAuthOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
@@ -235,6 +257,7 @@ const Header = ({ isTopBar, variant }) => {
                     </li>
                   </ul>
                 </div>
+
                 <div className="cs_top_header_right">
                   <div className="cs_social_btns cs_style_1">
                     <img
@@ -288,6 +311,23 @@ const Header = ({ isTopBar, variant }) => {
                     <LanguageSwitcher />
                   </div>
                 </div>
+
+                {username ? (
+                  <div className="d-flex align-items-center gap-2">
+                    <span>{username}</span>
+                    <span style={{ cursor: "pointer" }} onClick={handleLogout}>
+                      <MdLogout fontSize={22} />
+                    </span>
+                  </div>
+                ) : (
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => setSearchParams({ auth: true })}
+                  >
+                    Kirish
+                  </button>
+                )}
+                {/* <AuthModal /> */}
               </div>
             </div>
           </div>

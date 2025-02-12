@@ -29,6 +29,7 @@ import CooperationPage from "./Pages/Cooperation";
 import CareerPosts from "./Pages/CareerPosts";
 import CreativeClientPreferenceQuiz from "./Pages/CreativeClientPreferenceQuiz";
 import LangLayout from "./Components/Layout/LangLayout";
+import AuthModal from "./Components/AuthModal/AuthModal";
 
 function App() {
   Aos.init({
@@ -84,6 +85,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
+      <AuthModal />
       <ScrollUpButton />
     </>
   );
