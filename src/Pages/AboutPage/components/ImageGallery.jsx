@@ -82,7 +82,7 @@ const ImageGallery = ({ gallery }) => {
   }, [images]);
 
   return (
-    <div className="image-gallery-carousel">
+    <div className="image-gallery-carousel container">
       <SectionHeading
         textColor={"cs_white_color"}
         SectionSubtitle="Galereya"
