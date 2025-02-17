@@ -16,7 +16,7 @@ function InstitutionDetail() {
     queryKey: ["institutions", id],
     queryFn: () =>
       sendRequest({
-        url: `/reception/organization//${id}/`,
+        url: `/reception/organization/detail/${id}/`,
       }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
@@ -36,6 +36,7 @@ function InstitutionDetail() {
       long: detail?.longitude,
       lat: detail?.latitude,
       doctors: detail?.doctors,
+      services: detail?.filtered_service_types,
     };
   }, [detail]);
 

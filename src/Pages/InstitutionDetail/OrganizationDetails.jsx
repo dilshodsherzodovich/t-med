@@ -79,8 +79,9 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
       <OrganizationInfo orgData={orgData} />
       <ManagerInfo ceoData={ceoData} address={orgData?.address} />
 
-      <Services />
-
+      {orgData?.Services?.length > 0 && (
+        <Services serviceCategories={orgData?.services} />
+      )}
       <Section
         topSpaceLg="70"
         topSpaceMd="110"

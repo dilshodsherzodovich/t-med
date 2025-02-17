@@ -237,6 +237,7 @@
       "subtitle": "Bizning xizmatlarimiz",
       "price": "Narxi",
       "duration": "Davomiyligi",
+      "allServices": "Barcha xizmatlar",
       "govermentServices": {
         "title": "Davlat xizmatlari",
         "service1": "Narkologiya dispanseri hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma olish",

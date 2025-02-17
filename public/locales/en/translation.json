@@ -237,6 +237,7 @@
       "subtitle": "Our Services",
       "price": "Price",
       "duration": "Duration",
+      "allServices": "All services",
       "govermentServices": {
         "title": "Government Services",
         "service1": "Certificate of whether or not registered with the narcological dispensary",

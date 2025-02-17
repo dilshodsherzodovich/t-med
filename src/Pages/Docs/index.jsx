@@ -41,7 +41,8 @@ const Docs = () => {
         return {
           iconSrc: "/assets/img/icons/ic_word.svg",
           title: doc?.title,
-          file: doc?.file_link,
+          link: doc?.file_link,
+          file: doc?.loaded_file,
         };
       });
   }, [docs, type]);

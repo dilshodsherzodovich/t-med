@@ -1,5 +1,4 @@
-import React from "react";
-import { FaChevronCircleRight, FaLink } from "react-icons/fa";
+import { FaChevronCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function DocFiles({ data }) {
@@ -20,13 +19,13 @@ function DocFiles({ data }) {
                     />
                   </div>
                   <h3 className="cs_iconbox_title cs_white_color mb-0">
-                    <Link style={{ fontSize: "16px" }} to={service.file}>
+                    <Link style={{ fontSize: "16px" }} to={service.link}>
                       {service.title}
                     </Link>
                   </h3>
                 </div>
 
-                <Link to={service.link} className="cs_center">
+                <Link to={service.file} className="cs_center">
                   <i>
                     <FaChevronCircleRight color="white" fontSize={22} />
                   </i>
