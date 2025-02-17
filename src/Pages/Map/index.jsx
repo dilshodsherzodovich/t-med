@@ -1,14 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import * as Cesium from "cesium";
+import "./mapModal.scss"; // Import the SCSS file
 
 Cesium.Ion.defaultAccessToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0MjZjMTk1MS0yNWI1LTQ3ZTUtOWU2ZC0wOTJkOTAxZjY5NTYiLCJpZCI6MjYwMzA5LCJpYXQiOjE3MzMzOTYwNTd9.CqkDDTZG3H3MCQBZDDnqxbtQf2EUoB6loDrDbE99IRw";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjYTkyYzQwOC1mODYzLTQ0N2ItYmVlYy1jMmZkOTg1MzdkYTMiLCJpZCI6MjYyMTIxLCJpYXQiOjE3MzQwNDY5MTR9.5I2MKZJ2bUN81BU5Jaya7WTfEy4OIVATaWvBVlKeO_0";
 
 const CesiumGlobe = () => {
   const cesiumContainer = useRef(null);
   const viewer = useRef(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [objectName, setObjectName] = useState("");
+  const [objectDescription, setObjectDescription] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (cesiumContainer.current) {
@@ -24,8 +29,9 @@ const CesiumGlobe = () => {
         timeline: false,
         homeButton: false,
         navigationHelpButton: false,
-        baseLayerPicker: true, // Enable the base layer picker
-        imageryProvider: new Cesium.IonImageryProvider({ assetId: 3 }), // Default Bing Maps Aerial
+        baseLayerPicker: true,
+        imageryProvider: new Cesium.IonImageryProvider({ assetId: 3 }),
+        infoBox: false, // Disable the default InfoBox
       });
 
       // Ensure the globe is visible
@@ -44,11 +50,11 @@ const CesiumGlobe = () => {
       const loadGeoJson = async () => {
         try {
           setLoading(true);
-          const resource = await Cesium.IonResource.fromAssetId(2922717);
+          const resource = await Cesium.IonResource.fromAssetId(3108502);
           const dataSource = await Cesium.GeoJsonDataSource.load(resource);
           await viewer.current.dataSources.add(dataSource);
 
-          // Add click event listener to handle links
+          // Add click event listener to handle building details
           const handler = new Cesium.ScreenSpaceEventHandler(
             viewer.current.scene.canvas
           );
@@ -56,10 +62,9 @@ const CesiumGlobe = () => {
             const pickedObject = viewer.current.scene.pick(click.position);
             if (pickedObject && pickedObject.id && pickedObject.id.properties) {
               const properties = pickedObject.id.properties;
-              if (properties.url) {
-                // Open the link in a new tab
-                window.open(properties.url.getValue(), "_blank");
-              }
+              setObjectName(properties.name?.getValue());
+              setObjectDescription(properties.description?.getValue());
+              setIsModalOpen(true); // Open the modal
             }
           }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
@@ -90,17 +95,51 @@ const CesiumGlobe = () => {
     };
   }, []);
 
+  const closeModal = () => {
+    setIsModalOpen(false); // Close the modal
+  };
+
   return (
     <div>
-      {loading && <div>Loading...</div>}
+      {loading && <div>Yuklanmoqda...</div>}
       {error && <div style={{ color: "red" }}>{error}</div>}
-      <div
-        ref={cesiumContainer}
-        style={{
-          height: "100vh",
-          width: "100%",
-        }}
-      />
+      <div>
+        <div
+          ref={cesiumContainer}
+          style={{ width: "100%", height: "100vh", position: "relative" }}
+        >
+          <div
+            className="position-absolute top-0"
+            style={{
+              zIndex: 1000,
+              padding: "1rem 0.5rem",
+              background: "rgba(0,0,0, 0.4)",
+              color: "#fff",
+              fontSize: "1.5rem",
+            }}
+          >
+            <p>{"O'zbekiston Temir yo'llari AJ Markaziy klinik kasalxonasi"}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Custom Modal */}
+      {isModalOpen && (
+        <div className="map-modal-overlay">
+          <div className="map-modal-content">
+            <button className="close-button" onClick={closeModal}>
+              &times;
+            </button>
+            <div className="map-modal-header">{objectName}</div>
+            <div
+              className="map-modal-body"
+              dangerouslySetInnerHTML={{
+                __html: objectDescription || "Ma'lumot topilmadi",
+              }}
+            ></div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

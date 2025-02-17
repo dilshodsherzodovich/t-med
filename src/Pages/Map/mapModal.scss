@@ -1,0 +1,112 @@
+// styles.scss
+
+// Base styles for the modal overlay
+.map-modal-overlay {
+  position: fixed;
+  top: 3rem;
+  right: 1rem;
+  min-width: 400px; // Default minimum width
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 768px) {
+    top: 2rem;
+    right: 0.5rem;
+    min-width: 300px; // Reduce minimum width for tablets
+  }
+
+  @media (max-width: 480px) {
+    top: 1rem;
+    right: 0.25rem;
+    min-width: 250px; // Reduce minimum width for mobile devices
+    width: 90%; // Allow more width on very small screens
+  }
+}
+
+// Base styles for the modal content
+.map-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 768px) {
+    padding: 15px;
+    max-width: 90%; // Allow more width on smaller screens
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+    max-width: 95%; // Even more width on very small screens
+  }
+}
+
+// Close button styles
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 768px) {
+    font-size: 20px;
+    top: 8px;
+    right: 8px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+    top: 6px;
+    right: 6px;
+  }
+}
+
+// Modal header styles
+.map-modal-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+}
+
+// Modal body styles
+.map-modal-body {
+  font-size: 16px;
+  line-height: 1.5;
+
+  a {
+    color: #4179ff;
+  }
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+}
