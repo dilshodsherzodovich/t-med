@@ -25,9 +25,17 @@ const LanguageSwitcher = () => {
 
   return (
     <select
-      defaultValue={lang.toLocaleUpperCase()}
+      defaultValue={
+        languages?.find((item) => item?.code?.toLowerCase() === lang)?.flag
+      }
       className="language-switcher"
-      onChange={(e) => changeLanguage(e.target.value.toLocaleLowerCase())}
+      onChange={(e) =>
+        changeLanguage(
+          languages
+            ?.find((item) => item?.flag === e.target.value)
+            ?.code?.toLowerCase()
+        )
+      }
       style={{
         backgroundColor: "transparent",
         border: "none",
@@ -36,7 +44,7 @@ const LanguageSwitcher = () => {
       }}
     >
       {languages.map((language) => (
-        <option key={language.code}>{language.code}</option>
+        <option key={language.code}>{language.flag}</option>
       ))}
     </select>
   );

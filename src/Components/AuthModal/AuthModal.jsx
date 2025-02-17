@@ -11,7 +11,7 @@ function AuthModal() {
   const [searchParams, setSearchParams] = useSearchParams();
   const isAuthOpen = searchParams.get("auth");
 
-  const [username, setUsername] = useState(user?.username);
+  const [, setUsername] = useState(user?.username);
 
   const [activeTab, setActiveTab] = useState("signin");
 
@@ -148,13 +148,22 @@ function AuthModal() {
                     <input id="login" type="text" name="username" required />
                   </div>
                   <div>
+                    <label htmlFor="phone">Telefon raqam</label>
+                    <input
+                      id="phone"
+                      type="phone"
+                      name="phone"
+                      placeholder="991234567"
+                      required
+                    />
+                  </div>
+                  <div>
                     <label htmlFor="email">Email</label>
                     <input
                       id="email"
                       type="email"
                       name="email"
                       placeholder="m@example.com"
-                      required
                     />
                   </div>
                   <div>
