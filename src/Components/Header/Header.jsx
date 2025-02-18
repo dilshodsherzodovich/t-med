@@ -504,7 +504,10 @@ const Header = ({ isTopBar, variant }) => {
                         ) : (
                           <button
                             className="btn btn-primary"
-                            onClick={() => setSearchParams({ auth: true })}
+                            onClick={() => {
+                              setIsShowMobileMenu(!isShowMobileMenu);
+                              setSearchParams({ auth: true });
+                            }}
                           >
                             Kirish
                           </button>

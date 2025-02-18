@@ -117,7 +117,7 @@ function AuthModal() {
               {activeTab === "signin" ? (
                 <form onSubmit={handleSubmit}>
                   <div>
-                    <label htmlFor="login">Foydalanuvchi nomi</label>
+                    <label htmlFor="login">Login</label>
                     <input
                       id="login"
                       type="text"
@@ -140,11 +140,23 @@ function AuthModal() {
               ) : (
                 <form onSubmit={handleRegisterSubmit}>
                   <div>
-                    <label htmlFor="name">FIO</label>
-                    <input id="name" name="fio" required />
+                    <label htmlFor="fio">FIO</label>
+                    <input id="fio" type="text" name="fio" required />
+                  </div>
+
+                  <div>
+                    <label htmlFor="pinfl">PINFL</label>
+                    <input
+                      id="pinfl"
+                      name="pinfl"
+                      type="text"
+                      required
+                      maxLength={14}
+                      minLength={14}
+                    />
                   </div>
                   <div>
-                    <label htmlFor="login">Foydalanuvchi nomi</label>
+                    <label htmlFor="login">Login</label>
                     <input id="login" type="text" name="username" required />
                   </div>
                   <div>
@@ -152,7 +164,7 @@ function AuthModal() {
                     <input
                       id="phone"
                       type="phone"
-                      name="phone"
+                      name="phone_number"
                       placeholder="991234567"
                       required
                     />
@@ -183,6 +195,19 @@ function AuthModal() {
                       type="password"
                       required
                     />
+                  </div>
+                  <div className="styled-select">
+                    <label htmlFor="referal">
+                      Biz haqimizda qayerdan eshitgansiz
+                    </label>
+                    <select name="referral">
+                      <option value="1">Facebook</option>
+                      <option value="2">Instagram orqali</option>
+                      <option value="3">Twitter</option>
+                      <option value="4">Youtube</option>
+                      <option value="5">Telegram</option>
+                      <option value="6">Boshqa</option>
+                    </select>
                   </div>
                   <button type="submit">{"Ro'yxatdan o'tish"}</button>
                 </form>

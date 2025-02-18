@@ -24,6 +24,29 @@
     min-width: 250px; // Reduce minimum width for mobile devices
     width: 90%; // Allow more width on very small screens
   }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+
+    // Responsive adjustments for smaller screens
+    @media (max-width: 768px) {
+      font-size: 20px;
+      top: 8px;
+      right: 8px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 18px;
+      top: 6px;
+      right: 6px;
+    }
+  }
 }
 
 // Base styles for the modal content
@@ -49,28 +72,6 @@
 }
 
 // Close button styles
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-
-  // Responsive adjustments for smaller screens
-  @media (max-width: 768px) {
-    font-size: 20px;
-    top: 8px;
-    right: 8px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 18px;
-    top: 6px;
-    right: 6px;
-  }
-}
 
 // Modal header styles
 .map-modal-header {
