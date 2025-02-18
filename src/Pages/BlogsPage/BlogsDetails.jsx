@@ -58,7 +58,7 @@ const BlogsDetails = () => {
         ? news?.results
             ?.filter((_, index) => index < 3)
             ?.map((item) => ({
-              imgSrc: item?.images[0]?.image,
+              imgSrc: item?.images?.find((_, idx) => idx === 0)?.image,
               date: formatDate(item?.pub_date),
               title: truncateString(item?.title, 30),
               link: `/blog/${item?.id}`,
@@ -70,7 +70,7 @@ const BlogsDetails = () => {
 
   const detail = useMemo(() => {
     return {
-      imageSrc: data?.images[0].image,
+      imageSrc: data?.images?.find((_, idx) => idx === 0)?.image,
       imageAlt: data?.title,
       text: "Admin",
       secText: formatDate(data?.pub_date),

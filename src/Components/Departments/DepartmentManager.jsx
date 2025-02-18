@@ -1,6 +1,6 @@
 const DepartmentManager = ({ data }) => {
   return (
-    <div className="container" data-aos="fade-up">
+    <div className="container">
       <div className="cs_doctor_details_wrapper">
         <div className="row cs_row_gap_30 cs_gap_y_30 align-items-start">
           <div className="col-lg-4">

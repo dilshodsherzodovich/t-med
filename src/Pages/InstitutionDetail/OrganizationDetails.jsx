@@ -12,12 +12,17 @@ import YandexMap from "./components/YandexMap";
 import Services from "./components/Services";
 import Section from "../../Components/Section";
 import AppointmentSection from "../../Components/AppointmentSection";
+import BlogsSection1 from "../../Components/BlogsSection/BlogsSection1";
+import { formatDate } from "../../utils/format-date";
+import { useTranslation } from "react-i18next";
 
 const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const [rating, setRaiting] = useState(0);
   const formRef = useRef();
   const { id } = useParams();
+  const { lang } = useParams();
   const [, setSearchParams] = useSearchParams();
+  const { t } = useTranslation();
   const postData = async (data) => {
     const response = await axios.post(
       "https://back.nsu-railway.uz/reception/create-rating/",
@@ -42,6 +47,22 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
     },
   });
 
+  const orgPosts = useMemo(() => {
+    if (!orgData?.posts?.length) return [];
+    return orgData?.posts?.map((item) => ({
+      id: item?.id,
+      category: "",
+      date: formatDate(item?.created_at),
+      link: `/${lang}/institution/blog/${item?.id}`,
+      linkText: t("root.readMore"),
+      title: item?.title,
+      subtitle: item?.description,
+      image: item?.post_images?.find((_, index) => index === 0)?.image,
+    }));
+
+    // eslint-disable-next-line
+  }, [orgData?.posts]);
+
   const appointmentSectionData = useMemo(() => {
     if (!orgData?.doctors?.length) return [];
     return {
@@ -60,6 +81,11 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
       })),
     };
   }, [orgData?.doctors]);
+
+  const blogsSectionData = {
+    sectionSubtitle: t("pages.news.title"),
+    sectionTitle: "",
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,14 +108,34 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
       {orgData?.services?.length > 0 && (
         <Services serviceCategories={orgData?.services} />
       )}
-      <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="80"
-        bottomSpaceMd="120"
-      >
-        <AppointmentSection data={appointmentSectionData} />
-      </Section>
+      {appointmentSectionData?.doctorsData && (
+        <Section
+          topSpaceLg="70"
+          topSpaceMd="110"
+          bottomSpaceLg="80"
+          bottomSpaceMd="120"
+        >
+          <AppointmentSection data={appointmentSectionData} />
+        </Section>
+      )}
+
+      {orgPosts?.length && (
+        <Section
+          topSpaceLg="70"
+          topSpaceMd="110"
+          bottomSpaceLg="80"
+          bottomSpaceMd="120"
+          className="container"
+        >
+          <BlogsSection1
+            withSideBar={false}
+            loading={false}
+            data={blogsSectionData}
+            blogs={orgPosts}
+            categories={[]}
+          />
+        </Section>
+      )}
 
       {orgData?.organization_questions?.length > 0 && (
         <Container>

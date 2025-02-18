@@ -5,7 +5,13 @@ import { truncateString } from "../../utils/truncate-string";
 import BlogLoadingSkeleton from "./BlogLoadingSkeleton";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-const BlogsSection1 = ({ data, loading = false, blogs, categories = [] }) => {
+const BlogsSection1 = ({
+  data,
+  loading = false,
+  blogs,
+  categories = [],
+  withSideBar = true,
+}) => {
   return (
     <>
       <div className="cs_post_container">
@@ -19,7 +25,11 @@ const BlogsSection1 = ({ data, loading = false, blogs, categories = [] }) => {
           {loading ? (
             <BlogLoadingSkeleton />
           ) : (
-            <div className="cs_posts_grid cs_style_1 col-12 col-lg-9">
+            <div
+              className={`cs_posts_grid cs_style_1 col-12 ${
+                withSideBar ? "col-lg-9" : ""
+              }`}
+            >
               {blogs?.map((blog) => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(blog?.subtitle, "text/html")
@@ -68,27 +78,29 @@ const BlogsSection1 = ({ data, loading = false, blogs, categories = [] }) => {
             </div>
           )}
 
-          <div
-            className="col-12 col-lg-3"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <div className="cs_sidebar_widget cs_radius_15 ">
-              <h3 className="cs_sidebar_title">Kategoriyalar</h3>
-              <ul className="cs_categories cs_mp0">
-                {categories?.map((category, index) => (
-                  <li key={index}>
-                    <Link to={category.link}>
-                      <i>
-                        <FaArrowRightLong />
-                      </i>
-                      {category?.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {withSideBar && (
+            <div
+              className="col-12 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div className="cs_sidebar_widget cs_radius_15 ">
+                <h3 className="cs_sidebar_title">Kategoriyalar</h3>
+                <ul className="cs_categories cs_mp0">
+                  {categories?.map((category, index) => (
+                    <li key={index}>
+                      <Link to={category.link}>
+                        <i>
+                          <FaArrowRightLong />
+                        </i>
+                        {category?.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>

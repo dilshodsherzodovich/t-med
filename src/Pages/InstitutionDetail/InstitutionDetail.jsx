@@ -37,6 +37,7 @@ function InstitutionDetail() {
       lat: detail?.latitude,
       doctors: detail?.doctors,
       services: detail?.filtered_service_types,
+      posts: detail?.organization_posts,
     };
   }, [detail]);
 

@@ -292,11 +292,13 @@ const MainHome = () => {
               title: item?.title,
               subtitle: item?.body,
               btnText: t("root.readMore"),
-              thumbnail: item?.images?.findIndex((_, idx) => idx === 0)?.image,
+              thumbnail: item?.images?.find((_, idx) => idx === 0)?.image,
             };
           })
         : [],
     };
+
+    // eslint-disable-next-line
   }, [blogs]);
 
   return (

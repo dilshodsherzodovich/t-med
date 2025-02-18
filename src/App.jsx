@@ -67,6 +67,7 @@ function App() {
             <Route path="departments/:id" element={<Departments />} />
             <Route path="institutions" element={<Institutions />} />
             <Route path="institutions/:id" element={<InstitutionDetail />} />
+            <Route path="institution/blog/:blogId" element={<BlogsDetails />} />
             <Route path="livestream" element={<LiveStream />} />
             <Route path="gallery" element={<Gallery />} />
             <Route path="cooperation" element={<CooperationPage />} />
