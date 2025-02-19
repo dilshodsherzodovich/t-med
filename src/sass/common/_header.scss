@@ -215,7 +215,7 @@
 
   z-index: 999;
   .cs_top_header_in {
-    overflow: hidden;
+    // overflow: hidden;
     transition: all 0.3s ease;
   }
 }
@@ -304,9 +304,11 @@
       height: inherit;
 
       > li {
-        margin-right: 40px;
+        margin-right: 20px;
         height: inherit;
-
+        @media screen and (min-width: 1540px) {
+          margin-right: 30px;
+        }
         &:last-child {
           margin-right: 0;
         }

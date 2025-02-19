@@ -259,7 +259,7 @@ const Header = ({ isTopBar, variant }) => {
                 </div>
 
                 <div className="cs_top_header_right">
-                  <div className="cs_social_btns cs_style_1">
+                  <div className="cs_social_btns cs_style_1 d-flex align-items-center">
                     <img
                       src={roundicon}
                       style={{
@@ -308,25 +308,30 @@ const Header = ({ isTopBar, variant }) => {
                         <FaYoutube />
                       </i>
                     </Link>
-                    <LanguageSwitcher />
                   </div>
                 </div>
 
-                {username ? (
-                  <div className="d-flex align-items-center gap-2">
-                    <span>{username}</span>
-                    <span style={{ cursor: "pointer" }} onClick={handleLogout}>
-                      <MdLogout fontSize={22} />
-                    </span>
-                  </div>
-                ) : (
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => setSearchParams({ auth: true })}
-                  >
-                    Kirish
-                  </button>
-                )}
+                <div className="d-flex align-items-center gap-2">
+                  <LanguageSwitcher />
+                  {username ? (
+                    <div className="d-flex align-items-center gap-2">
+                      <span>{username}</span>
+                      <span
+                        style={{ cursor: "pointer" }}
+                        onClick={handleLogout}
+                      >
+                        <MdLogout fontSize={22} />
+                      </span>
+                    </div>
+                  ) : (
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => setSearchParams({ auth: true })}
+                    >
+                      Kirish
+                    </button>
+                  )}
+                </div>
                 {/* <AuthModal /> */}
               </div>
             </div>

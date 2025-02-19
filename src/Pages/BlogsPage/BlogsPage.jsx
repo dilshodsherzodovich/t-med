@@ -79,7 +79,7 @@ const BlogsPage = () => {
         linkText: t("root.readMore"),
         title: item?.title,
         subtitle: item?.body,
-        image: item?.images?.findIndex((_, index) => index === 0)?.image,
+        image: item?.images?.find((_, index) => index === 0)?.image,
       };
     });
   }, [data, categories]);
