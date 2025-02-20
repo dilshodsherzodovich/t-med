@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import PageHeading from "../../Components/PageHeading";
 import Section from "../../Components/Section";
 import BlogsLeft from "./BlogsDetailsSide/BlogsLeft";
@@ -13,11 +13,18 @@ import hero2 from "/assets/img/hero2.png";
 const BlogsDetails = () => {
   const { blogId, lang } = useParams();
 
+  const { pathname } = useLocation();
+
   const sendRequest = useHttp();
 
   const { data } = useQuery({
     queryKey: ["blogDetail"],
-    queryFn: () => sendRequest({ url: `/blog/posts//${blogId}` }),
+    queryFn: () =>
+      sendRequest({
+        url: pathname?.includes("institution")
+          ? `/reception/organization/post/detail/${blogId}/`
+          : `/blog/posts//${blogId}`,
+      }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
@@ -70,12 +77,18 @@ const BlogsDetails = () => {
 
   const detail = useMemo(() => {
     return {
-      imageSrc: data?.images?.find((_, idx) => idx === 0)?.image,
+      imageSrc:
+        data?.images?.find((_, idx) => idx === 0)?.image ||
+        data?.post_images?.find((_, idx) => idx === 0)?.image,
       imageAlt: data?.title,
       text: "Admin",
-      secText: formatDate(data?.pub_date),
+      secText: formatDate(data?.pub_date || data?.created_at),
       thirdSecTitle: "Xabarni jo'natish",
-      content: data?.body ? [data.body] : [],
+      content: data?.body
+        ? [data.body]
+        : data?.description
+        ? [data?.description]
+        : [],
     };
   }, [data]);
 
