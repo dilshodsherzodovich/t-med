@@ -29,7 +29,8 @@ const MainHome = () => {
   const heroData = {
     primarySlider: [
       {
-        bgImageUrl: hero4,
+        bgImageUrl:
+          "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
         title: `${t("pages.home.hero.slider1.title")} <span>${t(
           "pages.home.hero.slider1.oneWord"
         )}</span>`,
@@ -43,7 +44,8 @@ const MainHome = () => {
         iconImgUrl: "assets/img/icons/hero_icon.png",
       },
       {
-        bgImageUrl: hero2,
+        bgImageUrl:
+          "https://medilo-react.vercel.app/assets/img/hero_slider_2.jpg",
         title: `${t("pages.home.hero.slider2.title")} <span>${t(
           "pages.home.hero.slider2.oneWord"
         )}</span>`,
@@ -57,7 +59,8 @@ const MainHome = () => {
         iconImgUrl: "assets/img/icons/hero_icon.png",
       },
       {
-        bgImageUrl: hero1,
+        bgImageUrl:
+          "https://medilo-react.vercel.app/assets/img/hero_slider_3.jpg",
         title: `${t("pages.home.hero.slider3.title")} <span>${t(
           "pages.home.hero.slider3.oneWord"
         )}</span>`,
