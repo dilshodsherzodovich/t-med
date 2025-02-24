@@ -73,6 +73,7 @@ function App() {
             <Route path="cooperation" element={<CooperationPage />} />
             <Route path="events" element={<CareerPosts />} />
             <Route path="careers/:id" element={<CareerPosts />} />
+            <Route path="doctors/:id" element={<DoctorsDetailsPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Route>
           <Route path="/:lang/gmap" element={<Map />} />

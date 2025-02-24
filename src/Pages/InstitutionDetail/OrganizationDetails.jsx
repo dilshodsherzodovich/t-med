@@ -69,10 +69,11 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
       subtitle: "Bizning shifokorlarimiz",
       title: "",
       doctorsData: orgData?.doctors?.map((doc) => ({
+        id: doc?.id,
         name: doc?.full_name,
         specialty: doc?.position,
         imageUrl: doc?.image,
-        profileLink: "",
+        profileLink: `?doctor=${doc?.id}`,
         tel: doc?.phone,
         email: doc?.email,
         iconUrl: doc?.facebook,

@@ -1,0 +1,194 @@
+.doctor-modal {
+  background-color: #282c34;
+  min-height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // font-size: calc(10px + 2vmin);
+  color: white;
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .auth-modal {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-height: 100%;
+      overflow: auto;
+      max-width: 500px;
+      color: #333;
+      position: relative;
+
+      .close-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      h4 {
+        margin-bottom: 4px;
+      }
+      p {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .doc-icon {
+        background: rgb(219, 234, 254);
+        color: rgb(37, 99, 235);
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      padding: 0.25rem;
+      background: #f4f4f5;
+      button {
+        flex: 1;
+        padding: 0.4rem;
+        font-size: 1rem;
+        border: none;
+        background-color: #f4f4f5;
+        cursor: pointer;
+        color: #74747c;
+        &.active {
+          background-color: #fff;
+          color: #272729;
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      div {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  .styled-select {
+    width: 100%;
+  }
+
+  .styled-select select {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    /* Custom arrow icon using SVG as a data URL */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23007bff" viewBox="0 0 16 16"><path d="M8 11L3 6h10L8 11z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+    /* For better appearance on mobile devices */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .styled-select select:focus {
+    outline: none;
+    border-color: #0056b3;
+  }
+}
+
+.review-textarea-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 8px;
+  margin-top: 1rem;
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .review-textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+    outline: none;
+
+    &:focus {
+      border-color: #5b9bd5;
+    }
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #5b9bd5;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #3e7ab1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

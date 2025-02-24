@@ -1,10 +1,20 @@
 import { FaPhoneAlt } from "react-icons/fa";
 import SectionHeading from "../SectionHeading";
 import { FaFacebookF, FaPinterestP, FaTwitter } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
+import DoctorDetailsModal from "../DoctorDetailsModal/DoctorDetailsModal";
+import { useMemo } from "react";
 
 const AppointmentSection = ({ data }) => {
+  const [searchParams] = useSearchParams();
+
+  const activeDoctorId = searchParams.get("doctor");
+
+  const activeDoctorDetails = useMemo(() => {
+    return data?.doctorsData?.find((doctor) => +doctor?.id === +activeDoctorId);
+  }, [data, activeDoctorId]);
+
   return (
     <>
       <div className="container">
@@ -20,7 +30,7 @@ const AppointmentSection = ({ data }) => {
             <div className="cs_team cs_style_1 cs_blue_bg" key={index}>
               <div className="cs_team_shape cs_accent_bg" />
               <Link to={doctor.profileLink} className="cs_team_thumbnail">
-                <img src={doctor.imageUrl} alt={`${doctor.name} Thumbnail`} />
+                <img src={doctor.imageUrl} alt={`${doctor.name}`} />
               </Link>
               <div className="cs_team_bio">
                 <h3 className="cs_team_title cs_extra_bold mb-0">
@@ -97,6 +107,7 @@ const AppointmentSection = ({ data }) => {
           ))}
         </div>
       </div>
+      <DoctorDetailsModal details={activeDoctorDetails} />
     </>
   );
 };
