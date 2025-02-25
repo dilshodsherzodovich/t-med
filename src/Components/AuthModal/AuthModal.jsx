@@ -9,9 +9,12 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 function AuthModal() {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const isAuthOpen = searchParams.get("auth");
 
   const [, setUsername] = useState(user?.username);
+
+  const [isRailwayWorker, setIsRailwayWorker] = useState(false);
 
   const [activeTab, setActiveTab] = useState("signin");
 
@@ -68,6 +71,7 @@ function AuthModal() {
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
+    data.append("is_railway_worker", isRailwayWorker);
 
     mutation.mutate({
       data,
@@ -138,23 +142,48 @@ function AuthModal() {
                   <button type="submit">Kirish</button>
                 </form>
               ) : (
-                <form onSubmit={handleRegisterSubmit}>
+                <form autoComplete="off" onSubmit={handleRegisterSubmit}>
                   <div>
                     <label htmlFor="fio">FIO</label>
-                    <input id="fio" type="text" name="fio" required />
-                  </div>
-
-                  <div>
-                    <label htmlFor="pinfl">PINFL</label>
                     <input
-                      id="pinfl"
-                      name="pinfl"
+                      autoComplete="off"
+                      id="fio"
                       type="text"
+                      name="fio"
                       required
-                      maxLength={14}
-                      minLength={14}
                     />
                   </div>
+
+                  <div className="d-flex align-items-center gap-1">
+                    <input
+                      id="isRailwayWorker"
+                      name="is_railway_worker"
+                      type="checkbox"
+                      style={{ width: "auto" }}
+                      checked={isRailwayWorker}
+                      onChange={(e) => setIsRailwayWorker(e.target.checked)}
+                    />
+                    <label
+                      htmlFor="isRailwayWorker"
+                      style={{ marginBottom: 0 }}
+                    >
+                      Temir yo'l ishchisi
+                    </label>
+                  </div>
+
+                  {isRailwayWorker && (
+                    <div>
+                      <label htmlFor="pinfl">PINFL</label>
+                      <input
+                        id="pinfl"
+                        name="pinfl"
+                        type="text"
+                        required
+                        maxLength={14}
+                        minLength={14}
+                      />
+                    </div>
+                  )}
                   <div>
                     <label htmlFor="login">Login</label>
                     <input id="login" type="text" name="username" required />
