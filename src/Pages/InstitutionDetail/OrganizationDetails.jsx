@@ -109,7 +109,7 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
       {orgData?.services?.length > 0 && (
         <Services serviceCategories={orgData?.services} />
       )}
-      {appointmentSectionData?.doctorsData && (
+      {appointmentSectionData?.doctorsData?.length > 0 && (
         <Section
           topSpaceLg="70"
           topSpaceMd="110"
@@ -120,7 +120,7 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
         </Section>
       )}
 
-      {orgPosts?.length && (
+      {orgPosts?.length > 0 && (
         <Section
           topSpaceLg="70"
           topSpaceMd="110"
@@ -149,22 +149,24 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
 
       <Container>
         <div className="cs_comment_section mt-5" data-aos="fade-up">
-          <h3 className="cs_service_heading">Tashkilot haqida fikringiz</h3>
+          <h3 className="cs_service_heading">Tashkilotimizni baholang</h3>
           <form action="" onSubmit={handleSubmit} ref={formRef}>
-            <textarea
-              name="reason"
-              id=""
-              rows={8}
-              className="w-100 border rounded-1 px-2 py-1"
-            ></textarea>
             <ReactStars
               count={5}
               value={rating}
               onChange={(value) => setRaiting(value)}
               size="100px"
             />
-            <div className="d-flex justify-content-end mt-2">
-              <button className="btn btn-dark" type="submit">
+            {+rating <= 3 && (
+              <textarea
+                name="reason"
+                id=""
+                rows={8}
+                className="w-100 border rounded-1 px-2 py-1 mt-3"
+              ></textarea>
+            )}
+            <div className="d-flex justify-content-start mt-3">
+              <button className="btn btn-primary" type="submit">
                 {"Jo'natish"}
               </button>
             </div>

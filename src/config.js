@@ -1,5 +1,5 @@
 const languages = {
-  uz: "",
+  uz: "/uz",
   ru: "/ru",
   en: "/en",
 };
