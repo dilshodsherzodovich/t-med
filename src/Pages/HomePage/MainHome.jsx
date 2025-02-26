@@ -13,9 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { formatDate } from "../../utils/format-date.js";
 import MapSection from "../../Components/MapSection/index.jsx";
-import hero1 from "/assets/img/hero1.png";
-import hero2 from "/assets/img/hero2.png";
-import hero4 from "/assets/img/hero4.png";
+
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
@@ -31,9 +29,9 @@ const MainHome = () => {
       {
         bgImageUrl:
           "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
-        title: `${t("pages.home.hero.slider1.title")} <span>${t(
+        title: `${t("pages.home.hero.slider1.title")} ${t(
           "pages.home.hero.slider1.oneWord"
-        )}</span>`,
+        )}`,
         contactSubtitle: "",
         contactTitle: t("pages.home.hero.info.title"),
         contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 95 62`,
@@ -46,9 +44,9 @@ const MainHome = () => {
       {
         bgImageUrl:
           "https://medilo-react.vercel.app/assets/img/hero_slider_2.jpg",
-        title: `${t("pages.home.hero.slider2.title")} <span>${t(
+        title: `${t("pages.home.hero.slider2.title")} ${t(
           "pages.home.hero.slider2.oneWord"
-        )}</span>`,
+        )}`,
         contactSubtitle: t("pages.home.hero.slider2.subtitle"),
         contactTitle: t("pages.home.hero.info.title"),
         contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 95 62`,
@@ -61,9 +59,9 @@ const MainHome = () => {
       {
         bgImageUrl:
           "https://medilo-react.vercel.app/assets/img/hero_slider_3.jpg",
-        title: `${t("pages.home.hero.slider3.title")} <span>${t(
+        title: `${t("pages.home.hero.slider3.title")} ${t(
           "pages.home.hero.slider3.oneWord"
-        )}</span>`,
+        )}`,
         contactSubtitle: t("pages.home.hero.slider3.subtitle"),
         contactTitle: t("pages.home.hero.info.title"),
         contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 95 62`,
@@ -195,8 +193,7 @@ const MainHome = () => {
     videoButtonText: t("pages.home.ctaSection.videoButtonText"),
     subtitle: "VIDEO",
     title: t("pages.home.ctaSection.title"),
-    description:
-      "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
+    description: t("pages.home.ctaSection.description"),
     buttonLink: `/${lang}/contact`,
     buttonText: t("pages.home.ctaSection.buttonText"),
     brandImage: "assets/img/medical_brand.png",

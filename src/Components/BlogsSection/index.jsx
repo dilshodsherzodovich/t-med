@@ -50,13 +50,14 @@ const BlogSection = ({ data }) => {
               <Slider {...settings}>
                 {data.postsData.map((post, index) => {
                   const d = document.createElement("div");
+                  console.log(post);
                   d.innerHTML = post?.subtitle;
                   const subtitle = d.textContent || d.innerText;
                   return (
                     <div key={index} className="cs_slide">
                       <article className="cs_post cs_style_1">
                         <Link
-                          to={post.postLink}
+                          to={post.link}
                           className="cs_post_thumbnail position-relative"
                         >
                           <img src={post.thumbnail} alt="post Thumbnail" />
@@ -71,7 +72,7 @@ const BlogSection = ({ data }) => {
                             </div>
                           </div>
                           <h3 className="cs_post_title">
-                            <Link to={post.postLink}>{post.title}</Link>
+                            <Link to={post.link}>{post.title}</Link>
                           </h3>
                           <p className="cs_post_subtitle">
                             {truncateString(subtitle, 100)}
@@ -80,7 +81,7 @@ const BlogSection = ({ data }) => {
                           <Button
                             variant={"cs_post_btn"}
                             btnIcons={<FaAngleRight />}
-                            btnUrl={post.postLink}
+                            btnUrl={post.link}
                             btnText={post.btnText}
                           />
 

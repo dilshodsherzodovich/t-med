@@ -48,8 +48,8 @@
   },
   "footer": {
     "contact": {
-      "reception": "Rahbraiyat qabul kunlari: <br /> Du - Juma: 8.00 - 18.00",
-      "address": "Toshkent sh., Yashnabod tumani, Taraqqiyot kuchasi 2-proyezd, 12A uy"
+      "reception": "Rahbariyat qabul kunlari: <br /> Du - Juma: 8.00 - 18.00",
+      "address": "Toshkent sh., Yashnabod tumani, Taraqqiyot 2-tor ko'chasi, 12A uy"
     },
     "services": {
       "title": "Xizmatlar",
@@ -81,7 +81,7 @@
     "home": {
       "hero": {
         "slider1": {
-          "title": "O'zbekiston Temir Yo'llari Temiryo'l Ijtimoiy ximatlar ",
+          "title": "\"O'zbekiston Temir Yo'llari\" Aj \"Temiryo'l Ijtimoiy xizmatlar\" ",
           "oneWord": "muassasasi",
           "subtitle": ""
         },
@@ -274,7 +274,7 @@
   "root": {
     "readMore": "Batafsil",
     "home": "Asosiy",
-    "address": "Taraqqiyot kuchasi 2-proyezd, 12A uy",
+    "address": "Taraqqiyot 2-tor ko'chasi, 12A uy",
     "copyright": "O'zbekiston Temir Yo'llari AJ, Barcha huquqlar himoyalangan."
   }
 }
