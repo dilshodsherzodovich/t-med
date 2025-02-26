@@ -148,7 +148,7 @@ export default function ManagementDetail({
 
             {/* Additional Information */}
             <div
-              className={`mt-3 overflow-hidden profile-details ${
+              className={`mt-3 overflow-auto profile-details ${
                 isOpen ? "open" : ""
               }`}
             >
