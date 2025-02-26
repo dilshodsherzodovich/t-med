@@ -17,7 +17,7 @@ import { formatDate } from "../../utils/format-date";
 import { useTranslation } from "react-i18next";
 
 const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
-  const [rating, setRaiting] = useState(0);
+  const [rating, setRaiting] = useState(null);
   const formRef = useRef();
   const { id } = useParams();
   const { lang } = useParams();
@@ -153,11 +153,11 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
           <form action="" onSubmit={handleSubmit} ref={formRef}>
             <ReactStars
               count={5}
-              value={rating}
+              value={rating || 0}
               onChange={(value) => setRaiting(value)}
               size="100px"
             />
-            {+rating <= 3 && (
+            {rating && +rating <= 3 && (
               <textarea
                 name="reason"
                 id=""
