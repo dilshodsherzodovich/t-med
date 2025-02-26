@@ -38,6 +38,7 @@ function InstitutionDetail() {
       doctors: detail?.doctors,
       services: detail?.filtered_service_types,
       posts: detail?.organization_posts,
+      avgRating: detail?.avg_rating,
     };
   }, [detail]);
 

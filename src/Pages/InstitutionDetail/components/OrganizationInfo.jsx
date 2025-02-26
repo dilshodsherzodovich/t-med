@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBuilding, FaUsers } from "react-icons/fa";
+import ReactStars from "react-rating-stars-component";
 import CountUp from "react-countup";
 import { Modal } from "react-bootstrap";
 import "./OrganizationInfo.scss";
@@ -34,12 +35,23 @@ const OrganizationInfo = ({ orgData }) => {
           <div className="col-lg-8" data-aos="fade-right">
             <motion.div
               className="card main-info-card"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              // whileHover={{ scale: 1.02 }}
+              // transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="card-body">
-                <div className="d-flex align-items-center mb-4">
+                <div className="d-flex flex-column align-baseline mb-4">
                   <h3 className="card-title mb-0">{orgData.name}</h3>
+                  {orgData?.avgRating && (
+                    <ReactStars
+                      classNames="avg-rating"
+                      count={5}
+                      value={orgData?.avgRating}
+                      size={10}
+                      isHalf
+                      edit={false}
+                      activeColor="#ffd700"
+                    />
+                  )}
                 </div>
 
                 <div className="info-grid">
