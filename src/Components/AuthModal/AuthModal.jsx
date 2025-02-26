@@ -40,13 +40,18 @@ function AuthModal() {
       return;
     }
     const errors = [];
+
     if (
       mutation?.error?.response?.data &&
       typeof mutation.error.response.data === "object"
     ) {
-      Object.values(mutation?.error?.response?.data || {})?.forEach((item) =>
-        errors.push(...item)
-      );
+      if (mutation?.error?.response?.data?.error) {
+        errors.push(mutation?.error?.response?.data?.error);
+      } else {
+        Object.values(mutation?.error?.response?.data || {})?.forEach((item) =>
+          errors.push(...item)
+        );
+      }
     }
 
     errors.forEach((error) => {
