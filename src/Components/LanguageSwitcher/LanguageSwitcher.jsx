@@ -37,7 +37,7 @@ const LanguageSwitcher = () => {
         className="language-switcher__button"
       >
         <Flag country={selectedLanguage.flag} />
-        <span>{selectedLanguage.name}</span>
+        {/* <span>{selectedLanguage.name}</span> */}
       </button>
       {isOpen && (
         <div className="language-switcher__dropdown">
@@ -54,7 +54,7 @@ const LanguageSwitcher = () => {
                 country={language.flag}
                 className="language-switcher__flag"
               />
-              {language.name}
+              {/* {language.name} */}
             </button>
           ))}
         </div>

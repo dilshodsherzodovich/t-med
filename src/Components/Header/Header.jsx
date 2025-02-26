@@ -312,7 +312,6 @@ const Header = ({ isTopBar, variant }) => {
                 </div>
 
                 <div className="d-flex align-items-center gap-2">
-                  <LanguageSwitcher />
                   {username ? (
                     <div className="d-flex align-items-center gap-2">
                       <span>{username}</span>
@@ -520,6 +519,7 @@ const Header = ({ isTopBar, variant }) => {
                       </div>
                     </div>
                   </ul>
+                  <LanguageSwitcher />
                   {/* {username ? (
                     <div className="d-flex align-items-center gap-2">
                       <span>{username}</span>
