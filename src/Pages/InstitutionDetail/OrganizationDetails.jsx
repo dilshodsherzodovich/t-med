@@ -162,6 +162,7 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
                 name="reason"
                 id=""
                 rows={8}
+                required
                 className="w-100 border rounded-1 px-2 py-1 mt-3"
               ></textarea>
             )}

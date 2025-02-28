@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import "./AuthModal.scss";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
+import { useHttp } from "../../hooks/useHttp";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -18,6 +19,8 @@ function AuthModal() {
 
   const [activeTab, setActiveTab] = useState("signin");
 
+  const sendRequest = useHttp();
+
   const mutation = useMutation({
     mutationFn: auth,
     onSuccess: (data) => {
@@ -30,6 +33,17 @@ function AuthModal() {
       mutation.reset();
     },
     // onError: (error) => {},
+  });
+
+  const { data: allInstitutions } = useQuery({
+    queryKey: ["institutions"],
+    queryFn: () =>
+      sendRequest({
+        url: `/reception/organization/list/`,
+      }),
+    staleTime: 1000,
+    refetchOnWindowFocus: false,
+    retry: false,
   });
 
   useEffect(() => {
@@ -75,8 +89,18 @@ function AuthModal() {
 
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.target);
-    data.append("is_railway_worker", isRailwayWorker);
+    const formData = new FormData(event.target);
+    const data = {
+      username: formData.get("username"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+      profile: {
+        fio: formData.get("fio"),
+        phone_number: formData.get("phone_number"),
+        is_railway_worker: isRailwayWorker,
+        pinfl: formData.get("pinfl"),
+      },
+    };
 
     mutation.mutate({
       data,
@@ -190,10 +214,6 @@ function AuthModal() {
                     </div>
                   )}
                   <div>
-                    <label htmlFor="login">Login</label>
-                    <input id="login" type="text" name="username" required />
-                  </div>
-                  <div>
                     <label htmlFor="phone">Telefon raqam</label>
                     <input
                       id="phone"
@@ -212,6 +232,25 @@ function AuthModal() {
                       placeholder="m@example.com"
                     />
                   </div>
+                  <div className="styled-select">
+                    <label htmlFor="institution">
+                      Davolash muassasasini tanlang
+                    </label>
+                    <select name="organization">
+                      {allInstitutions?.results?.map((ins) => {
+                        return (
+                          <option key={ins?.id} value={ins?.id}>
+                            {ins.title}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="login">Login</label>
+                    <input id="login" type="text" name="username" required />
+                  </div>
+
                   <div>
                     <label htmlFor="password">Parol</label>
                     <input
