@@ -1,0 +1,95 @@
+:root {
+  --primary-color: #002261;
+  --secondary-color: #f8f9fa;
+  --text-color: #333;
+  --card-hover-color: #e9ecef;
+}
+
+body {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.main-title {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.department-card {
+  transition: all 0.3s ease-in-out;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.department-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--card-hover-color);
+}
+
+.card-title {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.director-info,
+.employee-count {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.icon {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #001a4d;
+  border-color: #001a4d;
+}
+
+.modal-header {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.director-image {
+  border: 3px solid var(--primary-color);
+}
+
+.director-name {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.director-title {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
