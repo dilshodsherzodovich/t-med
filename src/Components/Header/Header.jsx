@@ -91,7 +91,7 @@ const Header = ({ isTopBar, variant }) => {
           },
           {
             label: t("navlinks.about.sublinks.institutions"),
-            href: ``,
+            href: `/${lang}/institution-categories`,
             subItems: institutionCategories?.results?.length
               ? institutionCategories?.results?.map((item) => ({
                   label: item?.name,

@@ -10,18 +10,14 @@ function DepartmentDetails({ data, department_employees }) {
   return (
     <div className="container">
       <div className="cs_service_details">
-        <h3 className="cs_service_heading" data-aos="fade-up">
+        <h3 className="cs_service_heading">
           {t("pages.singleDepartment.about")}
         </h3>
         <div
           dangerouslySetInnerHTML={{ __html: data?.departmentDetails }}
           className="cs_service_subtitle"
-          data-aos="fade-up"
         ></div>
-        <div
-          className="cs_about_iconbox pt-0 d-flex align-items-center mb-4"
-          data-aos="fade-up"
-        >
+        <div className="cs_about_iconbox pt-0 d-flex align-items-center mb-4">
           <div className="cs_about_iconbox_icon cs_center">
             <i>
               <FaCheckCircle />
@@ -33,7 +29,7 @@ function DepartmentDetails({ data, department_employees }) {
           </p>
         </div>
 
-        <h3 className="cs_service_heading" data-aos="fade-up">
+        <h3 className="cs_service_heading">
           {t("pages.singleDepartment.head")}
         </h3>
         <DepartmentManager data={data?.manager} />
