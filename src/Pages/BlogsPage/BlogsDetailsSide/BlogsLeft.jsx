@@ -1,4 +1,4 @@
-import { FaCalendarAlt, FaUser } from "react-icons/fa";
+import { FaCalendarAlt, FaEye, FaUser } from "react-icons/fa";
 
 const BlogsLeft = ({ data }) => {
   console.log(data);
@@ -9,7 +9,7 @@ const BlogsLeft = ({ data }) => {
           <div className="cs_post_thumb_thumbnail">
             <img src={data.imageSrc} alt={data.imageAlt} />
           </div>
-          <ul className="cs_post_meta cs_mp0">
+          <ul className="cs_post_meta cs_mp0" style={{ color: "#2ea6f7" }}>
             <li>
               <i>
                 <FaUser />
@@ -21,6 +21,12 @@ const BlogsLeft = ({ data }) => {
                 <FaCalendarAlt />
               </i>
               {data.secText}
+            </li>
+            <li>
+              <i>
+                <FaEye />
+              </i>
+              {data.views}
             </li>
           </ul>
 

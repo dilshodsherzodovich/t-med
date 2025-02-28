@@ -10,13 +10,13 @@ import hero2 from "/assets/img/hero2.png";
 function InstitutionDetail() {
   const sendRequest = useHttp();
 
-  const { id } = useParams();
+  const { slug } = useParams();
 
   const { data: detail, isLoading } = useQuery({
-    queryKey: ["institutions", id],
+    queryKey: ["institutions", slug],
     queryFn: () =>
       sendRequest({
-        url: `/reception/organization/detail/${id}/`,
+        url: `/reception/organization/detail/${slug}`,
       }),
     staleTime: 1000,
     refetchOnWindowFocus: false,

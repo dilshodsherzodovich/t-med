@@ -80,8 +80,11 @@ const BlogsPage = () => {
         title: item?.title,
         subtitle: item?.body,
         image: item?.images?.find((_, index) => index === 0)?.image,
+        views: item?.views_count,
       };
     });
+
+    // eslint-disable-next-line
   }, [data, categories]);
 
   return (

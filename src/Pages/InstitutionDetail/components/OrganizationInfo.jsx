@@ -40,18 +40,25 @@ const OrganizationInfo = ({ orgData }) => {
             >
               <div className="card-body">
                 <div className="d-flex flex-column align-baseline mb-4">
-                  <h3 className="card-title mb-0">{orgData.name}</h3>
-                  {orgData?.avgRating && (
-                    <ReactStars
-                      classNames="avg-rating"
-                      count={5}
-                      value={orgData?.avgRating}
-                      size={10}
-                      isHalf
-                      edit={false}
-                      activeColor="#ffd700"
-                    />
-                  )}
+                  <div className="d-flex align-items-end gap-3">
+                    <h3 className="card-title mb-0">{orgData.name}</h3>
+                    <span className=" fs-5 text-primary">
+                      {orgData?.avgRating} / 5
+                    </span>
+                  </div>
+                  <div className="d-flex align-items-center">
+                    {orgData?.avgRating && (
+                      <ReactStars
+                        classNames="avg-rating"
+                        count={5}
+                        value={orgData?.avgRating}
+                        size={10}
+                        isHalf
+                        edit={false}
+                        activeColor="#ffd700"
+                      />
+                    )}
+                  </div>
                 </div>
 
                 <div className="info-grid">

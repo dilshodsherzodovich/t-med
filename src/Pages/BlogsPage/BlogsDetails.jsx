@@ -82,6 +82,7 @@ const BlogsDetails = () => {
         data?.post_images?.find((_, idx) => idx === 0)?.image,
       imageAlt: data?.title,
       text: "Admin",
+      views: data?.views_count || 0,
       secText: formatDate(data?.pub_date || data?.created_at),
       thirdSecTitle: "Xabarni jo'natish",
       content: data?.body

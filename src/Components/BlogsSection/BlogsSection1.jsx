@@ -1,9 +1,9 @@
 import SectionHeading from "../SectionHeading";
 import { Link } from "react-router-dom";
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleRight, FaEye } from "react-icons/fa";
 import { truncateString } from "../../utils/truncate-string";
 import BlogLoadingSkeleton from "./BlogLoadingSkeleton";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRightLong, FaUsersViewfinder } from "react-icons/fa6";
 
 const BlogsSection1 = ({
   data,
@@ -54,8 +54,17 @@ const BlogsSection1 = ({
                       <div>
                         <div className="cs_post_meta_wrapper">
                           <div className="cs_posted_by cs_center position-absolute">
-                            {blog.date}
+                            <div>{blog.date}</div>
                           </div>
+                        </div>
+                        <div
+                          style={{ color: "#2ea6f7" }}
+                          className="d-flex align-items-center gap-1 mb-2"
+                        >
+                          <FaEye width={18} />
+                          <span style={{ fontSize: "14px" }}>
+                            Ko'rishlar soni: {blog?.views}
+                          </span>
                         </div>
                         <h3 className="cs_post_title">
                           <Link to={blog.link}>{blog.title}</Link>

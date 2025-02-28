@@ -5,7 +5,7 @@ import ReactStars from "react-rating-stars-component";
 import axios from "axios";
 import { useMemo, useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import YandexMap from "./components/YandexMap";
@@ -21,7 +21,6 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const formRef = useRef();
   const { id } = useParams();
   const { lang } = useParams();
-  const [, setSearchParams] = useSearchParams();
   const { t } = useTranslation();
   const postData = async (data) => {
     const response = await axios.post(
@@ -90,11 +89,6 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user?.access) {
-      setSearchParams({ auth: true });
-      return;
-    }
     const formData = new FormData(e.target);
     formData.append("organization", id);
     formData.append("rating", rating);

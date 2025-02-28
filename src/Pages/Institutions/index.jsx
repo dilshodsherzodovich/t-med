@@ -47,7 +47,7 @@ function Institutions() {
                 : "/assets/img/service_2.jpg",
               title: item?.title,
               subtitle: item?.description,
-              detailsLink: `/${lang}/institutions/${item?.id}`,
+              detailsLink: `/${lang}/muassasalar/${item?.slug}`,
               detailsText: "Batafsil",
               bgImagUrl: "/assets/img/service_bg_3.jpg",
             };
