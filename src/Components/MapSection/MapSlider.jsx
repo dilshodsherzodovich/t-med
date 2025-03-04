@@ -1,10 +1,12 @@
 import { Carousel } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LoadingSpinner from "../Loaders/LoadingSpinner";
 import { useEffect, useState } from "react";
 
 const MapSlider = ({ sliders, isLoading }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const { lang } = useParams();
 
   useEffect(() => {
     setActiveIndex(0);
@@ -34,20 +36,6 @@ const MapSlider = ({ sliders, isLoading }) => {
                 </div>
                 <div className="card-body">
                   <div className="contact-info">
-                    {/* {profile?.organization_images?.length > 0 && (
-                      <img
-                        style={{
-                          width: "400px",
-                          height: "200px",
-                          objectFit: "cover",
-                          maxWidth: "100%",
-                          maxHeight: "auto",
-                          marginBottom: "0.5rem",
-                        }}
-                        src={profile?.organization_images[0].image}
-                        alt=""
-                      />
-                    )} */}
                     <div className="contact-item">
                       <i className="bi bi-telephone"></i>
                       <span>{profile?.director?.reception_number}</span>
@@ -63,7 +51,7 @@ const MapSlider = ({ sliders, isLoading }) => {
                     <Link
                       style={{ fontSize: "14px", paddingLeft: "0.5rem" }}
                       className="text-primary"
-                      to={`institutions/${profile?.id}`}
+                      to={`/${lang}/muassasalar/${profile?.slug}`}
                     >
                       Batafsil
                     </Link>

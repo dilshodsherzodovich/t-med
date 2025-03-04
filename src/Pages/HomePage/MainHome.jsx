@@ -13,6 +13,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { formatDate } from "../../utils/format-date.js";
 import MapSection from "../../Components/MapSection/index.jsx";
+import hero1 from "/assets/img/hero1.png";
+import hero2 from "/assets/img/hero2.png";
 
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
@@ -27,8 +29,7 @@ const MainHome = () => {
   const heroData = {
     primarySlider: [
       {
-        bgImageUrl:
-          "https://medilo-react.vercel.app/assets/img/hero_slider_1.jpg",
+        bgImageUrl: hero1,
         title: `${t("pages.home.hero.slider1.title")} ${t(
           "pages.home.hero.slider1.oneWord"
         )}`,
@@ -42,8 +43,7 @@ const MainHome = () => {
         iconImgUrl: "assets/img/icons/hero_icon.png",
       },
       {
-        bgImageUrl:
-          "https://medilo-react.vercel.app/assets/img/hero_slider_2.jpg",
+        bgImageUrl: hero2,
         title: `${t("pages.home.hero.slider2.title")} ${t(
           "pages.home.hero.slider2.oneWord"
         )}`,
@@ -57,8 +57,7 @@ const MainHome = () => {
         iconImgUrl: "assets/img/icons/hero_icon.png",
       },
       {
-        bgImageUrl:
-          "https://medilo-react.vercel.app/assets/img/hero_slider_3.jpg",
+        bgImageUrl: hero1,
         title: `${t("pages.home.hero.slider3.title")} ${t(
           "pages.home.hero.slider3.oneWord"
         )}`,
