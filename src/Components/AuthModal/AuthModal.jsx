@@ -5,6 +5,7 @@ import axios from "axios";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { useHttp } from "../../hooks/useHttp";
+import LoadingSpinner from "../Loaders/LoadingSpinner";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -16,6 +17,10 @@ function AuthModal() {
   const [, setUsername] = useState(user?.username);
 
   const [isRailwayWorker, setIsRailwayWorker] = useState(false);
+
+  const [pinfl, setPinfl] = useState();
+
+  const [fio, setFio] = useState("");
 
   const [activeTab, setActiveTab] = useState("signin");
 
@@ -33,6 +38,15 @@ function AuthModal() {
       mutation.reset();
     },
     // onError: (error) => {},
+  });
+
+  const pinflMutation = useMutation({
+    mutationFn: getFio,
+    onSuccess: (data) => {
+      if (data?.worker?.first_name) {
+        setFio(`${data?.worker?.last_name} ${data?.worker?.first_name}`);
+      }
+    },
   });
 
   const { data: allInstitutions } = useQuery({
@@ -87,6 +101,12 @@ function AuthModal() {
     // Handle form submission logic here
   };
 
+  const handlePinflClick = () => {
+    pinflMutation.mutate({
+      pinfl,
+    });
+  };
+
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -121,6 +141,15 @@ function AuthModal() {
     );
     return response.data;
   }
+
+  async function getFio({ pinfl }) {
+    const response = await axios.get(
+      `https://back.nsu-railway.uz/account/register/?pinfl=${pinfl}`
+    );
+    return response.data;
+  }
+
+  console.log(fio);
 
   return (
     <>
@@ -197,15 +226,26 @@ function AuthModal() {
                           id="pinfl"
                           name="pinfl"
                           type="text"
+                          onChange={(e) => setPinfl(e.target.value)}
+                          value={pinfl}
                           required
                           maxLength={14}
                           minLength={14}
                         />
                         <button
+                          onClick={handlePinflClick}
                           style={{ width: "120px" }}
+                          type="button"
                           className="btn btn-primary d-block"
                         >
-                          FIO olish
+                          {pinflMutation?.isPending ? (
+                            <LoadingSpinner
+                              isMini
+                              style={{ marginBottom: 0 }}
+                            />
+                          ) : (
+                            "FIO olish"
+                          )}
                         </button>
                       </div>
                     </div>
@@ -214,6 +254,8 @@ function AuthModal() {
                   <div>
                     <label htmlFor="fio">FIO</label>
                     <input
+                      value={fio}
+                      onChange={(e) => setFio(e.target.value)}
                       autoComplete="off"
                       id="fio"
                       type="text"
