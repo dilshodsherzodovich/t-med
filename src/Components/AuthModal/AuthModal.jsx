@@ -39,7 +39,7 @@ function AuthModal() {
     queryKey: ["institutions"],
     queryFn: () =>
       sendRequest({
-        url: `/reception/organization/list/`,
+        url: `/reception/all/organization/`,
       }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
@@ -237,7 +237,7 @@ function AuthModal() {
                       Davolash muassasasini tanlang
                     </label>
                     <select name="organization">
-                      {allInstitutions?.results?.map((ins) => {
+                      {allInstitutions?.map((ins) => {
                         return (
                           <option key={ins?.id} value={ins?.id}>
                             {ins.title}

@@ -25,6 +25,7 @@ function InstitutionDetail() {
 
   const orgData = useMemo(() => {
     return {
+      id: detail?.id,
       name: detail?.title,
       logo: "",
       description: detail?.description,

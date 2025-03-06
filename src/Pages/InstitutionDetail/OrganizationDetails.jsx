@@ -19,9 +19,9 @@ import { useTranslation } from "react-i18next";
 const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const [rating, setRaiting] = useState(null);
   const formRef = useRef();
-  const { id } = useParams();
   const { lang } = useParams();
   const { t } = useTranslation();
+
   const postData = async (data) => {
     const response = await axios.post(
       "https://back.nsu-railway.uz/reception/create-rating/",
@@ -90,7 +90,7 @@ const OrganizationDetail = ({ orgData, ceoData, isLoading, long, lat }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    formData.append("organization", id);
+    formData.append("organization", orgData?.id);
     formData.append("rating", rating);
     mutation.mutate(formData);
   };
