@@ -172,17 +172,6 @@ function AuthModal() {
                 </form>
               ) : (
                 <form autoComplete="off" onSubmit={handleRegisterSubmit}>
-                  <div>
-                    <label htmlFor="fio">FIO</label>
-                    <input
-                      autoComplete="off"
-                      id="fio"
-                      type="text"
-                      name="fio"
-                      required
-                    />
-                  </div>
-
                   <div className="d-flex align-items-center gap-1">
                     <input
                       id="isRailwayWorker"
@@ -203,16 +192,36 @@ function AuthModal() {
                   {isRailwayWorker && (
                     <div>
                       <label htmlFor="pinfl">PINFL</label>
-                      <input
-                        id="pinfl"
-                        name="pinfl"
-                        type="text"
-                        required
-                        maxLength={14}
-                        minLength={14}
-                      />
+                      <div className="d-flex gap-2">
+                        <input
+                          id="pinfl"
+                          name="pinfl"
+                          type="text"
+                          required
+                          maxLength={14}
+                          minLength={14}
+                        />
+                        <button
+                          style={{ width: "120px" }}
+                          className="btn btn-primary d-block"
+                        >
+                          FIO olish
+                        </button>
+                      </div>
                     </div>
                   )}
+
+                  <div>
+                    <label htmlFor="fio">FIO</label>
+                    <input
+                      autoComplete="off"
+                      id="fio"
+                      type="text"
+                      name="fio"
+                      required
+                    />
+                  </div>
+
                   <div>
                     <label htmlFor="phone">Telefon raqam</label>
                     <input
