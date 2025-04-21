@@ -31,6 +31,7 @@ import CreativeClientPreferenceQuiz from "./Pages/CreativeClientPreferenceQuiz";
 import LangLayout from "./Components/Layout/LangLayout";
 import AuthModal from "./Components/AuthModal/AuthModal";
 import InstitutionCategories from "./Pages/InstitutionCategories/InstitutionCategories";
+import ProtectedDocs from "./Pages/ProtectedDocs";
 
 function App() {
   Aos.init({
@@ -64,6 +65,7 @@ function App() {
             <Route path="error" element={<ErrorPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="docs" element={<Docs />} />
+            <Route path="protectedDocs" element={<ProtectedDocs />} />
             <Route path="departments" element={<DepartmentsList />} />
             <Route path="departments/:id" element={<Departments />} />
             <Route path="institutions" element={<Institutions />} />
