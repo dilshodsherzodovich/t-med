@@ -1,0 +1,32 @@
+.yandex-map {
+  width: 100%;
+  height: 200px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  height: 200px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.map-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .yandex-map {
+    height: 150px;
+  }
+
+  .map-placeholder {
+    height: 150px;
+  }
+}

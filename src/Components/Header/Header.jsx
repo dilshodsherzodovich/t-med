@@ -19,6 +19,7 @@ import { useHttp } from "../../hooks/useHttp";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import { MdLogout } from "react-icons/md";
+import MultiPanelOrgNav from "./MultiPanelOrgNav";
 
 const Header = ({ isTopBar, variant }) => {
   const navigate = useNavigate();
@@ -238,10 +239,14 @@ const Header = ({ isTopBar, variant }) => {
         } cs_primary_color cs_sticky_header ${isSticky ? isSticky : ""}`}
       >
         {isTopBar && (
-          <div className="cs_top_header desktop cs_blue_bg cs_white_color">
+          <div className="cs_top_header desktop cs_blue_bg cs_white_color d-flex">
+            {institutionCategories?.results &&
+              institutionCategories?.results?.length > 0 && (
+                <MultiPanelOrgNav data={institutionCategories?.results} />
+              )}
             <div className="container">
               <div className="cs_top_header_in">
-                <div className="cs_top_header_left">
+                <div className="cs_top_header_left d-flex gap-2">
                   <ul className="cs_header_contact_list cs_mp_0">
                     <li>
                       <i>
@@ -551,6 +556,7 @@ const Header = ({ isTopBar, variant }) => {
             </div>
           </div>
         </div>
+
         {variant == "cs_type_1" && (
           <div className="cs_main_header_shape">
             <svg
