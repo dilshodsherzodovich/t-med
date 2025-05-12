@@ -31,6 +31,20 @@ const BlogsLeft = ({ data }) => {
           </ul>
 
           <p dangerouslySetInnerHTML={{ __html: data?.content[0] }}></p>
+          <div className="cs_post_details_content row">
+            {data?.images?.map((img) => (
+              <div key={img?.image} className="col-md-4 col-sm-12 p-1">
+                <img
+                  className=" w-100 h-100 object-fit-cover "
+                  style={{
+                    maxHeight: "200px",
+                  }}
+                  src={img?.image}
+                  alt={img?.image}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

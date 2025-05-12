@@ -556,7 +556,6 @@ const Header = ({ isTopBar, variant }) => {
             </div>
           </div>
         </div>
-
         {variant == "cs_type_1" && (
           <div className="cs_main_header_shape">
             <svg

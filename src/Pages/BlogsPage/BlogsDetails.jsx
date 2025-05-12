@@ -85,6 +85,7 @@ const BlogsDetails = () => {
       views: data?.views_count || 0,
       secText: formatDate(data?.pub_date || data?.created_at),
       thirdSecTitle: "Xabarni jo'natish",
+      images: data?.images?.length ? data?.images : data?.post_images,
       content: data?.body
         ? [data.body]
         : data?.description
