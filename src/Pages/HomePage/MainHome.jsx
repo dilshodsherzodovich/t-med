@@ -245,32 +245,6 @@ const MainHome = () => {
     }, []);
   }, [services]);
 
-  // const { data: doctors } = useQuery({
-  //   queryKey: ["doctors"],
-  //   queryFn: () => sendRequest({ url: `/blog/employee//` }),
-  //   staleTime: 1000,
-  //   refetchOnWindowFocus: false,
-  //   retry: false,
-  // });
-
-  // const doctorsData = useMemo(() => {
-  //   return {
-  //     subtitle: "Bizning jamoa",
-  //     title: " Bizning malakali shifokorlarimiz <br/> bilan tanishing",
-  //     sliderData: doctors?.results?.length
-  //       ? doctors?.results?.map((doc) => ({
-  //           name: doc?.name,
-  //           profession: doc?.position,
-  //           imageUrl: doc?.image,
-  //           link: "/doctors/doctor-details",
-  //           facebook: doc?.facebook_link || "/",
-  //           telegram: doc?.telegram_link || "/",
-  //           instagram: doc?.instagram_link || "/",
-  //         }))
-  //       : [],
-  //   };
-  // }, [doctors]);
-
   const { data: blogs } = useQuery({
     queryKey: ["blogs"],
     queryFn: () => sendRequest({ url: `/blog/posts//` }),
