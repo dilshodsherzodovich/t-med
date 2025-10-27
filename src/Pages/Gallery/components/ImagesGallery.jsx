@@ -26,9 +26,9 @@ export default function ImagesGallery() {
 
   const images = useMemo(() => {
     if (!gallery?.results?.length) return [];
-    return gallery?.results?.map((item) => ({
-      src: item?.images[0]?.image,
-      original: item?.images[0]?.image,
+    return gallery?.results[0]?.images.map((item) => ({
+      src: item?.image,
+      original: item?.image,
       width: 400,
       height: 300,
       tags: [],
