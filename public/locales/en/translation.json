@@ -236,6 +236,8 @@
       "title": "Services",
       "subtitle": "Our Services",
       "price": "Price",
+      "forRailwayWorkers": "For Railway Workers",
+      "nonResidents": "Non-Residents",
       "duration": "Duration",
       "allServices": "All services",
       "govermentServices": {

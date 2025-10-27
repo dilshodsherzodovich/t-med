@@ -237,6 +237,8 @@
       "title": "Xizmatlar",
       "subtitle": "Bizning xizmatlarimiz",
       "price": "Narxi",
+      "forRailwayWorkers": "Temiryo'l ishchilar uchun",
+      "nonResidents": "Shaxsiy sharoitdagi mijozlar uchun",
       "duration": "Davomiyligi",
       "allServices": "Barcha xizmatlar",
       "govermentServices": {

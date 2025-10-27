@@ -236,6 +236,8 @@
       "title": "Услуги",
       "subtitle": "Наши услуги",
       "price": "Цена",
+      "forRailwayWorkers": "Для железнодорожников",
+      "nonResidents": "Для непроживающих",
       "duration": "Продолжительность",
       "allServices": "Все услуги",
       "govermentServices": {

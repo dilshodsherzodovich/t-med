@@ -59,16 +59,6 @@ const Services = ({ serviceCategories }) => {
   const [activeCategory, setActiveCategory] = React.useState("all");
 
   const { t } = useTranslation();
-
-  // const categories = [
-  //   { id: "all", label: "Barcha ximatlar", icon: <Stethoscope /> },
-  //   { id: "cardiology", label: "Kardiologiya", icon: <Heart /> },
-  //   { id: "neurology", label: "Nevrologiya", icon: <Brain /> },
-  //   { id: "therapy", label: "Terapiya", icon: <Activity /> },
-  //   { id: "surgery", label: "Jarrohlik", icon: <Syringe /> },
-  //   { id: "diagnostics", label: "Diagnostika", icon: <FlaskConical /> },
-  // ];
-
   const categories = useMemo(() => {
     if (!serviceCategories?.length) return [];
     return serviceCategories?.map((item) => ({
@@ -88,7 +78,9 @@ const Services = ({ serviceCategories }) => {
           title: ser?.title,
           icon: <Heart />,
           category: cat?.id,
-          price: +ser?.price,
+          price: ser?.price,
+          forRailwayWorkers: ser?.second_price,
+          nonResidents: ser?.third_price,
           duration: ser?.duration,
         });
       });
@@ -156,6 +148,31 @@ const Services = ({ serviceCategories }) => {
                     {service.price} {"so'm"}
                   </span>
                 </div>
+
+                {/* {service.forRailwayWorkers && (
+                  <div>
+                    <div>
+                      <BadgeDollarSign />
+                      {t("pages.services.forRailwayWorkers")}
+                    </div>
+                    <span>
+                      {service.forRailwayWorkers} {"so'm"}
+                    </span>
+                  </div>
+                )}
+
+                {service.nonResidents && (
+                  <div>
+                    <div>
+                      <BadgeDollarSign />
+                      {t("pages.services.nonResidents")}
+                    </div>
+                    <span>
+                      {service.nonResidents} {"so'm"}
+                    </span>
+                  </div>
+                )} */}
+
                 <div>
                   <div>
                     <Timer />
