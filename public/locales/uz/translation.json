@@ -3,10 +3,10 @@
     "about": {
       "title": "Biz haqimizda",
       "sublinks": {
-        "instituion": "Muassasa haqida",
+        "instituion": "MCHJ haqida",
         "management": "Rahbariyat",
         "departments": "Bo'limlar",
-        "institutions": "Muassasalar"
+        "institutions": "Filiallar"
       }
     },
     "career": {
@@ -81,8 +81,8 @@
     "home": {
       "hero": {
         "slider1": {
-          "title": "\"O'zbekiston Temir Yo'llari\" Aj \"Temiryo'l Ijtimoiy xizmatlar\" ",
-          "oneWord": "Ma'suliyati cheklangan jamiyat",
+          "title": "\"O'zbekiston Temir Yo'llari\" AJ \"Temiryo'l Ijtimoiy xizmatlar\"",
+          "oneWord": "MCHJ",
           "subtitle": ""
         },
         "slider2": {
@@ -193,7 +193,7 @@
     },
     "about": {
       "title": "Biz haqimizda",
-      "subtitle": "O'zbekiston Temir yo'llari Temiryo'l ijtimoiy xizmatlar Ma'suliyati cheklangan jamiyat haqida"
+      "subtitle": "\"O'zbekiston Temir yo'llari\" AJ \"Temiryo'l ijtimoiy xizmatlar\" mas'uliyati cheklangan jamiyat haqida"
     },
     "management": {
       "title": "Rahbariyat",
@@ -238,7 +238,7 @@
       "subtitle": "Bizning xizmatlarimiz",
       "price": "Narxi",
       "forRailwayWorkers": "Temiryo'l ishchilar uchun",
-      "nonResidents": "Shaxsiy sharoitdagi mijozlar uchun",
+      "nonResidents": " uchun",
       "duration": "Davomiyligi",
       "allServices": "Barcha xizmatlar",
       "govermentServices": {
