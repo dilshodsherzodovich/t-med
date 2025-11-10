@@ -126,15 +126,7 @@ const Header = ({ isTopBar, variant }) => {
             label: t("navlinks.career.sublinks.meetings"),
             href: `/${lang}/careers/4?category=meeting`,
           },
-          {
-            label: t("navlinks.career.sublinks.events"),
-            href: `/${lang}/careers/5?category=events`,
-          },
         ],
-      },
-      {
-        label: t("navlinks.services.title"),
-        href: `/${lang}/service`,
       },
 
       {

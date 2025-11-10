@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import {
   Heart,
   // Brain,
@@ -8,9 +8,12 @@ import {
   Timer,
   BadgeDollarSign,
   Stethoscope,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import "./Services.scss";
 import { useTranslation } from "react-i18next";
+import Pagination from "../../../Components/Pagination";
 
 // const services = [
 //   {
@@ -56,7 +59,12 @@ import { useTranslation } from "react-i18next";
 // ];
 
 const Services = ({ serviceCategories }) => {
-  const [activeCategory, setActiveCategory] = React.useState("all");
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [currentPage, setCurrentPage] = useState(0);
+  const servicesPerPage = 12;
+  const navRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const { t } = useTranslation();
   const categories = useMemo(() => {
@@ -98,7 +106,72 @@ const Services = ({ serviceCategories }) => {
     });
   }, [services, activeCategory]);
 
-  console.log(activeCategory);
+  // Pagination logic
+  const pageCount = Math.ceil(filteredServices.length / servicesPerPage);
+  const offset = currentPage * servicesPerPage;
+  const paginatedServices = useMemo(() => {
+    return filteredServices.slice(offset, offset + servicesPerPage);
+  }, [filteredServices, offset]);
+
+  // Reset to first page when category changes
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [activeCategory]);
+
+  const handlePageClick = (event) => {
+    setCurrentPage(event.selected);
+  };
+
+  // Check scroll position
+  const checkScrollPosition = useCallback(() => {
+    if (navRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = navRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Use setTimeout to ensure DOM is fully rendered
+    const timer = setTimeout(() => {
+      checkScrollPosition();
+    }, 100);
+
+    const nav = navRef.current;
+    if (nav) {
+      nav.addEventListener("scroll", checkScrollPosition);
+      window.addEventListener("resize", checkScrollPosition);
+    }
+    return () => {
+      clearTimeout(timer);
+      if (nav) {
+        nav.removeEventListener("scroll", checkScrollPosition);
+        window.removeEventListener("resize", checkScrollPosition);
+      }
+    };
+  }, [categories, checkScrollPosition]);
+
+  const scrollLeft = () => {
+    if (navRef.current) {
+      navRef.current.scrollBy({
+        left: -300,
+        behavior: "smooth",
+      });
+      // Check position after scroll animation
+      setTimeout(checkScrollPosition, 300);
+    }
+  };
+
+  const scrollRight = () => {
+    if (navRef.current) {
+      navRef.current.scrollBy({
+        left: 300,
+        behavior: "smooth",
+      });
+      // Check position after scroll animation
+      setTimeout(checkScrollPosition, 300);
+    }
+  };
 
   return (
     <div className="services">
@@ -108,33 +181,53 @@ const Services = ({ serviceCategories }) => {
           <p> Sizning ehtiyojlaringiz uchun kompleks tibbiy yordam </p>
         </div>
 
-        <nav className="services__nav">
-          <button
-            key="all"
-            className={`${
-              activeCategory === "all" ? "button active" : "button "
-            }`}
-            onClick={() => setActiveCategory("all")}
-          >
-            <Stethoscope />
-            Barcha xizmatlar
-          </button>
-          {categories?.map((category) => (
+        <div className="services__nav-wrapper">
+          {canScrollLeft && (
             <button
-              key={category.id}
-              className={`${
-                +activeCategory === +category.id ? "button active" : "button "
-              }`}
-              onClick={() => setActiveCategory(category.id)}
+              className="services__nav-chevron services__nav-chevron--left"
+              onClick={scrollLeft}
+              aria-label="Scroll left"
             >
-              {category.icon}
-              {category.label}
+              <ChevronLeft />
             </button>
-          ))}
-        </nav>
+          )}
+          <nav ref={navRef} className="services__nav">
+            <button
+              key="all"
+              className={`${
+                activeCategory === "all" ? "button active" : "button "
+              }`}
+              onClick={() => setActiveCategory("all")}
+            >
+              <Stethoscope />
+              Barcha xizmatlar
+            </button>
+            {categories?.map((category) => (
+              <button
+                key={category.id}
+                className={`${
+                  +activeCategory === +category.id ? "button active" : "button "
+                }`}
+                onClick={() => setActiveCategory(category.id)}
+              >
+                {category.icon}
+                {category.label}
+              </button>
+            ))}
+          </nav>
+          {canScrollRight && (
+            <button
+              className="services__nav-chevron services__nav-chevron--right"
+              onClick={scrollRight}
+              aria-label="Scroll right"
+            >
+              <ChevronRight />
+            </button>
+          )}
+        </div>
 
         <div className="services__grid">
-          {filteredServices.map((service) => (
+          {paginatedServices.map((service) => (
             <div key={service.id} className="services__card">
               <div className="services__card-icon">{service.icon}</div>
               <h3>{service.title}</h3>
@@ -184,6 +277,14 @@ const Services = ({ serviceCategories }) => {
             </div>
           ))}
         </div>
+
+        {pageCount > 1 && (
+          <Pagination
+            pageCount={filteredServices.length}
+            handlePageClick={handlePageClick}
+            itemsPerPage={servicesPerPage}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import ReactPaginate from "react-paginate";
 import "./pagination.css";
 
-function Pagination({ pageCount, handlePageClick }) {
-  console.log(Math.floor(+pageCount / 10) + 1);
+function Pagination({ pageCount, handlePageClick, itemsPerPage = 10 }) {
+  const calculatedPageCount = Math.ceil(+pageCount / itemsPerPage);
 
   return (
     <div className="d-flex justify-content-center my-4">
@@ -10,7 +10,7 @@ function Pagination({ pageCount, handlePageClick }) {
         previousLabel={<span aria-hidden="true">&laquo;</span>}
         nextLabel={<span aria-hidden="true">&raquo;</span>}
         breakLabel={"..."}
-        pageCount={Math.floor(+pageCount / 10) + 1}
+        pageCount={calculatedPageCount}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
