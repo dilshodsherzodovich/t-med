@@ -24,7 +24,7 @@ const CtaSection1 = ({ data }) => {
         <div className="row align-items-center cs_gap_y_40">
           <div className="col-lg-6">
             <div className="cs_cta_btn_wrapper">
-              <Link className="cs_video_open" onClick={handelClick}>
+              <Link to="#" className="cs_video_open" onClick={handelClick}>
                 <span className="cs_player_btn cs_center">
                   <span />
                 </span>
@@ -50,13 +50,15 @@ const CtaSection1 = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="cs_cta_shape position-absolute">
-          <img
-            src={data.brandImage}
-            alt="Medical Brand"
-            className="cs_spinner_img"
-          />
-        </div>
+        {data.brandImage && (
+          <div className="cs_cta_shape position-absolute">
+            <img
+              src={data.brandImage}
+              alt=""
+              className="cs_spinner_img"
+            />
+          </div>
+        )}
       </div>
 
       <VideoModal

@@ -9,16 +9,10 @@ import {
 } from "react-icons/fa";
 import { FaLocationDot, FaYoutube } from "react-icons/fa6";
 import roundicon from "/assets/img/icons/360-degrees.png";
-import {
-  Link,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useHttp } from "../../hooks/useHttp";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
-import { MdLogout } from "react-icons/md";
 import MultiPanelOrgNav from "./MultiPanelOrgNav";
 
 const Header = ({ isTopBar, variant }) => {
@@ -27,11 +21,6 @@ const Header = ({ isTopBar, variant }) => {
 
   const { lang } = useParams();
 
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const isAuthOpen = searchParams.get("auth");
-
-  const [username, setUsername] = useState();
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [openMobileSubmenuIndex, setOpenMobileSubmenuIndex] = useState([]);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -63,9 +52,9 @@ const Header = ({ isTopBar, variant }) => {
   });
 
   const menu = {
-    email: "nsu-railway@gmail.com",
+    email: "info@temiryo'linfratuzilma.uz",
     location: t("root.address"),
-    logoUrl: "/assets/img/logo.PNG",
+    logoUrl: "/logo.png",
     logoLink: `/${lang}`,
     navItems: [
       {
@@ -149,7 +138,7 @@ const Header = ({ isTopBar, variant }) => {
           },
           {
             label: t("navlinks.media.sublinks.video"),
-            href: "https://www.youtube.com/@nsurailway",
+            href: "#",
             target: "_blank",
           },
         ],
@@ -174,9 +163,10 @@ const Header = ({ isTopBar, variant }) => {
       },
       {
         label: t("navlinks.forAdmins.title"),
-        href: "https://admin.nsu-railway.uz/login",
+        href: "#",
         target: "_blank",
       },
+
       {
         label: t("navlinks.contact.title"),
         href: `/${lang}/contact`,
@@ -191,17 +181,6 @@ const Header = ({ isTopBar, variant }) => {
       setOpenMobileSubmenuIndex((prev) => [...prev, index]);
     }
   };
-
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUsername("");
-  };
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
-    setUsername(user?.username);
-  }, [isAuthOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -268,67 +247,33 @@ const Header = ({ isTopBar, variant }) => {
                       alt=""
                       onClick={() => navigate("/virtour")}
                     />
-                    <Link
-                      to="https://www.facebook.com/nsurailways"
-                      className="cs_center"
-                    >
+                    <Link to="#" className="cs_center">
                       <i>
                         <FaFacebookF />
                       </i>
                     </Link>
-                    <Link to="https://t.me/nsurailway" className="cs_center">
+                    <Link to="#" className="cs_center">
                       <i>
                         <FaTelegramPlane />
                       </i>
                     </Link>
-                    <Link
-                      to="https://twitter.com/nsurailway"
-                      className="cs_center"
-                    >
+                    <Link to="#" className="cs_center">
                       <i>
                         <FaTwitter />
                       </i>
                     </Link>
-                    <Link
-                      to="https://www.instagram.com/nsurailway"
-                      className="cs_center"
-                    >
+                    <Link to="#" className="cs_center">
                       <i>
                         <FaInstagram />
                       </i>
                     </Link>
-                    <Link
-                      to="https://www.youtube.com/@nsurailway"
-                      className="cs_center"
-                    >
+                    <Link to="#" className="cs_center">
                       <i>
                         <FaYoutube />
                       </i>
                     </Link>
                   </div>
                 </div>
-
-                <div className="d-flex align-items-center gap-2">
-                  {username ? (
-                    <div className="d-flex align-items-center gap-2">
-                      <span>{username}</span>
-                      <span
-                        style={{ cursor: "pointer" }}
-                        onClick={handleLogout}
-                      >
-                        <MdLogout fontSize={22} />
-                      </span>
-                    </div>
-                  ) : (
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => setSearchParams({ auth: true })}
-                    >
-                      Kirish
-                    </button>
-                  )}
-                </div>
-                {/* <AuthModal /> */}
               </div>
             </div>
           </div>
@@ -387,7 +332,7 @@ const Header = ({ isTopBar, variant }) => {
                                   <ul
                                     style={{
                                       display: openMobileSubmenuIndex.includes(
-                                        index
+                                        index,
                                       )
                                         ? "block"
                                         : "none",
@@ -401,14 +346,14 @@ const Header = ({ isTopBar, variant }) => {
                                             to={subItem.href}
                                             onClick={() =>
                                               setIsShowMobileMenu(
-                                                !isShowMobileMenu
+                                                !isShowMobileMenu,
                                               )
                                             }
                                           >
                                             {subItem.label}
                                           </Link>
                                         </li>
-                                      )
+                                      ),
                                     )}
                                   </ul>
                                 )}
@@ -448,93 +393,36 @@ const Header = ({ isTopBar, variant }) => {
                       </ul>
 
                       <div className="d-flex social_btns">
-                        <Link
-                          to="https://www.facebook.com/nsurailways"
-                          className="cs_center"
-                        >
+                        <Link to="#" className="cs_center">
                           <i>
                             <FaFacebookF />
                           </i>
                         </Link>
-                        <Link
-                          to="https://t.me/nsurailway"
-                          className="cs_center"
-                        >
+                        <Link to="#" className="cs_center">
                           <i>
                             <FaTelegramPlane />
                           </i>
                         </Link>
-                        <Link
-                          to="https://twitter.com/nsurailway"
-                          className="cs_center"
-                        >
+                        <Link to="#" className="cs_center">
                           <i>
                             <FaTwitter />
                           </i>
                         </Link>
-                        <Link
-                          to="https://www.instagram.com/nsurailway"
-                          className="cs_center"
-                        >
+                        <Link to="#" className="cs_center">
                           <i>
                             <FaInstagram />
                           </i>
                         </Link>
-                        <Link
-                          to="https://www.youtube.com/@nsurailway"
-                          className="cs_center"
-                        >
+                        <Link to="#" className="cs_center">
                           <i>
                             <FaYoutube />
                           </i>
                         </Link>
                         <LanguageSwitcher />
                       </div>
-
-                      <div className="mt-3">
-                        {username ? (
-                          <div className="d-flex align-items-center gap-2">
-                            <span>{username}</span>
-                            <span
-                              style={{ cursor: "pointer" }}
-                              onClick={handleLogout}
-                            >
-                              <MdLogout fontSize={22} />
-                            </span>
-                          </div>
-                        ) : (
-                          <button
-                            className="btn btn-primary"
-                            onClick={() => {
-                              setIsShowMobileMenu(!isShowMobileMenu);
-                              setSearchParams({ auth: true });
-                            }}
-                          >
-                            Kirish
-                          </button>
-                        )}
-                      </div>
                     </div>
                   </ul>
                   <LanguageSwitcher />
-                  {/* {username ? (
-                    <div className="d-flex align-items-center gap-2">
-                      <span>{username}</span>
-                      <span
-                        style={{ cursor: "pointer" }}
-                        onClick={handleLogout}
-                      >
-                        <MdLogout fontSize={22} />
-                      </span>
-                    </div>
-                  ) : (
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => setSearchParams({ auth: true })}
-                    >
-                      Kirish
-                    </button>
-                  )} */}
                   <span
                     className={`cs_menu_toggle ${
                       isShowMobileMenu && "cs_toggle_active"

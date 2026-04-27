@@ -1,41 +1,29 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import loadBackgroudImages from "../Common/loadBackgroudImages";
-import { useMutation } from "@tanstack/react-query";
-import { postNewsLetter } from "../../api/newsletter";
 import { toast } from "react-toastify";
 import contactBg from "/assets/img/about/contact.png";
 import { useTranslation } from "react-i18next";
 
 const ContactSection2 = () => {
   const formRef = useRef();
-
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {
     loadBackgroudImages();
   }, []);
 
-  const mutation = useMutation({
-    mutationFn: postNewsLetter,
-    onSuccess: (data) => {
-      console.log(data);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
       toast.success("Xabaringiz muvaffaqqiyatli jo'natildi", {
         theme: "colored",
         position: "bottom-center",
       });
       formRef.current.reset();
-    },
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = {
-      fio: `${formData.get("first_name")} ${formData.get("first_name")}`,
-      email: formData.get("email"),
-      phone_number: formData.get("phone"),
-    };
-    mutation.mutate(data);
+      setLoading(false);
+    }, 800);
   };
 
   return (
@@ -65,6 +53,7 @@ const ContactSection2 = () => {
                   name="first_name"
                   className="cs_form_field"
                   placeholder={t("pages.home.contact.form.first_name")}
+                  required
                 />
               </div>
               <div className="col-md-6">
@@ -73,6 +62,7 @@ const ContactSection2 = () => {
                   name="last_name"
                   className="cs_form_field"
                   placeholder={t("pages.home.contact.form.last_name")}
+                  required
                 />
               </div>
               <div className="col-md-6">
@@ -81,6 +71,7 @@ const ContactSection2 = () => {
                   name="email"
                   className="cs_form_field"
                   placeholder={t("pages.home.contact.form.email")}
+                  required
                 />
               </div>
               <div className="col-md-6">
@@ -89,6 +80,7 @@ const ContactSection2 = () => {
                   name="phone"
                   className="cs_form_field"
                   placeholder={t("pages.home.contact.form.phone")}
+                  required
                 />
               </div>
               <div className="col-lg-12">
@@ -102,14 +94,10 @@ const ContactSection2 = () => {
               <div className="col-lg-12">
                 <button
                   type="submit"
-                  disabled={mutation?.isPending || false}
-                  className={`cs_btn cs_style_1 ${
-                    mutation?.isPending ? "cs_color_4" : "cs_color_1"
-                  }`}
+                  disabled={loading}
+                  className="cs_btn cs_style_1 cs_color_1"
                 >
-                  {mutation?.isPending
-                    ? "Yuklanmoqda"
-                    : t("pages.home.contact.form.buttonText")}
+                  {loading ? "..." : t("pages.home.contact.form.buttonText")}
                 </button>
               </div>
             </form>

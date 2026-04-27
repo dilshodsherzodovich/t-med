@@ -50,7 +50,6 @@ const BlogSection = ({ data }) => {
               <Slider {...settings}>
                 {data.postsData.map((post, index) => {
                   const d = document.createElement("div");
-                  console.log(post);
                   d.innerHTML = post?.subtitle;
                   const subtitle = d.textContent || d.innerText;
                   return (

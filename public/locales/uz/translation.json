@@ -3,7 +3,7 @@
     "about": {
       "title": "Biz haqimizda",
       "sublinks": {
-        "instituion": "MCHJ haqida",
+        "instituion": "Bo'lim haqida",
         "management": "Rahbariyat",
         "departments": "Bo'limlar",
         "institutions": "Filiallar"
@@ -34,7 +34,7 @@
       }
     },
     "docs": {
-      "title": "Qonunchilik "
+      "title": "Qonunchilik"
     },
     "live": {
       "title": "Jonli efir"
@@ -49,17 +49,17 @@
   "footer": {
     "contact": {
       "reception": "Rahbariyat qabul kunlari: <br /> Du - Juma: 8.00 - 18.00",
-      "address": "Toshkent sh., Yashnabod tumani, Taraqqiyot 2-tor ko'chasi, 12A uy"
+      "address": "Toshkent sh., Taras Shevchenko ko'chasi, 7"
     },
-    "services": {
-      "title": "Xizmatlar",
+    "activities": {
+      "title": "Faoliyat",
       "sublinks": {
-        "service1": "Farmakologiya",
-        "service2": "Ortopedik",
-        "service3": "Gematologiya",
-        "service4": "Nevrologiya",
-        "service5": "Kardiologiya",
-        "service6": "Xirurgiya"
+        "link1": "Biz haqimizda",
+        "link2": "Rahbariyat",
+        "link3": "Bo'limlar",
+        "link4": "Hamkorlik",
+        "link5": "Yangiliklar",
+        "link6": "Aloqa"
       }
     },
     "quickLinks": {
@@ -81,76 +81,76 @@
     "home": {
       "hero": {
         "slider1": {
-          "title": "\"O'zbekiston Temir Yo'llari\" AJ \"Temiryo'l Ijtimoiy xizmatlar\"",
-          "oneWord": "MCHJ",
+          "title": "\"Temiryo'lInfratuzilma\" AJ",
+          "oneWord": "Lokomotiv bo'limi",
           "subtitle": ""
         },
         "slider2": {
           "title": "Yuqori malakali",
           "oneWord": "mutaxassislar",
-          "subtitle": "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa."
+          "subtitle": "Lokomotivlarni texnik xizmat ko'rsatish va ta'mirlash sohasida keng tajribaga ega malakali mutaxassislar jamoasi."
         },
         "slider3": {
-          "title": "Ruhiy salomatlik ",
-          "oneWord": "markazingiz",
-          "subtitle": "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa."
+          "title": "Ishonchli va",
+          "oneWord": "xavfsiz harakatlanish",
+          "subtitle": "Zamonaviy texnologiyalar va yuqori standartlar asosida lokomotivlarning uzluksiz va xavfsiz ishlashini ta'minlaymiz."
         },
         "info": {
-          "title": "Tibbiy xizmatdan foydalaning",
+          "title": "Xizmatlardan foydalaning",
           "phoneText": "Qo'ng'iroq qiling",
           "contactText": "Aloqa",
           "aboutText": "Biz haqimizda"
         }
       },
       "svgMap": {
-        "title": "Muassasalar"
+        "title": "Filiallar"
       },
       "aboutSection": {
         "title": "Biz haqimizda",
-        "subtitle": "25 yildan ko'proq vaqt davomida sifatli xizmat",
-        "text": "Biz dunyoning yetakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
-        "contactText": "Mijozlar bilan aloqa",
-        "consultationText": "Online maslahat",
-        "staticText1": "Muammolaringizni biz bilan bo'lishing",
-        "staticText2": "Shifokorlarimizdan onlayn tarzda maslahatlat oling",
-        "learnMoreText": "Biz haqimizdagi ko'proq bilishni xohlasangiz quyidagi havola orqali o'ting",
+        "subtitle": "Yillar davomida ishonchli xizmat",
+        "text": "\"Temiryo'lInfratuzilma\" AJ Lokomotiv bo'limi — lokomotivlarni texnik xizmat ko'rsatish, ta'mirlash va modernizatsiya qilish sohasida faoliyat yurituvchi ixtisoslashgan bo'lim.",
+        "contactText": "Biz bilan bog'laning",
+        "consultationText": "Onlayn murojaat",
+        "staticText1": "Savollaringizni biz bilan bo'lishing",
+        "staticText2": "Mutaxassislarimizdan onlayn tarzda maslahat oling",
+        "learnMoreText": "Biz haqimizda ko'proq bilishni xohlasangiz quyidagi havola orqali o'ting",
         "buttonText": "Biz haqimizda",
         "howWeWork": "Biz qanday ishlaymiz",
         "experienceYears": "25+",
         "experienceTitle": "Tajriba"
       },
       "countersSection": {
-        "activeClients": "Faol mijozlar",
-        "medicalCenters": "Tibbiyot markazlar",
-        "medicalSummary": "Tibbiy xulosalar",
-        "medicalServices": "Tibbiy xizmatlar"
+        "activeClients": "Faol xodimlar",
+        "medicalCenters": "Lokomotiv parki",
+        "medicalSummary": "Bajarilgan ta'mirlar",
+        "medicalServices": "Ko'rsatilgan xizmatlar"
       },
       "servicesSection": {
         "title": "Xizmatlarimiz",
-        "subtitle": "Yuqori sifatli xizmatlar"
+        "subtitle": "Yuqori sifatli texnik xizmatlar"
       },
       "chooseUsSection": {
         "title": "Nima uchun biz",
-        "subtitle1": "Ko'plab kasalliklaringizga biz",
-        "subtitle2": "bilan davo toping",
+        "subtitle1": "Lokomotiv xizmatlarida",
+        "subtitle2": "ishonchli hamkoringiz",
         "service1": {
-          "title": "Yuqori sifatli e'tibor",
+          "title": "Sifatli texnik xizmat",
           "subtitle": "Barchasi mijozlarimiz uchun"
         },
         "service2": {
-          "title": "Tezkor yordam",
+          "title": "Tezkor ta'mirlash",
           "subtitle": "Barchasi mijozlarimiz uchun"
         },
         "service3": {
-          "title": "Malakali shifokorlar",
+          "title": "Malakali muhandislar",
           "subtitle": "Barchasi mijozlarimiz uchun"
         },
         "service4": {
-          "title": "Tibbiy maslahatlar",
+          "title": "Texnik maslahatlar",
           "subtitle": "Barchasi mijozlarimiz uchun"
         },
         "service5": {
-          "title": "Tibbiy tadqiqotlar",
+          "title": "Diagnostika xizmatlari",
           "subtitle": "Barchasi mijozlarimiz uchun"
         },
         "service6": {
@@ -160,23 +160,24 @@
       },
       "ctaSection": {
         "videoButtonText": "Videoni tomosha qiling",
-        "title": "Professional tibbiy xizmatlar",
-        "description": "Biz dunyoning etakchi apparat, dasturiy ta'minot va brendlaridan bo'lgan yuzlab kelajakka yo'naltirilgan tibbiyot mutaxassislari bilan ishlash imkoniyatiga egamiz.",
+        "title": "Professional lokomotiv xizmatlari",
+        "description": "\"Temiryo'lInfratuzilma\" AJ Lokomotiv bo'limi zamonaviy uskunalar va yuqori malakali mutaxassislar yordamida sifatli texnik xizmat ko'rsatadi.",
         "buttonText": "Bog'lanish"
       },
       "testimonialsSection": {
         "testimonial1": {
-          "text": "Bizning tibbiyot markazimizda xizmat olish juda qulay. Shifokorlar malakali va tezkor yordam berishadi. Bizning kasalligimizga tez va samarali davo topdik.",
-          "author": "Bemor"
+          "text": "Lokomotiv bo'limi xizmatlari juda sifatli va o'z vaqtida. Mutaxassislar malakali va tezkor yordamlashadi.",
+          "author": "Hamkor"
         },
         "testimonial2": {
-          "text": "Bizning tibbiyot markazimizda xizmat olish juda qulay. Shifokorlar malakali va tezkor yordam berishadi. Bizning kasalligimizga tez va samarali davo topdik.",
-          "author": "Bemor"
+          "text": "Lokomotiv bo'limi xizmatlari juda sifatli va o'z vaqtida. Mutaxassislar malakali va tezkor yordamlashadi.",
+          "author": "Hamkor"
         }
       },
       "blogSection": {
         "title": "Yangiliklar",
-        "subtitle": "So'nggi yangiliklar va tadbirlar"
+        "subtitle": "So'nggi yangiliklar va tadbirlar",
+        "category": "Yangilik"
       },
       "contact": {
         "title": "Bog'lanish",
@@ -193,7 +194,8 @@
     },
     "about": {
       "title": "Biz haqimizda",
-      "subtitle": "\"O'zbekiston Temir yo'llari\" AJ \"Temiryo'l ijtimoiy xizmatlar\" mas'uliyati cheklangan jamiyat haqida"
+      "subtitle": "\"Temiryo'lInfratuzilma\" AJ Lokomotiv bo'limi haqida",
+      "gallery": "Galereya"
     },
     "management": {
       "title": "Rahbariyat",
@@ -204,7 +206,6 @@
       "title": "Bo'limlar",
       "staff": "ta xodimlar"
     },
-
     "singleDepartment": {
       "title": "Bo'lim",
       "about": "Bo'lim haqida",
@@ -218,15 +219,15 @@
       "title": "Hamkorlik",
       "opportunities": "Hamkorlik imkoniyatlari",
       "chooseUs": "Nima uchun biz",
-      "description": "Har qanday murakkablikdagi operatsiyalarni amalga oshiradigan, barcha turdagi diagnostika va samarali davo muolajasini taklif qiluvchi yuqori malakali mutaxassislarga ega tibbiy muassasa.",
+      "description": "Lokomotivlarni texnik xizmat ko'rsatish va ta'mirlash sohasida keng tajribaga ega malakali mutaxassislar jamoasi.",
       "fields": {
         "title": "Hamkorlik sohalari",
-        "field1": "XIRURGIYA",
-        "description1": "Jarrohlik sohasida keng tarmoqli hamkorlik",
-        "field2": "TRAVMATOLOGIYA",
-        "description2": "Kattalar va bolalar travmatologiyasi sohasida hamkorlik",
-        "field3": "TIBBIY KO'RIK",
-        "description3": "Aholi va xodimlarni tibbiy ko'rikdan o'tkazish",
+        "field1": "TA'MIRLASH",
+        "description1": "Lokomotivlarni kapital va joriy ta'mirlash",
+        "field2": "DIAGNOSTIKA",
+        "description2": "Zamonaviy uskunalar yordamida texnik diagnostika",
+        "field3": "TEXNIK KO'RIK",
+        "description3": "Lokomotivlarning texnik holatini nazorat qilish",
         "field4": "MALAKA OSHIRISH",
         "description4": "Xodimlarning qayta tayyorlash va malakasini oshirish"
       },
@@ -237,16 +238,16 @@
       "title": "Xizmatlar",
       "subtitle": "Bizning xizmatlarimiz",
       "price": "Narxi",
-      "forRailwayWorkers": "Temiryo'l ishchilar uchun",
+      "forRailwayWorkers": "Temiryo'l ishchilari uchun",
       "nonResidents": " uchun",
       "duration": "Davomiyligi",
       "allServices": "Barcha xizmatlar",
       "govermentServices": {
         "title": "Davlat xizmatlari",
-        "service1": "Narkologiya dispanseri hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma olish",
-        "service2": "Ruhiy kasalliklar bo‘yicha dispanser hisobida turishi yoki turmasligi to‘g‘risida ma’lumotnoma berish",
+        "service1": "Narkologiya dispanseri hisobida turishi yoki turmasligi to'g'risida ma'lumotnoma olish",
+        "service2": "Ruhiy kasalliklar bo'yicha dispanser hisobida turishi yoki turmasligi to'g'risida ma'lumotnoma berish",
         "service3": "Bolalarning emlanish taqvimi",
-        "service4": "Oilaviy shifokorlik punktlari, oilaviy poliklinikalar va ko‘p tarmoqli markaziy poliklinikalarda davlat tomonidan bepul beriladigan dori vositalari va tibbiyot buyumlari to‘g‘risida ma’lumot",
+        "service4": "Oilaviy shifokorlik punktlari, oilaviy poliklinikalar va ko'p tarmoqli markaziy poliklinikalarda davlat tomonidan bepul beriladigan dori vositalari va tibbiyot buyumlari to'g'risida ma'lumot",
         "service5": "Tana vazni va og'irligi kalkulyatori",
         "service6": "Tibbiyot tashkilotlarini akkreditatsiya qilish"
       }
@@ -277,7 +278,7 @@
   "root": {
     "readMore": "Batafsil",
     "home": "Asosiy",
-    "address": "Taraqqiyot 2-tor ko'chasi, 12A uy",
-    "copyright": "O'zbekiston Temir Yo'llari AJ, Barcha huquqlar himoyalangan."
+    "address": "Taras Shevchenko ko'chasi, 7",
+    "copyright": "\"Temiryo'lInfratuzilma\" AJ Lokomotiv bo'limi, Barcha huquqlar himoyalangan."
   }
 }

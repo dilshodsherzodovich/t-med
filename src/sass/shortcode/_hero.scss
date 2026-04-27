@@ -2,14 +2,39 @@
   10. Hero
 ----------------------------------------------------------------*/
 .cs_hero.cs_style_1 {
+  position: relative;
   height: 810px;
   @media (max-width: 991px) {
     height: initial;
     padding: 80px 0 150px 0;
   }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  .cs_hero_text {
+    background-color: transparent;
+    max-width: 825px;
+    width: 100%;
+    padding: 60px 70px 70px 70px;
+    border-radius: 50px;
+    position: relative;
+    z-index: 2;
+    @media (max-width: 991px) {
+      padding: 40px 30px 50px 30px;
+    }
+  }
+  .cs_hero_text_in {
+    position: relative;
+    z-index: 2;
+  }
   .cs_hero_title {
     font-size: 66px;
     margin-bottom: 12px;
+    color: #fff;
     @media (max-width: 991px) {
       font-size: 48px;
     }
@@ -32,9 +57,10 @@
     font-size: 19px;
     max-width: 600px;
     margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.85);
   }
   .cs_hero_info {
-    border-left: 5px solid var(--blue-color);
+    border-left: 5px solid #fff;
     position: relative;
     padding: 4px 0px 4px 18px;
     margin-bottom: 35px;
@@ -43,7 +69,7 @@
       position: absolute;
       height: 8px;
       width: 8px;
-      background-color: var(--blue-color);
+      background-color: #fff;
       left: -4px;
       top: 50%;
       margin-top: -4px;
@@ -52,33 +78,18 @@
     }
     h3 {
       font-size: 24px;
-      color: var(--blue-color);
+      color: #fff;
       margin-bottom: 4px;
     }
     p {
       margin: 0;
-      color: var(--blue-color);
+      color: rgba(255, 255, 255, 0.85);
     }
   }
   .cs_hero_btns {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-  }
-  .cs_hero_text {
-    background-color: #fff;
-    max-width: 825px;
-    width: 100%;
-    padding: 60px 70px 70px 70px;
-    border-radius: 50px;
-    position: relative;
-    @media (max-width: 991px) {
-      padding: 40px 30px 50px 30px;
-    }
-  }
-  .cs_hero_text_in {
-    position: relative;
-    z-index: 2;
   }
   .cs_hero_shape {
     position: absolute;

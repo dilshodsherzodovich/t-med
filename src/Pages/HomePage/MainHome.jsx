@@ -1,84 +1,58 @@
 import HeroSection from "../../Components/HeroSection";
 import About from "../../Components/About/index.jsx";
 import CounterSection from "../../Components/FunSection/CounterSection.jsx";
-import Service from "../../Components/Service/index.jsx";
-import ChooseUs from "../../Components/ChooseUs/index.jsx";
 import CtaSection1 from "../../Components/CtaSection.jsx/CtaSection1.jsx";
 import BlogSection from "../../Components/BlogsSection/index.jsx";
 import Section from "../../Components/Section/index.jsx";
 import ContactSection2 from "../../Components/ContactSection/ContactSection2.jsx";
-import TestimonialSection from "../../Components/TestimonialSection/index.jsx";
-import { useHttp } from "../../hooks/useHttp.js";
-import { useQuery } from "@tanstack/react-query";
-import { useMemo } from "react";
-import { formatDate } from "../../utils/format-date.js";
 import MapSection from "../../Components/MapSection/index.jsx";
-import hero1 from "/assets/img/hero1.png";
-import hero2 from "/assets/img/hero2.png";
-
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
 const MainHome = () => {
-  const sendRequest = useHttp();
-
   const { t } = useTranslation();
-
   const { lang } = useParams();
 
   const heroData = {
     primarySlider: [
       {
-        bgImageUrl:
-          "https://medilo-react.vercel.app/assets/img/hero_slider_3.jpg",
-        title: `${t("pages.home.hero.slider1.title")} ${t(
-          "pages.home.hero.slider1.oneWord"
-        )}`,
+        bgImageUrl: "/assets/img/hero/hero-1.jpg",
+        title: `${t("pages.home.hero.slider1.title")} ${t("pages.home.hero.slider1.oneWord")}`,
         contactSubtitle: "",
         contactTitle: t("pages.home.hero.info.title"),
         contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 98 70`,
-        btnText1: `${t("pages.home.hero.info.contactText")}`,
+        btnText1: t("pages.home.hero.info.contactText"),
         link: `/${lang}/contact`,
-        btnText2: `${t("pages.home.hero.info.aboutText")}`,
+        btnText2: t("pages.home.hero.info.aboutText"),
         link2: `/${lang}/about`,
-        iconImgUrl: "assets/img/icons/hero_icon.png",
+        iconImgUrl: "/assets/img/icons/hero_icon.png",
       },
       {
-        bgImageUrl:
-          "https://medilo-react.vercel.app/assets/img/hero_slider_3.jpg",
-        title: `${t("pages.home.hero.slider2.title")} ${t(
-          "pages.home.hero.slider2.oneWord"
-        )}`,
+        bgImageUrl: "/assets/img/hero/hero-2.jpg",
+        title: `${t("pages.home.hero.slider2.title")} ${t("pages.home.hero.slider2.oneWord")}`,
         contactSubtitle: t("pages.home.hero.slider2.subtitle"),
         contactTitle: t("pages.home.hero.info.title"),
         contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 98 70`,
-        btnText1: `${t("pages.home.hero.info.contactText")}`,
+        btnText1: t("pages.home.hero.info.contactText"),
         link: `/${lang}/contact`,
-        btnText2: `${t("pages.home.hero.info.aboutText")}`,
+        btnText2: t("pages.home.hero.info.aboutText"),
         link2: `/${lang}/about`,
-        iconImgUrl: "assets/img/icons/hero_icon.png",
+        iconImgUrl: "/assets/img/icons/hero_icon.png",
       },
       {
-        bgImageUrl:
-          "https://medilo-react.vercel.app/assets/img/hero_slider_3.jpg",
-        title: `${t("pages.home.hero.slider3.title")} ${t(
-          "pages.home.hero.slider3.oneWord"
-        )}`,
+        bgImageUrl: "/assets/img/hero/hero-3.jpg",
+        title: `${t("pages.home.hero.slider3.title")} ${t("pages.home.hero.slider3.oneWord")}`,
         contactSubtitle: t("pages.home.hero.slider3.subtitle"),
         contactTitle: t("pages.home.hero.info.title"),
         contact: `${t("pages.home.hero.info.phoneText")}: +998 (71) 299 98 70`,
-        btnText1: `${t("pages.home.hero.info.contactText")}`,
+        btnText1: t("pages.home.hero.info.contactText"),
         link: `/${lang}/contact`,
-        btnText2: `${t("pages.home.hero.info.aboutText")}`,
+        btnText2: t("pages.home.hero.info.aboutText"),
         link2: `/${lang}/about`,
-        iconImgUrl: "assets/img/icons/hero_icon.png",
+        iconImgUrl: "/assets/img/icons/hero_icon.png",
       },
     ],
-    secondarySlider: [
-      "https://medilo-react.vercel.app/assets/img/hero_slider_sm_3.png",
-      "https://medilo-react.vercel.app/assets/img/hero_slider_sm_1.png",
-      "https://medilo-react.vercel.app/assets/img/hero_slider_sm_2.png",
-    ],
+    secondarySlider: [],
   };
 
   const aboutData = {
@@ -88,7 +62,7 @@ const MainHome = () => {
     service: t("pages.home.aboutSection.contactText"),
     experienceYears: t("pages.home.aboutSection.experienceYears"),
     experienceTitle: t("pages.home.aboutSection.experienceTitle"),
-    videoUrl: "https://www.youtube.com/embed/DmmqYVu7GYA",
+    videoUrl: "https://www.youtube.com/embed/L5_9Z9i3WdI",
     videoText: t("pages.home.aboutSection.howWeWork"),
     iconboxes: [
       {
@@ -102,13 +76,9 @@ const MainHome = () => {
         subtitle: t("pages.home.aboutSection.staticText2"),
       },
     ],
-
     btnUrl: `/${lang}/about`,
     btnText: t("pages.home.aboutSection.buttonText"),
-    sectionImgUrl: "assets/img/about_section_img_1.png",
-    headImgUrl: "https://medilo-react.vercel.app/assets/img/about_img_1.jpg",
-    headSecondImgUrl:
-      "https://medilo-react.vercel.app/assets/img/about_img_2.jpg",
+    sectionImgUrl: "/assets/img/about/about3.jpg",
   };
 
   const countersData = [
@@ -124,7 +94,7 @@ const MainHome = () => {
     },
     {
       iconUrl: "/assets/img/icons/counter_icon_3.png",
-      number: "3.5 mln + ",
+      number: "3.5 mln+",
       title: t("pages.home.countersSection.medicalSummary"),
     },
     {
@@ -134,148 +104,55 @@ const MainHome = () => {
     },
   ];
 
-  const serviceData = {
-    subtitle: t("pages.home.servicesSection.title"),
-    title: t("pages.home.servicesSection.subtitle"),
-    description: "",
-    footerIcon: "/assets/img/icons/service_footer_icon_1.png",
-    footerText:
-      "Delivering tomorrow's health care for your family.<br>medical this View",
-    footerLink: "/",
-    footerLinkText: "SEE MORE",
-  };
-
-  const sectionData = {
-    subtitle: t("pages.home.chooseUsSection.title"),
-    title: `${t("pages.home.chooseUsSection.subtitle1")} <br/> ${t(
-      "pages.home.chooseUsSection.subtitle2"
-    )}`,
-    services: [
-      {
-        iconUrl: "/assets/img/icons/service_icon_9.png",
-        title: t("pages.home.chooseUsSection.service1.title"),
-        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
-        duration: "25 daqiqa",
-      },
-      {
-        iconUrl: "/assets/img/icons/service_icon_10.png",
-        title: t("pages.home.chooseUsSection.service2.title"),
-        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
-        duration: "25 daqiqa",
-      },
-      {
-        iconUrl: "/assets/img/icons/service_icon_11.png",
-        title: t("pages.home.chooseUsSection.service6.title"),
-        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
-        duration: "25 daqiqa",
-      },
-      {
-        iconUrl: "/assets/img/icons/service_icon_12.png",
-        title: t("pages.home.chooseUsSection.service3.title"),
-        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
-        duration: "25 daqiqa",
-      },
-      {
-        iconUrl: "/assets/img/icons/service_icon_13.png",
-        title: t("pages.home.chooseUsSection.service4.title"),
-        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
-        duration: "25 daqiqa",
-      },
-      {
-        iconUrl: "/assets/img/icons/service_icon_14.png",
-        title: t("pages.home.chooseUsSection.service5.title"),
-        subtitle: t("pages.home.chooseUsSection.service1.subtitle"),
-        duration: "25 daqiqa",
-      },
-    ],
-  };
-
   const ctaData1 = {
-    videoLink: "https://www.youtube.com/embed/DmmqYVu7GYA",
+    videoLink: "https://www.youtube.com/embed/L5_9Z9i3WdI",
     videoButtonText: t("pages.home.ctaSection.videoButtonText"),
     subtitle: "VIDEO",
     title: t("pages.home.ctaSection.title"),
     description: t("pages.home.ctaSection.description"),
     buttonLink: `/${lang}/contact`,
     buttonText: t("pages.home.ctaSection.buttonText"),
-    brandImage: "assets/img/medical_brand.png",
   };
 
-  const testimonialData = {
-    thumbnail: "https://medilo-react.vercel.app/assets/img/testimonial_1.png",
-    testimonials: [
+  const blogData = {
+    sectionTitle: t("pages.home.blogSection.title"),
+    sectionSubtitle: t("pages.home.blogSection.subtitle"),
+    postsData: [
       {
-        rating: 2,
-        subtitle: t("pages.home.testimonialsSection.testimonial1.text"),
-        avatar: "assets/img/avatar_1.png",
-        name: t("pages.home.testimonialsSection.testimonial1.author"),
-        position: "",
+        id: 1,
+        category: t("pages.home.blogSection.category"),
+        date: "15 Yanvar, 2025",
+        link: `/${lang}/blog/1`,
+        linkText: t("root.readMore"),
+        title: "Lokomotiv parkini modernizatsiya qilish dasturi boshlandi",
+        subtitle: "Bo'limimizda zamonaviy lokomotivlarni joriy etish va mavjud texnikani yangilash bo'yicha keng qamrovli dastur ishga tushirildi.",
+        btnText: t("root.readMore"),
+        thumbnail: "/assets/img/nsu-cover.jpg",
       },
       {
-        rating: 4,
-        subtitle: t("pages.home.testimonialsSection.testimonial2.text"),
-        avatar: "assets/img/avatar_2.png",
-        name: t("pages.home.testimonialsSection.testimonial2.author"),
-        position: "",
+        id: 2,
+        category: t("pages.home.blogSection.category"),
+        date: "3 Fevral, 2025",
+        link: `/${lang}/blog/2`,
+        linkText: t("root.readMore"),
+        title: "Xodimlar malakasini oshirish bo'yicha o'quv seminarlari o'tkazildi",
+        subtitle: "Lokomotiv bo'limi xodimlari uchun zamonaviy texnik xizmat ko'rsatish usullari bo'yicha bir qator o'quv tadbirlari muvaffaqiyatli yakunlandi.",
+        btnText: t("root.readMore"),
+        thumbnail: "/assets/img/nsu-cover1.jpg",
+      },
+      {
+        id: 3,
+        category: t("pages.home.blogSection.category"),
+        date: "20 Mart, 2025",
+        link: `/${lang}/blog/3`,
+        linkText: t("root.readMore"),
+        title: "Xavfsizlik nazorati bo'yicha yangi standartlar joriy etildi",
+        subtitle: "Lokomotivlarning texnik holatini nazorat qilishda yangi xalqaro standartlar qo'llanilishi bo'yicha tegishli tartiblar joriy etildi.",
+        btnText: t("root.readMore"),
+        thumbnail: "/assets/img/nsu-cover2.jpg",
       },
     ],
   };
-
-  const { data: services } = useQuery({
-    queryKey: ["services"],
-    queryFn: () => sendRequest({ url: `/blog/services//?page_size=30` }),
-    staleTime: 1000,
-    refetchOnWindowFocus: false,
-    retry: false,
-  });
-
-  const servicesData = useMemo(() => {
-    if (!services?.results?.length) return [];
-    return services?.results?.map((item, index) => {
-      return {
-        id: item?.id,
-        backgroundImage: "/assets/img/service_bg.jpg",
-        iconUrl: `/assets/img/icons/service_icon_${(index % 8) + 1}.png`,
-        index: index + 1,
-        title: item?.title,
-        cost: item?.price,
-        duration: item?.duration,
-        link: "",
-      };
-    }, []);
-  }, [services]);
-
-  const { data: blogs } = useQuery({
-    queryKey: ["blogs"],
-    queryFn: () => sendRequest({ url: `/blog/posts//` }),
-    staleTime: 1000,
-    refetchOnWindowFocus: false,
-    retry: false,
-  });
-
-  const blogData = useMemo(() => {
-    return {
-      sectionTitle: t("pages.home.blogSection.title"),
-      sectionSubtitle: t("pages.home.blogSection.subtitle"),
-      postsData: blogs?.results?.length
-        ? blogs?.results?.map((item) => {
-            return {
-              id: item?.id,
-              category: "Tibbiy",
-              date: formatDate(item?.pub_date),
-              link: `/${lang}/blog/${item?.id}`,
-              linkText: t("root.readMore"),
-              title: item?.title,
-              subtitle: item?.body,
-              btnText: t("root.readMore"),
-              thumbnail: item?.images?.find((_, idx) => idx === 0)?.image,
-            };
-          })
-        : [],
-    };
-
-    // eslint-disable-next-line
-  }, [blogs]);
 
   return (
     <>
@@ -287,7 +164,7 @@ const MainHome = () => {
         bottomSpaceLg="80"
         bottomSpaceMd="120"
         className="cs_blue_bg cs_bg_filed"
-        backgroundImage="assets/img/service_bg_3.jpg"
+        backgroundImage="/assets/img/service_bg_3.jpg"
       >
         <MapSection />
       </Section>
@@ -311,43 +188,6 @@ const MainHome = () => {
         topSpaceMd="110"
         bottomSpaceLg="80"
         bottomSpaceMd="120"
-        className={"cs_gray_bg"}
-      >
-        <Service
-          cardBg={"cs_gray_bg"}
-          data={serviceData}
-          services={servicesData}
-        />
-      </Section>
-
-      {/* <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        className={"cs_team_section position-relative"}
-      >
-        <TeamSection
-          hr={true}
-          variant={"cs_pagination cs_style_2"}
-          data={doctorsData}
-        />
-      </Section> */}
-
-      <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="80"
-        bottomSpaceMd="120"
-        className="cs_gray_bg cs_bg_filed"
-        backgroundImage="/assets/img/hero2.png"
-      >
-        <ChooseUs data={sectionData} />
-      </Section>
-
-      <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="80"
-        bottomSpaceMd="120"
         className="cs_cta cs_style_2 cs_blue_bg cs_bg_filed cs_center"
         backgroundImage="/assets/img/cta_bg_1.jpeg"
       >
@@ -363,21 +203,7 @@ const MainHome = () => {
         <BlogSection data={blogData} />
       </Section>
 
-      <ContactSection2></ContactSection2>
-
-      <Section
-        topSpaceLg="80"
-        topSpaceMd="120"
-        bottomSpaceLg="80"
-        bottomSpaceMd="120"
-        className="cs_testimonial_area"
-        backgroundImage="/assets/img/testomonial_bg_1.png"
-      >
-        <TestimonialSection data={testimonialData} />
-      </Section>
-
-      {/* End Contact Solution */}
-      {/* Start Blog Section */}
+      <ContactSection2 />
     </>
   );
 };

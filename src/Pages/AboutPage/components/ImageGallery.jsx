@@ -1,54 +1,11 @@
-import { useMemo, useState } from "react";
+import { useState, useMemo } from "react";
 import { Carousel, Modal, Row, Col } from "react-bootstrap";
 import "./ImageGallery.scss";
 import SectionHeading from "../../../Components/SectionHeading";
+import { useTranslation } from "react-i18next";
 
-// const images = [
-//   {
-//     src: "https://picsum.photos/id/1018/500/300",
-//     largeSrc: "https://picsum.photos/id/1018/1000/600",
-//     alt: "Nature landscape",
-//     title: "Beautiful Landscape",
-//     description: "A serene view of mountains and a lake",
-//   },
-//   {
-//     src: "https://picsum.photos/id/1015/500/300",
-//     largeSrc: "https://picsum.photos/id/1015/1000/600",
-//     alt: "Forest scene",
-//     title: "Misty Forest",
-//     description: "A foggy day in a dense forest",
-//   },
-//   {
-//     src: "https://picsum.photos/id/1019/500/300",
-//     largeSrc: "https://picsum.photos/id/1019/1000/600",
-//     alt: "Ocean view",
-//     title: "Coastal Sunrise",
-//     description: "The sun rising over a rocky coastline",
-//   },
-//   {
-//     src: "https://picsum.photos/id/1039/500/300",
-//     largeSrc: "https://picsum.photos/id/1039/1000/600",
-//     alt: "Desert landscape",
-//     title: "Desert Dunes",
-//     description: "Rolling sand dunes in a vast desert",
-//   },
-//   {
-//     src: "https://picsum.photos/id/1043/500/300",
-//     largeSrc: "https://picsum.photos/id/1043/1000/600",
-//     alt: "City skyline",
-//     title: "Urban Nightscape",
-//     description: "A city skyline illuminated at night",
-//   },
-//   {
-//     src: "https://picsum.photos/id/1044/500/300",
-//     largeSrc: "https://picsum.photos/id/1044/1000/600",
-//     alt: "Snowy mountains",
-//     title: "Winter Wonderland",
-//     description: "Snow-capped mountains under a clear sky",
-//   },
-// ];
-
-const ImageGallery = ({ gallery }) => {
+const ImageGallery = ({ images = [] }) => {
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -62,45 +19,37 @@ const ImageGallery = ({ gallery }) => {
     setSelectedImage(null);
   };
 
-  const images = useMemo(() => {
-    if (!gallery?.results?.length) return [];
-    return gallery?.results[0].images?.map((item) => ({
-      src: item?.image,
-      largeSrc: item?.image,
-      alt: "",
-    }));
-  }, [gallery]);
-
-  // Group images into pairs
   const imagePairs = useMemo(() => {
-    if (!images?.length) return [];
-    const pairImages = [];
-    for (let i = 0; i < images?.length; i += 3) {
-      pairImages.push(images?.slice(i, i + 3));
+    if (!images.length) return [];
+    const pairs = [];
+    for (let i = 0; i < images.length; i += 3) {
+      pairs.push(images.slice(i, i + 3));
     }
-    return pairImages;
+    return pairs;
   }, [images]);
+
+  if (!imagePairs.length) return null;
 
   return (
     <div className="image-gallery-carousel container">
       <SectionHeading
-        textColor={"cs_white_color"}
-        SectionSubtitle="Galereya"
-        // SectionTitle={data.title}
-        // SectionDescription={data.description}
+        textColor="cs_white_color"
+        SectionSubtitle={t("pages.about.gallery")}
       />
+      <div className="cs_height_50 cs_height_lg_30" />
       <Carousel>
         {imagePairs.map((pair, index) => (
           <Carousel.Item key={index}>
-            <Row>
+            <Row className="g-3">
               {pair.map((image, imageIndex) => (
-                <Col key={imageIndex} xs={4}>
+                <Col key={imageIndex} xs={12} sm={4}>
                   <div className="image-container">
                     <img
                       className="d-block w-100"
                       src={image.src}
                       alt={image.alt}
                       onClick={() => handleImageClick(image)}
+                      style={{ cursor: "pointer", borderRadius: "8px", objectFit: "cover", height: "220px" }}
                     />
                   </div>
                 </Col>
@@ -111,11 +60,12 @@ const ImageGallery = ({ gallery }) => {
       </Carousel>
 
       <Modal show={showModal} onHide={handleCloseModal} centered size="lg">
-        <Modal.Body>
+        <Modal.Body className="p-0">
           <img
             src={selectedImage?.largeSrc}
             alt={selectedImage?.alt}
-            className="img-fluid"
+            className="img-fluid w-100"
+            style={{ borderRadius: "4px" }}
           />
         </Modal.Body>
       </Modal>

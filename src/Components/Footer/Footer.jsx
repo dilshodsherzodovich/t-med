@@ -20,39 +20,21 @@ const Footer = () => {
     contactText: t("footer.contact.reception"),
     contactText2: t("footer.contact.address"),
     contactText3: "+998 (71) 299 98 27",
-    facebookHref: "https://facebook.com/nsurailways",
-    telegramHref: "https://t.me/nsurailways",
-    twitterHref: "https://x.com/nsurailway",
-    instagramHref: "https://instagram.com/nsurailway",
-    youtubeHref: "https://youtube.com/nsurailway",
+    facebookHref: "#",
+    telegramHref: "#",
+    twitterHref: "#",
+    instagramHref: "#",
+    youtubeHref: "#",
     widgets: [
       {
-        title: t("footer.services.title"),
+        title: t("footer.activities.title"),
         links: [
-          {
-            href: `/${lang}/service`,
-            text: t("footer.services.sublinks.service1"),
-          },
-          {
-            href: `/${lang}/service`,
-            text: t("footer.services.sublinks.service2"),
-          },
-          {
-            href: `/${lang}/service`,
-            text: t("footer.services.sublinks.service3"),
-          },
-          {
-            href: `/${lang}/service`,
-            text: t("footer.services.sublinks.service4"),
-          },
-          {
-            href: `/${lang}/service`,
-            text: t("footer.services.sublinks.service5"),
-          },
-          {
-            href: `/${lang}/service`,
-            text: t("footer.services.sublinks.service6"),
-          },
+          { href: `/${lang}/about`, text: t("footer.activities.sublinks.link1") },
+          { href: `/${lang}/management`, text: t("footer.activities.sublinks.link2") },
+          { href: `/${lang}/departments`, text: t("footer.activities.sublinks.link3") },
+          { href: `/cooperation`, text: t("footer.activities.sublinks.link4") },
+          { href: `/${lang}/blog`, text: t("footer.activities.sublinks.link5") },
+          { href: `/${lang}/contact`, text: t("footer.activities.sublinks.link6") },
         ],
       },
       {

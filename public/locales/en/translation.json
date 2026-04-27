@@ -3,7 +3,7 @@
     "about": {
       "title": "About Us",
       "sublinks": {
-        "instituion": "About the Institution",
+        "instituion": "About the Department",
         "management": "Management",
         "departments": "Departments",
         "institutions": "Institutions"
@@ -49,17 +49,17 @@
   "footer": {
     "contact": {
       "reception": "Reception Days: <br /> Mon - Fri: 8.00 - 18.00",
-      "address": "Tashkent, Yashnobod district, Taraqqiyot street, 2nd passage, 12A"
+      "address": "Tashkent, Taras Shevchenko street, 7"
     },
-    "services": {
-      "title": "Services",
+    "activities": {
+      "title": "Activities",
       "sublinks": {
-        "service1": "Pharmacology",
-        "service2": "Orthopedic",
-        "service3": "Hematology",
-        "service4": "Neurology",
-        "service5": "Cardiology",
-        "service6": "Surgery"
+        "link1": "About Us",
+        "link2": "Management",
+        "link3": "Departments",
+        "link4": "Cooperation",
+        "link5": "News",
+        "link6": "Contact"
       }
     },
     "quickLinks": {
@@ -81,22 +81,22 @@
     "home": {
       "hero": {
         "slider1": {
-          "title": "Uzbekistan Railways Social Services Institution",
-          "oneWord": "institution",
+          "title": "\"Temiryo'lInfratuzilma\" JSC",
+          "oneWord": "Locomotives Department",
           "subtitle": ""
         },
         "slider2": {
           "title": "Highly Qualified",
-          "oneWord": "specialists",
-          "subtitle": "A medical institution with highly qualified specialists offering all types of diagnostics and effective treatment procedures for any complexity of operations."
+          "oneWord": "Specialists",
+          "subtitle": "A team of qualified specialists with extensive experience in locomotive maintenance and repair."
         },
         "slider3": {
-          "title": "Mental Health",
-          "oneWord": "center",
-          "subtitle": "A medical institution with highly qualified specialists offering all types of diagnostics and effective treatment procedures for any complexity of operations."
+          "title": "Reliable and",
+          "oneWord": "Safe Operations",
+          "subtitle": "We ensure the continuous and safe operation of locomotives based on modern technologies and high standards."
         },
         "info": {
-          "title": "Use Medical Services",
+          "title": "Use Our Services",
           "phoneText": "Call",
           "contactText": "Contact",
           "aboutText": "About Us"
@@ -107,12 +107,12 @@
       },
       "aboutSection": {
         "title": "About Us",
-        "subtitle": "Over 25 years of quality service",
-        "text": "We have the opportunity to work with hundreds of future-oriented medical professionals from the world's leading hardware, software, and brands.",
-        "contactText": "Customer Contact",
-        "consultationText": "Online Consultation",
-        "staticText1": "Share your problems with us",
-        "staticText2": "Get online consultations from our doctors",
+        "subtitle": "Years of Reliable Service",
+        "text": "The Locomotives Department of \"Temiryo'lInfratuzilma\" JSC is a specialized department engaged in technical maintenance, repair, and modernization of locomotives.",
+        "contactText": "Contact Us",
+        "consultationText": "Online Inquiry",
+        "staticText1": "Share your questions with us",
+        "staticText2": "Get online consultations from our specialists",
         "learnMoreText": "If you want to know more about us, follow the link below",
         "buttonText": "About Us",
         "howWeWork": "How We Work",
@@ -120,37 +120,37 @@
         "experienceTitle": "Experience"
       },
       "countersSection": {
-        "activeClients": "Active Clients",
-        "medicalCenters": "Medical Centers",
-        "medicalSummary": "Medical Summaries",
-        "medicalServices": "Medical Services"
+        "activeClients": "Active Employees",
+        "medicalCenters": "Locomotive Fleet",
+        "medicalSummary": "Completed Repairs",
+        "medicalServices": "Services Provided"
       },
       "servicesSection": {
         "title": "Our Services",
-        "subtitle": "High Quality Services"
+        "subtitle": "High Quality Technical Services"
       },
       "chooseUsSection": {
         "title": "Why Choose Us",
-        "subtitle1": "Find a cure for many of your diseases",
-        "subtitle2": "with us",
+        "subtitle1": "Your reliable partner",
+        "subtitle2": "in locomotive services",
         "service1": {
-          "title": "High Quality Attention",
+          "title": "Quality Technical Service",
           "subtitle": "All for our clients"
         },
         "service2": {
-          "title": "Quick Help",
+          "title": "Fast Repairs",
           "subtitle": "All for our clients"
         },
         "service3": {
-          "title": "Qualified Doctors",
+          "title": "Qualified Engineers",
           "subtitle": "All for our clients"
         },
         "service4": {
-          "title": "Medical Consultations",
+          "title": "Technical Consultations",
           "subtitle": "All for our clients"
         },
         "service5": {
-          "title": "Medical Research",
+          "title": "Diagnostics Services",
           "subtitle": "All for our clients"
         },
         "service6": {
@@ -160,23 +160,24 @@
       },
       "ctaSection": {
         "videoButtonText": "Watch the Video",
-        "title": "Professional Medical Services",
-        "description": "We have the opportunity to work with hundreds of future-oriented medical professionals from the world's leading hardware, software, and brands.",
+        "title": "Professional Locomotive Services",
+        "description": "The Locomotives Department of \"Temiryo'lInfratuzilma\" JSC provides quality technical services using modern equipment and highly qualified specialists.",
         "buttonText": "Contact"
       },
       "testimonialsSection": {
         "testimonial1": {
-          "text": "Receiving services at our medical center is very convenient. The doctors are qualified and provide quick help. We found a quick and effective cure for our illness.",
-          "author": "Patient"
+          "text": "The Locomotives Department services are very high quality and timely. The specialists are qualified and provide prompt assistance.",
+          "author": "Partner"
         },
         "testimonial2": {
-          "text": "Receiving services at our medical center is very convenient. The doctors are qualified and provide quick help. We found a quick and effective cure for our illness.",
-          "author": "Patient"
+          "text": "The Locomotives Department services are very high quality and timely. The specialists are qualified and provide prompt assistance.",
+          "author": "Partner"
         }
       },
       "blogSection": {
         "title": "News",
-        "subtitle": "Latest News and Events"
+        "subtitle": "Latest News and Events",
+        "category": "News"
       },
       "contact": {
         "title": "Contact",
@@ -193,7 +194,8 @@
     },
     "about": {
       "title": "About Us",
-      "subtitle": "About Uzbekistan Railways Social Services Institution"
+      "subtitle": "About the Locomotives Department of \"Temiryo'lInfratuzilma\" JSC",
+      "gallery": "Gallery"
     },
     "management": {
       "title": "Management",
@@ -217,16 +219,16 @@
       "title": "Cooperation",
       "opportunities": "Cooperation Opportunities",
       "chooseUs": "Why Choose Us",
-      "description": "A medical institution with highly qualified specialists offering all types of diagnostics and effective treatment procedures for any complexity of operations.",
+      "description": "A team of qualified specialists with extensive experience in locomotive maintenance and repair.",
       "fields": {
         "title": "Cooperation Fields",
-        "field1": "SURGERY",
-        "description1": "Broad cooperation in the field of surgery",
-        "field2": "TRAUMATOLOGY",
-        "description2": "Cooperation in the field of adult and pediatric traumatology",
-        "field3": "MEDICAL EXAMINATION",
-        "description3": "Medical examination of the population and employees",
-        "field4": "QUALIFICATION IMPROVEMENT",
+        "field1": "REPAIR",
+        "description1": "Major and routine locomotive repair works",
+        "field2": "DIAGNOSTICS",
+        "description2": "Technical diagnostics using modern equipment",
+        "field3": "TECHNICAL INSPECTION",
+        "description3": "Monitoring the technical condition of locomotives",
+        "field4": "SKILLS DEVELOPMENT",
         "description4": "Retraining and qualification improvement of employees"
       },
       "organizaitons": "Partner Organizations",
@@ -276,7 +278,7 @@
   "root": {
     "readMore": "Read More",
     "home": "Home",
-    "address": "Taraqqiyot street, 2nd passage, 12A",
-    "copyright": "Uzbekistan Railways JSC, All rights reserved."
+    "address": "Taras Shevchenko street, 7",
+    "copyright": "\"Temiryo'lInfratuzilma\" JSC Locomotives Department, All rights reserved."
   }
 }
