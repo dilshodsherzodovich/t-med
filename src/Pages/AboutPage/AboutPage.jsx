@@ -33,19 +33,45 @@ const AboutPage = () => {
   };
 
   const mockGallery = [
-    { src: "/assets/img/about/about1.jpg", largeSrc: "/assets/img/about/about1.jpg", alt: "" },
-    { src: "/assets/img/about/about2.jpg", largeSrc: "/assets/img/about/about2.jpg", alt: "" },
-    { src: "/assets/img/about/about3.jpg", largeSrc: "/assets/img/about/about3.jpg", alt: "" },
-    { src: "/assets/img/nsu-cover.jpg",    largeSrc: "/assets/img/nsu-cover.jpg",    alt: "" },
-    { src: "/assets/img/nsu-cover1.jpg",   largeSrc: "/assets/img/nsu-cover1.jpg",   alt: "" },
-    { src: "/assets/img/nsu-cover2.jpg",   largeSrc: "/assets/img/nsu-cover2.jpg",   alt: "" },
+    {
+      src: "/assets/img/about/about1.jpg",
+      largeSrc: "/assets/img/about/about1.jpg",
+      alt: "",
+    },
+    {
+      src: "/assets/img/about/about2.jpg",
+      largeSrc: "/assets/img/about/about2.jpg",
+      alt: "",
+    },
+    {
+      src: "/assets/img/about/about3.jpg",
+      largeSrc: "/assets/img/about/about3.jpg",
+      alt: "",
+    },
+    {
+      src: "/assets/img/nsu-cover.jpg",
+      largeSrc: "/assets/img/nsu-cover.jpg",
+      alt: "",
+    },
+    {
+      src: "/assets/img/nsu-cover1.jpg",
+      largeSrc: "/assets/img/nsu-cover1.jpg",
+      alt: "",
+    },
+    {
+      src: "/assets/img/nsu-cover2.jpg",
+      largeSrc: "/assets/img/nsu-cover2.jpg",
+      alt: "",
+    },
   ];
 
   return (
     <div className="about-page-area">
       <Section
         className="cs_page_heading cs_bg_filed cs_center"
-        backgroundImage="/assets/img/hero/hero-2.jpg"
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundSize="cover"
+        backgroundPosition="center center"
       >
         <PageHeading
           data={headingData}

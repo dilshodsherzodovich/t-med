@@ -9,7 +9,6 @@ import { FaSuitcaseMedical } from "react-icons/fa6";
 import "./cooperation.scss";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
-import hero2 from "/assets/img/hero2.png";
 import InfiniteLogoSlider from "./components/InfiniteLogoSlider";
 import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
@@ -57,7 +56,8 @@ const CooperationPage = () => {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage={hero2}
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundPosition="center center"
       >
         <PageHeading
           secondaryData={t("pages.cooperation.title")}

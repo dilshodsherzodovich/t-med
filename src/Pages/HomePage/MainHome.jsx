@@ -16,7 +16,7 @@ const MainHome = () => {
   const heroData = {
     primarySlider: [
       {
-        bgImageUrl: "/assets/img/hero/hero-1.jpg",
+        bgImageUrl: "/assets/img/hero/hero-1.png",
         title: `${t("pages.home.hero.slider1.title")} ${t("pages.home.hero.slider1.oneWord")}`,
         contactSubtitle: "",
         contactTitle: t("pages.home.hero.info.title"),
@@ -28,7 +28,7 @@ const MainHome = () => {
         iconImgUrl: "/assets/img/icons/hero_icon.png",
       },
       {
-        bgImageUrl: "/assets/img/hero/hero-2.jpg",
+        bgImageUrl: "/assets/img/hero/hero-2.png",
         title: `${t("pages.home.hero.slider2.title")} ${t("pages.home.hero.slider2.oneWord")}`,
         contactSubtitle: t("pages.home.hero.slider2.subtitle"),
         contactTitle: t("pages.home.hero.info.title"),
@@ -40,7 +40,7 @@ const MainHome = () => {
         iconImgUrl: "/assets/img/icons/hero_icon.png",
       },
       {
-        bgImageUrl: "/assets/img/hero/hero-3.jpg",
+        bgImageUrl: "/assets/img/hero/hero-3.png",
         title: `${t("pages.home.hero.slider3.title")} ${t("pages.home.hero.slider3.oneWord")}`,
         contactSubtitle: t("pages.home.hero.slider3.subtitle"),
         contactTitle: t("pages.home.hero.info.title"),
@@ -125,7 +125,8 @@ const MainHome = () => {
         link: `/${lang}/blog/1`,
         linkText: t("root.readMore"),
         title: "Lokomotiv parkini modernizatsiya qilish dasturi boshlandi",
-        subtitle: "Bo'limimizda zamonaviy lokomotivlarni joriy etish va mavjud texnikani yangilash bo'yicha keng qamrovli dastur ishga tushirildi.",
+        subtitle:
+          "Bo'limimizda zamonaviy lokomotivlarni joriy etish va mavjud texnikani yangilash bo'yicha keng qamrovli dastur ishga tushirildi.",
         btnText: t("root.readMore"),
         thumbnail: "/assets/img/nsu-cover.jpg",
       },
@@ -135,8 +136,10 @@ const MainHome = () => {
         date: "3 Fevral, 2025",
         link: `/${lang}/blog/2`,
         linkText: t("root.readMore"),
-        title: "Xodimlar malakasini oshirish bo'yicha o'quv seminarlari o'tkazildi",
-        subtitle: "Lokomotiv bo'limi xodimlari uchun zamonaviy texnik xizmat ko'rsatish usullari bo'yicha bir qator o'quv tadbirlari muvaffaqiyatli yakunlandi.",
+        title:
+          "Xodimlar malakasini oshirish bo'yicha o'quv seminarlari o'tkazildi",
+        subtitle:
+          "Lokomotiv bo'limi xodimlari uchun zamonaviy texnik xizmat ko'rsatish usullari bo'yicha bir qator o'quv tadbirlari muvaffaqiyatli yakunlandi.",
         btnText: t("root.readMore"),
         thumbnail: "/assets/img/nsu-cover1.jpg",
       },
@@ -147,7 +150,8 @@ const MainHome = () => {
         link: `/${lang}/blog/3`,
         linkText: t("root.readMore"),
         title: "Xavfsizlik nazorati bo'yicha yangi standartlar joriy etildi",
-        subtitle: "Lokomotivlarning texnik holatini nazorat qilishda yangi xalqaro standartlar qo'llanilishi bo'yicha tegishli tartiblar joriy etildi.",
+        subtitle:
+          "Lokomotivlarning texnik holatini nazorat qilishda yangi xalqaro standartlar qo'llanilishi bo'yicha tegishli tartiblar joriy etildi.",
         btnText: t("root.readMore"),
         thumbnail: "/assets/img/nsu-cover2.jpg",
       },

@@ -4,7 +4,6 @@ import Modal from "./components/Modal";
 import "./careerPosts.scss";
 import Section from "../../Components/Section";
 import PageHeading from "../../Components/PageHeading";
-import hero2 from "/assets/img/hero2.png";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { useParams, useSearchParams } from "react-router-dom";
@@ -61,7 +60,8 @@ function CareerPosts() {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage={hero2}
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundPosition="center center"
       >
         <PageHeading secondaryData={category} data={{ title: category }} />
       </Section>

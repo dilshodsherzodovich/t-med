@@ -31,7 +31,8 @@ const ContactPage = () => {
     <>
       <Section
         className="cs_page_heading cs_bg_filed cs_center"
-        backgroundImage="/assets/img/hero/hero-3.jpg"
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundPosition="center center"
       >
         <PageHeading
           data={headingData}

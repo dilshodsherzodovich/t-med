@@ -1,6 +1,71 @@
 /*--------------------------------------------------------------
   10. Hero
 ----------------------------------------------------------------*/
+
+// Background-only slider wrapper
+.cs_hero_wrapper {
+  position: relative;
+  height: 810px;
+  overflow: hidden;
+  @media (max-width: 991px) {
+    height: 600px;
+  }
+  @media (max-width: 575px) {
+    height: 480px;
+  }
+}
+
+.cs_hero_bg_slider {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  z-index: 0;
+
+  .slick-slider,
+  .slick-list,
+  .slick-track,
+  .slick-slide,
+  .slick-slide > div,
+  .slick-slide > div > div {
+    height: 100%;
+  }
+}
+
+.cs_hero_bg_slide {
+  height: 100%;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+// Content sits on top of bg slider
+.cs_hero.cs_style_1.cs_hero_content_overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  height: 100% !important;
+  z-index: 2;
+  @media (max-width: 991px) {
+    height: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+// Content fade-up animation on slide change (key remount triggers this)
+@keyframes cs_hero_content_in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cs_hero_text_in {
+  animation: cs_hero_content_in 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
 .cs_hero.cs_style_1 {
   position: relative;
   height: 810px;

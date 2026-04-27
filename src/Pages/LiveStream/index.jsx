@@ -4,7 +4,6 @@ import Section from "../../Components/Section";
 import LiveStreamCard from "./components/LiveStreamCard";
 import VisionConnectCard from "./components/VisionConnectCard";
 import "./livestream.scss";
-import hero2 from "/assets/img/hero2.png";
 
 function LiveStream() {
   const { t } = useTranslation();
@@ -17,7 +16,8 @@ function LiveStream() {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center "}
-        backgroundImage={hero2}
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundPosition="center center"
       >
         <PageHeading
           secondaryData={t("pages.livestream.title")}

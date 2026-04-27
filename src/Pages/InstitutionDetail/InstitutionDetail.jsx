@@ -5,7 +5,6 @@ import { useHttp } from "../../hooks/useHttp";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import OrganizationDetails from "./OrganizationDetails";
-import hero2 from "/assets/img/hero2.png";
 
 function InstitutionDetail() {
   const sendRequest = useHttp();
@@ -47,7 +46,8 @@ function InstitutionDetail() {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage={hero2}
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundPosition="center center"
       >
         <PageHeading
           secondaryData={detail?.title}

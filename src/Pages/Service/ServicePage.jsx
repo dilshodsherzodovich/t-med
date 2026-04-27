@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { useMemo } from "react";
 import ServiceSection5 from "../../Components/Service/ServiceSection5";
-import hero2 from "/assets/img/hero2.png";
 import Services from "./Services";
 import { useTranslation } from "react-i18next";
 
@@ -77,7 +76,8 @@ const ServicePage = () => {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage={hero2}
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundPosition="center center"
       >
         <PageHeading
           data={headingData}

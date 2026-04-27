@@ -6,7 +6,6 @@ import Pagination from "../../Components/Pagination";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { useParams, useSearchParams } from "react-router-dom";
-import hero2 from "/assets/img/hero2.png";
 
 function Institutions() {
   const [page, setPage] = useState(1);
@@ -72,7 +71,8 @@ function Institutions() {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage={hero2}
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundPosition="center center"
       >
         <PageHeading secondaryData={categoryName} data={headingData} />
       </Section>

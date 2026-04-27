@@ -7,7 +7,6 @@ import { IoIosMail } from "react-icons/io";
 import { useQuery } from "@tanstack/react-query";
 import { useHttp } from "../../hooks/useHttp";
 import { useParams } from "react-router-dom";
-import hero2 from "/assets/img/hero2.png";
 import { useTranslation } from "react-i18next";
 
 function Departments() {
@@ -64,7 +63,8 @@ function Departments() {
     <>
       <Section
         className={"cs_page_heading cs_bg_filed cs_center"}
-        backgroundImage={hero2}
+        backgroundImage="/assets/img/hero/hero-1.png"
+        backgroundPosition="center center"
       >
         <PageHeading
           secondaryData={detail?.name}

@@ -6,6 +6,9 @@ export default function Section({
   bottomSpaceLg = "_",
   bottomSpaceMd = "_",
   backgroundImage = "",
+  backgroundSize = "cover",
+  backgroundPosition = "top center",
+  backgroundRepeat = "no-repeat",
   className,
   id = "",
   children,
@@ -20,7 +23,7 @@ export default function Section({
         backgroundImage
           ? {
               backgroundImage: `url(${backgroundImage})`,
-              backgroundPosition: "top center",
+              backgroundPosition,
             }
           : {}
       }
