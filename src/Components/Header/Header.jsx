@@ -91,33 +91,32 @@ const Header = ({ isTopBar, variant }) => {
           },
         ],
       },
-      {
-        label: t("navlinks.career.title"),
-        href: "",
-        subItems: [
-          // {
-          //   label: t("navlinks.career.sublinks.onlineSurvey"),
-          //   href: `/${lang}/review`,
-          // },
-          {
-            label: t("navlinks.career.sublinks.memorandums"),
-            href: `/${lang}/careers/1?category=memorandum`,
-          },
-          {
-            label: t("navlinks.career.sublinks.cooperation"),
-            href: "/cooperation",
-          },
-          {
-            label: t("navlinks.career.sublinks.trips"),
-            href: `/${lang}/careers/3?category=trip`,
-          },
-          {
-            label: t("navlinks.career.sublinks.meetings"),
-            href: `/${lang}/careers/4?category=meeting`,
-          },
-        ],
-      },
-
+      // {
+      //   label: t("navlinks.career.title"),
+      //   href: "",
+      //   subItems: [
+      //     // {
+      //     //   label: t("navlinks.career.sublinks.onlineSurvey"),
+      //     //   href: `/${lang}/review`,
+      //     // },
+      //     {
+      //       label: t("navlinks.career.sublinks.memorandums"),
+      //       href: `/${lang}/careers/1?category=memorandum`,
+      //     },
+      //     {
+      //       label: t("navlinks.career.sublinks.cooperation"),
+      //       href: "/cooperation",
+      //     },
+      //     {
+      //       label: t("navlinks.career.sublinks.trips"),
+      //       href: `/${lang}/careers/3?category=trip`,
+      //     },
+      //     {
+      //       label: t("navlinks.career.sublinks.meetings"),
+      //       href: `/${lang}/careers/4?category=meeting`,
+      //     },
+      //   ],
+      // },
       {
         label: t("navlinks.media.title"),
         href: `/${lang}`,
@@ -154,19 +153,10 @@ const Header = ({ isTopBar, variant }) => {
           : [],
       },
       {
-        label: "E-map",
-        href: `/${lang}/gmap`,
-      },
-      {
-        label: t("navlinks.live.title"),
-        href: `/${lang}/livestream`,
-      },
-      {
         label: t("navlinks.forAdmins.title"),
-        href: "#",
+        href: "https://mydepo.uz/",
         target: "_blank",
       },
-
       {
         label: t("navlinks.contact.title"),
         href: `/${lang}/contact`,
@@ -281,7 +271,7 @@ const Header = ({ isTopBar, variant }) => {
         <div className="cs_main_header">
           <div className="container">
             <div className="cs_main_header_in">
-              <div className="cs_main_header_left">
+              <div className="cs_main_header_left" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <Link className="cs_site_branding" to={menu.logoLink}>
                   <img
                     src={menu.logoUrl}
@@ -289,6 +279,14 @@ const Header = ({ isTopBar, variant }) => {
                     alt="Logo"
                   />
                 </Link>
+                <span className="cs_logo_text" style={{
+                  fontSize: "15px",
+                  fontWeight: "600",
+                  lineHeight: "1.35",
+                  maxWidth: "190px",
+                }}>
+                  Lokomotivlardan<br />foydalanshi boshqarmasi
+                </span>
               </div>
               <div className="cs_main_header_right ">
                 <div className="cs_nav cs_primary_color ">

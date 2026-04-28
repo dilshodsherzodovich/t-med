@@ -73,6 +73,7 @@
   width: 100%;
   left: 0;
   top: 0;
+  background: transparent;
   transition: all 0.4s ease;
 }
 
@@ -86,7 +87,7 @@
     position: relative;
   }
   .cs_main_header_in {
-    height: 100px;
+    height: 70px;
   }
   .cs_top_header_in {
     height: 50px;
@@ -155,7 +156,6 @@
 
 .cs_site_header.cs_style_1 {
   &.cs_sticky_active {
-    background-color: var(--white);
     box-shadow: 0 10px 10px -10px rgba(33, 43, 53, 0.1);
   }
 }
@@ -168,7 +168,7 @@
 }
 
 .cs_site_header_spacing_150 {
-  height: 150px;
+  height: 120px;
 }
 
 @media screen and (max-width: 1199px) {
@@ -178,7 +178,7 @@
     }
   }
   .cs_site_header_spacing_150 {
-    height: 130px;
+    height: 100px;
   }
   .cs_main_header {
     .container {
@@ -200,7 +200,7 @@
   }
 
   .cs_site_header_spacing_150 {
-    height: 80px;
+    height: 70px;
   }
 }
 .cs_nav {
@@ -225,7 +225,6 @@
   top: -110px;
   opacity: 0;
   transition: all 0.4s ease;
-  background-color: var(--white);
   @media (max-width: 1199px) {
     opacity: 1;
     box-shadow: 0px 1px 2px 0px rgba(2, 0, 181, 0.1);
@@ -263,6 +262,25 @@
   .container-fluid {
     padding-right: 120px;
     padding-left: 120px;
+  }
+}
+
+// White nav text — header floats over dark hero/page-heading images
+.cs_site_header.cs_style_1 {
+  .cs_nav_list > li > a,
+  .cs_logo_text {
+    color: #fff;
+  }
+}
+
+// When scrolled back into view: solid white bg + dark text
+.cs_site_header.cs_style_1.cs_gescout_show {
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  .cs_nav_list > li > a,
+  .cs_logo_text {
+    color: var(--heading-color);
   }
 }
 @media screen and (min-width: 1200px) {
