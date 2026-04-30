@@ -271,7 +271,10 @@ const Header = ({ isTopBar, variant }) => {
         <div className="cs_main_header">
           <div className="container">
             <div className="cs_main_header_in">
-              <div className="cs_main_header_left" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div
+                className="cs_main_header_left"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
                 <Link className="cs_site_branding" to={menu.logoLink}>
                   <img
                     src={menu.logoUrl}
@@ -279,13 +282,18 @@ const Header = ({ isTopBar, variant }) => {
                     alt="Logo"
                   />
                 </Link>
-                <span className="cs_logo_text" style={{
-                  fontSize: "15px",
-                  fontWeight: "600",
-                  lineHeight: "1.35",
-                  maxWidth: "190px",
-                }}>
-                  Lokomotivlardan<br />foydalanshi boshqarmasi
+                <span
+                  className="cs_logo_text"
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "600",
+                    lineHeight: "1.35",
+                    maxWidth: "190px",
+                  }}
+                >
+                  Lokomotivlardan
+                  <br />
+                  foydalanshi boshqarmasi
                 </span>
               </div>
               <div className="cs_main_header_right ">
