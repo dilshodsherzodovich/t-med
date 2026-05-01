@@ -2,6 +2,44 @@
   4. General
 ----------------------------------------------------------------*/
 
+// ─── Custom cursor (desktop only) ──────────────────────────
+@media (pointer: fine) {
+  body, a, button { cursor: none !important; }
+
+  .cs_cursor_ring {
+    position: fixed;
+    top: 0; left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+  }
+
+  .cs_cursor_dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    pointer-events: none;
+    z-index: 100000;
+    will-change: transform;
+  }
+
+  .cs_cursor_label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
 .cs_light {
   font-weight: 300;
 }

@@ -1,4 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
+import CustomCursor from "./Components/CustomCursor";
 import Layout from "./Components/Layout/Layout";
 import MainHome from "./Pages/HomePage/MainHome";
 import HomeV2 from "./Pages/HomePage/HomeV2";
@@ -45,6 +46,7 @@ function App() {
   }, [pathname]);
   return (
     <>
+      <CustomCursor />
       <Routes>
         {/* Language-prefixed routes */}
         <Route path="/" element={<LangLayout />}>

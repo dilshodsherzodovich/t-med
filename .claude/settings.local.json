@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout *)",
+      "Bash(python skills/ui-ux-pro-max/scripts/search.py \"government institution railway transport corporate professional\" --design-system -p \"Lokomotiv Deposi\")",
+      "Bash(python3 skills/ui-ux-pro-max/scripts/search.py \"government institution railway transport corporate professional\" --design-system -p \"Lokomotiv Deposi\")",
+      "Bash(python *)"
+    ]
+  }
+}
