@@ -59,20 +59,36 @@ const CtaSection1 = ({ data }) => {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            <div className="cs_cta_text">
-              <SectionHeading
-                textColor={"cs_white_color"}
-                SectionSubtitle={data.subtitle}
-                SectionTitle={data.title}
-                SectionDescription={data.description}
+            <div className="cs_cta_glass_panel" style={{ position: 'relative', overflow: 'hidden' }}>
+              <div 
+                className="cs_glass_glow" 
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'radial-gradient(circle at 50% 0%, rgba(26, 110, 247, 0.15) 0%, transparent 70%)',
+                  pointerEvents: 'none'
+                }}
               />
-              <div className="cs_height_44 cs_height_lg_20" />
-              <Button
-                btnText={data.buttonText}
-                variant={"cs_btn cs_style_1 cs_color_3"}
-                btnUrl={data.buttonLink}
-                btnIcons={<FaAnglesRight />}
-              />
+              <div 
+                className="cs_cta_text"
+                style={{ position: 'relative', zIndex: 1 }}
+              >
+                <div style={{ textShadow: "0 0 24px rgba(26, 110, 247, 0.5), 0 0 56px rgba(42, 166, 247, 0.3)" }}>
+                  <SectionHeading
+                    textColor={"cs_white_color"}
+                    SectionSubtitle={data.subtitle}
+                    SectionTitle={data.title}
+                    SectionDescription={data.description}
+                  />
+                </div>
+                <div className="cs_height_44 cs_height_lg_20" />
+                <Button
+                  btnText={data.buttonText}
+                  variant={"cs_btn cs_style_1 cs_color_3"}
+                  btnUrl={data.buttonLink}
+                  btnIcons={<FaAnglesRight />}
+                />
+              </div>
             </div>
           </motion.div>
         </div>

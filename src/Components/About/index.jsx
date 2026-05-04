@@ -5,17 +5,26 @@ import { FaAnglesRight } from "react-icons/fa6";
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (i = 0) => ({
-    opacity: 1, y: 0,
+    opacity: 1,
+    y: 0,
     transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] },
   }),
 };
 const fadeLeft = {
   hidden: { opacity: 0, x: -48 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.75, ease: [0.25, 0.1, 0.25, 1] } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.75, ease: [0.25, 0.1, 0.25, 1] },
+  },
 };
 const fadeRight = {
   hidden: { opacity: 0, x: 48 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.75, ease: [0.25, 0.1, 0.25, 1] } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.75, ease: [0.25, 0.1, 0.25, 1] },
+  },
 };
 
 const About = ({ data }) => {
@@ -24,16 +33,22 @@ const About = ({ data }) => {
       {/* ── Centered heading block ─────────────────────────────── */}
       <div className="cs_about_hero">
         <motion.div
-          custom={0} variants={fadeUp} initial="hidden"
-          whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+          custom={0}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
         >
           <span className="cs_about_badge">• {data.badge}</span>
         </motion.div>
 
         <motion.h2
           className="cs_about_main_heading"
-          custom={1} variants={fadeUp} initial="hidden"
-          whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+          custom={1}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
         >
           <span className="cs_about_heading_dark">{data.titleDark} </span>
           <span className="cs_about_heading_blue">{data.titleBlue}</span>
@@ -41,8 +56,11 @@ const About = ({ data }) => {
 
         <motion.p
           className="cs_about_hero_desc"
-          custom={2} variants={fadeUp} initial="hidden"
-          whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+          custom={2}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
         >
           {data.description}
         </motion.p>
@@ -53,8 +71,10 @@ const About = ({ data }) => {
         {/* Left — 3-image grid */}
         <motion.div
           className="col-lg-6"
-          variants={fadeLeft} initial="hidden"
-          whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+          variants={fadeLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
         >
           <div className="cs_about_img_grid">
             <div className="cs_about_img_large">
@@ -70,8 +90,10 @@ const About = ({ data }) => {
         {/* Right — info card + features */}
         <motion.div
           className="col-lg-6"
-          variants={fadeRight} initial="hidden"
-          whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+          variants={fadeRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
         >
           {/* White info card */}
           <div className="cs_about_info_card">
@@ -87,7 +109,9 @@ const About = ({ data }) => {
             <div className="cs_about_stats">
               {data.stats.map((stat, i) => (
                 <div key={i} className="cs_about_stat">
-                  <span className={`cs_about_stat_value${stat.accent ? " cs_stat_accent" : ""}`}>
+                  <span
+                    className={`cs_about_stat_value${stat.accent ? " cs_stat_accent" : ""}`}
+                  >
                     {stat.value}
                   </span>
                   <span className="cs_about_stat_label">{stat.label}</span>
@@ -126,8 +150,10 @@ const About = ({ data }) => {
           {/* CTA */}
           <motion.div
             custom={data.features.length}
-            variants={fadeUp} initial="hidden"
-            whileInView="visible" viewport={{ once: true, margin: "-40px" }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
           >
             <Link to={data.btnUrl} className="cs_btn cs_style_1 cs_color_1">
               {data.btnText} <FaAnglesRight />

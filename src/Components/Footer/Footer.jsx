@@ -1,22 +1,15 @@
 import { useTranslation } from "react-i18next";
-import { FaPhoneAlt, FaTelegramPlane, FaYoutube } from "react-icons/fa";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLocationDot,
-  FaRegClock,
-  FaXTwitter,
-} from "react-icons/fa6";
 import { Link, useParams } from "react-router-dom";
+import { FaTelegramPlane, FaFacebookF, FaYoutube, FaInstagram, FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot, FaRegClock, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const { t } = useTranslation();
-
   const { lang } = useParams();
 
   const data = {
+    logo: "/logo.svg",
     backgroundImage: "/assets/img/footer_bg.jpg",
-    logo: "/assets/img/logo.PNG",
     contactText: t("footer.contact.reception"),
     contactText2: t("footer.contact.address"),
     contactText3: "+998 (71) 299 98 27",
@@ -41,163 +34,125 @@ const Footer = () => {
         title: t("footer.quickLinks.title"),
         links: [
           { href: `/${lang}`, text: t("footer.quickLinks.sublinks.home") },
-          {
-            href: `/${lang}/about`,
-            text: t("footer.quickLinks.sublinks.about"),
-          },
-          {
-            href: `/${lang}/service`,
-            text: t("footer.quickLinks.sublinks.services"),
-          },
-          {
-            href: `/${lang}/blog`,
-            text: t("footer.quickLinks.sublinks.media"),
-          },
-          {
-            href: `/${lang}/docs`,
-            text: t("footer.quickLinks.sublinks.docs"),
-          },
-          {
-            href: `/${lang}/contact`,
-            text: t("footer.quickLinks.sublinks.contact"),
-          },
+          { href: `/${lang}/about`, text: t("footer.quickLinks.sublinks.about") },
+          { href: `/${lang}/service`, text: t("footer.quickLinks.sublinks.services") },
+          { href: `/${lang}/blog`, text: t("footer.quickLinks.sublinks.media") },
+          { href: `/${lang}/docs`, text: t("footer.quickLinks.sublinks.docs") },
+          { href: `/${lang}/contact`, text: t("footer.quickLinks.sublinks.contact") },
         ],
       },
     ],
-    recentPosts: [
-      {
-        href: "/blog/blog-details",
-        image: "/assets/img/recent_post_1.png",
-        date: "23 jun 2024",
-        title: "We round Solution york Blog",
-      },
-      {
-        href: "/blog/blog-details",
-        image: "/assets/img/recent_post_2.png",
-        date: "20 jun 2024",
-        title: "The Medical Of This Working Health",
-      },
-    ],
-    copyrightText: `Copyright © ${new Date().getFullYear()} ${t(
-      "root.copyright"
-    )}`,
+    copyrightText: `Copyright © ${new Date().getFullYear()} ${t("root.copyright")}`,
+    bottomLinks: [
+      { text: "MAXFIYLIK SIYOSATI", href: `/${lang}/privacy` },
+      { text: "FOYDALANISH SHARTLARI", href: `/${lang}/terms` },
+    ]
   };
 
   return (
-    <footer
-      className="cs_footer cs_blue_bg cs_bg_filed cs_white_color"
-      style={{ backgroundImage: `url(${data.backgroundImage})` }}
-    >
+    <footer style={{ 
+      backgroundColor: '#0f172a', 
+      backgroundImage: `linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), url(${data.backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      color: '#ffffff', 
+      paddingTop: '80px', 
+      paddingBottom: '30px' 
+    }}>
       <div className="container">
-        <div className="cs_footer_row">
-          <div className="cs_footer_col">
-            <div className="cs_footer_highlight_col cs_accent_bg">
-              <div className="cs_footer_logo d-flex align-items-center justify-content-center">
-                <img style={{ height: "100px" }} src={data.logo} alt="Logo" />
+        <div className="row justify-content-between mb-5">
+          {/* Logo & Contact Column */}
+          <div className="col-lg-5 mb-5 mb-lg-0">
+            <Link to={`/${lang}`} className="d-flex align-items-center mb-4 text-decoration-none">
+              <img src={data.logo} alt="Logo" style={{ height: '52px', marginRight: '15px' }} />
+              <div>
+                <h4 className="mb-0" style={{ color: '#ffffff', fontWeight: '800', fontSize: '18px', letterSpacing: '0.5px', textShadow: '0 0 15px rgba(26, 110, 247, 0.4)' }}>
+                  O'zbekiston Temir Yo'llari AJ
+                </h4>
+                <div style={{ color: '#1a6ef7', fontSize: '13px', fontWeight: '700', letterSpacing: '1px', textShadow: '0 0 15px rgba(26, 110, 247, 0.4)' }}>
+                  Lokomotivlardan foydalanish boshqarmasi
+                </div>
               </div>
-              <ul className="cs_footer_contact cs_mp_0">
-                <li>
-                  <i
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <FaRegClock />
-                  </i>
-                  <span
-                    dangerouslySetInnerHTML={{ __html: data.contactText }}
-                  />
-                </li>
-                <li>
-                  <i
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <FaLocationDot />
-                  </i>
-                  <span
-                    dangerouslySetInnerHTML={{ __html: data.contactText2 }}
-                  />
-                </li>
-                <li>
-                  <i
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <FaPhoneAlt />
-                  </i>
-                  <span
-                    dangerouslySetInnerHTML={{ __html: data.contactText3 }}
-                  />
-                </li>
+            </Link>
+
+            <ul className="list-unstyled d-flex flex-column gap-3 mb-4">
+              <li className="d-flex align-items-start gap-3">
+                <FaRegClock size={18} style={{ color: '#1a6ef7', marginTop: '2px' }} />
+                <span style={{ color: '#94a3b8', fontSize: '14px', lineHeight: '1.5' }} dangerouslySetInnerHTML={{ __html: data.contactText }} />
+              </li>
+              <li className="d-flex align-items-start gap-3">
+                <FaLocationDot size={18} style={{ color: '#1a6ef7', marginTop: '2px' }} />
+                <span style={{ color: '#94a3b8', fontSize: '14px', lineHeight: '1.5' }} dangerouslySetInnerHTML={{ __html: data.contactText2 }} />
+              </li>
+              <li className="d-flex align-items-start gap-3">
+                <FaPhoneAlt size={18} style={{ color: '#1a6ef7', marginTop: '2px' }} />
+                <span style={{ color: '#94a3b8', fontSize: '14px', lineHeight: '1.5' }} dangerouslySetInnerHTML={{ __html: data.contactText3 }} />
+              </li>
+            </ul>
+
+            <div className="d-flex gap-3">
+              <a href={data.facebookHref} className="d-flex align-items-center justify-content-center rounded-circle" style={{ width: '40px', height: '40px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1a6ef7'; e.currentTarget.style.color = '#ffffff'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#94a3b8'; }}>
+                <FaFacebookF />
+              </a>
+              <a href={data.telegramHref} className="d-flex align-items-center justify-content-center rounded-circle" style={{ width: '40px', height: '40px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1a6ef7'; e.currentTarget.style.color = '#ffffff'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#94a3b8'; }}>
+                <FaTelegramPlane />
+              </a>
+              <a href={data.twitterHref} className="d-flex align-items-center justify-content-center rounded-circle" style={{ width: '40px', height: '40px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1a6ef7'; e.currentTarget.style.color = '#ffffff'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#94a3b8'; }}>
+                <FaXTwitter />
+              </a>
+              <a href={data.instagramHref} className="d-flex align-items-center justify-content-center rounded-circle" style={{ width: '40px', height: '40px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1a6ef7'; e.currentTarget.style.color = '#ffffff'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#94a3b8'; }}>
+                <FaInstagram />
+              </a>
+              <a href={data.youtubeHref} className="d-flex align-items-center justify-content-center rounded-circle" style={{ width: '40px', height: '40px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#94a3b8', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1a6ef7'; e.currentTarget.style.color = '#ffffff'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#94a3b8'; }}>
+                <FaYoutube />
+              </a>
+            </div>
+          </div>
+
+          {/* Nav Links Columns */}
+          {data.widgets.map((widget, idx) => (
+            <div key={idx} className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h5 style={{ color: '#ffffff', fontSize: '13px', fontWeight: '800', letterSpacing: '1px', marginBottom: '25px', textTransform: 'uppercase' }}>
+                {widget.title}
+              </h5>
+              <ul className="list-unstyled p-0 m-0 d-flex flex-column gap-3">
+                {widget.links.map((link, linkIdx) => (
+                  <li key={linkIdx}>
+                    <Link 
+                      to={link.href} 
+                      style={{ color: '#94a3b8', fontSize: '14px', textDecoration: 'none', transition: 'color 0.3s ease' }} 
+                      onMouseEnter={(e) => e.target.style.color = '#1a6ef7'} 
+                      onMouseLeave={(e) => e.target.style.color = '#94a3b8'}
+                    >
+                      {link.text}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-          </div>
-
-          {data.widgets.map((widget, index) => (
-            <div className="cs_footer_col" key={index}>
-              <div className="cs_footer_widget">
-                <h2 className="cs_footer_widget_title">{widget.title}</h2>
-                <ul className="cs_footer_widget_nav_list cs_mp_0">
-                  {widget.links.map((link, index) => (
-                    <li key={index}>
-                      <Link to={link.href}>{link.text}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           ))}
-
-          <div className="cs_footer_col">
-            <div className="cs_footer_widget">
-              <h2 className="cs_footer_widget_title">
-                {t("footer.socials.title")}
-              </h2>
-              <div className="cs_social_btns cs_style_1">
-                <Link to={data.facebookHref} className="cs_center">
-                  <i>
-                    <FaFacebookF />
-                  </i>
-                </Link>
-                <Link to={data.telegramHref} className="cs_center">
-                  <i>
-                    <FaTelegramPlane />
-                  </i>
-                </Link>
-                <Link to={data.twitterHref} className="cs_center">
-                  <i>
-                    <FaXTwitter />
-                  </i>
-                </Link>
-                <Link to={data.instagramHref} className="cs_center">
-                  <i>
-                    <FaInstagram />
-                  </i>
-                </Link>
-                <Link to={data.youtubeHref} className="cs_center">
-                  <i>
-                    <FaYoutube />
-                  </i>
-                </Link>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div className="cs_footer_bottom cs_primary_bg">
-        <div className="container">
-          <div className="cs_footer_bottom_in">
-            <p className="cs_footer_copyright mb-0">{data.copyrightText}</p>
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: 'rgba(255,255,255,0.1)', marginBottom: '30px' }}></div>
+
+        {/* Bottom Bar */}
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+          <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '600', letterSpacing: '0.5px', textAlign: 'center' }}>
+            {data.copyrightText}
+          </div>
+          <div className="d-flex gap-4">
+            {data.bottomLinks.map((link, idx) => (
+              <Link 
+                key={idx} 
+                to={link.href} 
+                style={{ color: '#64748b', fontSize: '11px', fontWeight: '700', textDecoration: 'none', letterSpacing: '0.5px', transition: 'color 0.3s ease' }} 
+                onMouseEnter={(e) => e.target.style.color = '#ffffff'} 
+                onMouseLeave={(e) => e.target.style.color = '#64748b'}
+              >
+                {link.text}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

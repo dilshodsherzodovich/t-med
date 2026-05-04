@@ -82,7 +82,7 @@
       "hero": {
         "slider1": {
           "title": "\"Temiryo'lInfratuzilma\" AJ",
-          "oneWord": "Lokomotiv bo'limi",
+          "oneWord": "Lokomotivlardan foydalanish boshqarmasi",
           "subtitle": ""
         },
         "slider2": {
@@ -108,7 +108,7 @@
       "aboutSection": {
         "title": "Biz haqimizda",
         "subtitle": "Yillar davomida ishonchli xizmat",
-        "text": "\"Temiryo'lInfratuzilma\" AJ Lokomotiv bo'limi — lokomotivlarni texnik xizmat ko'rsatish, ta'mirlash va modernizatsiya qilish sohasida faoliyat yurituvchi ixtisoslashgan bo'lim.",
+        "text": "\"Temiryo'lInfratuzilma\" AJ Lokomotivlardan foydalanish boshqarmasi — lokomotivlarni texnik xizmat ko'rsatish, ta'mirlash va modernizatsiya qilish sohasida faoliyat yurituvchi ixtisoslashgan bo'lim.",
         "contactText": "Biz bilan bog'laning",
         "consultationText": "Onlayn murojaat",
         "staticText1": "Savollaringizni biz bilan bo'lishing",
@@ -161,16 +161,16 @@
       "ctaSection": {
         "videoButtonText": "Videoni tomosha qiling",
         "title": "Professional lokomotiv xizmatlari",
-        "description": "\"Temiryo'lInfratuzilma\" AJ Lokomotiv bo'limi zamonaviy uskunalar va yuqori malakali mutaxassislar yordamida sifatli texnik xizmat ko'rsatadi.",
+        "description": "\"Temiryo'lInfratuzilma\" AJ Lokomotivlardan foydalanish boshqarmasi zamonaviy uskunalar va yuqori malakali mutaxassislar yordamida sifatli texnik xizmat ko'rsatadi.",
         "buttonText": "Bog'lanish"
       },
       "testimonialsSection": {
         "testimonial1": {
-          "text": "Lokomotiv bo'limi xizmatlari juda sifatli va o'z vaqtida. Mutaxassislar malakali va tezkor yordamlashadi.",
+          "text": "Lokomotivlardan foydalanish boshqarmasi xizmatlari juda sifatli va o'z vaqtida. Mutaxassislar malakali va tezkor yordamlashadi.",
           "author": "Hamkor"
         },
         "testimonial2": {
-          "text": "Lokomotiv bo'limi xizmatlari juda sifatli va o'z vaqtida. Mutaxassislar malakali va tezkor yordamlashadi.",
+          "text": "Lokomotivlardan foydalanish boshqarmasi xizmatlari juda sifatli va o'z vaqtida. Mutaxassislar malakali va tezkor yordamlashadi.",
           "author": "Hamkor"
         }
       },
@@ -194,7 +194,7 @@
     },
     "about": {
       "title": "Biz haqimizda",
-      "subtitle": "\"Temiryo'lInfratuzilma\" AJ Lokomotiv bo'limi haqida",
+      "subtitle": "\"Temiryo'lInfratuzilma\" AJ Lokomotivlardan foydalanish boshqarmasi haqida",
       "gallery": "Galereya"
     },
     "management": {
@@ -279,6 +279,6 @@
     "readMore": "Batafsil",
     "home": "Asosiy",
     "address": "Taras Shevchenko ko'chasi, 7",
-    "copyright": "\"Temiryo'lInfratuzilma\" AJ Lokomotiv bo'limi, Barcha huquqlar himoyalangan."
+    "copyright": "\"Temiryo'lInfratuzilma\" AJ Lokomotivlardan foydalanish boshqarmasi, Barcha huquqlar himoyalangan."
   }
 }

@@ -1,29 +1,32 @@
-$navy:    #040A26;
-$accent:  #1a6ef7;
+$navy: #040a26;
+$accent: #1a6ef7;
 $accent2: #2aa6f7;
 
 // ── SVG region paths ───────────────────────────────────────────
 // g > path = direct child only → skips mask internals
 g > path {
-  fill:   rgba($accent2, 0.10);
-  stroke: rgba($accent2, 0.30);
+  fill: rgba($accent2, 0.1);
+  stroke: rgba($accent2, 0.3);
   stroke-width: 0.6px;
   cursor: pointer;
-  transition: fill 0.22s ease, filter 0.22s ease, stroke 0.22s ease;
+  transition:
+    fill 0.22s ease,
+    filter 0.22s ease,
+    stroke 0.22s ease;
 }
 
 g > path:hover {
-  fill:   rgba($accent2, 0.38);
-  stroke: rgba($accent2, 0.80);
+  fill: rgba($accent2, 0.38);
+  stroke: rgba($accent2, 0.8);
   filter: drop-shadow(0 0 7px rgba($accent2, 0.65));
 }
 
 g.active > path {
-  fill:   rgba($accent, 0.60);
+  fill: rgba($accent, 0.6);
   stroke: rgba($accent2, 1);
   stroke-width: 0.8px;
   filter: drop-shadow(0 0 12px rgba($accent, 0.85))
-          drop-shadow(0 0 4px  rgba($accent2, 0.60));
+    drop-shadow(0 0 4px rgba($accent2, 0.6));
 }
 
 // ── Section wrapper ─────────────────────────────────────────────
@@ -31,10 +34,16 @@ g.active > path {
   background: #f1f5f9;
   padding: 34px 0 38px;
 
-  @media (max-width: 767px) { padding: 24px 0 28px; }
+  @media (max-width: 767px) {
+    padding: 24px 0 28px;
+  }
 
-  .cs_section_subtitle { color: #64748b; }
-  .cs_shape_left { background-color: $accent !important; }
+  .cs_section_subtitle {
+    color: #64748b;
+  }
+  .cs_shape_left {
+    background-color: $accent !important;
+  }
 }
 
 // ── Dark navy map card ──────────────────────────────────────────
@@ -42,24 +51,37 @@ g.active > path {
   position: relative;
   background-color: $navy;
   background-image:
-    radial-gradient(circle, rgba(255,255,255,0.050) 1px, transparent 1px),
-    radial-gradient(ellipse at 20% 60%, rgba($accent, 0.07) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 25%, rgba($accent2, 0.05) 0%, transparent 45%);
-  background-size: 22px 22px, 100% 100%, 100% 100%;
+    radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(
+      ellipse at 20% 60%,
+      rgba($accent, 0.07) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 25%,
+      rgba($accent2, 0.05) 0%,
+      transparent 45%
+    );
+  background-size:
+    22px 22px,
+    100% 100%,
+    100% 100%;
   border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.07);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.22);
   // clip map height on desktop
   max-height: 440px;
   overflow: hidden;
 
   // bottom-fade signals map continues below clip
   &::after {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 80px;
-    background: linear-gradient(to top, rgba($navy, 0.80) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba($navy, 0.8) 0%, transparent 100%);
     pointer-events: none;
     z-index: 5;
   }
@@ -68,7 +90,9 @@ g.active > path {
     max-height: none;
     overflow: visible;
     border-radius: 16px;
-    &::after { display: none; }
+    &::after {
+      display: none;
+    }
   }
 }
 
@@ -91,15 +115,17 @@ g.active > path {
   width: 290px;
   max-height: calc(100% - 32px);
   background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.30);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   z-index: 10; // above ::after fade
 
-  @media (max-width: 991px) { width: 256px; }
+  @media (max-width: 991px) {
+    width: 256px;
+  }
 
   @media (max-width: 767px) {
     position: static;
@@ -108,7 +134,7 @@ g.active > path {
     border-radius: 0 0 16px 16px;
     box-shadow: none;
     border: none;
-    border-top: 1px solid rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -117,7 +143,7 @@ g.active > path {
   align-items: flex-start;
   justify-content: space-between;
   padding: 13px 15px 9px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
   background: #ffffff;
@@ -152,9 +178,14 @@ g.active > path {
   flex-shrink: 0;
   font-size: 15px;
   line-height: 1;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 
-  &:hover { background: #f1f5f9; color: #0f172a; }
+  &:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+  }
 }
 
 .cs_map_org_list {
@@ -162,18 +193,29 @@ g.active > path {
   flex: 1;
   padding: 5px 0;
 
-  &::-webkit-scrollbar { width: 4px; }
-  &::-webkit-scrollbar-track { background: transparent; }
-  &::-webkit-scrollbar-thumb { background: rgba($accent, 0.20); border-radius: 4px; }
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($accent, 0.2);
+    border-radius: 4px;
+  }
 }
 
 .cs_map_org_card {
   padding: 11px 15px;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   transition: background 0.18s;
 
-  &:last-child { border-bottom: none; }
-  &:hover { background: #f8fafc; }
+  &:last-child {
+    border-bottom: none;
+  }
+  &:hover {
+    background: #f8fafc;
+  }
 }
 
 .cs_map_org_title {
@@ -193,7 +235,12 @@ g.active > path {
   margin-bottom: 3px;
   line-height: 1.4;
 
-  svg { flex-shrink: 0; margin-top: 1px; font-size: 10px; color: $accent; }
+  svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 10px;
+    color: $accent;
+  }
 }
 
 .cs_map_org_link {
@@ -206,8 +253,13 @@ g.active > path {
   margin-top: 6px;
   text-decoration: none;
 
-  &:hover { color: darken($accent, 10%); text-decoration: underline; }
-  svg { font-size: 11px; }
+  &:hover {
+    color: darken($accent, 10%);
+    text-decoration: underline;
+  }
+  svg {
+    font-size: 11px;
+  }
 }
 
 .cs_map_org_loading {
@@ -226,7 +278,11 @@ g.active > path {
   animation: map_spin 0.7s linear infinite;
 }
 
-@keyframes map_spin { to { transform: rotate(360deg); } }
+@keyframes map_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .cs_map_org_empty {
   text-align: center;

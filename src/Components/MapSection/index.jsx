@@ -10,7 +10,11 @@ import { FiPhone, FiMail, FiMapPin, FiChevronRight, FiX } from "react-icons/fi";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] },
+  },
 };
 
 function MapSection() {
@@ -38,7 +42,9 @@ function MapSection() {
   const { data: activeRegionInts, isLoading } = useQuery({
     queryKey: ["activeRegionInts", activeRegionId],
     queryFn: () =>
-      sendRequest({ url: `/reception/organization-by-region//${activeRegionId}/` }),
+      sendRequest({
+        url: `/reception/organization-by-region//${activeRegionId}/`,
+      }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
@@ -74,7 +80,10 @@ function MapSection() {
         >
           {/* Full-width SVG map */}
           <div className="cs_map_svg_area">
-            <SvgMap activeRegion={activeRegion} setActiveRegion={setActiveRegion} />
+            <SvgMap
+              activeRegion={activeRegion}
+              setActiveRegion={setActiveRegion}
+            />
           </div>
 
           {/* Floating overlay panel */}
@@ -91,7 +100,9 @@ function MapSection() {
                 <div className="cs_map_org_panel_header">
                   <div>
                     <h4 className="cs_map_org_region">{activeRegion}</h4>
-                    <span className="cs_map_org_count">{orgs.length} ta tashkilot</span>
+                    <span className="cs_map_org_count">
+                      {orgs.length} ta tashkilot
+                    </span>
                   </div>
                   <button
                     className="cs_map_panel_close"
@@ -108,7 +119,9 @@ function MapSection() {
                       <div className="cs_map_org_spinner" />
                     </div>
                   ) : orgs.length === 0 ? (
-                    <p className="cs_map_org_empty">Bu viloyatda tashkilotlar topilmadi</p>
+                    <p className="cs_map_org_empty">
+                      Bu viloyatda tashkilotlar topilmadi
+                    </p>
                   ) : (
                     orgs.map((org) => (
                       <div key={org.id} className="cs_map_org_card">

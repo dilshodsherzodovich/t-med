@@ -1,9 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import Slider from "react-slick";
 import { FaAnglesRight } from "react-icons/fa6";
 import Button from "../Buttons";
@@ -56,13 +52,16 @@ const HeroSection = ({ data }) => {
 
   // Static content — always from first slide, never changes
   const heroContent = data?.primarySlider?.[0];
-  const words = (heroContent?.title || "").replace(/<[^>]*>/g, "").split(" ").filter(Boolean);
+  const words = (heroContent?.title || "")
+    .replace(/<[^>]*>/g, "")
+    .split(" ")
+    .filter(Boolean);
   const wordDelay = words.length * 0.08;
 
   const stats = [
     { num: "10K+", label: "Xodimlar" },
     { num: "600+", label: "Lokomotiv parki" },
-    { num: "8",    label: "Depolar" },
+    { num: "8", label: "Depolar" },
   ];
 
   return (
@@ -128,7 +127,9 @@ const HeroSection = ({ data }) => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.55, delay: wordDelay + 0.05 }}
-                  dangerouslySetInnerHTML={{ __html: heroContent.contactSubtitle }}
+                  dangerouslySetInnerHTML={{
+                    __html: heroContent.contactSubtitle,
+                  }}
                 />
               )}
 
@@ -138,7 +139,11 @@ const HeroSection = ({ data }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: wordDelay + 0.18 }}
               >
-                <h3 dangerouslySetInnerHTML={{ __html: heroContent?.contactTitle }} />
+                <h3
+                  dangerouslySetInnerHTML={{
+                    __html: heroContent?.contactTitle,
+                  }}
+                />
                 <p dangerouslySetInnerHTML={{ __html: heroContent?.contact }} />
               </motion.div>
 
@@ -176,7 +181,11 @@ const HeroSection = ({ data }) => {
                     delay: 0.5 + i * 0.14,
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
-                  whileHover={{ y: -8, scale: 1.06, transition: { duration: 0.25 } }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.06,
+                    transition: { duration: 0.25 },
+                  }}
                 >
                   <span className="cs_stat_num">{stat.num}</span>
                   <span className="cs_stat_label">{stat.label}</span>
@@ -199,24 +208,6 @@ const HeroSection = ({ data }) => {
             whileTap={{ scale: 0.85 }}
           />
         ))}
-      </div>
-
-      {/* ── Train track decoration ── */}
-      <div className="cs_hero_track_bar">
-        <div className="cs_track_rail cs_track_rail_top" />
-        <div className="cs_track_rail cs_track_rail_btm" />
-        <div className="cs_track_sleepers">
-          {Array.from({ length: 24 }).map((_, i) => (
-            <div key={i} className="cs_track_sleeper" />
-          ))}
-        </div>
-        <motion.div
-          className="cs_track_loco"
-          animate={{ x: ["-8%", "108%"] }}
-          transition={{ duration: 9, ease: "linear", repeat: Infinity, repeatDelay: 1 }}
-        >
-          🚂
-        </motion.div>
       </div>
 
       {/* ── Scroll cue ── */}

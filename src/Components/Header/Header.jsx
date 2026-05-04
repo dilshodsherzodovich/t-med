@@ -212,10 +212,10 @@ const Header = ({ isTopBar, variant }) => {
               </div>
             </div>
             <div className="cs_top_right">
-              <a href="tel:+998712996805" className="cs_top_contact">
+              <a href="tel:+998712378771" className="cs_top_contact">
                 <FaPhone />
                 <span className="cs_top_label">TELEFON</span>
-                <strong>+998 (71) 299-68-05</strong>
+                <strong>+99871 237 87 71</strong>
               </a>
               <a href="mailto:info@locdep.uz" className="cs_top_contact">
                 <FaEnvelope />
@@ -234,11 +234,13 @@ const Header = ({ isTopBar, variant }) => {
               <Link className="cs_site_branding" to={`/${lang}`}>
                 <img src="/logo.svg" style={{ height: "52px" }} alt="Logo" />
               </Link>
-              <div className="cs_logo_names">
-                <span className="cs_logo_line1">
-                  Lokomotivlardan foydalanish
+              <div className="cs_logo_names d-flex flex-column justify-content-center">
+                <span className="cs_logo_line1" style={{ fontWeight: '800', fontSize: '16px', lineHeight: '1.2' }}>
+                  O'zbekiston Temir Yo'llari AJ
                 </span>
-                <span className="cs_logo_line2">boshqarmasi</span>
+                <span className="cs_logo_line2" style={{ fontWeight: '700', fontSize: '12px', color: '#1a6ef7' }}>
+                  Lokomotivlardan foydalanish boshqarmasi
+                </span>
               </div>
             </div>
 

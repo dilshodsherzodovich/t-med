@@ -1,17 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import loadBackgroudImages from "../Common/loadBackgroudImages";
-import { toast } from "react-toastify";
-import contactBg from "/assets/img/about/contact.png";
 import { useTranslation } from "react-i18next";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: (i = 0) => ({
-    opacity: 1, y: 0,
-    transition: { duration: 0.55, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] },
-  }),
-};
+import { FiPhone, FiMail, FiClock, FiMapPin } from "react-icons/fi";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -50 },
@@ -23,34 +17,29 @@ const fadeRight = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } },
 };
 
+const customMarkerIcon = new L.divIcon({
+  html: `<div style="color: #ef4444; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); display: flex; flex-direction: column; align-items: center; justify-content: center; width: 40px; height: 40px;">
+           <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="40px" width="40px" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>
+         </div>`,
+  className: "custom-div-icon",
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+});
+
 const ContactSection2 = () => {
-  const formRef = useRef();
-  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const mapPosition = [41.303287, 69.276314];
 
   useEffect(() => {
     loadBackgroudImages();
   }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      toast.success("Xabaringiz muvaffaqqiyatli jo'natildi", {
-        theme: "colored",
-        position: "bottom-center",
-      });
-      formRef.current.reset();
-      setLoading(false);
-    }, 800);
-  };
 
   return (
     <section className="cs_contact_light_section">
       <div className="cs_height_110 cs_height_lg_70" />
       <div className="container">
         <div className="row cs_gap_y_40">
-          {/* Form column — dark navy card */}
+          {/* Left Column — Contact Info */}
           <motion.div
             className="col-lg-6"
             variants={fadeLeft}
@@ -58,86 +47,59 @@ const ContactSection2 = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <div className="cs_contact_form_card">
-              <div className="cs_section_heading cs_style_1">
-                <p className="cs_section_subtitle cs_accent_color">
-                  <span className="cs_shape_left" />
-                  {t("pages.home.contact.title")}
-                </p>
-                <h2 className="cs_section_title" style={{ color: "#fff" }}>
-                  {t("pages.home.contact.subtitle")}
-                </h2>
+            <div className="p-5 d-flex flex-column justify-content-center h-100" style={{ backgroundColor: '#0f172a', borderRadius: '24px', minHeight: '450px' }}>
+              <h2 className="mb-5" style={{ fontWeight: '800', fontSize: '28px', textTransform: 'uppercase' }}>
+                <span style={{ color: '#1a6ef7', textShadow: '0 0 20px rgba(26, 110, 247, 0.4)' }}>BOG'LANISH </span>
+                <span style={{ color: '#ffffff' }}>UCHUN</span>
+              </h2>
+              
+              <div className="d-flex flex-column gap-4">
+                <div className="d-flex align-items-start">
+                  <div className="d-flex align-items-center justify-content-center rounded" style={{ width: '48px', height: '48px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#1a6ef7', marginRight: '20px', flexShrink: 0 }}>
+                    <FiPhone size={20} />
+                  </div>
+                  <div>
+                    <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '700', letterSpacing: '1px', marginBottom: '6px' }}>TELEFON</div>
+                    <div style={{ color: '#ffffff', fontSize: '15px', fontWeight: '500' }}>+99871 237 87 71</div>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-start">
+                  <div className="d-flex align-items-center justify-content-center rounded" style={{ width: '48px', height: '48px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#1a6ef7', marginRight: '20px', flexShrink: 0 }}>
+                    <FiMail size={20} />
+                  </div>
+                  <div>
+                    <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '700', letterSpacing: '1px', marginBottom: '6px' }}>ELEKTRON POCHTA</div>
+                    <div style={{ color: '#ffffff', fontSize: '15px', fontWeight: '500' }}>jds@uzrailway.uz</div>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-start">
+                  <div className="d-flex align-items-center justify-content-center rounded" style={{ width: '48px', height: '48px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#1a6ef7', marginRight: '20px', flexShrink: 0 }}>
+                    <FiClock size={20} />
+                  </div>
+                  <div>
+                    <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '700', letterSpacing: '1px', marginBottom: '6px' }}>ISH VAQTI</div>
+                    <div style={{ color: '#ffffff', fontSize: '15px', fontWeight: '500' }}>08:00 — 17:00</div>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-start">
+                  <div className="d-flex align-items-center justify-content-center rounded" style={{ width: '48px', height: '48px', backgroundColor: 'rgba(255,255,255,0.05)', color: '#1a6ef7', marginRight: '20px', flexShrink: 0 }}>
+                    <FiMapPin size={20} />
+                  </div>
+                  <div>
+                    <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '700', letterSpacing: '1px', marginBottom: '6px' }}>MANZIL</div>
+                    <div style={{ color: '#ffffff', fontSize: '14px', fontWeight: '500', lineHeight: '1.5', maxWidth: '300px' }}>
+                      Toshkent shahar, Taras shevchenko, 7
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              <div className="cs_height_25 cs_height_lg_25" />
-
-              <form
-                ref={formRef}
-                onSubmit={handleSubmit}
-                className="cs_contact_form row cs_gap_y_30 home_form_area"
-              >
-              {[
-                { name: "first_name", type: "text",  key: "first_name", col: "col-md-6", i: 0 },
-                { name: "last_name",  type: "text",  key: "last_name",  col: "col-md-6", i: 1 },
-                { name: "email",      type: "email", key: "email",      col: "col-md-6", i: 2 },
-                { name: "phone",      type: "text",  key: "phone",      col: "col-md-6", i: 3 },
-              ].map(({ name, type, key, col, i }) => (
-                <motion.div
-                  key={name}
-                  className={col}
-                  custom={i}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-40px" }}
-                >
-                  <input
-                    type={type}
-                    name={name}
-                    className="cs_form_field"
-                    placeholder={t(`pages.home.contact.form.${key}`)}
-                    required
-                  />
-                </motion.div>
-              ))}
-
-              <motion.div
-                className="col-lg-12"
-                custom={4}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-              >
-                <textarea
-                  rows="5"
-                  name="message"
-                  className="cs_form_field"
-                  placeholder={t("pages.home.contact.form.message")}
-                />
-              </motion.div>
-
-              <motion.div
-                className="col-lg-12"
-                custom={5}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-              >
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="cs_btn cs_style_1 cs_color_1"
-                >
-                  {loading ? "..." : t("pages.home.contact.form.buttonText")}
-                </button>
-              </motion.div>
-            </form>
-            </div>{/* end cs_contact_form_card */}
+            </div>
           </motion.div>
 
-          {/* Image column */}
+          {/* Right Column — Map */}
           <motion.div
             className="col-lg-6"
             variants={fadeRight}
@@ -145,10 +107,25 @@ const ContactSection2 = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <div
-              className="cs_solution_thumbnail cs_bg_filed"
-              data-background={contactBg}
-            />
+            <div className="position-relative overflow-hidden h-100 shadow-sm" style={{ borderRadius: '24px', minHeight: '450px', zIndex: 0 }}>
+              <MapContainer 
+                center={mapPosition} 
+                zoom={14} 
+                scrollWheelZoom={false}
+                style={{ height: '100%', width: '100%', position: 'absolute', top: 0, left: 0 }}
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://yandex.com/maps">Yandex Maps</a>'
+                  url="https://core-renderer-tiles.maps.yandex.net/tiles?l=map&v=21.05.21-0-b210520084330&x={x}&y={y}&z={z}&scale=1&lang=ru_RU"
+                />
+                <Marker position={mapPosition} icon={customMarkerIcon}>
+                  <Popup>
+                    <strong>Toshkent shahar</strong><br />
+                    Taras shevchenko, 7
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
           </motion.div>
         </div>
       </div>
