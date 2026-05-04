@@ -18,43 +18,26 @@ const PageHeading = ({ data, secondaryData }) => {
   return (
     <div className="overflow">
       <div className="container">
-        <h1
-          className="cs_page_title"
-          data-aos="fade-up"
-          style={{ color: "whitesmoke" }}
-        >
+        <h1 className="cs_page_title" data-aos="fade-up">
           {data?.title}
         </h1>
         <ol className="breadcrumb text-capitalize" data-aos="fade-right">
-          <li className="breadcrumb-item" style={{ color: "white" }}>
+          <li className="breadcrumb-item">
             <Link to={`/${lang}`}>{t("root.home")}</Link>
           </li>
           {secondaryData ? (
-            <>
-              <li className="breadcrumb-item" style={{ color: "white" }}>
-                <span className="active" style={{ color: "white" }}>
-                  {secondaryData}
-                </span>
-              </li>
-            </>
+            <li className="breadcrumb-item">
+              <span className="active">{secondaryData}</span>
+            </li>
           ) : (
             urlSegments.map((segment, index) => (
-              <li
-                key={index}
-                className="breadcrumb-item"
-                style={{ color: "white" }}
-              >
+              <li key={index} className="breadcrumb-item">
                 {index < urlSegments.length - 1 ? (
-                  <Link
-                    to={`/${urlSegments.slice(0, index + 1).join("/")}`}
-                    style={{ color: "white" }}
-                  >
+                  <Link to={`/${urlSegments.slice(0, index + 1).join("/")}`}>
                     {segment}
                   </Link>
                 ) : (
-                  <span className="active" style={{ color: "white" }}>
-                    {segment}
-                  </span>
+                  <span className="active">{segment}</span>
                 )}
               </li>
             ))

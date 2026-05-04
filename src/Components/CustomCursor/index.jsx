@@ -46,17 +46,20 @@ const CustomCursor = () => {
     default: {
       width: 40, height: 40,
       background: "transparent",
-      border: "1.5px solid rgba(255,255,255,0.7)",
+      border: "1.5px solid rgba(26,110,247,0.75)",
+      boxShadow: "0 0 8px rgba(26,110,247,0.45), inset 0 0 6px rgba(42,166,247,0.10)",
     },
     hover: {
       width: 68, height: 68,
-      background: "rgba(255,255,255,0.08)",
-      border: "1.5px solid rgba(255,255,255,0.9)",
+      background: "rgba(26,110,247,0.08)",
+      border: "1.5px solid rgba(26,110,247,0.95)",
+      boxShadow: "0 0 16px rgba(26,110,247,0.65), 0 0 32px rgba(42,166,247,0.30)",
     },
     click: {
       width: 28, height: 28,
-      background: "rgba(255,255,255,0.2)",
-      border: "1.5px solid white",
+      background: "rgba(26,110,247,0.22)",
+      border: "1.5px solid rgba(26,110,247,1)",
+      boxShadow: "0 0 20px rgba(26,110,247,0.80)",
     },
   };
 

@@ -1,0 +1,771 @@
+/*--------------------------------------------------------------
+  Glass Sections — Glassmorphism design system
+----------------------------------------------------------------*/
+
+// ── Tokens ────────────────────────────────────────────────────
+$glass-bg:     rgba(255, 255, 255, 0.06);
+$glass-bg-md:  rgba(255, 255, 255, 0.09);
+$glass-border: rgba(255, 255, 255, 0.10);
+$glass-blur:   16px;
+$navy:         #040A26;
+$accent:       #1a6ef7;
+$accent2:      #2aa6f7;
+
+@mixin glass($bg: $glass-bg) {
+  background: $bg;
+  backdrop-filter: blur($glass-blur);
+  -webkit-backdrop-filter: blur($glass-blur);
+  border: 1px solid $glass-border;
+}
+
+// ── Dark section base ─────────────────────────────────────────
+.cs_dark_section {
+  background: $navy;
+  position: relative;
+
+  .cs_section_title  { color: #fff; }
+  .cs_section_subtitle { color: rgba(255,255,255,0.48); }
+  .cs_about_text     { color: rgba(255,255,255,0.70); }
+  .cs_about_iconbox_subtitle { color: rgba(255,255,255,0.70); }
+  .cs_about_iconbox_icon { color: $accent; }
+  .cs_shape_left { background-color: $accent !important; }
+}
+
+// ── Map Section glass wrapper ─────────────────────────────────
+.cs_map_glass_wrap {
+  @include glass();
+  border-radius: 22px;
+  padding: 36px 32px;
+
+  @media (max-width: 767px) { padding: 22px 16px; }
+}
+
+// ── About: glass iconboxes + experience badge ─────────────────
+.cs_dark_section .cs_iconbox.cs_style_1 {
+  @include glass($glass-bg-md);
+  border-radius: 14px;
+  padding: 22px;
+  border-left: 3px solid $accent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+
+  .cs_iconbox_title   { color: #fff; }
+  .cs_iconbox_subtitle { color: rgba(255,255,255,0.62); font-size: 14px; }
+
+  &:hover {
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+  }
+}
+
+.cs_experience_box {
+  @include glass($glass-bg-md);
+  border-left: 3px solid $accent !important;
+  border-radius: 14px !important;
+  padding: 20px 28px !important;
+
+  .cs_experience_box_number {
+    background: linear-gradient(135deg, #fff 0%, $accent2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cs_experience_box_title { color: rgba(255,255,255,0.80); font-size: 13px; }
+}
+
+// ── Counter — Glass card grid ─────────────────────────────────
+.cs_counter_glass_section {
+  background: darken($navy, 2%);
+  padding: 80px 0;
+
+  @media (max-width: 767px) { padding: 50px 0; }
+}
+
+.cs_counter_glass_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+
+  @media (max-width: 991px)  { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 575px)  { grid-template-columns: 1fr; }
+}
+
+.cs_glass_stat {
+  @include glass();
+  border-radius: 20px;
+  padding: 36px 22px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  }
+
+  .cs_glass_icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba($accent, 0.14);
+    border: 1px solid rgba($accent, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &:hover .cs_glass_icon {
+    background: rgba($accent, 0.28);
+    box-shadow: 0 0 22px rgba($accent, 0.38);
+  }
+
+  .cs_glass_num {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: var(--heading-font);
+    background: linear-gradient(135deg, #ffffff 0%, $accent2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cs_glass_label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.52);
+  }
+
+  .cs_glass_glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba($accent, 0.18) 0%, transparent 65%);
+    opacity: 0;
+    transition: opacity 0.35s;
+    pointer-events: none;
+  }
+
+  &:hover .cs_glass_glow { opacity: 1; }
+}
+
+// ── CTA section animated elements ────────────────────────────
+.cs_cta_glass_panel {
+  @include glass($glass-bg-md);
+  border-radius: 24px;
+  padding: 42px 40px;
+  border-left: 3px solid $accent;
+
+  @media (max-width: 767px) { padding: 28px 22px; }
+}
+
+.cs_player_btn_pulse {
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba($accent, 0.35);
+    animation: cta_pulse 2.4s ease-out infinite;
+  }
+
+  &::after { animation-delay: 1.2s; }
+}
+
+@keyframes cta_pulse {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+// ── Blog — dark section + glass cards ─────────────────────────
+.cs_blog_dark_section {
+  background: $navy;
+  position: relative;
+  padding: 80px 0;
+
+  @media (max-width: 767px) { padding: 50px 0; }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($accent, 0.35), transparent);
+  }
+
+  .cs_section_title  { color: #fff; }
+  .cs_section_subtitle { color: rgba(255,255,255,0.48); }
+  .cs_shape_left { background-color: $accent !important; }
+
+  .cs_post.cs_style_1 {
+    @include glass();
+    border-radius: 18px;
+    overflow: hidden;
+
+    .cs_post_thumbnail {
+      padding: 0;
+      margin-bottom: 0;
+
+      img { border-radius: 18px 18px 0 0; }
+    }
+
+    .cs_post_content {
+      background: transparent;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cs_post_title a {
+      color: #fff;
+      &:hover { color: $accent2; }
+    }
+
+    .cs_post_subtitle { color: rgba(255,255,255,0.60); }
+
+    .cs_post_btn {
+      color: $accent2;
+      svg { color: $accent2; }
+    }
+
+    .cs_posted_by {
+      background-color: $accent;
+    }
+
+    &:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.16);
+    }
+  }
+
+  // slider dots color
+  .cs_pagination.cs_style_2 li button::before {
+    background: rgba(255,255,255,0.35);
+  }
+  .cs_pagination.cs_style_2 li.slick-active button::before {
+    background: $accent;
+  }
+}
+
+// ── Contact — dark + glass form ───────────────────────────────
+.cs_contact_dark_section {
+  background: $navy;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -40%; left: -15%;
+    width: 65%; height: 90%;
+    background: radial-gradient(ellipse, rgba($accent, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -20%; right: -10%;
+    width: 50%; height: 70%;
+    background: radial-gradient(ellipse, rgba($accent2, 0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cs_section_title  { color: #fff; }
+  .cs_section_subtitle { color: rgba(255,255,255,0.48); }
+  .cs_shape_left { background-color: $accent !important; }
+  h2 { color: #fff; }
+
+  .cs_form_field {
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    color: #fff !important;
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder { color: rgba(255,255,255,0.36); }
+
+    &:focus {
+      border-color: rgba($accent, 0.55) !important;
+      box-shadow: 0 0 0 3px rgba($accent, 0.10);
+      outline: none;
+    }
+  }
+
+  textarea.cs_form_field { resize: none; }
+
+  .cs_solution_thumbnail {
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+    min-height: 420px;
+  }
+}
+
+// ── Light section base ────────────────────────────────────────
+$light-bg:       #f1f5f9;
+$light-bg-card:  #ffffff;
+$light-text:     #0f172a;
+$light-muted:    #64748b;
+$light-border:   rgba(0, 0, 0, 0.07);
+
+// ── Map section — light ───────────────────────────────────────
+.cs_map_light_section {
+  background: $light-bg;
+  padding: 70px 0 80px;
+
+  @media (max-width: 767px) { padding: 50px 0 60px; }
+
+  .cs_section_subtitle { color: $light-muted; }
+  .cs_section_title    { color: $light-text; }
+  .cs_shape_left       { background-color: $accent !important; }
+}
+
+.cs_map_card_wrap {
+  background: $light-bg-card;
+  border: 1px solid $light-border;
+  border-radius: 22px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
+
+  @media (max-width: 767px) { padding: 22px 16px; }
+}
+
+// ── Counter — light elevated cards ───────────────────────────
+.cs_counter_light_section {
+  background: $light-bg-card;
+  padding: 80px 0;
+
+  @media (max-width: 767px) { padding: 50px 0; }
+}
+
+.cs_counter_light_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+
+  @media (max-width: 991px)  { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 575px)  { grid-template-columns: 1fr; }
+}
+
+.cs_light_stat {
+  background: $light-bg-card;
+  border: 1px solid $light-border;
+  border-radius: 20px;
+  padding: 36px 22px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.055);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 8px 36px rgba($accent, 0.14);
+    border-color: rgba($accent, 0.22);
+  }
+
+  // Accent top stripe on hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $accent, $accent2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  &:hover::before { opacity: 1; }
+
+  .cs_light_icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba($accent, 0.08);
+    border: 1px solid rgba($accent, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+  }
+
+  &:hover .cs_light_icon {
+    background: rgba($accent, 0.14);
+    box-shadow: 0 0 18px rgba($accent, 0.20);
+  }
+
+  .cs_light_num {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: var(--heading-font);
+    background: linear-gradient(135deg, $light-text 0%, $accent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cs_light_label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: $light-muted;
+  }
+}
+
+// ── About — light section (new design) ───────────────────────
+.cs_about_light_section {
+  background: linear-gradient(160deg, #f0f4ff 0%, #f8faff 40%, #ffffff 100%);
+  position: relative;
+}
+
+// Centered hero heading block
+.cs_about_hero {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 52px;
+}
+
+.cs_about_badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: $accent;
+  background: rgba($accent, 0.08);
+  border: 1px solid rgba($accent, 0.20);
+  border-radius: 40px;
+  padding: 5px 16px;
+  margin-bottom: 18px;
+}
+
+.cs_about_main_heading {
+  font-size: clamp(26px, 3.6vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.cs_about_heading_dark {
+  color: $light-text;
+}
+
+.cs_about_heading_blue {
+  color: $accent;
+  text-shadow:
+    0 0 24px rgba($accent, 0.38),
+    0 0 56px rgba($accent2, 0.18);
+}
+
+.cs_about_hero_desc {
+  font-size: 15px;
+  line-height: 1.75;
+  color: $light-muted;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+// Grid row — stretch both cols to same height
+.cs_about_grid_row {
+  align-items: stretch;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// ── Image grid ──────────────────────────────────────────────
+.cs_about_img_grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1; // fill full column height
+}
+
+.cs_about_img_large {
+  border-radius: 14px;
+  overflow: hidden;
+  flex: 1;   // grows to fill remaining space
+  min-height: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+
+    &:hover { transform: scale(1.03); }
+  }
+}
+
+.cs_about_img_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  height: 170px; // fixed smaller height for bottom pair
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    transition: transform 0.5s ease;
+
+    &:hover { transform: scale(1.04); }
+  }
+}
+
+// ── Info card ───────────────────────────────────────────────
+.cs_about_info_card {
+  background: $light-bg-card;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 20px;
+  padding: 32px 30px 26px;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.07);
+  margin-bottom: 20px;
+
+  @media (max-width: 767px) { padding: 24px 20px; }
+}
+
+.cs_about_card_label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 14px;
+}
+
+.cs_about_card_line {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: $accent;
+  flex-shrink: 0;
+}
+
+.cs_about_card_title {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  color: $light-text;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.cs_about_card_text {
+  font-size: 14px;
+  line-height: 1.75;
+  color: $light-muted;
+  margin-bottom: 0;
+}
+
+// Stats
+.cs_about_stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin: 18px 0;
+}
+
+.cs_about_stat {
+  text-align: left;
+}
+
+.cs_about_stat_value {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: $light-text;
+  line-height: 1;
+  margin-bottom: 5px;
+  font-family: var(--heading-font);
+
+  &.cs_stat_accent {
+    color: $accent;
+    text-shadow: 0 0 16px rgba($accent, 0.30);
+  }
+}
+
+.cs_about_stat_label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  line-height: 1.3;
+}
+
+.cs_about_card_footnote {
+  font-size: 12px;
+  font-style: italic;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.6;
+}
+
+// ── Feature list ─────────────────────────────────────────────
+.cs_about_features {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 28px;
+}
+
+.cs_about_feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+
+  &:first-child { border-top: 1px solid rgba(0,0,0,0.06); }
+}
+
+.cs_about_feature_icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba($accent, 0.08);
+  border: 1px solid rgba($accent, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    filter: none;
+  }
+}
+
+.cs_about_feature_title {
+  font-size: 14px;
+  font-weight: 700;
+  color: $light-text;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.cs_about_feature_text {
+  font-size: 13px;
+  color: $accent;
+  line-height: 1.65;
+  margin: 0;
+}
+
+// ── Contact — light section + dark form card ──────────────────
+.cs_contact_light_section {
+  background: #f1f5f9;
+  position: relative;
+
+  .cs_contact_form_card {
+    background: $navy;
+    border-radius: 22px;
+    padding: 40px 36px;
+
+    @media (max-width: 767px) { padding: 28px 22px; }
+
+    .cs_section_subtitle { color: rgba(255,255,255,0.55); }
+    .cs_shape_left       { background-color: $accent !important; }
+    h2                   { color: #fff; }
+
+    .cs_form_field {
+      background: rgba(255,255,255,0.06) !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      color: #fff !important;
+      border-radius: 10px;
+      transition: border-color 0.2s ease;
+
+      &::placeholder { color: rgba(255,255,255,0.36); }
+
+      &:focus {
+        border-color: rgba($accent, 0.55) !important;
+        outline: none;
+      }
+    }
+
+    textarea.cs_form_field { resize: none; }
+  }
+
+  .cs_solution_thumbnail {
+    border-radius: 22px;
+    border: 1px solid rgba(0,0,0,0.06);
+    min-height: 420px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+  }
+}
+
+// ── Blog — light section ──────────────────────────────────────
+.cs_blog_light_section {
+  background: $light-bg;
+  padding: 80px 0;
+
+  @media (max-width: 767px) { padding: 50px 0; }
+
+  .cs_section_title    { color: $light-text; }
+  .cs_section_subtitle { color: $light-muted; }
+  .cs_shape_left       { background-color: $accent !important; }
+
+  // Restore standard post card styling
+  .cs_post.cs_style_1 {
+    background: $light-bg-card;
+    border-radius: 16px;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      box-shadow: 0 8px 36px rgba($accent, 0.12);
+    }
+
+    .cs_post_thumbnail { padding: 0; margin-bottom: 0; }
+    .cs_post_content {
+      background: $light-bg-card;
+      border: none;
+      border-top: 1px solid $light-border;
+    }
+    .cs_post_title a    { color: $light-text; &:hover { color: $accent; } }
+    .cs_post_subtitle   { color: $light-muted; }
+    .cs_post_btn        { color: $accent; }
+  }
+}

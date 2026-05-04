@@ -1,94 +1,237 @@
-// @import "~bootstrap/scss/bootstrap";
-// @import "~bootstrap-icons/font/bootstrap-icons";
-g {
-  &.active {
-    path {
-      fill: #057094;
-    }
+$navy:    #040A26;
+$accent:  #1a6ef7;
+$accent2: #2aa6f7;
+
+// ── SVG region paths ───────────────────────────────────────────
+// g > path = direct child only → skips mask internals
+g > path {
+  fill:   rgba($accent2, 0.10);
+  stroke: rgba($accent2, 0.30);
+  stroke-width: 0.6px;
+  cursor: pointer;
+  transition: fill 0.22s ease, filter 0.22s ease, stroke 0.22s ease;
+}
+
+g > path:hover {
+  fill:   rgba($accent2, 0.38);
+  stroke: rgba($accent2, 0.80);
+  filter: drop-shadow(0 0 7px rgba($accent2, 0.65));
+}
+
+g.active > path {
+  fill:   rgba($accent, 0.60);
+  stroke: rgba($accent2, 1);
+  stroke-width: 0.8px;
+  filter: drop-shadow(0 0 12px rgba($accent, 0.85))
+          drop-shadow(0 0 4px  rgba($accent2, 0.60));
+}
+
+// ── Section wrapper ─────────────────────────────────────────────
+.cs_map_section_light {
+  background: #f1f5f9;
+  padding: 34px 0 38px;
+
+  @media (max-width: 767px) { padding: 24px 0 28px; }
+
+  .cs_section_subtitle { color: #64748b; }
+  .cs_shape_left { background-color: $accent !important; }
+}
+
+// ── Dark navy map card ──────────────────────────────────────────
+.cs_map_fullwrap {
+  position: relative;
+  background-color: $navy;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.050) 1px, transparent 1px),
+    radial-gradient(ellipse at 20% 60%, rgba($accent, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 25%, rgba($accent2, 0.05) 0%, transparent 45%);
+  background-size: 22px 22px, 100% 100%, 100% 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+  // clip map height on desktop
+  max-height: 440px;
+  overflow: hidden;
+
+  // bottom-fade signals map continues below clip
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba($navy, 0.80) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 5;
   }
-  path {
-    cursor: pointer;
-    &:hover {
-      fill: rgba(11, 240, 255, 0.3);
-    }
+
+  @media (max-width: 767px) {
+    max-height: none;
+    overflow: visible;
+    border-radius: 16px;
+    &::after { display: none; }
   }
 }
 
-.profile-carousel {
-  max-width: 450px;
-  margin: 0 auto;
+.cs_map_svg_area {
+  width: 100%;
+  padding: 6px 0 0;
 
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: auto;
-    color: #fff;
-    opacity: 1;
-
-    &:hover {
-      color: #ccc;
-    }
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
   }
+}
 
-  .card {
-    background-color: #0a1e5c;
-    color: #fff;
+// ── Org overlay panel (white — contrast on dark map) ───────────
+.cs_map_org_panel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 290px;
+  max-height: calc(100% - 32px);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.30);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 10; // above ::after fade
+
+  @media (max-width: 991px) { width: 256px; }
+
+  @media (max-width: 767px) {
+    position: static;
+    width: 100%;
+    max-height: 340px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: none;
     border: none;
-    border-radius: 0.5rem;
-
-    .card-header {
-      background-color: transparent;
-      border-bottom: none;
-      padding: 1.5rem 1.5rem 0.5rem;
-
-      .card-title {
-        font-size: 1.25rem;
-        font-weight: 500;
-        margin-bottom: 0;
-      }
-    }
-
-    .card-body {
-      padding: 1.5rem;
-    }
+    border-top: 1px solid rgba(0,0,0,0.08);
   }
+}
 
-  .profile-info {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    .profile-image {
-      width: 100px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 0.25rem;
-    }
+.cs_map_org_panel_header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 13px 15px 9px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 1;
+  flex-shrink: 0;
+}
 
-    .profile-details-map {
-      .profile-name {
-        font-size: 1.125rem;
-        font-weight: 500;
-        margin-bottom: 0.25rem;
-        color: #fff;
-      }
+.cs_map_org_region {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
 
-      .profile-title {
-        font-size: 0.875rem;
-        color: #ccc;
-        margin-bottom: 0;
-      }
-    }
-  }
+.cs_map_org_count {
+  font-size: 11px;
+  font-weight: 500;
+  color: $accent;
+}
 
-  .contact-info {
-    .contact-item {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.875rem;
+.cs_map_panel_close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  font-size: 15px;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
 
-      i {
-        font-size: 1rem;
-      }
-    }
-  }
+  &:hover { background: #f1f5f9; color: #0f172a; }
+}
+
+.cs_map_org_list {
+  overflow-y: auto;
+  flex: 1;
+  padding: 5px 0;
+
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: rgba($accent, 0.20); border-radius: 4px; }
+}
+
+.cs_map_org_card {
+  padding: 11px 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: background 0.18s;
+
+  &:last-child { border-bottom: none; }
+  &:hover { background: #f8fafc; }
+}
+
+.cs_map_org_title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 5px;
+  line-height: 1.35;
+}
+
+.cs_map_org_row {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 3px;
+  line-height: 1.4;
+
+  svg { flex-shrink: 0; margin-top: 1px; font-size: 10px; color: $accent; }
+}
+
+.cs_map_org_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: $accent;
+  margin-top: 6px;
+  text-decoration: none;
+
+  &:hover { color: darken($accent, 10%); text-decoration: underline; }
+  svg { font-size: 11px; }
+}
+
+.cs_map_org_loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px;
+}
+
+.cs_map_org_spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid rgba($accent, 0.15);
+  border-top-color: $accent;
+  border-radius: 50%;
+  animation: map_spin 0.7s linear infinite;
+}
+
+@keyframes map_spin { to { transform: rotate(360deg); } }
+
+.cs_map_org_empty {
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  padding: 22px 15px;
+  margin: 0;
 }

@@ -24,7 +24,8 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #fff;
+    background: #1a6ef7;
+    box-shadow: 0 0 8px rgba(#1a6ef7, 0.9), 0 0 16px rgba(#2aa6f7, 0.5);
     pointer-events: none;
     z-index: 100000;
     will-change: transform;
@@ -33,7 +34,7 @@
   .cs_cursor_label {
     font-size: 11px;
     font-weight: 600;
-    color: #fff;
+    color: #1a6ef7;
     letter-spacing: 0.5px;
     pointer-events: none;
     user-select: none;
@@ -1725,28 +1726,50 @@ label {
 }
 
 .cs_page_heading {
-  height: 450px;
-  padding: 130px 0 50px;
+  height: 420px;
+  padding: 0;
   position: relative;
+  // Pull section up behind the fixed header (same as home hero)
+  margin-top: -116px;
 
-  @media (max-width: 991px) {
+  @media (max-width: 1199px) {
+    margin-top: -70px;
     height: 300px;
   }
+  @media (max-width: 767px) {
+    height: 260px;
+  }
+
   .overflow {
     width: 100% !important;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    // 130px clears the 116px header so content sits below it
     padding: 130px 0 50px;
     display: flex;
     align-items: center;
-    background: rgba(0, 34, 97, 0.5);
+    background:
+      linear-gradient(to right, rgba(4, 10, 38, 0.92) 0%, rgba(4, 10, 38, 0.60) 55%, rgba(4, 10, 38, 0.45) 100%),
+      linear-gradient(to top,   rgba(4, 10, 38, 0.80) 0%, transparent 50%);
   }
 
   .breadcrumb {
-    font-size: 19px;
+    font-size: 13px;
     line-height: 1.5em;
+    margin-bottom: 0;
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.18s ease;
+      &:hover { color: #fff; }
+    }
 
     .active {
       color: var(--accent-color);
@@ -1754,10 +1777,15 @@ label {
   }
 
   .cs_page_title {
-    font-size: 50px;
-    margin-bottom: 12px;
+    font-size: clamp(26px, 3.2vw, 46px);
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: #fff;
+
     @media (max-width: 991px) {
-      font-size: 30px;
+      font-size: 26px;
     }
   }
 }

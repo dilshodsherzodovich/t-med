@@ -633,6 +633,16 @@
           top: calc(100% + 10px);
           pointer-events: none;
           transform: translateY(6px);
+
+          // Bridge the 10px gap so mouse doesn't lose hover state
+          &::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+          }
         }
 
         &:hover > ul {

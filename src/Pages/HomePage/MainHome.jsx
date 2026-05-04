@@ -56,29 +56,38 @@ const MainHome = () => {
   };
 
   const aboutData = {
-    sectionSubtitle: t("pages.home.aboutSection.title"),
-    sectionTitle: t("pages.home.aboutSection.subtitle"),
-    aboutText: t("pages.home.aboutSection.text"),
-    service: t("pages.home.aboutSection.contactText"),
-    experienceYears: t("pages.home.aboutSection.experienceYears"),
-    experienceTitle: t("pages.home.aboutSection.experienceTitle"),
-    videoUrl: "https://www.youtube.com/embed/L5_9Z9i3WdI",
-    videoText: t("pages.home.aboutSection.howWeWork"),
-    iconboxes: [
+    badge: t("pages.home.aboutSection.title"),
+    titleDark: "ISHONCHLI XIZMAT",
+    titleBlue: "VA ZAMONAVIY TEXNOLOGIYA",
+    description: "Yillar davomida to'plangan tajriba, yuqori malakali kadrlar va zamonaviy texnologiyalar asosida lokomotiv xo'jaligi mamlakat transport infratuzilmasining barqaror ishlashiga munosib hissa qo'shib kelmoqda.",
+    cardLabel: t("pages.home.aboutSection.title"),
+    cardTitle: "Lokomotiv xo'jaligi — temir yo'l transportining harakatlantiruvchi kuchi.",
+    cardText: "Lokomotiv xo'jaligi bo'limi O'zbekiston temir yo'llarida yuk va yo'lovchi tashishning uzluksizligini ta'minlaydi. Bo'lim elektrovoz, teplovoz va motorvagon texnikasiga texnik xizmat ko'rsatish, profilaktik hamda kapital ta'mirlash ishlarini olib borish bo'yicha ixtisoslashgan.",
+    stats: [
+      { value: "32", label: "Yillik tajriba", accent: false },
+      { value: "600+", label: "Lokomotiv parki", accent: false },
+      { value: "7000+", label: "Xodim", accent: true },
+    ],
+    cardFootnote: "Bo'lim zamonaviy diagnostika uskunalari bilan jihozlangan sex va ustaxonalarga ega bo'lib, barcha turdagi murakkab ta'mirlash ishlarini bajarishga moslashtirilgan.",
+    features: [
       {
         imgUrl: "/assets/img/icons/about_icon_1.png",
-        title: t("pages.home.aboutSection.contactText"),
-        subtitle: t("pages.home.aboutSection.staticText1"),
+        title: "Texnik xizmat va ta'mirlash",
+        text: "Elektrovoz va teplovozlar uchun TO-1 dan TO-3 gacha profilaktik texnik xizmat, TR-1, TR-2, TR-3 kapital ta'mirlash turlari va lokomotiv agregatlari modernizatsiyasi amalga oshiriladi.",
       },
       {
         imgUrl: "/assets/img/icons/about_icon_2.png",
-        title: t("pages.home.aboutSection.consultationText"),
-        subtitle: t("pages.home.aboutSection.staticText2"),
+        title: "Malakali kadrlar tayyorlash",
+        text: "Lokomotiv haydovchilari, ta'mirchilar va texnik mutaxassislar doimiy malaka oshirish dasturlari orqali xalqaro standartlarga mos holda tayyorlanadi.",
       },
+    ],
+    images: [
+      "/assets/img/about/about3.jpg",
+      "/assets/img/about/about1.jpg",
+      "/assets/img/about/about2.jpg",
     ],
     btnUrl: `/${lang}/about`,
     btnText: t("pages.home.aboutSection.buttonText"),
-    sectionImgUrl: "/assets/img/about/about3.jpg",
   };
 
   const countersData = [
@@ -160,33 +169,27 @@ const MainHome = () => {
 
   return (
     <>
+      {/* 1 — DARK */}
       <HeroSection data={heroData} />
 
-      <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="80"
-        bottomSpaceMd="120"
-        className="cs_blue_bg cs_bg_filed"
-        backgroundImage="/assets/img/service_bg_3.jpg"
-      >
-        <MapSection />
-      </Section>
+      {/* 2 — LIGHT: map section renders its own light container */}
+      <MapSection />
 
+      {/* 3 — LIGHT: white about section */}
       <Section
         topSpaceLg="80"
         topSpaceMd="120"
         bottomSpaceLg="80"
         bottomSpaceMd="120"
-        className="cs_about cs_style_1 position-relative"
+        className="cs_about cs_style_1 cs_about_light_section position-relative"
       >
         <About data={aboutData} />
       </Section>
 
-      <Section className="cs_counter_area cs_gray_bg">
-        <CounterSection data={countersData} />
-      </Section>
+      {/* 4 — LIGHT: light elevated cards */}
+      <CounterSection data={countersData} variant="light" />
 
+      {/* 5 — DARK: bg image CTA */}
       <Section
         topSpaceLg="70"
         topSpaceMd="110"
@@ -198,15 +201,10 @@ const MainHome = () => {
         <CtaSection1 data={ctaData1} />
       </Section>
 
-      <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="80"
-        bottomSpaceMd="120"
-      >
-        <BlogSection data={blogData} />
-      </Section>
+      {/* 6 — LIGHT: blog cards on light bg */}
+      <BlogSection data={blogData} variant="light" />
 
+      {/* 7 — LIGHT: contact on light gray, dark form card */}
       <ContactSection2 />
     </>
   );

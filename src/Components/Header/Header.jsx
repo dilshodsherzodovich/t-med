@@ -235,7 +235,9 @@ const Header = ({ isTopBar, variant }) => {
                 <img src="/logo.svg" style={{ height: "52px" }} alt="Logo" />
               </Link>
               <div className="cs_logo_names">
-                <span className="cs_logo_line1">Lokomotivlardan foydalanish</span>
+                <span className="cs_logo_line1">
+                  Lokomotivlardan foydalanish
+                </span>
                 <span className="cs_logo_line2">boshqarmasi</span>
               </div>
             </div>
