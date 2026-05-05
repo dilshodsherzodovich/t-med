@@ -293,6 +293,9 @@
       "title": "News",
       "subtitle": "Latest News and Events"
     },
+    "docs": {
+      "title": "Regulatory Documents"
+    },
     "livestream": {
       "title": "Live Stream",
       "username": "Username",

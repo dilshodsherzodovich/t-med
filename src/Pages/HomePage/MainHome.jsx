@@ -9,6 +9,10 @@ import MapSection from "../../Components/MapSection/index.jsx";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useHttp } from "../../hooks/useHttp";
+import { formatDate } from "../../utils/format-date";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -33,6 +37,28 @@ const SectionWrapper = ({ children }) => (
 const MainHome = () => {
   const { t } = useTranslation();
   const { lang } = useParams();
+  const sendRequest = useHttp();
+
+  const { data: blogsRaw } = useQuery({
+    queryKey: ["blogs-home"],
+    queryFn: () => sendRequest({ url: `/blog/posts//?page=1` }),
+    staleTime: 60000,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+
+  const blogPostsData = useMemo(() => {
+    if (!blogsRaw?.results?.length) return [];
+    return blogsRaw.results.map((item) => ({
+      id: item.id,
+      date: formatDate(item.pub_date),
+      link: `/${lang}/blog/${item.id}`,
+      title: item.title,
+      images: item.images?.map((i) => i.image).filter(Boolean) || [],
+      photoCount: `+${item.images?.length || 0}`,
+      views: item.views_count,
+    }));
+  }, [blogsRaw, lang]);
 
   const heroData = {
     primarySlider: [
@@ -146,72 +172,10 @@ const MainHome = () => {
 
   const blogData = {
     sectionBadge: "YANGILIKLAR",
-    sectionTitle: "SO'NGGI XABARLAR",
     sectionDesc:
       "Korxonaning rasmiy Telegram kanali orqali e'lon qilinadigan eng so'nggi xabarlar va muhim voqealar.",
-    postsData: [
-      {
-        id: 1,
-        date: "3 may, 20:25",
-        link: `/${lang}/blog/1`,
-        title:
-          '28-aprel - Butunjahon mehnatni muhofaza qilish kuni munosabati bilan "O\'zbekiston" lokomotiv deposida tantanali tadbir tashkil etildi.',
-        subtitle: "",
-        images: [
-          "/assets/img/nsu-cover.jpg",
-          "/assets/img/nsu-cover1.jpg",
-          "/assets/img/nsu-cover2.jpg",
-        ],
-        photoCount: "+3",
-        views: "1.53K",
-      },
-      {
-        id: 2,
-        date: "1 may, 15:20",
-        link: `/${lang}/blog/2`,
-        title:
-          "\"O'zbekiston\" lokomotiv deposida \"Sifat kuni\" doirasida yig'ilish bo'lib o'tdi.",
-        subtitle:
-          "\"O'zbekiston\" lokomotiv deposi boshlig'ining ta'mirlash ishlari...",
-        images: [
-          "/assets/img/nsu-cover1.jpg",
-          "/assets/img/about/about1.jpg",
-          "/assets/img/nsu-cover.jpg",
-        ],
-        photoCount: "+3",
-        views: "1.92K",
-      },
-      {
-        id: 3,
-        date: "29 aprel, 20:04",
-        link: `/${lang}/blog/3`,
-        title:
-          "\"O'zbekiston\" lokomotiv deposida haftaning har chorshanba kuni an'anaviy tarzda o'tkazib kelinayotgan \"Harakat xavfsizligi kuni\"ning navbatdagi yig'ilishi yuqori saviyada tashkil etildi.",
-        subtitle: "",
-        images: [
-          "/assets/img/nsu-cover2.jpg",
-          "/assets/img/nsu-cover.jpg",
-          "/assets/img/about/about2.jpg",
-        ],
-        photoCount: "+3",
-        views: "2.81K",
-      },
-      {
-        id: 4,
-        date: "28 aprel, 14:11",
-        link: `/${lang}/blog/4`,
-        title:
-          "\"O'zbekiston temir yo'llari\" AJ boshqaruvi raisining o'rinbosari A.A. Kamiljanov, Toshkent mintaqaviy temir yo'l uzeli boshlig'i O.N. Xudoyqulov hamda korxona rahbari O.M. Maxsumov...",
-        subtitle: "",
-        images: [
-          "/assets/img/about/about1.jpg",
-          "/assets/img/about/about3.jpg",
-          "/assets/img/nsu-cover1.jpg",
-        ],
-        photoCount: "+3",
-        views: "3.28K",
-      },
-    ],
+    postsData: blogPostsData,
+    allBlogsLink: `/${lang}/blog`,
   };
 
   return (

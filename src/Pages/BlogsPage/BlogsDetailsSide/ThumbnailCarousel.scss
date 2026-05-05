@@ -1,0 +1,187 @@
+// ThumbnailCarousel.scss
+
+.tc-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+// ── Main viewer ───────────────────────────────────────────────────────────────
+
+.tc-main {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0a1628;
+  cursor: grab;
+  user-select: none;
+
+  &:active { cursor: grabbing; }
+}
+
+.tc-track {
+  display: flex;
+  will-change: transform;
+}
+
+.tc-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 480px;
+
+  @media (max-width: 992px) { height: 380px; }
+  @media (max-width: 576px) { height: 260px; }
+}
+
+.tc-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+
+// ── Nav buttons ───────────────────────────────────────────────────────────────
+
+.tc-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  opacity: 0.7;
+
+  &:hover:not(.tc-nav--disabled) {
+    opacity: 1;
+    background: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &--prev { left: 14px; }
+  &--next { right: 14px; }
+
+  &--disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ── Counter pill ──────────────────────────────────────────────────────────────
+
+.tc-counter {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-family: var(--heading-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.5px;
+  z-index: 5;
+}
+
+// ── Progress dots ─────────────────────────────────────────────────────────────
+
+.tc-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+.tc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+
+  &--active {
+    background: #ffffff;
+    width: 22px;
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  }
+}
+
+// ── Thumbnail strip ───────────────────────────────────────────────────────────
+
+.tc-thumbs-scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.tc-thumbs-row {
+  display: flex;
+  gap: 2px;
+  height: 68px;
+  padding-bottom: 2px;
+  width: fit-content;
+}
+
+.tc-thumb-btn {
+  position: relative;
+  flex-shrink: 0;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+
+  &:focus { outline: none; }
+
+  &:hover {
+    box-shadow: 0 0 0 2px rgba(26, 110, 247, 0.5);
+  }
+}
+
+.tc-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+
+.tc-thumb-active-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1a6ef7, #60a5fa);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 0 8px rgba(26, 110, 247, 0.8);
+}

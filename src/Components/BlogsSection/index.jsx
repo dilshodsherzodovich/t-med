@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import {
@@ -23,6 +23,7 @@ const fadeUp = {
 };
 
 const BlogSection = ({ data }) => {
+  const { lang } = useParams();
   const sliderRef = useRef(null);
   const timeoutRef = useRef(null);
 
@@ -245,7 +246,7 @@ const BlogSection = ({ data }) => {
               onMouseLeave={handleMouseLeave}
             >
               <Slider ref={sliderRef} {...settings}>
-                {data.postsData.map((post, index) => {
+                {(data.postsData || []).map((post, index) => {
                   const images = post.images || [post.thumbnail];
                   const animationDuration = images.length * 4;
                   return (
@@ -318,14 +319,14 @@ const BlogSection = ({ data }) => {
 
                             <div className="d-flex justify-content-between align-items-center">
                               <a
-                                href={post.telegramLink || "#"}
+                                href={`/${lang}/blog/${post.id}`}
                                 className="text-white text-decoration-none fw-bold d-flex align-items-center hover-opacity-75"
                                 style={{
                                   fontSize: "12px",
                                   letterSpacing: "0.5px",
                                 }}
                               >
-                                TELEGRAMDA KO'RISH{" "}
+                                Batafsil{" "}
                                 <FaExternalLinkAlt
                                   className="ms-2 opacity-75"
                                   size={10}
@@ -352,8 +353,8 @@ const BlogSection = ({ data }) => {
 
         {/* Bottom Button */}
         <div className="text-center mt-5 pt-3">
-          <a
-            href="#"
+          <Link
+            to={data.allBlogsLink || `/${lang}/blog`}
             className="btn rounded-pill px-4 py-2 fw-bold"
             style={{
               backgroundColor: "#f0f4ff",
@@ -364,7 +365,7 @@ const BlogSection = ({ data }) => {
             }}
           >
             BARCHA YANGILIKLAR
-          </a>
+          </Link>
         </div>
       </div>
     </div>

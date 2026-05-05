@@ -3,7 +3,7 @@
     "about": {
       "title": "Biz haqimizda",
       "sublinks": {
-        "instituion": "Bo'lim haqida",
+        "instituion": "Biz haqimizda",
         "management": "Rahbariyat",
         "departments": "Bo'limlar",
         "institutions": "Depolar"
@@ -292,6 +292,9 @@
     "news": {
       "title": "Yangiliklar",
       "subtitle": "So'nggi yangiliklar va tadbirlar"
+    },
+    "docs": {
+      "title": "Me'yoriy hujjatlar"
     },
     "livestream": {
       "title": "Jonli efir",
