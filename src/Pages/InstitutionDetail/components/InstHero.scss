@@ -1,0 +1,268 @@
+// InstHero.scss
+
+.inst-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+// ── Background ────────────────────────────────────────────────────────────────
+
+.inst-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #050a19;
+  background-image: linear-gradient(135deg, #050a19 0%, #0a1f52 50%, #1a6ef7 100%);
+  will-change: transform;
+}
+
+// Same gradient pattern as cs_hero_overlay
+.inst-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(4, 10, 38, 0.90) 0%, rgba(4, 10, 38, 0.55) 55%, rgba(4, 10, 38, 0.30) 100%),
+    linear-gradient(to top,   rgba(4, 10, 38, 0.85) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Decorative grid
+.inst-hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(26, 110, 247, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 110, 247, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+// ── Floating orbs ─────────────────────────────────────────────────────────────
+
+.inst-hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.inst-hero-orb--1 {
+  width: 420px;
+  height: 420px;
+  right: 12%;
+  top: 10%;
+  background: radial-gradient(circle, rgba(26, 110, 247, 0.28) 0%, transparent 70%);
+}
+
+.inst-hero-orb--2 {
+  width: 280px;
+  height: 280px;
+  right: 30%;
+  bottom: 15%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.18) 0%, transparent 70%);
+}
+
+.inst-hero-orb--3 {
+  width: 200px;
+  height: 200px;
+  left: 45%;
+  top: 30%;
+  background: radial-gradient(circle, rgba(26, 110, 247, 0.12) 0%, transparent 70%);
+}
+
+// ── Content ───────────────────────────────────────────────────────────────────
+
+.inst-hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+  width: 100%;
+  padding: 0 4rem;
+
+  @media (max-width: 1024px) { padding: 0 2.5rem; }
+  @media (max-width: 640px)  { padding: 0 1.5rem; }
+}
+
+// ── Badge — matches cs_hero_badge ─────────────────────────────────────────────
+
+.inst-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px 5px 8px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--heading-font);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+
+.inst-hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a6ef7;
+  flex-shrink: 0;
+  animation: hero-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hero-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26, 110, 247, 0.6); }
+  50%       { box-shadow: 0 0 0 7px rgba(26, 110, 247, 0); }
+}
+
+// ── Title — matches cs_hero_title sizing ──────────────────────────────────────
+
+.inst-hero-title {
+  font-family: var(--heading-font);
+  font-size: clamp(1.75rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.5px;
+  max-width: 740px;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+}
+
+// ── Animated accent line ──────────────────────────────────────────────────────
+
+.inst-hero-line {
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #1a6ef7, #60a5fa);
+  transform-origin: left center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 12px rgba(26, 110, 247, 0.6);
+}
+
+// ── Subtitle — matches cs_hero_subtitle ───────────────────────────────────────
+
+.inst-hero-subtitle {
+  font-family: var(--body-font);
+  font-size: 15px;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.68);
+  max-width: 480px;
+  margin: 0 0 2.25rem;
+}
+
+// ── Buttons ───────────────────────────────────────────────────────────────────
+
+.inst-hero-btns {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.inst-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 2rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  border: none;
+
+  &:active { transform: scale(0.97); }
+
+  // Blue glow button
+  &--glow {
+    background: linear-gradient(135deg, #1a5cd8 0%, #1a6ef7 100%);
+    color: #ffffff;
+    box-shadow:
+      0 0 18px rgba(26, 110, 247, 0.55),
+      0 0 40px rgba(26, 110, 247, 0.22),
+      0 4px 14px rgba(26, 110, 247, 0.35);
+    animation: btn-glow-pulse 3s ease-in-out infinite;
+
+    &:hover {
+      background: linear-gradient(135deg, #1a6ef7 0%, #3b82f6 100%);
+      box-shadow:
+        0 0 28px rgba(26, 110, 247, 0.75),
+        0 0 60px rgba(26, 110, 247, 0.35),
+        0 6px 20px rgba(26, 110, 247, 0.5);
+      transform: translateY(-1px);
+    }
+  }
+
+  // Glass ghost button
+  &--glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.88);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    height: 44px;
+    padding: 0 1.5rem;
+    font-size: 0.83rem;
+  }
+}
+
+@keyframes btn-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 18px rgba(26, 110, 247, 0.55),
+      0 0 40px rgba(26, 110, 247, 0.22),
+      0 4px 14px rgba(26, 110, 247, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 26px rgba(26, 110, 247, 0.75),
+      0 0 60px rgba(26, 110, 247, 0.35),
+      0 4px 18px rgba(26, 110, 247, 0.5);
+  }
+}
+
+// ── Scroll cue ────────────────────────────────────────────────────────────────
+
+.inst-hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.2s ease;
+
+  &:hover { color: rgba(255, 255, 255, 0.85); }
+}

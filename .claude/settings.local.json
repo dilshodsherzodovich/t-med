@@ -4,7 +4,9 @@
       "Bash(git checkout *)",
       "Bash(python skills/ui-ux-pro-max/scripts/search.py \"government institution railway transport corporate professional\" --design-system -p \"Lokomotiv Deposi\")",
       "Bash(python3 skills/ui-ux-pro-max/scripts/search.py \"government institution railway transport corporate professional\" --design-system -p \"Lokomotiv Deposi\")",
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"corporate institution landing page professional railway government\" --design-system -f markdown)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"hero fullscreen landing page scroll sections\" --domain landing)"
     ]
   }
 }

@@ -1,0 +1,188 @@
+// InstNav.scss
+
+.inst-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+
+  &--solid {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.inst-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+// ── Back button ───────────────────────────────────────────────────────────────
+
+.inst-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  .inst-nav--solid & {
+    color: #374151;
+    border-color: rgba(26, 110, 247, 0.2);
+    background: rgba(26, 110, 247, 0.06);
+
+    &:hover {
+      background: rgba(26, 110, 247, 0.12);
+      color: #1a6ef7;
+      text-decoration: none;
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+// ── Institution name (shows after scroll) ─────────────────────────────────────
+
+.inst-nav-name {
+  flex: 1;
+  font-family: var(--heading-font);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+
+  &--show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── Nav links ─────────────────────────────────────────────────────────────────
+
+.inst-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+
+  a {
+    display: block;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    .inst-nav--solid & {
+      color: #4b5563;
+
+      &:hover {
+        color: #1a6ef7;
+        background: rgba(26, 110, 247, 0.07);
+      }
+    }
+
+    &:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    &.inst-nav-link--active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+
+      .inst-nav--solid & {
+        color: #1a6ef7;
+        background: rgba(26, 110, 247, 0.1);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// ── Mobile burger ─────────────────────────────────────────────────────────────
+
+.inst-nav-burger {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+
+  .inst-nav--solid & {
+    color: #374151;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// ── Mobile drawer ─────────────────────────────────────────────────────────────
+
+.inst-nav-drawer {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+
+  a {
+    padding: 0.8rem 1rem;
+    color: #374151;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+    &:last-child { border-bottom: none; }
+    &:hover { color: #1a6ef7; }
+  }
+}

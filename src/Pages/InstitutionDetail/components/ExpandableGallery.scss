@@ -1,0 +1,172 @@
+// ExpandableGallery.scss
+
+.eg-wrap {
+  width: 100%;
+}
+
+// ── Strip ─────────────────────────────────────────────────────────────────────
+
+.eg-strip {
+  display: flex;
+  gap: 10px;
+  height: 400px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    height: 260px;
+    gap: 6px;
+  }
+
+  @media (max-width: 480px) {
+    height: 200px;
+    gap: 4px;
+  }
+}
+
+.eg-item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 14px;
+  min-width: 0;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: rgba(26, 110, 247, 0.35);
+    box-shadow: 0 0 20px rgba(26, 110, 247, 0.15);
+  }
+}
+
+.eg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.eg-dim {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  pointer-events: none;
+}
+
+.eg-expand-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a6ef7;
+  pointer-events: none;
+}
+
+// ── Lightbox ──────────────────────────────────────────────────────────────────
+
+.eg-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 10, 30, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 1rem;
+}
+
+.eg-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover { background: rgba(255, 255, 255, 0.2); }
+}
+
+.eg-modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: rgba(26, 110, 247, 0.35);
+    border-color: rgba(26, 110, 247, 0.5);
+  }
+
+  &--prev { left: 20px; }
+  &--next { right: 20px; }
+
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+    &--prev { left: 8px; }
+    &--next { right: 8px; }
+  }
+}
+
+.eg-modal-img-wrap {
+  position: relative;
+  max-width: 1024px;
+  max-height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eg-modal-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.eg-modal-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--heading-font);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 6px 18px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}

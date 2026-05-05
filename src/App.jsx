@@ -71,7 +71,6 @@ function App() {
             <Route path="departments" element={<DepartmentsList />} />
             <Route path="departments/:id" element={<Departments />} />
             <Route path="institutions" element={<Institutions />} />
-            <Route path="muassasalar/:slug" element={<InstitutionDetail />} />
             <Route path="institution/blog/:blogId" element={<BlogsDetails />} />
             <Route path="livestream" element={<LiveStream />} />
             <Route path="gallery" element={<Gallery />} />
@@ -85,6 +84,7 @@ function App() {
             />
             <Route path="*" element={<ErrorPage />} />
           </Route>
+          <Route path="/:lang/muassasalar/:slug" element={<InstitutionDetail />} />
           <Route path="/:lang/gmap" element={<Map />} />
           <Route
             path="/:lang/review"
