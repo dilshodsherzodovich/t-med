@@ -1,168 +1,106 @@
 import { useState } from "react";
-import {
-  MdPhone,
-  MdMail,
-  MdKeyboardArrowDown,
-  MdKeyboardArrowUp,
-  MdReceipt,
-  MdLocationPin,
-} from "react-icons/md";
-import "./ProfileCard.scss"; // Import SCSS file
+import { Phone, Mail, Calendar, ChevronDown, ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import "./ProfileCard.scss";
 import { useTranslation } from "react-i18next";
 
-// ProfileCard component
 export default function ManagementDetail({
   director,
-  imageSize,
   address,
   isAddress,
+  index = 0,
 }) {
   const [isOpen, setIsOpen] = useState(false);
-
   const { t } = useTranslation();
 
   return (
-    <div
-      className="profile-card-wrapper d-flex justify-content-center align-items-center py-4"
-      data-aos="fade-up"
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+      className="profile-card-wrapper"
     >
-      <div className="card profile-card border-0 w-100">
-        <div className="row g-0">
-          {/* Profile Image Section */}
-          <div className="col-md-3 position-relative">
-            {imageSize !== "default" ? (
-              <img
-                src={director?.image}
-                alt="Profile photo"
-                className="img-fluid w-100 object-cover rounded-start profile-image object-fit-cover"
-                style={{
-                  maxHeight: "293px",
-                  height: imageSize === "default" ? "300px" : "100%",
-                  objectPosition: "65% 45%",
-                }}
-              />
-            ) : (
-              <div
-                className="w-100"
-                style={{
-                  height: "300px",
-                  backgroundImage: `url(${director?.image}) `,
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "top center",
-                }}
-              ></div>
+      {/* Main Image Card */}
+      <div className="profile-card">
+        {/* Background Image */}
+        <div
+          className="profile-bg-image"
+          style={{ backgroundImage: `url(${director?.image})` }}
+        />
+
+        {/* Gradient Overlay */}
+        <div className="profile-gradient-overlay" />
+
+        {/* Card Content */}
+        <div className="profile-content">
+          <div className="profile-role">{director?.specialist}</div>
+          <h2 className="profile-name">{director?.fio}</h2>
+
+          {/* Contact Info */}
+          <div className="profile-contacts">
+            {director?.reception_number && (
+              <div className="contact-item">
+                <span className="contact-icon-wrap">
+                  <Phone size={13} />
+                </span>
+                <span className="contact-text">{director?.reception_number}</span>
+              </div>
             )}
-
-            <div className="overlay"></div>
+            {director?.email && (
+              <div className="contact-item">
+                <span className="contact-icon-wrap">
+                  <Mail size={13} />
+                </span>
+                <span className="contact-text">{director?.email}</span>
+              </div>
+            )}
+            {director?.reception_days && (
+              <div className="contact-item">
+                <span className="contact-icon-wrap">
+                  <Calendar size={13} />
+                </span>
+                <span className="contact-text">{director?.reception_days}</span>
+              </div>
+            )}
+            {isAddress && address && (
+              <div className="contact-item">
+                <span className="contact-icon-wrap">
+                  <Mail size={13} />
+                </span>
+                <span className="contact-text">{address}</span>
+              </div>
+            )}
           </div>
 
-          {/* Profile Information Section */}
-          <div className="col-md-9 p-4">
-            <div className="info-text">
-              <h2 className="h4 font-weight-semibold text-dark">
-                {director?.fio}
-              </h2>
-              <p className="text-blue font-weight-medium">
-                {director?.specialist}
-              </p>
-            </div>
-
-            <div className="mb-3">
-              <div className="d-flex align-items-center gap-3 mb-1 ">
-                <div
-                  style={{
-                    background: "#dbeafe",
-                    color: "#2563eb",
-                    width: "30px",
-                    height: "30px",
-                  }}
-                  className="rounded-circle d-flex align-items-center justify-content-center "
-                >
-                  <MdPhone size={16} />
-                </div>
-                <span style={{ color: "#374151" }}>
-                  {director?.reception_number}
-                </span>
-              </div>
-              <div className="d-flex align-items-center gap-3 mb-1 ">
-                <div
-                  style={{
-                    background: "#dbeafe",
-                    color: "#2563eb",
-                    width: "30px",
-                    height: "30px",
-                  }}
-                  className="rounded-circle d-flex align-items-center justify-content-center "
-                >
-                  <MdMail size={16} />
-                </div>
-                <span style={{ color: "#374151" }}>{director?.email}</span>
-              </div>
-              <div className="d-flex align-items-center gap-3 mb-1">
-                <div
-                  style={{
-                    background: "#dbeafe",
-                    color: "#2563eb",
-                    width: "30px",
-                    height: "30px",
-                  }}
-                  className="rounded-circle d-flex align-items-center justify-content-center "
-                >
-                  <MdReceipt size={16} />
-                </div>
-                <span style={{ color: "#374151" }}>
-                  {director?.reception_days}
-                </span>
-              </div>
-              {isAddress && ( // Check if isAddress is true then render the address
-                <div className="d-flex align-items-center gap-3 mb-1">
-                  <div
-                    style={{
-                      background: "#dbeafe",
-                      color: "#2563eb",
-                      width: "30px",
-                      height: "30px",
-                    }}
-                    className="rounded-circle d-flex align-items-center justify-content-center "
-                  >
-                    <MdLocationPin size={16} />
-                  </div>
-                  <span style={{ color: "#374151" }}>{address}</span>
-                </div>
-              )}
-            </div>
-
-            {/* Toggle Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="btn btn-primary profile-btn"
-            >
-              <span>{t("pages.management.career")}</span>
-              {isOpen ? (
-                <MdKeyboardArrowUp className="ms-2" />
-              ) : (
-                <MdKeyboardArrowDown className="ms-2" />
-              )}
-            </button>
-
-            {/* Additional Information */}
-            <div
-              className={`mt-3 overflow-auto profile-details ${
-                isOpen ? "open" : ""
-              }`}
-            >
-              <div className=" px-2 rounded-3xl mt-3">
-                <h3>{t("pages.management.biography")}</h3>
-                <div
-                  style={{ fontSize: "15px" }}
-                  dangerouslySetInnerHTML={{ __html: director?.description }}
-                ></div>
-              </div>
-            </div>
-          </div>
+          {/* Career Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="profile-btn"
+          >
+            <span>{t("pages.management.career")}</span>
+            {isOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
+          </button>
         </div>
       </div>
-    </div>
+
+      {/* Biography Expand */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="profile-biography"
+          >
+            <div className="profile-biography-inner">
+              <h3>{t("pages.management.biography")}</h3>
+              <div dangerouslySetInnerHTML={{ __html: director?.description }} />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }

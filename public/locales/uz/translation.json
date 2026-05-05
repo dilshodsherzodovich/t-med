@@ -159,6 +159,7 @@
         }
       },
       "ctaSection": {
+        "subtitle": "VIDEO",
         "videoButtonText": "Videoni tomosha qiling",
         "title": "Professional lokomotiv xizmatlari",
         "description": "\"Temiryo'lInfratuzilma\" AJ Lokomotivlardan foydalanish boshqarmasi zamonaviy uskunalar va yuqori malakali mutaxassislar yordamida sifatli texnik xizmat ko'rsatadi.",
@@ -195,7 +196,30 @@
     "about": {
       "title": "Biz haqimizda",
       "subtitle": "\"Temiryo'lInfratuzilma\" AJ Lokomotivlardan foydalanish boshqarmasi haqida",
-      "gallery": "Galereya"
+      "gallery": "Galereya",
+      "detailed": {
+        "titleDark": "ISHONCHLI XIZMAT",
+        "titleBlue": "VA ZAMONAVIY TEXNOLOGIYA",
+        "description": "Yillar davomida to'plangan tajriba, yuqori malakali kadrlar va zamonaviy texnologiyalar asosida lokomotiv xo'jaligi mamlakat transport infratuzilmasining barqaror ishlashiga munosib hissa qo'shib kelmoqda.",
+        "cardTitle": "Lokomotiv xo'jaligi — temir yo'l transportining harakatlantiruvchi kuchi.",
+        "cardText": "Lokomotiv xo'jaligi bo'limi O'zbekiston temir yo'llarida yuk va yo'lovchi tashishning uzluksizligini ta'minlaydi. Bo'lim elektrovoz, teplovoz va motorvagon texnikasiga texnik xizmat ko'rsatish, profilaktik hamda kapital ta'mirlash ishlarini olib borish bo'yicha ixtisoslashgan.",
+        "stats": {
+          "experience": "Yillik tajriba",
+          "fleet": "Lokomotiv parki",
+          "employees": "Xodim"
+        },
+        "cardFootnote": "Bo'lim zamonaviy diagnostika uskunalari bilan jihozlangan sex va ustaxonalarga ega bo'lib, barcha turdagi murakkab ta'mirlash ishlarini bajarishga moslashtirilgan.",
+        "features": {
+          "maintenance": {
+            "title": "Texnik xizmat va ta'mirlash",
+            "text": "Elektrovoz va teplovozlar uchun TO-1 dan TO-3 gacha profilaktik texnik xizmat, TR-1, TR-2, TR-3 kapital ta'mirlash turlari va lokomotiv agregatlari modernizatsiyasi amalga oshiriladi."
+          },
+          "training": {
+            "title": "Malakali kadrlar tayyorlash",
+            "text": "Lokomotiv haydovchilari, ta'mirchilar va texnik mutaxassislar doimiy malaka oshirish dasturlari orqali xalqaro standartlarga mos holda tayyorlanadi."
+          }
+        }
+      }
     },
     "management": {
       "title": "Rahbariyat",

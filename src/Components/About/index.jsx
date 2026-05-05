@@ -148,17 +148,19 @@ const About = ({ data }) => {
           </div>
 
           {/* CTA */}
-          <motion.div
-            custom={data.features.length}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
-          >
-            <Link to={data.btnUrl} className="cs_btn cs_style_1 cs_color_1">
-              {data.btnText} <FaAnglesRight />
-            </Link>
-          </motion.div>
+          {data.btnUrl && data.btnText && (
+            <motion.div
+              custom={data.features.length}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+            >
+              <Link to={data.btnUrl} className="cs_btn cs_style_1 cs_color_1">
+                {data.btnText} <FaAnglesRight />
+              </Link>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </div>

@@ -159,6 +159,7 @@
         }
       },
       "ctaSection": {
+        "subtitle": "VIDEO",
         "videoButtonText": "Watch the Video",
         "title": "Professional Locomotive Services",
         "description": "The Locomotives Department of \"Temiryo'lInfratuzilma\" JSC provides quality technical services using modern equipment and highly qualified specialists.",
@@ -195,7 +196,30 @@
     "about": {
       "title": "About Us",
       "subtitle": "About the Locomotives Department of \"Temiryo'lInfratuzilma\" JSC",
-      "gallery": "Gallery"
+      "gallery": "Gallery",
+      "detailed": {
+        "titleDark": "RELIABLE SERVICE",
+        "titleBlue": "AND MODERN TECHNOLOGY",
+        "description": "Based on years of experience, highly qualified personnel, and modern technologies, the locomotive department makes a worthy contribution to the stable operation of the country's transport infrastructure.",
+        "cardTitle": "The Locomotive Department — the driving force of railway transport.",
+        "cardText": "The locomotive department ensures the continuity of freight and passenger transportation on the railways of Uzbekistan. The department specializes in maintenance, preventive and major repairs of electric locomotives, diesel locomotives, and multiple unit trains.",
+        "stats": {
+          "experience": "Years of experience",
+          "fleet": "Locomotive fleet",
+          "employees": "Employees"
+        },
+        "cardFootnote": "The department has workshops equipped with modern diagnostic equipment and is adapted to perform all types of complex repair work.",
+        "features": {
+          "maintenance": {
+            "title": "Maintenance and Repair",
+            "text": "Preventive maintenance from TO-1 to TO-3, major repair types TR-1, TR-2, TR-3, and modernization of locomotive units are carried out for electric and diesel locomotives."
+          },
+          "training": {
+            "title": "Training of Qualified Personnel",
+            "text": "Locomotive drivers, repairmen, and technical specialists are trained in accordance with international standards through continuous professional development programs."
+          }
+        }
+      }
     },
     "management": {
       "title": "Management",

@@ -1,5 +1,5 @@
 import CtaSection1 from "../../Components/CtaSection.jsx/CtaSection1";
-import History from "../../Components/About/History";
+import About from "../../Components/About/index.jsx";
 import PageHeading from "../../Components/PageHeading";
 import Section from "../../Components/Section";
 import ImageGallery from "./components/ImageGallery";
@@ -14,18 +14,43 @@ const AboutPage = () => {
     title: t("pages.about.title"),
   };
 
-  const historyData = {
-    sectionSubtitle: t("pages.about.title"),
-    sectionTitle: t("pages.about.subtitle"),
-    description: `
-      <p>${t("pages.home.aboutSection.text")}</p>
-    `,
+  const aboutData = {
+    badge: t("pages.home.aboutSection.title"),
+    titleDark: t("pages.about.detailed.titleDark"),
+    titleBlue: t("pages.about.detailed.titleBlue"),
+    description: t("pages.about.detailed.description"),
+    images: [
+      "/assets/img/about/about3.jpg",
+      "/assets/img/about/about1.jpg",
+      "/assets/img/about/about2.jpg",
+    ],
+    cardLabel: t("pages.home.aboutSection.title"),
+    cardTitle: t("pages.about.detailed.cardTitle"),
+    cardText: t("pages.about.detailed.cardText"),
+    stats: [
+      { value: "32", label: t("pages.about.detailed.stats.experience"), accent: false },
+      { value: "600+", label: t("pages.about.detailed.stats.fleet"), accent: false },
+      { value: "7000+", label: t("pages.about.detailed.stats.employees"), accent: true },
+    ],
+    cardFootnote: t("pages.about.detailed.cardFootnote"),
+    features: [
+      {
+        imgUrl: "/assets/img/icons/about_icon_1.png",
+        title: t("pages.about.detailed.features.maintenance.title"),
+        text: t("pages.about.detailed.features.maintenance.text"),
+      },
+      {
+        imgUrl: "/assets/img/icons/about_icon_2.png",
+        title: t("pages.about.detailed.features.training.title"),
+        text: t("pages.about.detailed.features.training.text"),
+      },
+    ],
   };
 
   const ctaData = {
     videoLink: "https://www.youtube.com/embed/L5_9Z9i3WdI",
     videoButtonText: t("pages.home.ctaSection.videoButtonText"),
-    subtitle: "VIDEO",
+    subtitle: t("pages.home.ctaSection.subtitle"),
     title: t("pages.home.ctaSection.title"),
     description: t("pages.home.ctaSection.description"),
     buttonLink: `/${lang}/contact`,
@@ -84,8 +109,9 @@ const AboutPage = () => {
         topSpaceMd="120"
         bottomSpaceLg="80"
         bottomSpaceMd="120"
+        className="cs_about cs_style_1 cs_about_light_section position-relative"
       >
-        <History data={historyData} />
+        <About data={aboutData} />
       </Section>
 
       <Section
@@ -104,7 +130,7 @@ const AboutPage = () => {
         topSpaceMd="110"
         bottomSpaceLg="80"
         bottomSpaceMd="120"
-        className="cs_blue_bg"
+        className="cs_light_bg"
       >
         <ImageGallery images={mockGallery} />
       </Section>

@@ -78,32 +78,28 @@ const MainHome = () => {
 
   const aboutData = {
     badge: t("pages.home.aboutSection.title"),
-    titleDark: "ISHONCHLI XIZMAT",
-    titleBlue: "VA ZAMONAVIY TEXNOLOGIYA",
-    description:
-      "Yillar davomida to'plangan tajriba, yuqori malakali kadrlar va zamonaviy texnologiyalar asosida lokomotiv xo'jaligi mamlakat transport infratuzilmasining barqaror ishlashiga munosib hissa qo'shib kelmoqda.",
+    titleDark: t("pages.about.detailed.titleDark"),
+    titleBlue: t("pages.about.detailed.titleBlue"),
+    description: t("pages.about.detailed.description"),
     cardLabel: t("pages.home.aboutSection.title"),
-    cardTitle:
-      "Lokomotiv xo'jaligi — temir yo'l transportining harakatlantiruvchi kuchi.",
-    cardText:
-      "Lokomotiv xo'jaligi bo'limi O'zbekiston temir yo'llarida yuk va yo'lovchi tashishning uzluksizligini ta'minlaydi. Bo'lim elektrovoz, teplovoz va motorvagon texnikasiga texnik xizmat ko'rsatish, profilaktik hamda kapital ta'mirlash ishlarini olib borish bo'yicha ixtisoslashgan.",
+    cardTitle: t("pages.about.detailed.cardTitle"),
+    cardText: t("pages.about.detailed.cardText"),
     stats: [
-      { value: "32", label: "Yillik tajriba", accent: false },
-      { value: "600+", label: "Lokomotiv parki", accent: false },
-      { value: "7000+", label: "Xodim", accent: true },
+      { value: "32", label: t("pages.about.detailed.stats.experience"), accent: false },
+      { value: "600+", label: t("pages.about.detailed.stats.fleet"), accent: false },
+      { value: "7000+", label: t("pages.about.detailed.stats.employees"), accent: true },
     ],
-    cardFootnote:
-      "Bo'lim zamonaviy diagnostika uskunalari bilan jihozlangan sex va ustaxonalarga ega bo'lib, barcha turdagi murakkab ta'mirlash ishlarini bajarishga moslashtirilgan.",
+    cardFootnote: t("pages.about.detailed.cardFootnote"),
     features: [
       {
         imgUrl: "/assets/img/icons/about_icon_1.png",
-        title: "Texnik xizmat va ta'mirlash",
-        text: "Elektrovoz va teplovozlar uchun TO-1 dan TO-3 gacha profilaktik texnik xizmat, TR-1, TR-2, TR-3 kapital ta'mirlash turlari va lokomotiv agregatlari modernizatsiyasi amalga oshiriladi.",
+        title: t("pages.about.detailed.features.maintenance.title"),
+        text: t("pages.about.detailed.features.maintenance.text"),
       },
       {
         imgUrl: "/assets/img/icons/about_icon_2.png",
-        title: "Malakali kadrlar tayyorlash",
-        text: "Lokomotiv haydovchilari, ta'mirchilar va texnik mutaxassislar doimiy malaka oshirish dasturlari orqali xalqaro standartlarga mos holda tayyorlanadi.",
+        title: t("pages.about.detailed.features.training.title"),
+        text: t("pages.about.detailed.features.training.text"),
       },
     ],
     images: [
@@ -141,7 +137,7 @@ const MainHome = () => {
   const ctaData1 = {
     videoLink: "https://www.youtube.com/embed/L5_9Z9i3WdI",
     videoButtonText: t("pages.home.ctaSection.videoButtonText"),
-    subtitle: "VIDEO",
+    subtitle: t("pages.home.ctaSection.subtitle"),
     title: t("pages.home.ctaSection.title"),
     description: t("pages.home.ctaSection.description"),
     buttonLink: `/${lang}/contact`,
