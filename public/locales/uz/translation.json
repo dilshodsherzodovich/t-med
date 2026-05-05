@@ -303,6 +303,8 @@
     "readMore": "Batafsil",
     "home": "Asosiy",
     "address": "Taras Shevchenko ko'chasi, 7",
-    "copyright": "\"Temiryo'lInfratuzilma\" AJ Lokomotivlardan foydalanish boshqarmasi, Barcha huquqlar himoyalangan."
+    "copyright": "\"Temiryo'lInfratuzilma\" AJ Lokomotivlardan foydalanish boshqarmasi, Barcha huquqlar himoyalangan.",
+    "showMore": "Ko'proq",
+    "showLess": "Kamroq"
   }
 }

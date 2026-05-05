@@ -53,9 +53,9 @@ const Header = ({ isTopBar, variant }) => {
     retry: false,
   });
 
-  const { data: institutionCategories } = useQuery({
-    queryKey: ["institutionCategories"],
-    queryFn: () => sendRequest({ url: `/reception/category-organization//` }),
+  const { data: organizations } = useQuery({
+    queryKey: ["organizations"],
+    queryFn: () => sendRequest({ url: `/reception/all/organization/` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
@@ -95,10 +95,10 @@ const Header = ({ isTopBar, variant }) => {
         {
           label: t("navlinks.about.sublinks.institutions"),
           href: `/${lang}/institution-categories`,
-          subItems: institutionCategories?.results?.length
-            ? institutionCategories.results.map((item) => ({
-                label: item?.name,
-                href: `/${lang}/institutions?category=${item?.id}&name=${item?.name}`,
+          subItems: (organizations?.results ?? organizations)?.length
+            ? (organizations?.results ?? organizations).map((org) => ({
+                label: org?.title,
+                href: `/${lang}/muassasalar/${org?.slug}`,
               }))
             : [],
         },

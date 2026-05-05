@@ -1,96 +1,232 @@
 @import "../main.scss";
 
 .organization-info {
-  @include section-padding;
+  padding: 3rem 0;
+}
 
-  .main-info-card {
-    background: white;
-    height: 100%;
+// ── Cards ─────────────────────────────────────────────────────────────────────
 
-    .org-logo {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-    }
+.org-info-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1.5px solid rgba(26, 110, 247, 0.13);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  padding: 1.75rem 2rem;
+}
 
-    .info-grid {
-      display: grid;
-      gap: 2rem;
-      margin-top: 2rem;
+.org-stats-card {
+  background: linear-gradient(135deg, #1a6ef7 0%, #0f4fc4 100%);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(26, 110, 247, 0.3);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-      .info-item {
-        .icon {
-          color: $secondary-color;
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-        }
+// ── Card header ───────────────────────────────────────────────────────────────
 
-        h4 {
-          font-size: 1.1rem;
-          margin-bottom: 0.5rem;
-          color: $primary-color;
-        }
+.org-card-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(26, 110, 247, 0.1);
+}
 
-        p {
-          color: lighten($text-color, 20%);
-          line-height: 1.6;
-        }
-      }
+.org-card-title {
+  color: #111827;
+  font-weight: 800;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+
+.org-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.org-rating-value {
+  color: #6b7280;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.org-section-label {
+  color: #1a6ef7;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 0.75rem;
+}
+
+// ── Stats ─────────────────────────────────────────────────────────────────────
+
+.org-stat-block {
+  text-align: center;
+}
+
+.org-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  margin: 0 auto 1rem;
+}
+
+.org-stat-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.5rem;
+}
+
+.org-stat-number {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+// ── Gallery section ───────────────────────────────────────────────────────────
+
+.org-gallery-section {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1.5px solid rgba(26, 110, 247, 0.1);
+}
+
+.org-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.org-section-header-icon {
+  color: #1a6ef7;
+  display: flex;
+  align-items: center;
+}
+
+.org-section-heading {
+  color: #111827;
+  font-weight: 800;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+// ── Rich text (dangerouslySetInnerHTML) ───────────────────────────────────────
+
+.rich-text {
+  font-family: "Inter", "Georgia", system-ui, sans-serif;
+
+  p {
+    color: #374151;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 0.85rem;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #111827;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+
+    &:first-child { margin-top: 0; }
+  }
+
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1.05rem; }
+  h4 { font-size: 0.95rem; color: #1a6ef7; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  ul, ol {
+    color: #374151;
+    padding-left: 1.5rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.75;
+
+    li {
+      margin-bottom: 0.35rem;
+
+      &::marker { color: #1a6ef7; }
     }
   }
 
-  .stats-card {
-    background: $primary-color;
-    color: white;
-    height: 100%;
+  strong, b {
+    color: #111827;
+    font-weight: 700;
+  }
 
-    .stat-item {
-      text-align: center;
-      padding: 1.5rem;
+  em, i {
+    color: #4b5563;
+  }
 
-      .stat-icon {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: $secondary-color;
-      }
+  a {
+    color: #1a6ef7;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 
-      .stat-number {
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin: 1rem 0;
-      }
+    &:hover { color: #0f4fc4; }
+  }
 
-      .stat-badge {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        font-size: 0.9rem;
-      }
+  blockquote {
+    border-left: 3px solid #1a6ef7;
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1rem 0;
+    color: #4b5563;
+    font-style: italic;
+    background: rgba(26, 110, 247, 0.04);
+    border-radius: 0 8px 8px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+
+    th {
+      background: rgba(26, 110, 247, 0.08);
+      color: #111827;
+      font-weight: 700;
+      padding: 0.6rem 0.85rem;
+      text-align: left;
+      border-bottom: 2px solid rgba(26, 110, 247, 0.15);
     }
 
-    .org-images {
-      h5 {
-        color: $secondary-color;
-      }
-
-      .image-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-      }
-
-      .org-image {
-        width: 100%;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 8px;
-        cursor: pointer;
-      }
+    td {
+      padding: 0.55rem 0.85rem;
+      color: #374151;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
+
+    tr:last-child td { border-bottom: none; }
   }
 }
+
 .avg-rating {
   margin: 0 !important;
-  padding-left: 1.25rem;
+  padding: 0 !important;
 }

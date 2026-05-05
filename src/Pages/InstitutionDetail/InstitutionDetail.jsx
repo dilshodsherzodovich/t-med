@@ -60,6 +60,8 @@ function InstitutionDetail() {
         topSpaceMd="0"
         bottomSpaceLg="80"
         bottomSpaceMd="120"
+        className="position-relative"
+        style={{ background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)" }}
       >
         {/* <SingleInstitution data={insDetails} isLoading={isLoading} /> */}
 

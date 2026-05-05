@@ -303,6 +303,8 @@
     "readMore": "Read More",
     "home": "Home",
     "address": "Taras Shevchenko street, 7",
-    "copyright": "\"Temiryo'lInfratuzilma\" JSC Locomotives Department, All rights reserved."
+    "copyright": "\"Temiryo'lInfratuzilma\" JSC Locomotives Department, All rights reserved.",
+    "showMore": "Show more",
+    "showLess": "Show less"
   }
 }

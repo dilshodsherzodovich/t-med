@@ -7,16 +7,16 @@ import { useTranslation } from "react-i18next";
 
 function InstitutionCategories() {
   const sendRequest = useHttp();
-
   const { t } = useTranslation();
 
-  const { data } = useQuery({
-    queryKey: ["institutionCategories"],
-    queryFn: () => sendRequest({ url: `/reception/category-organization//` }),
+  const { data, isLoading } = useQuery({
+    queryKey: ["organizations"],
+    queryFn: () => sendRequest({ url: `/reception/all/organization/` }),
     staleTime: 1000,
     refetchOnWindowFocus: false,
     retry: false,
   });
+
   return (
     <>
       <Section
@@ -31,12 +31,47 @@ function InstitutionCategories() {
       </Section>
 
       <Section
-        topSpaceLg="70"
-        topSpaceMd="110"
-        bottomSpaceLg="70"
+        topSpaceLg="80"
+        topSpaceMd="120"
+        bottomSpaceLg="80"
         bottomSpaceMd="120"
+        className="cs_light_bg position-relative"
+        style={{
+          background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+        }}
       >
-        <InstitutionsList categories={data?.results} />
+        <div className="container position-relative z-1">
+          <InstitutionsList
+            organizations={data?.results ?? data}
+            isLoading={isLoading}
+          />
+        </div>
+
+        {/* Decorative blobs */}
+        <div
+          className="position-absolute rounded-circle"
+          style={{
+            width: "600px",
+            height: "600px",
+            background: "radial-gradient(circle, rgba(26,110,247,0.05) 0%, transparent 70%)",
+            top: "-100px",
+            right: "-200px",
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          className="position-absolute rounded-circle"
+          style={{
+            width: "800px",
+            height: "800px",
+            background: "radial-gradient(circle, rgba(26,110,247,0.03) 0%, transparent 70%)",
+            bottom: "10%",
+            left: "-300px",
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
       </Section>
     </>
   );

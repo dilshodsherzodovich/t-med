@@ -18,10 +18,13 @@ const PageHeading = ({ data, secondaryData }) => {
   return (
     <div className="overflow">
       <div className="container">
-        <h1 
-          className="cs_page_title" 
+        <h1
+          className="cs_page_title"
           data-aos="fade-up"
-          style={{ textShadow: "0 0 24px rgba(26, 110, 247, 0.5), 0 0 56px rgba(42, 166, 247, 0.3)" }}
+          style={{
+            textShadow:
+              "0 0 24px rgba(26, 110, 247, 0.5), 0 0 56px rgba(42, 166, 247, 0.3)",
+          }}
         >
           {data?.title}
         </h1>

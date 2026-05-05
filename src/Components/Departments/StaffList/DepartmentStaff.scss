@@ -1,80 +1,226 @@
+// DepartmentStaff.scss — matches management profile card style
+
 .staff-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 18px;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  box-shadow: 0 8px 32px rgba(26, 110, 247, 0.14);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  // ── Head variant ───────────────────────────────────────────────────────────
+  &--head {
+    height: 420px;
+    // Double border: amber inner ring + amber glow
+    box-shadow:
+      0 0 0 2px rgba(245, 158, 11, 0.75),
+      0 0 0 5px rgba(245, 158, 11, 0.12),
+      0 12px 44px rgba(245, 158, 11, 0.28);
+
+    &:hover {
+      transform: translateY(-7px) scale(1.015);
+      box-shadow:
+        0 0 0 2px rgba(245, 158, 11, 0.9),
+        0 0 0 6px rgba(245, 158, 11, 0.18),
+        0 22px 60px rgba(245, 158, 11, 0.4);
+    }
+  }
 
   &:hover {
-    transform: translateY(-5px);
-  }
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 18px 50px rgba(26, 110, 247, 0.28);
 
-  .staff-image {
-    width: 100%;
-    height: 280px;
-    overflow: hidden;
+    .staff-bg-image {
+      transform: scale(1.08);
+    }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
+    // Sheen sweep
+    &::after {
+      transform: skewX(-20deg) translateX(200%);
     }
   }
 
-  .staff-info {
-    padding: 1.5rem;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.15) 50%,
+      transparent
+    );
+    transform: skewX(-20deg) translateX(-150%);
+    transition: transform 0.7s ease;
+    z-index: 3;
+    pointer-events: none;
   }
+}
 
-  .staff-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
+// ── Crown badge ───────────────────────────────────────────────────────────────
+
+.staff-head-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px 4px 8px;
+  border-radius: 50px;
+  background: rgba(245, 158, 11, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.5);
+}
+
+// ── Background image ──────────────────────────────────────────────────────────
+
+.staff-bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 0;
+}
+
+// ── Gradient overlay ──────────────────────────────────────────────────────────
+
+.staff-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 20, 50, 0.97) 0%,
+    rgba(10, 20, 50, 0.65) 38%,
+    rgba(10, 20, 50, 0.15) 62%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+// ── Content ───────────────────────────────────────────────────────────────────
+
+.staff-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 1.2rem 1.25rem 1.15rem;
+}
+
+.staff-role {
+  color: #60a5fa;
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  margin-bottom: 0.25rem;
+
+  &--head {
+    color: #fbbf24;
   }
+}
 
-  .staff-title {
-    color: #3498db;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+// ── Biography button (head only) ──────────────────────────────────────────────
 
-    .staff-icon {
-      font-size: 1.2rem;
+.staff-bio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0.6rem;
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  background: rgba(245, 158, 11, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #fbbf24;
+  transition: background 0.25s ease, border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  align-self: flex-start;
+
+  &:hover {
+    background: rgba(245, 158, 11, 0.45);
+    border-color: rgba(245, 158, 11, 0.7);
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+    color: #fff;
+  }
+}
+
+.staff-name {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.1px;
+}
+
+// ── Contacts ──────────────────────────────────────────────────────────────────
+
+.staff-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.staff-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+
+    .staff-contact-icon {
+      background: rgba(26, 110, 247, 0.6);
+      border-color: rgba(26, 110, 247, 0.75);
     }
-  }
 
-  .staff-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    a {
-      color: #7f8c8d;
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      &:hover {
-        color: #3498db;
-      }
-
-      svg {
-        font-size: 1rem;
-      }
+    .staff-contact-text {
+      color: #fff;
     }
   }
 }
 
-@media (max-width: 576px) {
-  .staff-card {
-    .staff-image {
-      height: 280px;
-    }
-  }
+.staff-contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
+  color: #fff;
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+
+.staff-contact-text {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.22s ease;
 }

@@ -1,0 +1,145 @@
+// DepartmentDetails.scss
+
+// ── About Section Card ────────────────────────────────────────────────────────
+
+.dept-section-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1.5px solid rgba(26, 110, 247, 0.13);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  padding: 2rem 2.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.dept-section-title {
+  color: #111827;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgba(26, 110, 247, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(to bottom, #1a6ef7, #60a5fa);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  &.standalone {
+    margin-bottom: 1.5rem;
+    border-bottom: none;
+  }
+}
+
+.dept-section-header {
+  margin-bottom: 1.5rem;
+}
+
+// ── Collapsible Description ───────────────────────────────────────────────────
+
+.dept-description-wrapper {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.dept-description-content {
+  p {
+    color: #4b5563;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    margin-bottom: 0.6rem;
+  }
+
+  ul, ol {
+    color: #4b5563;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+
+    li { margin-bottom: 0.3rem; }
+  }
+
+  h4, h3, h2 {
+    color: #111827;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.dept-description-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+  pointer-events: none;
+}
+
+.dept-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0.5rem;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  background: rgba(26, 110, 247, 0.07);
+  border: 1px solid rgba(26, 110, 247, 0.25);
+  color: #1a6ef7;
+  transition: background 0.25s ease, border-color 0.25s ease,
+              box-shadow 0.25s ease;
+
+  &:hover {
+    background: rgba(26, 110, 247, 0.15);
+    border-color: rgba(26, 110, 247, 0.45);
+    box-shadow: 0 3px 12px rgba(26, 110, 247, 0.15);
+  }
+}
+
+// ── Workers Badge ─────────────────────────────────────────────────────────────
+
+.dept-workers-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(26, 110, 247, 0.07);
+  border: 1px solid rgba(26, 110, 247, 0.2);
+  margin-top: 0.25rem;
+}
+
+.dept-workers-icon {
+  display: flex;
+  align-items: center;
+  color: #1a6ef7;
+}
+
+.dept-workers-label {
+  color: #6b7280;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dept-workers-count {
+  color: #1a6ef7;
+  font-size: 1rem;
+  font-weight: 800;
+}
